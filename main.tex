@@ -13,9 +13,7 @@
 \tytulang{An implementation of a difference blabalizer based on the theory 
   of $\sigma$ -- $\rho$ phetors}
 
-\kierunek{Matematyka}
-
-% Praca wykonana pod kierunkiem:
+\kierunek{Matematyka} % Praca wykonana pod kierunkiem:
 % (podać tytuł/stopień imię i nazwisko opiekuna
 % Instytut
 % ew. Wydział ew. Uczelnia (jeżeli nie MIM UW))
@@ -28,13 +26,8 @@
 
 %Podać dziedzinę wg klasyfikacji Socrates-Erasmus:
 \dziedzina{ 
-%11.0 Matematyka, Informatyka:\\ 
+11.0 Matematyka, Informatyka:\\ 
 11.1 Matematyka\\ 
-%11.2 Statystyka\\ 
-%11.3 Informatyka\\ 
-%11.4 Sztuczna inteligencja\\ 
-%11.5 Nauki aktuarialne\\
-%11.9 Inne nauki matematyczne i informatyczne
 }
 
 %Klasyfikacja tematyczna wedlug AMS (matematyka) lub ACM (informatyka)
@@ -83,21 +76,26 @@ manifolds where the metric is blabla. This can be
 \chapter*{Computation}
 \addcontentsline{toc}{chapter}{Computation}
 
-Let us consider a manifold $ \mathbb{R}_{\geq 0} \times \mathcal{M} $, where
-$\mathcal{M} $ is Riemannian mainfold. We will define a Riemannian tensor on
-this product by $dt \otimes dt + f^{2}(t)g $, where $g$ is the metric on
-$\mathcal{B}$
-% Rysuneczek z rurkom
-\[
-    T_{(t, m)} = \mathbb{R}_+ \times T_m \mathcal{M}
-\]
-% Rysuneczek kwadrata
+The purpose of this paper is to compute $L_p$-cohomologies of Riemannian horns.
 
-Let us take some $ \omega \in \Lambda^k(\mathbb{R} \oplus T_m \mathcal{M}) = 
-\Lambda^k(\mathbb{R})  \oplus \Lambda^k(\mathcal{M}) $.
-This equality lets us state that every $k$-form can be written as $\omega = \eta
-+ \xi \wedge dt$, where both $\eta$ and $\xi$ do not contain $dt$.  Please note
-that $\eta$ is $k$-form and $\xi$ is $k-1$ form.
+
+\section{Setting}
+In this section we introduce basic definitions and make the most straightforward 
+observations.
+
+%% \cite{Cheeger}
+
+Let us consider a space $ \mathbb{R}_{\geq 0} \times \mathcal{M} $, where
+$\mathcal{M} $ is Riemannian mainfold. We will define a Riemannian tensor on
+this product by $dt^2 + f^{2}(t)g $, where $g$ is the metric on $\mathcal{M}$.
+Such a space is called by Cheeger an \textbf{$f$-horn}. We will denote it by
+$\mathrm{c}^f \mathcal{M}$
+
+% In \cite{Weber}
+
+At first, we will focus our attention on functions $f_1(x) = \mathrm{e}^{x}$ and
+$f_2(x) = \mathrm{e}^{-x}$. We can try to picture such manifolds as in the 
+Figure ~\ref{intro-pic-1}.
 
 If we consider a finite-dimensional vector space $V$ with a given metric $||
 \cdot ||$ and define a new metric $||| x |||  = r \dot || x ||$. Then in the
@@ -107,9 +105,57 @@ $e_1^\ast, e_2^\ast, ..., e_n^\ast$. Please note that $d\mathrm{vol} = \pm
 e_1^\ast, e_2^\ast, ..., e_n^\ast $. This siplifies greatly the computation of
 $L_p$ cohomology of the manifold in consideration.
 
+Also, make a writeup here from lee about the whole volume form deal.
+
+% Rysuneczek z rurkom
+
+Let us now
+\[
+    T_{(t, m)} = \mathbb{R}_+ \times T_m \mathcal{M}
+\]
+% Rysuneczek kwadrata
+
+Let us take some $ \omega \in \Lambda^k(\mathbb{R} \oplus T_m \mathcal{M}) = 
+\Lambda^k(\mathbb{R})  \oplus \Lambda^k(\mathcal{M}) $.
+This equality lets us state that every $k$-form can be written as $\omega = \eta
++ \xi \wedge dt$, where both $\eta$ and $\xi$ do not contain $dt$.  Please note
+that $\eta$ is $k$-form and $\xi$ is $k-1$ form. \\
+
+\scriptsize
+
+    Mike's note: Why there is this squared thing?
+    Lee, page 328.
+    \textbf{Riemannian metric} is a smooth symmetric covariant 2-tensor field
+    on manifold $\mathcal{M}$ that is positive definite at each point.(attaching
+    a field of linear functions that takes two variables to every point of the
+    manifold).
+
+    Consulting page 328 of Lee gives us that in any smooth local coordinates
+    $(x^i)$, Riemannian metric can be written as:
+    \[
+        g = g_{ij} dx^i \otimes dx^j = g_{ij} dx^i dx^j
+    \]
+    where $g_{ij}$ is a positive definite matrix of smooth functions. 
+
+    The simplest example of Riemannian metric is \emph{Euclidean metric} on
+    $\mathbb{R}^n$ given in standard coordinates by 
+    \[
+        g = \delta_{ij}dx^idx^j.
+    \]
+
+    Citing prof. Lee, it is common to abbreviate the symmetric product of a tensor
+    $\alpha$ with itself by $\alpha^2$, so the Euclidean metric can also be written
+    as 
+    \[
+        g = (dx^1)^2 + ...  + (dx^n)^2,
+    \]
+    so now it is way easier to understand what exactly is meant by
+    $ dt \otimes dt + f^2g $, which shoudl be the same as $dt^2 + f^2g$. \\
+
+\normalsize
+
 Therefore we obtain easily $||e_1^{\ast} \wedge ... \wedge e_n^\ast || =
 \frac{1}{f^k}$ and as $d\mathrm{vol} = e_1^{\ast} \wedge ... \wedge e_n^\ast $.
-syrytyyyryayrayr 
 
 
 % ref: http://en.wikipedia.org/wiki/Volume_form
@@ -119,6 +165,30 @@ syrytyyyryayrayr
     \int_{\mathcal{M}} ||| \omega |||^p d\mathrm{vol} = 
     \int_{\mathcal{M}}  (f^{-k}|| \omega ||)^p =  
 \]
+
+If we have the standard inclusion:
+\[
+    i_r: \mathcal{M} \rightarrow \mathrm{c}^f \mathcal{M}
+\]
+\[
+    i_r(x) = (x, r)
+\]
+
+%% As in \cite{Weber}
+We define $|| \omega ||_r := || \omega || = r^{n/p - k} ||\omega_r||$
+
+Our goal is to define homotopy operator (see in Lee why ??). We do so by
+defining $I_r$:
+\[
+  i I_r: \Omega^\ast( \mathrm{c}^f \mathcal{M} ) \rightarrow
+  \Omega^{\ast-1}(\mathrm{c}^f \mathcal{M} ) 
+\]
+\[
+    I_r(\omega)(x, t) = \int_r^t \xi(x, s) ds
+\]
+
+We now have to estimate $\int \xi$.
+
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
