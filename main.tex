@@ -94,13 +94,13 @@ $\mathrm{c}^f \mathcal{M}$
 % In \cite{Weber}
 
 At first, we will focus our attention on functions $f_1(x) = \mathrm{e}^{x}$ and
-$f_2(x) = \mathrm{e}^{-x}$. We can try to picture such manifolds as in the 
-Figure ~\ref{intro-pic-1}.
+$f_2(x) = \mathrm{e}^{-x}$. The intuition behind such manifolds is best presented
+graphically, as in the Figure ~\ref{intro-pic-1}.
 
 If we consider a finite-dimensional vector space $V$ with a given metric $||
 \cdot ||$ and define a new metric $||| x |||  = r \dot || x ||$. Then in the
 space $(V, || \cdot||)^\ast$ dual to $(V, ||| \cdot |||)$, the normed is scaled
-by the factor $\frac{1}{r}$. We now have bases $e_1, e_2, ..., e_n$ and dual
+by the factor $\frac{1}{r}$. The bases in these spaces are $e_1, e_2, ..., e_n$ and dual
 $e_1^\ast, e_2^\ast, ..., e_n^\ast$. Please note that $d\mathrm{vol} = \pm
 e_1^\ast, e_2^\ast, ..., e_n^\ast $. This siplifies greatly the computation of
 $L_p$ cohomology of the manifold in consideration.
@@ -188,6 +188,68 @@ defining $I_r$:
 \]
 
 We now have to estimate $\int \xi$.
+
+What's the general plan? Try to dig through prof Weber paper and make
+sense of the whole estimation section, and later apply same ideas to
+make your research. \\ 
+
+\scriptsize
+Mike's note. What's the point of all these operators? Will try to
+explain here, using Lee, Weber, Cheeger, Hatcher.  One clue is that we
+have to compute/prove something like Lee, page 444.  Say we have $F,G:
+M \rightarrow N$ which are smooth maps. We want to prove that induced
+maps at the homotopies are equal, $F^\ast = g^\ast$. \\
+
+Digression in digression: \textbf{Induced map} For any smooth map $F:
+M \rightarrow N$ between two smooth manifolds with or without
+boundary, the pullback $F^\ast: \Omega^p N \rightarrow \Omega^p M$
+carries closed forms to closed forms and exact forms to exact
+forms. It thus decsends to a linear map, denoted by $F^\ast: H^p N
+\rightarrow H^p M$, too. \\
+
+Digression in digression in digression: \textbf{Pullback} of $F^\ast$ is
+\[
+    (F^\ast \omega)_p(v_1, ..., v_n) =
+        \omega_{F(p)}(dF_p(v_1), ..., dF_p(v_k)).
+\] \\
+
+Back to the main thread of thought: If we have two smooth maps $F, G:
+M \rightarrow N$ and we want to prove that the induced maps are equal
+$F^\ast = G^\ast$. Given a closed $p-$form $\omega$ on $N$, we need to
+produce a $(p-1)$-form $\eta$ no $M$ such that
+
+\[
+    G^\ast \omega - F^\ast \omega = d\eta
+\]
+
+from this, it will follow that $ G^\ast [\omega] - F^\ast [\omega] =
+[d\eta] = 0$, where $[]$ is just taking cohomology equivalence class
+of given form. The author suggests a way to make it more systematic,
+by finding an operator $h$, which transforms closed $p$-forms on $N$
+to $(p-1)$-forms on $M$ and satisfies
+
+\[
+    d(h\omega) = G^\ast \omega - F^\ast \omega.
+\]
+
+Instead of defining $h\omega$ only when $\omega$ is close, it turns
+out to be far easier to define a map $h$ from the space of
+\textit{all} smooth $p$-forms on $N$ to the space of smoooth
+$(p-1)$-forms on $M$, which satisfies:
+
+\[
+    d(h\omega) + h(d\omega) = G^\ast \omega - F^\ast \omega ,
+\]
+
+which implies the above equality when $\omega$ is closed. (To be
+completly precise, we define a family of maps, one for each $p$, which
+satisfy said equalities on adequate levels.
+
+\[
+    H(\mathcal{M} \times \mathbb{R}_{\geq})_{dR}^\ast = H(\mathcal{M})_{dR}^\ast
+\]
+
+\normalsize
 
 
 
