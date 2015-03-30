@@ -157,7 +157,6 @@ that $\eta$ is $k$-form and $\xi$ is $k-1$ form. \\
 Therefore we obtain easily $||e_1^{\ast} \wedge ... \wedge e_n^\ast || =
 \frac{1}{f^k}$ and as $d\mathrm{vol} = e_1^{\ast} \wedge ... \wedge e_n^\ast $.
 
-
 % ref: http://en.wikipedia.org/wiki/Volume_form
 
 % the most important equation of the article
@@ -175,26 +174,65 @@ If we have the standard inclusion:
 \]
 
 %% As in \cite{Weber}
-We define $|| \omega ||_r := || \omega || = r^{n/p - k} ||\omega_r||$
+We define $|| \omega ||_r := || \omega |_{\mathcal{M} \times \{r\}} ||
+= f(r)^{n/p - k} ||\omega_r||$
 
-Our goal is to define homotopy operator (see in Lee why ??). We do so by
+Let
+\[
+    \pi:\mathrm{c}^f \mathcal{M} \rightarrow \mathcal{M}
+\]
+denote the projection. We can now establish how to calculate a norm
+for $\eta \in L^\ast_p(\mathcal)$, namely 
+$||\eta||_r := ||\pi^\ast\eta||_r = f(r)^{n/p - k} ||\eta_r||$.
+
+
+\scriptsize
+Mike's note: Please note we have many different norms here, which
+are used for things from different spaces.
+\normalsize
+
+Our goal is to give the homotopy operator (see in Lee why ??). We do so by
 defining $I_r$:
 \[
-  i I_r: \Omega^\ast( \mathrm{c}^f \mathcal{M} ) \rightarrow
+  I_r: \Omega^\ast( \mathrm{c}^f \mathcal{M} ) \rightarrow
   \Omega^{\ast-1}(\mathrm{c}^f \mathcal{M} ) 
 \]
 \[
     I_r(\omega)(x, t) = \int_r^t \xi(x, s) ds
 \]
 
-We now have to estimate $\int \xi$.
+We now have to estimate $\int \xi$. \\
 
-What's the general plan? Try to dig through prof Weber paper and make
-sense of the whole estimation section, and later apply same ideas to
-make your research. \\ 
+??? Why ?
+cited:
+The form $I_r\omega$ is smooth for $r \in (0,1)$, but will also consider
+$r=0$ in certain cases. If $r>0$ then the homotopy formula holds:
+\[
+    \omega - \pi^\ast(\omega_r) = d I_r\omega + I_rd\omega.
+\] 
+
+In reference to Lemma 10.1 from prof's Weber's
+Let $k < (n+1)/p $ Then the form $\pi^\ast$ is $p$-integrable for each 
+$p$-integrable form $\eta \in L^k_p(\mathcal{M})$.
+
+The updated plan is to really understand this one here throughly:
+What and where are we integrating. Why should $e^t$ be integrable 
+on $\mathrm{R}_\geq$. Not looking to good.. \\
+
+
 
 \scriptsize
-Mike's note. What's the point of all these operators? Will try to
+Mike's note:
+It seems that what is happening here is that prof Weber is saying here,
+is that $r>0$ standard homotopy formula holds, and now he is trying
+to compute whether analogous formula in the $L_p$ space holds.
+
+
+What's the general plan? Try to dig through prof's Weber's paper and
+make sense of the whole estimation section, and later apply same ideas
+to make your research. \\
+
+What's the point of all these operators? Will try to
 explain here, using Lee, Weber, Cheeger, Hatcher.  One clue is that we
 have to compute/prove something like Lee, page 444.  Say we have $F,G:
 M \rightarrow N$ which are smooth maps. We want to prove that induced
@@ -223,7 +261,7 @@ produce a $(p-1)$-form $\eta$ no $M$ such that
 \]
 
 from this, it will follow that $ G^\ast [\omega] - F^\ast [\omega] =
-[d\eta] = 0$, where $[]$ is just taking cohomology equivalence class
+[d\eta] = 0$, where $[]$ is just taking homotopy equivalence class
 of given form. The author suggests a way to make it more systematic,
 by finding an operator $h$, which transforms closed $p$-forms on $N$
 to $(p-1)$-forms on $M$ and satisfies
