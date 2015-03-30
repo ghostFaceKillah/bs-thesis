@@ -213,11 +213,31 @@ $r=0$ in certain cases. If $r>0$ then the homotopy formula holds:
 
 In reference to Lemma 10.1 from prof's Weber's
 Let $k < (n+1)/p $ Then the form $\pi^\ast$ is $p$-integrable for each 
-$p$-integrable form $\eta \in L^k_p(\mathcal{M})$.
+$p$-integrable form $\eta \in L^k_p(\mathcal{M})$. TODO: Think what the real
+difference between your idea and this below is:
+
+Proof from prof Weber:
+\[
+    ||\pi^\ast \eta ||^p = 
+    \int_{c \mathcal{M}} |\pi^\ast \eta(x,t)|^p d \mathrm{vol}(c\mathcal{M}) = 
+    \int_0^1 ||\eta||_t^p dt = ||\eta||^p \int_0^1t^{n-pk} dt
+\]
+
+which would make my proof be:
+\[
+    ||\pi^\ast \eta ||^p = 
+    \int_{c \mathcal{M}} |\pi^\ast \eta(x,t)|^p d \mathrm{vol}(c\mathcal{M}) = 
+    \int_0^\infty ||\eta||_t^p dt = ||\eta||^p \int_0^\infty f(t)^{n-pk} dt
+\]
+
 
 The updated plan is to really understand this one here throughly:
 What and where are we integrating. Why should $e^t$ be integrable 
 on $\mathrm{R}_\geq$. Not looking to good.. \\
+
+New understanding note: what prof Weber is doing here, is just calculating the 
+cohomologies of this pseudoriemannian horn, by showing ... ? That's what should
+be understood now. \\
 
 
 
