@@ -1,8 +1,16 @@
 \documentclass[licencjacka]{pracamgr}
-\usepackage{polski}
+%% \usepackage{polski}
 \usepackage[T1]{fontenc} 
 \usepackage[utf8]{inputenc} 
 \usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{amsthm}
+
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}[section]
+
+\theoremstyle{remark}
+\newtheorem{remark}{Remark}[section]
 
 \author{Michał Garmulewicz}
 
@@ -36,8 +44,9 @@
   14F40 de Rham cohomology}
 
 % Słowa kluczowe:
-\keywords{blabaliza różnicowa, fetory $\sigma$-$\rho$, fooizm,
-  blarbarucja, blaba, fetoryka, baleronik}
+\keywords{
+  kohomologie de Rhama, topologia różniczkowa
+}
 
 % Tu jest dobre miejsce na Twoje własne makra i~środowiska:
 \newtheorem{defi}{Definicja}[section]
@@ -49,133 +58,164 @@
 
 %tu idzie streszczenie na strone poczatkowa
 \begin{abstract}
-ąęźćżźżżżżż
-
-  W~pracy przedstawiono prototypową implementację blabalizatora
-  różnicowego bazującą na teorii fetorów $\sigma$-$\rho$ profesora
-  Fifaka.  Wykorzystanie teorii Fifaka daje wreszcie możliwość
-  efektywnego wykonania blabalizy numerycznej.  Fakt ten stanowi
-  przełom technologiczny, którego konsekwencje trudno z~góry
-  przewidzieć.
+  In this thesis $L_p$-cohomologies of Riemannian $f$-horn are calculated.
 \end{abstract}
 
 \tableofcontents
 %\listoffigures
 %\listoftables
 
-\chapter*{Introduction}
+\chapter{Introduction}
 \addcontentsline{toc}{chapter}{Introduction}
 
-In \cite{weber} the author considers a cone over Riemannian pseudomanifold.
-The cone is given a linear metric and a computation of $L_p$ cohomology of
-this space is presented. We present a slight extension of this by considering
-manifolds where the metric is blabla. This can be 
+In \cite{weber} the author considers a cone over Riemannian
+pseudomanifold.  The cone is given a metric of the form $dt \otimes dt
+\oplus t^2 g$ and $g$ is the metric on the nonsingular part of the
+original pseudomanifold. In the mentioned work, $L_p$ cohomology of
+this space is presented.
+
+This line of research can 
+be traced back to Cheeger \cite{cheeger}. 
+A similar approach was presented by Youssin \cite{youssin}, where $f$-horns
+were considered.
+
+ We present a slight modification of this notions, by considering
+ manifolds where the Riemannian metric is of the for
+
+\chapter{Preliminaries}
+\section{Vector spaces and tensors}
+Let us recall some basic facts about behaviour of norm when scaling tensors.
+If we consider a finite-dimensional vector space $V$ with a given metric $||
+\cdot ||$ and define a new metric $|| x ||_r  = r \dot || x ||$. Then in the
+space $(V, || \cdot||_r)^\ast$ dual to $(V, ||| \cdot |||)$, the normed is scaled
+by the factor $\frac{1}{r}$, that is for any $\varphi \in V^\ast$ we get
+$||\varphi||_r = \frac{1}{r} ||\varphi|| $. \\
+
+We will make a simple observation that we will later use in the
+computations.  We consider a Riemannian manifold $\mathrm{M}$ and
+tagent $T_x\mathrm{M}$ and cotangent $T_x^\ast\mathrm{M}$ spaces in
+the point $x$.  Let the bases of these spaces be $e_1, e_2, ..., e_n$
+and dual $e_1^\ast, e_2^\ast, ..., e_n^\ast$. The volume form of this
+manifold is $d\mathrm{vol} = \pm e_1^\ast \wedge e_2^\ast \wedge
+... \wedge e_n^\ast $. \\
+
+We now want to compute how forms from $\Lambda(\mathbb{M})$ are scaled
+with respect to such a change in the norm. Suppose we are considering
+space of $k$-forms on $\mathbb{M}$ at some arbitrary point. Then every
+$k$-form can be locally expressed in a basis consisting of products of
+covectors belonging to basis dual to the standard basis. That is every
+$k$-form in the point $x$ using some local coordinates $(x_1, x_2,
+... x_n)$ can be written $ \sum_{\mathrm{I} \in I } a_\mathrm{I}
+dx_\mathrm{i}$, where $I$ is the set of $k$-indices of form
+$\underbrace{(i_1, i_2, ..., i_k)}_{k~\mathrm{times}}$, with $i_1,
+i_2, ... \in \{1, 2, ..., n \}$.  (following Einstein convention).
+Let us see how basis vector is scaled:
+\begin{multline*}
+    ||dx_{i_1} \wedge dx_{i_2} \wedge ... \wedge dx_{i_k} ||_t =  
+    ||dx_{i_1} ||_t \cdot ||  dx_{i_2} ||_t \cdot ... \cdot || dx_{i_k} ||_t =  \\
+    \frac{1}{t}||dx_{i_1} || \cdot \frac{1}{t} ||  dx_{i_2} ||_t \cdot ...
+     \cdot \frac{1}{t} || dx_{i_k} ||_t = 
+    \frac{1}{t^k}||dx_{i_1} \wedge dx_{i_2} \wedge ... \wedge dx_{i_k} ||
+\end{multline*} \\
+
+This means that any $k$ form is scaled by $1/t^k$ when metric is scaled
+by a factor of $t$.
+This applies also to the volume form, so we obtain:
+\[
+d\mathrm{vol}_t = \frac{1}{t^n} d\mathrm{vol}
+\]
+
+\section{Differetial forms}
+
+\textbf{Riemannian metric} is a smooth symmetric covariant 2-tensor field
+on manifold $\mathcal{M}$ that is positive definite at each point.(attaching
+a field of linear functions that takes two variables to every point of the
+manifold).
+
+Consulting page 328 of Lee gives us that in any smooth local coordinates
+$(x^i)$, Riemannian metric can be written as:
+\[
+    g = g_{ij} dx^i \otimes dx^j = g_{ij} dx^i dx^j
+\]
+where $g_{ij}$ is a positive definite matrix of smooth functions. 
+
+The simplest example of Riemannian metric is \emph{Euclidean metric} on
+$\mathbb{R}^n$ given in standard coordinates by 
+\[
+    g = \delta_{ij}dx^idx^j.
+\]
+
+Citing prof. Lee, it is common to abbreviate the symmetric product of a tensor
+$\alpha$ with itself by $\alpha^2$, so the Euclidean metric can also be written
+as 
+\[
+    g = (dx^1)^2 + ...  + (dx^n)^2,
+\]
+so now it is way easier to understand what exactly is meant by
+$ dt \otimes dt + f^2g $, which shoudl be the same as $dt^2 + f^2g$. \\
+%% wiki volume form hehehehe
 
 
-
-\chapter*{Computation}
+\chapter{Computation}
 \addcontentsline{toc}{chapter}{Computation}
 
-The purpose of this paper is to compute $L_p$-cohomologies of Riemannian horns.
-
+The purpose of this chapter is to present the computation of
+$L_p$-cohomologies of Riemannian $f$-horns.
 
 \section{Setting}
-In this section we introduce basic definitions and make the most straightforward 
-observations.
+Here we introduce definitions and make the first observations. The setting
+is largely similar to the setting presented in \cite{weber}, \cite{youssin},
+\cite{cheeger}. \\
 
-%% \cite{Cheeger}
+\begin{definition}[$f$-horn]
+Let $\mathcal{M}$ be a Riemannian manifold. Consider a space $
+\mathbb{R}_{\geq 0} \times \mathcal{M}$.  Define a Riemannian tensor
+on this product by $dt^2 \oplus f^{2}(t)g $, where $g$ is the metric
+on $\mathcal{M}$.  Such a space will be called an
+\textbf{$f$-horn}. We will denote it by $\mathrm{c}^f \mathcal{M}$. \\
+\end{definition}
 
-Let us consider a space $ \mathbb{R}_{\geq 0} \times \mathcal{M} $, where
-$\mathcal{M} $ is Riemannian mainfold. We will define a Riemannian tensor on
-this product by $dt^2 + f^{2}(t)g $, where $g$ is the metric on $\mathcal{M}$.
-Such a space is called by Cheeger an \textbf{$f$-horn}. We will denote it by
-$\mathrm{c}^f \mathcal{M}$
+\begin{remark}
+This terminology is present in works of Cheeger.
+\end{remark}
 
-% In \cite{Weber}
+At first, we will focus our attention on scaling functions from family
+$f_\alpha(x) = \mathrm{e}^{\alpha x}$, parametrized by $\alpha \in
+\mathbb{R}$.  The intuition behind such manifolds is best presented
+graphically, as in the Figure ~\ref{intro-pic-1}. \\
 
-At first, we will focus our attention on functions $f_1(x) = \mathrm{e}^{x}$ and
-$f_2(x) = \mathrm{e}^{-x}$. The intuition behind such manifolds is best presented
-graphically, as in the Figure ~\ref{intro-pic-1}.
+%% TODO -> picture % Rysuneczek z rurkom
 
-If we consider a finite-dimensional vector space $V$ with a given metric $||
-\cdot ||$ and define a new metric $||| x |||  = r \dot || x ||$. Then in the
-space $(V, || \cdot||)^\ast$ dual to $(V, ||| \cdot |||)$, the normed is scaled
-by the factor $\frac{1}{r}$. The bases in these spaces are $e_1, e_2, ..., e_n$ and dual
-$e_1^\ast, e_2^\ast, ..., e_n^\ast$. Please note that $d\mathrm{vol} = \pm
-e_1^\ast, e_2^\ast, ..., e_n^\ast $. This siplifies greatly the computation of
-$L_p$ cohomology of the manifold in consideration.
-
-Also, make a writeup here from lee about the whole volume form deal.
-
-% Rysuneczek z rurkom
-
-Let us now
+We can make a simple observation here about differential forms associated with
+$f$-horn. The tangent space in the point $(t, m)$ is:
 \[
-    T_{(t, m)} = \mathbb{R}_+ \times T_m \mathcal{M}
+    T_{(t, m)} (\mathrm{c}^f \mathcal{M} = \mathbb{R} \times T_m \mathcal{M}
 \]
-% Rysuneczek kwadrata
-
-Let us take some $ \omega \in \Lambda^k(\mathbb{R} \oplus T_m \mathcal{M}) = 
+In terms of differential forms associated with $f$-horn, it means that
+$\Lambda^k(\mathbb{R} \times T_m \mathcal{M}) = 
 \Lambda^k(\mathbb{R})  \oplus \Lambda^k(\mathcal{M}) $.
-This equality lets us state that every $k$-form can be written as $\omega = \eta
-+ \xi \wedge dt$, where both $\eta$ and $\xi$ do not contain $dt$.  Please note
-that $\eta$ is $k$-form and $\xi$ is $k-1$ form. \\
+It can be rephrased in friendlier terms in the following way.
 
-\scriptsize
+\begin{remark}
+Every $k$-form $\omega \in \Lambda^k T(\mathrm{c}^f \mathcal{M})$ can
+be written as $\omega = \eta + \xi \wedge dt$, where both $\eta$ and
+$\xi$ do not contain $dt$.  Please note that $\eta$ is $k$-form and
+$\xi$ is $k-1$ form.
+\end{remark}
 
-    Mike's note: Why there is this squared thing?
-    Lee, page 328.
-    \textbf{Riemannian metric} is a smooth symmetric covariant 2-tensor field
-    on manifold $\mathcal{M}$ that is positive definite at each point.(attaching
-    a field of linear functions that takes two variables to every point of the
-    manifold).
+%%% STOPPED HERE
 
-    Consulting page 328 of Lee gives us that in any smooth local coordinates
-    $(x^i)$, Riemannian metric can be written as:
-    \[
-        g = g_{ij} dx^i \otimes dx^j = g_{ij} dx^i dx^j
-    \]
-    where $g_{ij}$ is a positive definite matrix of smooth functions. 
-
-    The simplest example of Riemannian metric is \emph{Euclidean metric} on
-    $\mathbb{R}^n$ given in standard coordinates by 
-    \[
-        g = \delta_{ij}dx^idx^j.
-    \]
-
-    Citing prof. Lee, it is common to abbreviate the symmetric product of a tensor
-    $\alpha$ with itself by $\alpha^2$, so the Euclidean metric can also be written
-    as 
-    \[
-        g = (dx^1)^2 + ...  + (dx^n)^2,
-    \]
-    so now it is way easier to understand what exactly is meant by
-    $ dt \otimes dt + f^2g $, which shoudl be the same as $dt^2 + f^2g$. \\
-
-\normalsize
-
-Therefore we obtain easily $||e_1^{\ast} \wedge ... \wedge e_n^\ast || =
-\frac{1}{f^k}$ and as $d\mathrm{vol} = e_1^{\ast} \wedge ... \wedge e_n^\ast $.
-
-% ref: http://en.wikipedia.org/wiki/Volume_form
-
-% the most important equation of the article
-\[
-    \int_{\mathcal{M}} ||| \omega |||^p d\mathrm{vol} = 
-    \int_{\mathcal{M}}  (f^{-k}|| \omega ||)^p =  
-\]
-
+%% citing heavily from Weber!
+\begin{remark}[norms of forms]
 If we have the standard inclusion:
 \[
-    i_r: \mathcal{M} \rightarrow \mathrm{c}^f \mathcal{M}
+    i_r: \mathcal{M} \rightarrow \mathrm{c}^f \mathcal{M},
 \]
 \[
-    i_r(x) = (x, r)
+    i_r(x) = (x, r),
 \]
-
-%% As in \cite{Weber}
-We define $|| \omega ||_r := || \omega |_{\mathcal{M} \times \{r\}} ||
-= f(r)^{n/p - k} ||\omega_r||$
+then we can define $|| \omega ||_r := || \omega |_{\mathcal{M} \times
+  \{r\}} || = f(r)^{n/p - k} ||\omega_r||$
 
 Let
 \[
@@ -184,21 +224,22 @@ Let
 denote the projection. We can now establish how to calculate a norm
 for $\eta \in L^\ast_p(\mathcal)$, namely 
 $||\eta||_r := ||\pi^\ast\eta||_r = f(r)^{n/p - k} ||\eta_r||$.
+\end{remark}
 
 
-\scriptsize
-Mike's note: Please note we have many different norms here, which
-are used for things from different spaces.
-\normalsize
+%% \scriptsize
+%% Mike's note: Please note we have many different norms here, which
+%% are used for things from different spaces.
+%% \normalsize
 
 Our goal is to give the homotopy operator (see in Lee why ??). We do so by
 defining $I_r$:
 \[
   I_r: \Omega^\ast( \mathrm{c}^f \mathcal{M} ) \rightarrow
-  \Omega^{\ast-1}(\mathrm{c}^f \mathcal{M} ) 
+  \Omega^{\ast-1}(\mathrm{c}^f \mathcal{I} ) 
 \]
 \[
-    I_r(\omega)(x, t) = \int_r^t \xi(x, s) ds
+    M_r(\omega)(x, t) = \int_r^t \xi(x, s) ds
 \]
 
 We now have to estimate $\int \xi$. \\
@@ -216,12 +257,12 @@ Let $k < (n+1)/p $ Then the form $\pi^\ast$ is $p$-integrable for each
 $p$-integrable form $\eta \in L^k_p(\mathcal{M})$. TODO: Think what the real
 difference between your idea and this below is:
 
-Proof from prof Weber:
-\[
-    ||\pi^\ast \eta ||^p = 
-    \int_{c \mathcal{M}} |\pi^\ast \eta(x,t)|^p d \mathrm{vol}(c\mathcal{M}) = 
-    \int_0^1 ||\eta||_t^p dt = ||\eta||^p \int_0^1t^{n-pk} dt
-\]
+%% Proof from prof Weber:
+%% \[
+%%     ||\pi^\ast \eta ||^p = 
+%%     \int_{c \mathcal{M}} |\pi^\ast \eta(x,t)|^p d \mathrm{vol}(c\mathcal{M}) = 
+%%     \int_0^1 ||\eta||_t^p dt = ||\eta||^p \int_0^1t^{n-pk} dt
+%% \]
 
 which would make my proof be:
 \[
@@ -229,8 +270,10 @@ which would make my proof be:
     \int_{c \mathcal{M}} |\pi^\ast \eta(x,t)|^p d \mathrm{vol}(c\mathcal{M}) = 
     \int_0^\infty ||\eta||_t^p dt = ||\eta||^p \int_0^\infty f(t)^{n-pk} dt
 \]
-so, if $f$ is given by $f(x) = e^\alpha$, the last integral is convergent
-for ... . \\
+
+so, if $f$ is given by $f(x) = e^\alpha$, the last integral is  
+$ ||\eta||^p \int_0^\infty e^{\alpha (n-pk)} dt$. This integral is convergent
+if $\alpha (n - pk) < 0$.\\
 
 ??? It seems now, that we want to say whether and when (depending on
 $k, n, p, r$) for a $p$-integrable form $\omega \in \Omega^k(c^f\mathcal{M})$
@@ -243,7 +286,6 @@ L_p^i(c^f\mathcal{M}$ and $ r \in \mathbb{R}, r > 0$. Then
 \]
 ??? is that what I am supposed to do??
 \[
-
     = \int_s^t f^{i-n/p}(s) f^{n/p-i}(s) ||\xi_s||ds
 \]
 
