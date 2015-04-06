@@ -9,14 +9,24 @@
 \theoremstyle{definition}
 \newtheorem{definition}{Definition}[section]
 
-\theoremstyle{remark}
+\theoremstyle{definition}
 \newtheorem{remark}{Remark}[section]
+
+\theoremstyle{plain}
+\newtheorem{lemma}{Lemma}[section]
+
+\theoremstyle{plain}
+\newtheorem{theorem}{Theorem}[section]
+
+%% Document global definitions
+\def\cfm{\ensuremath\mathrm{c}^f\mathcal{M}}
 
 \author{Michał Garmulewicz}
 
 \nralbumu{304742}
 
-\title{$L_p$-cohomologies of Riemannian horns.}
+
+\title{$L_p$-cohomologies of Riemannian $f$-horns.}
 
 \tytulang{An implementation of a difference blabalizer based on the theory 
   of $\sigma$ -- $\rho$ phetors}
@@ -99,7 +109,7 @@ and dual $e_1^\ast, e_2^\ast, ..., e_n^\ast$. The volume form of this
 manifold is $d\mathrm{vol} = \pm e_1^\ast \wedge e_2^\ast \wedge
 ... \wedge e_n^\ast $. \\
 
-We now want to compute how forms from $\Lambda(\mathbb{M})$ are scaled
+We now want to compute how forms from $\Lambda(\mathcal{M})$ are scaled
 with respect to such a change in the norm. Suppose we are considering
 space of $k$-forms on $\mathbb{M}$ at some arbitrary point. Then every
 $k$-form can be locally expressed in a basis consisting of products of
@@ -155,169 +165,7 @@ so now it is way easier to understand what exactly is meant by
 $ dt \otimes dt + f^2g $, which shoudl be the same as $dt^2 + f^2g$. \\
 %% wiki volume form hehehehe
 
-
-\chapter{Computation}
-\addcontentsline{toc}{chapter}{Computation}
-
-The purpose of this chapter is to present the computation of
-$L_p$-cohomologies of Riemannian $f$-horns.
-
-\section{Setting}
-Here we introduce definitions and make the first observations. The setting
-is largely similar to the setting presented in \cite{weber}, \cite{youssin},
-\cite{cheeger}. \\
-
-\begin{definition}[$f$-horn]
-Let $\mathcal{M}$ be a Riemannian manifold. Consider a space $
-\mathbb{R}_{\geq 0} \times \mathcal{M}$.  Define a Riemannian tensor
-on this product by $dt^2 \oplus f^{2}(t)g $, where $g$ is the metric
-on $\mathcal{M}$.  Such a space will be called an
-\textbf{$f$-horn}. We will denote it by $\mathrm{c}^f \mathcal{M}$. \\
-\end{definition}
-
-\begin{remark}
-This terminology is present in works of Cheeger.
-\end{remark}
-
-At first, we will focus our attention on scaling functions from family
-$f_\alpha(x) = \mathrm{e}^{\alpha x}$, parametrized by $\alpha \in
-\mathbb{R}$.  The intuition behind such manifolds is best presented
-graphically, as in the Figure ~\ref{intro-pic-1}. \\
-
-%% TODO -> picture % Rysuneczek z rurkom
-
-We can make a simple observation here about differential forms associated with
-$f$-horn. The tangent space in the point $(t, m)$ is:
-\[
-    T_{(t, m)} (\mathrm{c}^f \mathcal{M} = \mathbb{R} \times T_m \mathcal{M}
-\]
-In terms of differential forms associated with $f$-horn, it means that
-$\Lambda^k(\mathbb{R} \times T_m \mathcal{M}) = 
-\Lambda^k(\mathbb{R})  \oplus \Lambda^k(\mathcal{M}) $.
-It can be rephrased in friendlier terms in the following way.
-
-\begin{remark}
-Every $k$-form $\omega \in \Lambda^k T(\mathrm{c}^f \mathcal{M})$ can
-be written as $\omega = \eta + \xi \wedge dt$, where both $\eta$ and
-$\xi$ do not contain $dt$.  Please note that $\eta$ is $k$-form and
-$\xi$ is $k-1$ form.
-\end{remark}
-
-%%% STOPPED HERE
-
-%% citing heavily from Weber!
-\begin{remark}[norms of forms]
-If we have the standard inclusion:
-\[
-    i_r: \mathcal{M} \rightarrow \mathrm{c}^f \mathcal{M},
-\]
-\[
-    i_r(x) = (x, r),
-\]
-then we can define $|| \omega ||_r := || \omega |_{\mathcal{M} \times
-  \{r\}} || = f(r)^{n/p - k} ||\omega_r||$
-
-Let
-\[
-    \pi:\mathrm{c}^f \mathcal{M} \rightarrow \mathcal{M}
-\]
-denote the projection. We can now establish how to calculate a norm
-for $\eta \in L^\ast_p(\mathcal)$, namely 
-$||\eta||_r := ||\pi^\ast\eta||_r = f(r)^{n/p - k} ||\eta_r||$.
-\end{remark}
-
-
-%% \scriptsize
-%% Mike's note: Please note we have many different norms here, which
-%% are used for things from different spaces.
-%% \normalsize
-
-Our goal is to give the homotopy operator (see in Lee why ??). We do so by
-defining $I_r$:
-\[
-  I_r: \Omega^\ast( \mathrm{c}^f \mathcal{M} ) \rightarrow
-  \Omega^{\ast-1}(\mathrm{c}^f \mathcal{I} ) 
-\]
-\[
-    M_r(\omega)(x, t) = \int_r^t \xi(x, s) ds
-\]
-
-We now have to estimate $\int \xi$. \\
-
-??? Why ?
-cited:
-The form $I_r\omega$ is smooth for $r \in (0,1)$, but will also consider
-$r=0$ in certain cases. If $r>0$ then the homotopy formula holds:
-\[
-    \omega - \pi^\ast(\omega_r) = d I_r\omega + I_rd\omega.
-\] 
-
-In reference to Lemma 10.1 from prof's Weber's
-Let $k < (n+1)/p $ Then the form $\pi^\ast$ is $p$-integrable for each 
-$p$-integrable form $\eta \in L^k_p(\mathcal{M})$. TODO: Think what the real
-difference between your idea and this below is:
-
-%% Proof from prof Weber:
-%% \[
-%%     ||\pi^\ast \eta ||^p = 
-%%     \int_{c \mathcal{M}} |\pi^\ast \eta(x,t)|^p d \mathrm{vol}(c\mathcal{M}) = 
-%%     \int_0^1 ||\eta||_t^p dt = ||\eta||^p \int_0^1t^{n-pk} dt
-%% \]
-
-which would make my proof be:
-\[
-    ||\pi^\ast \eta ||^p = 
-    \int_{c \mathcal{M}} |\pi^\ast \eta(x,t)|^p d \mathrm{vol}(c\mathcal{M}) = 
-    \int_0^\infty ||\eta||_t^p dt = ||\eta||^p \int_0^\infty f(t)^{n-pk} dt
-\]
-
-so, if $f$ is given by $f(x) = e^\alpha$, the last integral is  
-$ ||\eta||^p \int_0^\infty e^{\alpha (n-pk)} dt$. This integral is convergent
-if $\alpha (n - pk) < 0$.\\
-
-??? It seems now, that we want to say whether and when (depending on
-$k, n, p, r$) for a $p$-integrable form $\omega \in \Omega^k(c^f\mathcal{M})$
-the form $I_r\omega$ is integrable. (Lemma 10.3 from prof Weber's). \\
-
-So due to reasons obove, we now estimate $\int \xi$. Let $\xi \in
-L_p^i(c^f\mathcal{M}$ and $ r \in \mathbb{R}, r > 0$. Then
-\[
-    ||\int_r^t \xi_s ds || \leq \int_r^t ||\xi_s||ds =
-\]
-??? is that what I am supposed to do??
-\[
-    = \int_s^t f^{i-n/p}(s) f^{n/p-i}(s) ||\xi_s||ds
-\]
-
-
-The updated plan is to really understand this one here throughly:
-What and where are we integrating. Why should $e^t$ be integrable 
-on $\mathrm{R}_\geq$. Not looking too good.. \\
-
-New understanding note: what prof Weber is doing here, is just calculating the 
-cohomologies of this pseudoriemannian horn, by showing ... ? That's what should
-be understood now. \\
-
-
-
-\scriptsize
-Mike's note:
-It seems that what is happening here is that prof Weber is saying here,
-is that $r>0$ standard homotopy formula holds, and now he is trying
-to compute whether analogous formula in the $L_p$ space holds.
-
-
-What's the general plan? Try to dig through prof's Weber's paper and
-make sense of the whole estimation section, and later apply same ideas
-to make your research. \\
-
-What's the point of all these operators? Will try to
-explain here, using Lee, Weber, Cheeger, Hatcher.  One clue is that we
-have to compute/prove something like Lee, page 444.  Say we have $F,G:
-M \rightarrow N$ which are smooth maps. We want to prove that induced
-maps at the homotopies are equal, $F^\ast = g^\ast$. \\
-
-Digression in digression: \textbf{Induced map} For any smooth map $F:
+\textbf{Induced map} For any smooth map $F:
 M \rightarrow N$ between two smooth manifolds with or without
 boundary, the pullback $F^\ast: \Omega^p N \rightarrow \Omega^p M$
 carries closed forms to closed forms and exact forms to exact
@@ -330,7 +178,12 @@ Digression in digression in digression: \textbf{Pullback} of $F^\ast$ is
         \omega_{F(p)}(dF_p(v_1), ..., dF_p(v_k)).
 \] \\
 
-Back to the main thread of thought: If we have two smooth maps $F, G:
+
+\section{Explaination about induced maps etc.}
+%% Mike note - this star means induced map, which is explained in the
+%% previous chapter
+
+If we have two smooth maps $F, G:
 M \rightarrow N$ and we want to prove that the induced maps are equal
 $F^\ast = G^\ast$. Given a closed $p-$form $\omega$ on $N$, we need to
 produce a $(p-1)$-form $\eta$ no $M$ such that
@@ -366,7 +219,180 @@ satisfy said equalities on adequate levels.
     H(\mathcal{M} \times \mathbb{R}_{\geq})_{dR}^\ast = H(\mathcal{M})_{dR}^\ast
 \]
 
-\normalsize
+
+
+
+
+
+\chapter{Computation}
+\addcontentsline{toc}{chapter}{Computation}
+
+The purpose of this chapter is to present the computation of
+$L_p$-cohomologies of Riemannian $f$-horns.
+
+\section{Setting}
+Here we introduce definitions and make the first observations. The setting
+is largely similar to the setting presented in \cite{weber}, \cite{youssin},
+\cite{cheeger}. \\
+
+\begin{definition}[$f$-horn]
+Let $\mathcal{M}$ be a Riemannian manifold. Consider a space $
+\mathbb{R}_{\geq 0} \times \mathcal{M}$.  Define a Riemannian tensor
+on this product by $dt^2 \oplus f^{2}(t)g $, where $g$ is the metric
+on $\mathcal{M}$.  Such a space will be called an
+\textbf{$f$-horn}. We will denote it by $\mathrm{c}^f \mathcal{M}$. \\
+\end{definition}
+
+\begin{remark}
+This terminology is present in works of Cheeger.
+\end{remark}
+
+At first, we will focus our attention on scaling functions from family
+$f_\alpha(x) = \mathrm{e}^{\alpha x}$, parametrized by $\alpha \in
+\mathbb{R}$.  The intuition behind such manifolds is best presented
+graphically, as in the Figure ~\ref{intro-pic-1}. \\
+
+%% TODO -> picture % Rysuneczek z rurkom
+
+We can make a simple observation here about differential forms associated with
+$f$-horn. The tangent space in the point $(t, m)$ is:
+\[
+    T_{(t, m)} (\mathrm{c}^f \mathcal{M}) = \mathbb{R} \times T_m \mathcal{M}
+\]
+In terms of differential forms associated with $f$-horn, it means that
+$\Lambda^k(\mathbb{R} \times T_m \mathcal{M}) = 
+\Lambda^k(\mathbb{R})  \oplus \Lambda^k(\mathcal{M}) $.
+It can be rephrased in friendlier terms in the following way.
+
+\begin{remark}
+Every $k$-form $\omega \in \Lambda^k T(\mathrm{c}^f \mathcal{M})$, and
+consequently every form in the space of $p$ integrable forms $L_k^p
+(\mathrm{c}^f \mathcal{M}$ can be written as $\omega = \eta + \xi
+\wedge dt$, where both $\eta$ and $\xi$ do not contain $dt$.  Please
+note that $\eta$ is $k$-form and $\xi$ is $k-1$ form.
+\end{remark}
+
+
+%% citing heavily from Weber!
+
+\begin{remark}[Norms of forms]
+We have the standard inclusion:
+\[
+    i_r: \mathcal{M} \rightarrow \mathrm{c}^f \mathcal{M},
+\]
+\[
+    i_r(x) = (x, r).
+\]
+With this in mind, we will write $\omega_r = i_r^\ast(\omega) =
+i_r^\ast(\eta)$. Further, let us
+%% I can actually explain this one! And I will, to make it a bit longer.
+%% it is explained in Weber's notes
+ denote $|| \omega |_{\mathcal{M} \times
+  \{r\}} || = f(r)^{n/p - k} ||\omega_r||$ as $|| \omega ||_r $. Moreover, if
+\[
+    \pi:\mathrm{c}^f \mathcal{M} \rightarrow \mathcal{M}
+\]
+is the projection, we establish that for $\eta \in L^\ast_p(\mathrm{c}^f\mathcal{M})$
+we can write $||\eta||_r := ||\pi^\ast\eta||_r = f(r)^{n/p - k} ||\eta_r||$.
+\end{remark}
+
+%% ENDED HERE
+
+%% Mike's note: Please note we have many different norms here, which
+%% are used for things from different spaces.
+
+As we are computing cohomologies, we should define the homology operator. Let
+%% expand why in the introduction!
+%%
+\[
+  I_r: \Omega^\ast( \mathrm{c}^f \mathcal{M} ) \rightarrow
+  \Omega^{\ast-1}(\mathrm{c}^f \mathcal{I} ) 
+\]
+\[
+    I_r(\omega)(x, t) = \int_r^t \xi(x, s) ds
+\]
+
+????????????????????????????????????????????
+The form $I_r\omega$ is smooth for $r \in (0,1)$, but will also consider
+$r=0$ in certain cases. If $r>0$ then the homotopy formula holds:
+\[
+    \omega - \pi^\ast(\omega_r) = d I_r\omega + I_rd\omega.
+\] 
+This one probably is Poincare lemma in a version suited for our situation.
+This is a good place to rewrite it here using Bott \\ 
+????? \\
+
+%%% In reference to Lemma 10.1 from prof's Weber's
+\begin{lemma}
+Let $k < (n+1)/p $ Then the form $\pi^\ast$ is $p$-integrable for each 
+$p$-integrable form $\eta \in L^k_p(\mathcal{M})$. 
+%%%% CHECK IT!!
+\end{lemma}
+\begin{proof}
+\[
+    ||\pi^\ast \eta ||^p = 
+    \int_{c \mathcal{M}} |\pi^\ast \eta(x,t)|^p d \mathrm{vol}(c\mathcal{M}) = 
+    \int_0^\infty ||\eta||_t^p dt = ||\eta||^p \int_0^\infty f(t)^{n-pk} dt
+\]
+so, if $f$ is given by $f(x) = e^\alpha$, the last integral is  
+$ ||\eta||^p \int_0^\infty e^{\alpha (n-pk)} dt$. This integral is convergent
+if $\alpha (n - pk) < 0$.
+\end{proof}
+
+Here should be %% Lemma 10.2
+ the estimation of the integrals. Will be done soon.
+
+
+%% In reference to Lemma 10.3
+\begin{lemma}
+   Let $k < (n+1)/p$. Then for $p$-integrable $\omega \in
+   \Omega^k(\mathrm{c}^f\mathcal{M})$ the form $I_r\omega$ is
+   integrable.
+\end{lemma}
+\begin{proof}
+  For the case $k < (n+1)/p = n/p - 1/q + 1$ we get from the previous lemma:
+\[
+||I_r\omega|| = \int_0^\infty ||\int_r^t \xi_s ds|| dt \leq
+ C \int_0^\infty f(t)^{p/q},
+\]
+and for $k=(n+1)/p$, we get:
+\[
+  ||I_r\omega|| \leq \int_0^1 | t(\mathrm{log} r - \mathrm{log} t)  |^{p/q} dt
+\]
+\end{proof}
+
+\begin{remark} %% this is corollary 10.4 from Weber's
+  Based on the above lemma, we get that if $k<(n+1)/p$ then a $p$-integrable
+closed form is cohomologous to $\pi^\ast \omega_r$ for almost all $r$.
+\[
+    \omega = dI_0\omega + I_0d\omega
+\]
+\end{remark}
+\begin{proof}
+  We have $\omega - \pi^\ast(\omega_r) = dI_r\omega$ and $I_r \omega$ is 
+$p$-integrable. The form $\omega_r$ is $p$-integrable for almost all $r$.
+So for almost all $r$ the form $dI_r\omega$ is also $p$-integrable.
+\end{proof}
+
+\begin{lemma} %% Refering to the lemma 10.5 from Weber
+  Let $k > (n+1)/p$ Then $I_0 \omega $ is $p$-integrable for 
+$\omega \in L_p \Omega^k(\cfm)$ and the homotopy formula holds:
+\[
+    \omega = d I_0 \omega + I_0 d \omega
+\]
+\end{lemma}
+\begin{proof}
+  Again, we estimate 
+\[
+    ||I_0 \omega|| = \int_0^\infty ||\int_0^t \xi_s ds||_t^p dt \leq
+    ...,
+\]
+so this norm is finite. The form $I_0 \omega$ may not be smooth. We
+\end{proof}
+
+
+
+
 
 
 
@@ -389,10 +415,6 @@ satisfy said equalities on adequate levels.
 %%      \begin{verbatim}
 %%       )[14].
 %%       ), {1234}],]. [map [cc], 1, 22]. [rho x 1]. {22; [22]},
-%%             dd.
-%%       [11; sigma].
-%%              ss.4.c.q.42.b.ll.ls.chmod.aux.rm.foo;
-%%       [112.34; rho];
 %%              001110101010101010101010101010101111101001@
 %%       [22%f4].
 %%       cq. rep. else 7;
@@ -415,31 +437,24 @@ satisfy said equalities on adequate levels.
 %%      \end{center}
 
 \begin{thebibliography}{99}
-\addcontentsline{toc}{chapter}{Bibliografia}
+\addcontentsline{toc}{chapter}{Bibliography}
 
+\bibitem[Weber]{weber} Andrzej Weber, \textit{An isomorphism from
+  intersection homology to $\mathrm{L}_p$-cohomology}, Forum
+  Mathematicum, de Gruyer, 1995.
+  
+\bibitem[Cheeger]{cheeger} Jeff Cheeger, \textit{On the Hodge theory
+  of Riemannian pseudomanifolds}, Proc. of Symp. in Pure Math. vol.36,
+  American Mathematical Society, Providence, 1982.
 
-\bibitem[Hopp96]{hopp} Claude Hopper, \textit{On some $\Pi$-hedral
-    surfaces in quasi-quasi space}, Omnius University Press, 1996.
+\bibitem[Bott]{bott} Raou Bott, \textit{Differetial forms in algebraic
+  topology}, Springer Verlag, 1982.
 
-\bibitem[Leuk00]{leuk} Lechoslav Leukocyt, \textit{Oval mappings ab ovo},
-  Materiały Białostockiej Konferencji Hodowców Drobiu, 2000.
-
-%%    \bibitem[Rozk93]{JR} Josip A.~Rozkosza, \textit{O pewnych własnościach
-%%        pewnych funkcji}, Północnopomorski Dziennik Matematyczny 63491
-%%      (1993).
-%%    
-%%    \bibitem[Spy59]{spyrpt} Mrowclaw Spyrpt, \textit{A matrix is a matrix
-%%        is a matrix}, Mat. Zburp., 91 (1959) 28--35.
-%%    
-%%    \bibitem[Sri64]{srinis} Rajagopalachari Sriniswamiramanathan,
-%%      \textit{Some expansions on the Flausgloten Theorem on locally
-%%        congested lutches}, J. Math.  Soc., North Bombay, 13 (1964) 72--6.
-%%    
-%%    \bibitem[Whi25]{russell} Alfred N. Whitehead, Bertrand Russell,
-%%      \textit{Principia Mathematica}, Cambridge University Press, 1925.
-%%    
-%%    \bibitem[Zen69]{heu} Zenon Zenon, \textit{Użyteczne heurystyki
-%%        w~blabalizie}, Młody Technik, nr~11, 1969.
+\bibitem[Youssin]{youssin} Boris Youssin, \textit{$\mathrm{L}_p$
+  cohomology of cones and horns } J. Differential Geometry, Volume 39,
+  Number 3, 1994.
+  
+\bibitem[Lee]{lee} Lee, \textit{Introduction to Smooth Manifolds}
 
 \end{thebibliography}
 
