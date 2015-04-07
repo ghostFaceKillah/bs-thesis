@@ -26,7 +26,7 @@
 \nralbumu{304742}
 
 
-\title{$L_p$-cohomologies of Riemannian $f$-horns.}
+\title{$\mathrm{L}_p$-cohomologies of Riemannian $f$-horns.}
 
 \tytulang{An implementation of a difference blabalizer based on the theory 
   of $\sigma$ -- $\rho$ phetors}
@@ -312,7 +312,8 @@ As we are computing cohomologies, we should define the homology operator. Let
     I_r(\omega)(x, t) = \int_r^t \xi(x, s) ds
 \]
 
-????????????????????????????????????????????
+????????????????????????????????????????????\\
+
 The form $I_r\omega$ is smooth for $r \in (0,1)$, but will also consider
 $r=0$ in certain cases. If $r>0$ then the homotopy formula holds:
 \[
@@ -320,7 +321,7 @@ $r=0$ in certain cases. If $r>0$ then the homotopy formula holds:
 \] 
 This one probably is Poincare lemma in a version suited for our situation.
 This is a good place to rewrite it here using Bott \\ 
-????? \\
+????????????????????????????????????????? \\
 
 %%% In reference to Lemma 10.1 from prof's Weber's
 \begin{lemma}
@@ -339,8 +340,19 @@ $ ||\eta||^p \int_0^\infty e^{\alpha (n-pk)} dt$. This integral is convergent
 if $\alpha (n - pk) < 0$.
 \end{proof}
 
-Here should be %% Lemma 10.2
- the estimation of the integrals. Will be done soon.
+The following lemma will be useful in further computation.
+\begin{lemma}[Estimation of $\int \xi$]
+  blabla bla
+\end{lemma}
+\begin{proof}
+\begin{multline*}
+    || \int_t^r \xi_x dx || \leq
+     \int_t^r || \xi_x || dx  =  \\
+     \int_r^t f(x)^{i - n/p} f(x)^{n/p - i} || \xi_x || dx  \leq  \\
+   | \int_r^t f(x)^{i - n/p} dx|^{1/q} \cdot
+   |\int_r^t f(x)^{n/p - i} || \xi_s || ds |^{1/p}
+\end{multline*}
+\end{proof}
 
 
 %% In reference to Lemma 10.3
