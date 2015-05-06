@@ -222,13 +222,13 @@ satisfy said equalities on adequate levels.
 
 
 
-
-
 \chapter{Computation}
 \addcontentsline{toc}{chapter}{Computation}
 
 The purpose of this chapter is to present the computation of
 $L_p$-cohomologies of Riemannian $f$-horns.
+
+
 
 \section{Setting}
 Here we introduce definitions and make the first observations. The setting
@@ -243,9 +243,10 @@ on $\mathcal{M}$.  Such a space will be called an
 \textbf{$f$-horn}. We will denote it by $\mathrm{c}^f \mathcal{M}$. \\
 \end{definition}
 
-\begin{remark}
-This terminology is present in works of Cheeger.
-\end{remark}
+\begin{definition}
+  By $L_p^k \mathcal{M}$ we will denote the space of $p$-integrable
+  $k$-forms with measurable coefficients.
+\end{definition}
 
 At first, we will focus our attention on scaling functions from family
 $f_\alpha(x) = \mathrm{e}^{\alpha x}$, parametrized by $\alpha \in
@@ -254,8 +255,8 @@ graphically, as in the Figure ~\ref{intro-pic-1}. \\
 
 %% TODO -> picture % Rysuneczek z rurkom
 
-We can make a simple observation here about differential forms associated with
-$f$-horn. The tangent space in the point $(t, m)$ is:
+We can make a simple observation here about differential forms
+associated with $f$-horn. The tangent space in the point $(t, m)$ is:
 \[
     T_{(t, m)} (\mathrm{c}^f \mathcal{M}) = \mathbb{R} \times T_m \mathcal{M}
 \]
@@ -266,16 +267,22 @@ It can be rephrased in friendlier terms in the following way.
 
 \begin{remark}
 Every $k$-form $\omega \in \Lambda^k T(\mathrm{c}^f \mathcal{M})$, and
-consequently every form in the space of $p$ integrable forms $L_k^p
-(\mathrm{c}^f \mathcal{M}$ can be written as $\omega = \eta + \xi
+consequently every form in the space of $p$-integrable forms $L_k^p
+(\cfm)$ can be written as $\omega = \eta + \xi
 \wedge dt$, where both $\eta$ and $\xi$ do not contain $dt$.  Please
 note that $\eta$ is $k$-form and $\xi$ is $k-1$ form.
 \end{remark}
 
-
+\section{Norms}
+Here we define norms of different forms used later in the computation.
 %% citing heavily from Weber!
 
-\begin{remark}[Norms of forms]
+For $\omega \in L_p^k \mathcal{M}$ we have the norm:
+\[
+ || \omega || = ( \int_\mathcal{M} | \omega |^p ) ^ {1/p}
+\]
+
+
 We have the standard inclusion:
 \[
     i_r: \mathcal{M} \rightarrow \mathrm{c}^f \mathcal{M},
@@ -283,25 +290,36 @@ We have the standard inclusion:
 \[
     i_r(x) = (x, r).
 \]
-With this in mind, we will write $\omega_r = i_r^\ast(\omega) =
-i_r^\ast(\eta)$. Further, let us
-%% I can actually explain this one! And I will, to make it a bit longer.
-%% it is explained in Weber's notes
- denote $|| \omega |_{\mathcal{M} \times
-  \{r\}} || = f(r)^{n/p - k} ||\omega_r||$ as $|| \omega ||_r $. Moreover, if
+With this in mind, for $\omega = \eta + \xi \wedge dt$
+ we will write 
+$\omega_r = i_r^\ast(\omega) =
+i_r^\ast(\eta)$. 
+
+\begin{definition}
+  We define norm ''at the level $r$'' to be:
 \[
-    \pi:\mathrm{c}^f \mathcal{M} \rightarrow \mathcal{M}
+  || \omega ||_r  = || \omega |_{\mathcal{M} \times
+    \{r\}} || = f(r)^{n/p - k} ||\omega_r||
 \]
-is the projection, we establish that for $\eta \in L^\ast_p(\mathrm{c}^f\mathcal{M})$
-we can write $||\eta||_r := ||\pi^\ast\eta||_r = f(r)^{n/p - k} ||\eta_r||$.
-\end{remark}
+\end{definition}
+
+Similarily, when we consider the standard projection operator:
+\[
+    \pi:\cfm \rightarrow \mathcal{M}
+\]
+for $\eta \in L^\ast_p(\mathrm{c}^f\mathcal{M})$ we can write:
+
+\[
+ ||\eta||_r := ||\pi^\ast\eta||_r = f(r)^{n/p - k} ||\eta_r||.
+ \]
 
 %% ENDED HERE
 
 %% Mike's note: Please note we have many different norms here, which
 %% are used for things from different spaces.
 
-As we are computing cohomologies, we should define the homology operator. Let
+As we will be computing cohomologies, we should define the homology
+operator:
 %% expand why in the introduction!
 %%
 \[
@@ -312,7 +330,9 @@ As we are computing cohomologies, we should define the homology operator. Let
     I_r(\omega)(x, t) = \int_r^t \xi(x, s) ds
 \]
 
+Down here trouble begins:
 ????????????????????????????????????????????\\
+Here probably we need some kind of Poincare lemma
 
 The form $I_r\omega$ is smooth for $r \in (0,1)$, but will also consider
 $r=0$ in certain cases. If $r>0$ then the homotopy formula holds:
@@ -325,8 +345,9 @@ This is a good place to rewrite it here using Bott \\
 
 %%% In reference to Lemma 10.1 from prof's Weber's
 \begin{lemma}
-Let $k < (n+1)/p $ Then the form $\pi^\ast$ is $p$-integrable for each 
-$p$-integrable form $\eta \in L^k_p(\mathcal{M})$. 
+Let $ \alpha (n/p - k) < 0 $ Then the form $\pi^\ast \eta$ is
+$p$-integrable for each $p$-integrable form $\eta \in
+L^k_p(\mathcal{M})$.
 %%%% CHECK IT!!
 \end{lemma}
 \begin{proof}
@@ -340,11 +361,10 @@ $ ||\eta||^p \int_0^\infty e^{\alpha (n-pk)} dt$. This integral is convergent
 if $\alpha (n - pk) < 0$.
 \end{proof}
 
-The following lemma will be useful in further computation.
+The following lemma will also be useful in further computation.
 \begin{lemma}[Estimation of $\int \xi$]
-  blabla bla
 \end{lemma}
-\begin{proof}
+\begin{proof}  %% redo this in align style
 \begin{multline*}
     || \int_t^r \xi_x dx || \leq
      \int_t^r || \xi_x || dx  =  \\
