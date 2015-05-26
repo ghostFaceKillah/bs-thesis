@@ -279,7 +279,7 @@ Here we define norms of different forms used later in the computation.
 
 For $\omega \in L_p^k \mathcal{M}$ we have the norm:
 \[
- || \omega || = ( \int_\mathcal{M} | \omega |^p ) ^ {1/p}
+ || \omega || = ( \int_\mathcal{M} | \omega |^p d \text{vol} ) ^ {1/p}
 \]
 
 
@@ -389,8 +389,9 @@ The following lemma will also be useful in further computation.
 \]
 and for $k=(n+1)/p$, we get:
 \[
-  ||I_r\omega|| \leq \int_0^1 | t(\mathrm{log} r - \mathrm{log} t)  |^{p/q} dt
+  ||I_r\omega|| \leq \int_0^\infty | t(\mathrm{log} r - \mathrm{log} t)  |^{p/q} dt
 \]
+This 
 \end{proof}
 
 \begin{remark} %% this is corollary 10.4 from Weber's
