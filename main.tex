@@ -1,16 +1,16 @@
 \documentclass[licencjacka]{pracamgr}
-%% \usepackage{polski}
+\usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc} 
-\usepackage[utf8]{inputenc} 
 \usepackage{amssymb}
 \usepackage{amsmath}
 \usepackage{amsthm}
+\usepackage{polski}
 
 \theoremstyle{definition}
-\newtheorem{definition}{Definition}[section]
+\newtheorem{definition}{Definicja}[section]
 
 \theoremstyle{definition}
-\newtheorem{remark}{Remark}[section]
+\newtheorem{remark}{Uwaga}[section]
 
 \theoremstyle{plain}
 \newtheorem{lemma}{Lemma}[section]
@@ -20,6 +20,9 @@
 
 %% Document global definitions
 \def\cfm{\ensuremath\mathrm{c}^f\mathcal{M}}
+\def\M{\ensuremath\mathcal{M}}
+\newcommand\deff{\mathrel{\overset{\makebox[0pt]{\mbox{\normalfont\tiny\sffamily def}}}{=}}}
+
 
 \author{Michał Garmulewicz}
 
@@ -78,23 +81,24 @@
 \chapter{Introduction}
 \addcontentsline{toc}{chapter}{Introduction}
 
-In \cite{weber} the author considers a cone over Riemannian
-pseudomanifold.  The cone is given a metric of the form $dt \otimes dt
+W pracy \cite{weber} prezentowane jest między innymi obliczenie
+$L_p$-kohomologii stożka nad pseudorozmaitością Riemannowską.
+
+The cone is given a metric of the form $dt \otimes dt
 \oplus t^2 g$ and $g$ is the metric on the nonsingular part of the
 original pseudomanifold. In the mentioned work, $L_p$ cohomology of
 this space is presented.
 
-This line of research can 
-be traced back to Cheeger \cite{cheeger}. 
-A similar approach was presented by Youssin \cite{youssin}, where $f$-horns
-were considered.
+%% This line of research can 
+%% be traced back to Cheeger \cite{cheeger}. 
+%% A similar approach was presented by Youssin \cite{youssin}, where $f$-horns
+%% were considered.
 
  We present a slight modification of this notions, by considering
  manifolds where the Riemannian metric is of the for
 
 \chapter{Preliminaries}
 \section{Vector spaces and tensors}
-Let us recall some basic facts about behaviour of norm when scaling tensors.
 If we consider a finite-dimensional vector space $V$ with a given metric $||
 \cdot ||$ and define a new metric $|| x ||_r  = r \dot || x ||$. Then in the
 space $(V, || \cdot||_r)^\ast$ dual to $(V, ||| \cdot |||)$, the normed is scaled
@@ -135,14 +139,14 @@ This applies also to the volume form, so we obtain:
 d\mathrm{vol}_t = \frac{1}{t^n} d\mathrm{vol}
 \]
 
-\section{Differetial forms}
+\section{Riemannian metric}
 
 \textbf{Riemannian metric} is a smooth symmetric covariant 2-tensor field
 on manifold $\mathcal{M}$ that is positive definite at each point.(attaching
 a field of linear functions that takes two variables to every point of the
 manifold).
 
-Consulting page 328 of Lee gives us that in any smooth local coordinates
+In any smooth local coordinates
 $(x^i)$, Riemannian metric can be written as:
 \[
     g = g_{ij} dx^i \otimes dx^j = g_{ij} dx^i dx^j
@@ -155,15 +159,82 @@ $\mathbb{R}^n$ given in standard coordinates by
     g = \delta_{ij}dx^idx^j.
 \]
 
-Citing prof. Lee, it is common to abbreviate the symmetric product of a tensor
-$\alpha$ with itself by $\alpha^2$, so the Euclidean metric can also be written
-as 
-\[
-    g = (dx^1)^2 + ...  + (dx^n)^2,
-\]
-so now it is way easier to understand what exactly is meant by
-$ dt \otimes dt + f^2g $, which shoudl be the same as $dt^2 + f^2g$. \\
+
+%% Citing prof. Lee, it is common to abbreviate the symmetric product of a tensor
+%% $\alpha$ with itself by $\alpha^2$, so the Euclidean metric can also be written
+%% as 
+%% \[
+%%     g = (dx^1)^2 + ...  + (dx^n)^2,
+%% \]
+%% so now it is way easier to understand what exactly is meant by
+%% $ dt \otimes dt + f^2g $, which shoudl be the same as $dt^2 + f^2g$. \\
 %% wiki volume form hehehehe
+
+\section{Differetial forms}
+
+We will now recall definition of a norm of a differential form in each point of
+the manifold. Let $(M. g)$ be an orientable, connected and complete Riemannian 
+manifold. By $x$ we will mean a point of $X$ and $\Lambda^k T_x M$ is the vector
+space of multilinear alternate maps:
+\[
+    \alpha_x:T_x^\star M \times ... \times T_x^\star M \times \rightarrow \mathbb{R}
+\]
+
+Using this, we recall that exterior form of degree $k$ is defined as a section of 
+the $k$-th cotangent bundle
+\[
+    \Lambda^k M = \coprod_{x \in M} 
+    \Lambda^k T_x^\star M \xrightarrow{\pi} M.
+\]
+
+Therefore for each point $x \in M$ we have a multilinear map $\alpha_x \in
+\Lambda^k T_x^\star M$. At a given point it can be expressed in an easy form.
+If $(e_1, ..., e_n)$ is a basis of $T_x M$ and $(e^1, ..., e^n)$ is the dual basis,
+we can write
+\[
+    \alpha_x = \sum_{1 \leq i_1 < ... < i_k \leq n} a_{i_1 ... i_k} e^{i^1} \wedge ...
+    \wedge e^{i^k}
+\] 
+where coefficients are $a_{i_1 ... i_k} = \alpha_x(e^{i^1}, ..., e^{i^2})$.
+
+Using above, we can express given form in terms of local coordinates $x^1, ...,
+x^n$ of an open subset $U$ of $M$. We have a basis $\frac{\partial}{\partial
+x^1}, ..., \frac{\partial}{\partial x^n}$ of $T_x M$ for each $x \in U$ with
+corresponding dual basis $dx^1, ..., dx^n$. For every point of the set $U$ one
+can write
+\[
+    \alpha_x = \sum_{1 \leq i_1 < ... < i_k \leq n} a_{i_1 ... i_k}
+       dx^{i^1} \wedge ...  \wedge dx^{i^k}.
+\] 
+
+On a Riemannian manifold one has a scalar product defined on $T_x M$ for each
+point $x \in M$. Therefore, we can define a norm of every $k$-form $\alpha$.
+We denote the scalar product on $T_x M$ by $<u, v>_x = g_x(u, v)$. Let us choose for
+some basis $(e_1, ..., e_n)$ of $T_x M$ with corresponding dual basis $(e^1, ..., e^n)$.
+We can argue that such basis can always be chosen to be orthogonal, because we can
+always apply Gram-Schmidt's orthogonalisation algorithm to a basis given by local
+coordinates. We can then define a map $G: \Lambda^k T_x M \times T_x M
+\leftarrow \mathbb{R}$. Given two forms 
+$ \alpha_x = \sum_{1 \leq i_1 < ... < i_k \leq n} \alpha_{i_1 ... i_k; x} e^{i^1}
+\wedge ...  \wedge e^{i^k}$ and
+$ \beta_x = \sum_{1 \leq i_1 < ... < i_k \leq n} \beta_{i_1 ... i_k; x} e^{i^1}
+\wedge ...  \wedge e^{i^k}$, we set
+\[
+    G(\alpha_x, \beta_x) = \sum_{i_1, ..., i_k} \alpha_{i_1 ... i_k; x}
+                                                    \beta_{i_1 ... i_k; x}.
+\]
+
+We can then cite lemma 1.1 from \cite{lausanne}.
+
+\begin{lemma}
+The above stated map $G: \Lambda^k T_x M \times T_x M $ is symmetric and positive
+definite, and hence is a scalar product at any given point $x \in M$. It does not depend
+on the choice of the particular basis $(e_1, ..., e_n)$ among the orhonormal
+ones. Additionaly the basis $(e^1 \wedge ... \wedge e^n)$ is orthonormal for $G$.
+\end{lemma}
+
+We can also give eqivalent definition using other terms ...
+
 
 \textbf{Induced map} For any smooth map $F:
 M \rightarrow N$ between two smooth manifolds with or without
@@ -219,255 +290,296 @@ satisfy said equalities on adequate levels.
     H(\mathcal{M} \times \mathbb{R}_{\geq})_{dR}^\ast = H(\mathcal{M})_{dR}^\ast
 \]
 
+\section{$L_p(\M)$ space}
 
 
 
-\chapter{Computation}
+\chapter{Obliczenie}
 \addcontentsline{toc}{chapter}{Computation}
 
-The purpose of this chapter is to present the computation of
-$L_p$-cohomologies of Riemannian $f$-horns.
-
-
-
-\section{Setting}
-Here we introduce definitions and make the first observations. The setting
-is largely similar to the setting presented in \cite{weber}, \cite{youssin},
-\cite{cheeger}. \\
+Celem tego rozdziału jest prezentacja obliczenia 
+$L_p$-kohomologii Riemannowskiego $f$-stożka z funkcją wagową $f = e^{-t}$.
+Obliczenie jest podobne do prac \cite{cheeger}, \cite{youssin}, \cite{kirwan},
+\cite{weber}.
 
 \begin{definition}[$f$-horn]
-Let $\mathcal{M}$ be a Riemannian manifold. Consider a space $
-\mathbb{R}_{\geq 0} \times \mathcal{M}$.  Define a Riemannian tensor
-on this product by $dt^2 \oplus f^{2}(t)g $, where $g$ is the metric
-on $\mathcal{M}$.  Such a space will be called an
-\textbf{$f$-horn}. We will denote it by $\mathrm{c}^f \mathcal{M}$. \\
+    Niech $\M$ będzie rozmaitością Riemannowską. Rozważmy przestrzeń
+    $\mathbb{R}_{\geq 0} \times \mathcal{M}$. Określmy na tym produkcie tensor
+    Riemannowski zadany przez wzór $dt^2 \oplus f^{2}(t)g $, gdzie $g$ jest
+    metryką na $\mathcal{M}$.  Przestrzeń taką nazywamy \textbf{$f$-stożkiem}.
+    Oznaczać ją będziemy przez symbol $\cfm$.
 \end{definition}
 
 \begin{definition}
-  By $L_p^k \mathcal{M}$ we will denote the space of $p$-integrable
-  $k$-forms with measurable coefficients.
+  Niech $L_p^k \mathcal{M}$ oznacza przestrzeń $p$-całkowalnych 
+  $k$-form różnikowych z mierzalnymi  współczynnikami.
 \end{definition}
 
-At first, we will focus our attention on scaling functions from family
-$f_\alpha(x) = \mathrm{e}^{\alpha x}$, parametrized by $\alpha \in
-\mathbb{R}$.  The intuition behind such manifolds is best presented
-graphically, as in the Figure ~\ref{intro-pic-1}. \\
 
 %% TODO -> picture % Rysuneczek z rurkom
 
-We can make a simple observation here about differential forms
-associated with $f$-horn. The tangent space in the point $(t, m)$ is:
+Możemy teraz poczynić obserwację o formach różniczkowych określonych na 
+$f$-stożku. Przestrzeń styczna do $\cfm$ w punkcie 
+
+$(t, m)$ to:
 \[
-    T_{(t, m)} (\mathrm{c}^f \mathcal{M}) = \mathbb{R} \times T_m \mathcal{M}
+    T_{(t, m)} (\mathrm{c}^f \mathcal{M}) = \mathbb{R} \times T_m \mathcal{M}.
 \]
-In terms of differential forms associated with $f$-horn, it means that
-$\Lambda^k(\mathbb{R} \times T_m \mathcal{M}) = 
-\Lambda^k(\mathbb{R})  \oplus \Lambda^k(\mathcal{M}) $.
-It can be rephrased in friendlier terms in the following way.
+W terminach form różniczkowych powiązanych z rozważanym $f$-stożkiem oznacza to, 
+że możemy napisać:
+
+\[
+\Lambda^k(\mathbb{R} \times T_m \M) = 
+\Lambda^{k-1}(\M)  \oplus \Lambda^k(\M).
+\]
+Spostrzeżenie to możemy wyrazić także w inny sposób: 
 
 \begin{remark}
-Every $k$-form $\omega \in \Lambda^k T(\mathrm{c}^f \mathcal{M})$, and
-consequently every form in the space of $p$-integrable forms $L_k^p
-(\cfm)$ can be written as $\omega = \eta + \xi
-\wedge dt$, where both $\eta$ and $\xi$ do not contain $dt$.  Please
-note that $\eta$ is $k$-form and $\xi$ is $k-1$ form.
+Każda $k$-forma $\omega \in \Lambda^k T(\mathrm{c}^f \mathcal{M})$, 
+a w konsekwencji każda forma z przestrzeni form $p$-całkowalnych  $L_k^p
+(\cfm)$ może być zapisana jako$\omega = \eta + \xi \wedge dt$,
+gdzie zarówno $\eta$, jak i  $\xi$ nie zawierają $dt$.  Zauważmy ponadto,
+że $\eta$ jest $k$-formą, a $\xi$ jest $k-1$ formą. \\
 \end{remark}
 
-\section{Norms}
-Here we define norms of different forms used later in the computation.
-%% citing heavily from Weber!
-
-For $\omega \in L_p^k \mathcal{M}$ we have the norm:
+Przypomnijmy także dla klarowności notację dotyczącą zapisywania form różniczkowych
+względem lokalnych współrzędnych. Dowolną $k$-formę $\eta$, która w domyśle nie zawiera
+czynnika $dt$, zapisywać będziemy względem lokalnych rzeczywstich współrzędnych
+$(x_1, x_2, ... , x_n)$ na $\M$ jako:
 \[
- || \omega || = ( \int_\mathcal{M} | \omega |^p d \text{vol} ) ^ {1/p}
+    \eta(t, x) = \sum_{\alpha \in I(k)} \eta_\alpha (t, x) dx^\alpha,
 \]
+gdzie $I(k)$ jest zbiorem wszystkich multiindeksów $\alpha = (alpha_1, ...,
+\alpha_k)$ takich, że $1 \leq \alpha_1 < ... < \alpha_i \leq n$, gdzie
+\begin{equation}\label{notacja}
+    dy^\alpha = dy^{\alpha_1} \wedge ... \wedge dy^{\alpha_k},
+\end{equation}
+a $\eta_\alpha$ jest gładką funkcją określoną na $(0, \infty) \times \M$. \\
 
-
-We have the standard inclusion:
+Pomiędzy rozmaitościami $\M$ oraz $\cfm$ istnieją kanoniczne przekształcenia
+projekcji oraz inkluzji. Żeby dobrze zilustrować w sposób w jaki działają one
+na formy różniczkowe na poszczególnych rozmaitościach, przypomnijmy ich typy.
+Inkluzja to funkcja:
 \[
-    i_r: \mathcal{M} \rightarrow \mathrm{c}^f \mathcal{M},
+    i_r: \M \rightarrow \cfm \\
 \]
 \[
     i_r(x) = (x, r).
 \]
-With this in mind, for $\omega = \eta + \xi \wedge dt$
- we will write 
-$\omega_r = i_r^\ast(\omega) =
-i_r^\ast(\eta)$. 
-
-\begin{definition}
-  We define norm ''at the level $r$'' to be:
+Możemy za jej pomocą przeciągać formy z $\cfm$ do $\M$. Przeciągnięcie takie
+oznaczymy jako $\omega_r = i_r^\ast(\omega) = i_r^\ast \eta $ dla formy $\omega
+= \eta + \xi \wedge dt$. \\
+Projekcja (rzutowanie) zadane jest jako:
 \[
-  || \omega ||_r  = || \omega |_{\mathcal{M} \times
-    \{r\}} || = f(r)^{n/p - k} ||\omega_r||
-\]
-\end{definition}
-
-Similarily, when we consider the standard projection operator:
-\[
-    \pi:\cfm \rightarrow \mathcal{M}
-\]
-for $\eta \in L^\ast_p(\mathrm{c}^f\mathcal{M})$ we can write:
-
-\[
- ||\eta||_r := ||\pi^\ast\eta||_r = f(r)^{n/p - k} ||\eta_r||.
- \]
-
-%% ENDED HERE
-
-%% Mike's note: Please note we have many different norms here, which
-%% are used for things from different spaces.
-
-As we will be computing cohomologies, we should define the homology
-operator:
-%% expand why in the introduction!
-%%
-\[
-  I_r: \Omega^\ast( \mathrm{c}^f \mathcal{M} ) \rightarrow
-  \Omega^{\ast-1}(\mathrm{c}^f \mathcal{I} ) 
+    \pi: \cfm \rightarrow \M
 \]
 \[
-    I_r(\omega)(x, t) = \int_r^t \xi(x, s) ds
-\]
+    \pi (x, t) = x.
+\] \\
 
-Down here trouble begins:
-????????????????????????????????????????????\\
-Here probably we need some kind of Poincare lemma
 
-The form $I_r\omega$ is smooth for $r \in (0,1)$, but will also consider
-$r=0$ in certain cases. If $r>0$ then the homotopy formula holds:
+Rozważamy formę $\omega \in L^k_p (\cfm)$, gdzie
+$\omega = \eta + \xi \wedge dt$.
+Zauważmy, że metryka Riemannowska na $\cfm$ jest określona w taki sposób, że
+stosowne normy spełniają następujące zależności:
+$$
+| \eta(t,x) |^2 = (\mathrm{e}^{-t})^{-2k} | \eta(t,x) |^2_{\M} +
+(\mathrm{e}^{-t})^{-2(k-1)} | \xi(t,x) |^2_{\M},
+$$
+gdzie $|\cdot |_{\M} $ jest normą form różniczkowych indukowaną przez
+metrykę Riemannowską na rozmaitości $\M$.  Czynnik $(\mathrm{e}^{-t})^{-2k}$
+pojawia się ponieważ forma $\eta$ należy do $k$-tej potęgi zewnętrznej
+przestrzeni kostycznej do rozmaitości $\cfm$ w punkcie $(t,x)$.  Zauważmy
+ponadto, że Riemannowska forma objętośći na $\cfm$ w punkcie $(t,x)$ różni się
+od formy objętości na $\M$ w punkcie $x$ o czynnik $(e^{-t})^n$.  Policzmy więc
+normę $\omega$ jako elementu przestrzeni $L_k^p (\cfm)$.
+
 \[
-    \omega - \pi^\ast(\omega_r) = d I_r\omega + I_rd\omega.
+    ||\omega ||^p = \int_{\cfm} |\omega |^p d \mathrm{vol}_{\cfm} =
+    \int_0^\infty \left( e^{-t} \right)^{n-pk} \int_\mathcal{M} |\omega|^p d
+    \mathrm{vol}_\mathcal{M} dt = 
+\]
+\[
+    = \
+    \int_0^\infty \left( e^{-t} \right)^{n-pk} || \omega_t ||_{\mathcal{M}} dt = 
+    \int_0^\infty || \omega ||_t^p dt,
 \] 
-This one probably is Poincare lemma in a version suited for our situation.
-This is a good place to rewrite it here using Bott \\ 
-????????????????????????????????????????? \\
+gdzie
+\[
+|| \omega ||_r \deff || \omega_{|\mathcal{M} \times \{r\} } || =
+\mathrm{e}^{-r \cdot (\frac{n}{p} - k) }  ||\omega_r ||_{\M}.
+\]
+Przypomnijmy, że $\omega_r = i_r^\ast (\eta)$. \\
 
-%%% In reference to Lemma 10.1 from prof's Weber's
+Zauważmy teraz w jaki sposób zachowywać się będzie norma formy, która
+została przeciągnięta z podstawy, czyli rozmaitości $\M$. Dla 
+$\eta \in L_p^\ast (\M)$ możemy napisać
+\[
+    || \eta ||_r \deff || \pi^\ast ||_r = 
+\mathrm{e}^{-r \cdot (\frac{n}{p} - k) }  ||\eta ||_{\M}.
+\] \\
+
+Zazwyczaj w obliczeniach dotyczących kohomologii form argument pokazujący
+że zachodzi formuła homotopii jest prosty. %% Przedstwiony on został
+W badanym przypadku rozmaitości $\cfm$ fakt, że spełniona jest formuła homotopii
+wymaga szczegółowego uzasadnienia. \\
+
+
+Będziemy starać się dowieść, że zachodzi formuła:
+
+\[
+    \omega - \pi^\ast(\omega_r) = dI_r \omega + I_r d\omega
+\]
+W tym celu ponownie posłużymy się rozbiciem $k$-formy $\omega$, określonej na
+$\cfm$ na
+\[
+    \omega = \eta + dt \wedge \xi.
+\] 
+Możemy teraz dla $\eta$ określić na $\cfm$ $k$-formę $\partial \eta / \partial
+t$ zadaną w lokalnych współrzędnych $(x_1, x_2, ..., x_n)$ jako
+\[
+    \frac{\partial \eta}{\partial t} (t, x) =
+    \sum_{\alpha \in I(k)} \frac{\eta_\alpha}{\partial t}(t, x) dx^\alpha.
+\]
+
+Wykorzystujemy tutaj notację z \ref{notacja}. Na tej samej podstawie możemy 
+zapisać dla formy $\xi$ $(k-1)$ formę $\partial \xi / \partial t$ jako:
+\[
+    \frac{\partial \xi}{\partial t} (t, x) =
+    \sum_{\alpha \in I(k-1)} \frac{\xi_\alpha}{\partial t}(t, x) dx^\alpha. 
+\] \\
+
+Może zdefiniować na stosownym
+kompleksie form różnikowych
+
+\[
+    d_\M \omega =  
+    \sum_{1 \leq j \leq m} \sum_{\alpha \in I(k)}
+    \frac{\partial \eta_\alpha}{\partial x_j}(t, x) dx_j \wedge dy^\alpha
+\]
+\[
+    + \sum_{1 \leq j \leq m} \sum_{\alpha \in I(k-1)}
+    \frac{\partial \xi_\alpha}{\partial x_j}(t, x) dx_j \wedge dt \wedge dy^\alpha
+\]
+Then 
+\[
+    d_\M \omega = d_\M \eta - dt \wedge d_\M \xi
+\]
+oraz
+\[
+    d \omega = 
+    d_\M \omega + dt \wedge \frac{\partial \eta}{\partial t} = 
+    d_\M \eta + dt \wedge \left( 
+        \frac{\partial \eta}{\partial t} - d_\M \xi
+    \right). \\
+\]
+
+Ustalmy $r \in (0, 1)$ i zdefiniujmy:
+\[
+    I_r: \Lambda^i(\cfm) \rightarrow \Lambda^{i-1}(\cfm)
+\]
+
+
+
+\chapter{Dowody lematów}
+
+
+\begin{enumerate}
+    \item $||\omega||_r = \mathrm{e}^{-r \cdot (\frac{n}{p} - k }  $
+    \item Lemat Hardy'ego - Webera
+    \item Formuła homotopii jest prawdziwa dla naszego stożka
+\end{enumerate}
+
+
+
+
+\begin{lemma}[Uogólniona nierówność Hardy'ego]
+    Rozważmy funkcję $f: \mathbb{R}_{+} \rightarrow \mathbb{R}$, funkcje-wagi
+    $\phi, \psi: \mathbb{R}_{+} \rightarrow \mathbb{R}$ oraz $p, q \in
+    \mathbb{R}$ takie, że $\frac{1}{p} + \frac{1}{q} = 1 $.  Zachodzi dla nich
+$$
+\int_0^\infty \left|
+                \phi(x) \int_0^x f(t) dt
+              \right|^p dx
+\leq
+C \int_0^\infty \left|
+                    \psi(x)  f(x)
+                \right|^p dx
+$$
+wtedy i tylko wtedy, gdy
+$$
+\sup_{x > 0}
+\left[
+\int_x^\infty  
+   | \phi(t) |^p dt
+\right]^{\frac{1}{p}}
+\left[
+\int_0^x
+    | \phi(t) |^{-q} dt
+\right]^{\frac{1}{q}} < + \infty,
+$$
+\end{lemma}
+\begin{proof}
+    Dowód pomijam. 
+    Jest on dostępny w ... . Zacytować papier od pana Webera.
+%% %%% http://www.encyclopediaofmath.org/index.php/Hardy_inequality
+%% where you can find references to the original source. \\
+\end{proof}
+
 \begin{lemma}
-Let $ \alpha (n/p - k) < 0 $ Then the form $\pi^\ast \eta$ is
-$p$-integrable for each $p$-integrable form $\eta \in
-L^k_p(\mathcal{M})$.
-%%%% CHECK IT!!
+Rozważmy pewną funkcję $f: \mathbb{R}_{+} \rightarrow \mathbb{R}$, gdzie $f
+\geq 0$ oraz jej funkcję pierwotną $F(x) = \int_0^{x} f(t) dt$. Dla $\alpha > 0$ warunek
+$\int_0^\infty f(x)^p e^{-\alpha x}dx < \infty$ implikuje $\int_0^\infty
+F(x)^pe^{- \alpha x}dx < \infty$.  \\
 \end{lemma}
 \begin{proof}
-\[
-    ||\pi^\ast \eta ||^p = 
-    \int_{c \mathcal{M}} |\pi^\ast \eta(x,t)|^p d \mathrm{vol}(c\mathcal{M}) = 
-    \int_0^\infty ||\eta||_t^p dt = ||\eta||^p \int_0^\infty f(t)^{n-pk} dt
-\]
-so, if $f$ is given by $f(x) = e^\alpha$, the last integral is  
-$ ||\eta||^p \int_0^\infty e^{\alpha (n-pk)} dt$. This integral is convergent
-if $\alpha (n - pk) < 0$.
-\end{proof}
-
-The following lemma will also be useful in further computation.
-\begin{lemma}[Estimation of $\int \xi$]
-\end{lemma}
-\begin{proof}  %% redo this in align style
-\begin{multline*}
-    || \int_t^r \xi_x dx || \leq
-     \int_t^r || \xi_x || dx  =  \\
-     \int_r^t f(x)^{i - n/p} f(x)^{n/p - i} || \xi_x || dx  \leq  \\
-   | \int_r^t f(x)^{i - n/p} dx|^{1/q} \cdot
-   |\int_r^t f(x)^{n/p - i} || \xi_s || ds |^{1/p}
-\end{multline*}
-\end{proof}
-
-
-%% In reference to Lemma 10.3
-\begin{lemma}
-   Let $k < (n+1)/p$. Then for $p$-integrable $\omega \in
-   \Omega^k(\mathrm{c}^f\mathcal{M})$ the form $I_r\omega$ is
-   integrable.
-\end{lemma}
-\begin{proof}
-  For the case $k < (n+1)/p = n/p - 1/q + 1$ we get from the previous lemma:
-\[
-||I_r\omega|| = \int_0^\infty ||\int_r^t \xi_s ds|| dt \leq
- C \int_0^\infty f(t)^{p/q},
-\]
-and for $k=(n+1)/p$, we get:
-\[
-  ||I_r\omega|| \leq \int_0^\infty | t(\mathrm{log} r - \mathrm{log} t)  |^{p/q} dt
-\]
-This 
-\end{proof}
-
-\begin{remark} %% this is corollary 10.4 from Weber's
-  Based on the above lemma, we get that if $k<(n+1)/p$ then a $p$-integrable
-closed form is cohomologous to $\pi^\ast \omega_r$ for almost all $r$.
-\[
-    \omega = dI_0\omega + I_0d\omega
-\]
-\end{remark}
-\begin{proof}
-  We have $\omega - \pi^\ast(\omega_r) = dI_r\omega$ and $I_r \omega$ is 
-$p$-integrable. The form $\omega_r$ is $p$-integrable for almost all $r$.
-So for almost all $r$ the form $dI_r\omega$ is also $p$-integrable.
-\end{proof}
-
-\begin{lemma} %% Refering to the lemma 10.5 from Weber
-  Let $k > (n+1)/p$ Then $I_0 \omega $ is $p$-integrable for 
-$\omega \in L_p \Omega^k(\cfm)$ and the homotopy formula holds:
-\[
-    \omega = d I_0 \omega + I_0 d \omega
-\]
-\end{lemma}
-\begin{proof}
-  Again, we estimate 
-\[
-    ||I_0 \omega|| = \int_0^\infty ||\int_0^t \xi_s ds||_t^p dt \leq
-    ...,
-\]
-so this norm is finite. The form $I_0 \omega$ may not be smooth. We
+Wykorzystamy uogólnioną nierówność Hardy'ego.  Załóżmy $\psi(t) = \phi(t) =
+e^{- \frac{t}{p} }$. Wtedy jeśli $\frac{1}{p} + \frac{1}{q} = 1 $, to
+$\frac{1}{q} = \frac{p-1}{p}$ oraz $-q = \frac{p}{1-p}$.  Zbadajmy teraz, czy
+spełniony jest warunek, aby zachodzić mogła nierówność Hardy'ego:
+$$
+\sup_{x > 0}
+\left[
+\int_x^\infty  
+    e^{-t} dt
+\right]^{\frac{1}{p}}
+\left[
+\int_0^x
+    e^{-t \frac{1}{1-p}} dt
+\right]^{\frac{p-1}{p}}
+=
+\sup_{x > 0}
+    C
+    e^{- \frac{x}{p}}
+    \left(
+        e^{\frac{x}{p-1}} - 1
+    \right)^{\frac{p-1}{p}}
+=
+$$
+$$
+C
+\sup_{x > 0}
+    \left(
+    e^{- \frac{x}{p-1}}
+        e^{\frac{x}{p-1}} -
+    e^{- \frac{x}{p-1}}
+    \right)^{\frac{p-1}{p}}
+=
+C
+\sup_{x > 0}
+    \left(
+        1 -
+    e^{- \frac{x}{p-1}}
+    \right)^{\frac{p-1}{p}}. 
+$$
+Wyrażenie to jest ograniczone dla $p> 1$. Po zastosowaniu uogólnionej
+nierówności Hardy'ego i ewentualnym przeskalowaniu zmiennej $x$ do $\alpha x$
+otrzymujemy tezę.
 \end{proof}
 
 
 
 
-
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%  Further be dragons  %%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-%%      \begin{figure}[tp]
-%%        \centering
-%%        \framebox{\vbox to 4cm{\vfil\hbox to
-%%            7cm{\hfil\tiny.\hfil}\vfil}}
-%%        \caption{Artystyczna wizja blaba w~obrazie węgierskiego artysty
-%%          Josipa~A. Rozkoszy pt.~,,Blaba''}
-%%      \end{figure}
-%%      
-%%      \chapter{Wcześniejsze implementacje blabalizatora
-%%        różnicowego}\label{r:losers}
-%%      
-%%      \section{Podejście wprost}
-%%      \begin{verbatim}
-%%       )[14].
-%%       ), {1234}],]. [map [cc], 1, 22]. [rho x 1]. {22; [22]},
-%%              001110101010101010101010101010101111101001@
-%%       [22%f4].
-%%       cq. rep. else 7;
-%%       ]. hlt
-%%      \end{verbatim}
-%%      
-%%      \begin{center}
-%%        \begin{tabular}{rrr}
-%%          $\alpha$ & $\beta$ & $\gamma_7$ \\
-%%          901384 & 13784 & 1341\\
-%%          68746546 & 13498& 09165\\
-%%          918324719& 1789 & 1310 \\
-%%          9089 & 91032874& 1873 \\
-%%          1 & 9187 & 19032874193 \\
-%%          90143 & 01938 & 0193284 \\
-%%          309132 & $-1349$ & $-149089088$ \\
-%%          0202122 & 1234132 & 918324098 \\
-%%          11234 & $-109234$ & 1934 \\
-%%        \end{tabular}
-%%      \end{center}
 
 \begin{thebibliography}{99}
 \addcontentsline{toc}{chapter}{Bibliography}
@@ -488,6 +600,10 @@ so this norm is finite. The form $I_0 \omega$ may not be smooth. We
   Number 3, 1994.
   
 \bibitem[Lee]{lee} Lee, \textit{Introduction to Smooth Manifolds}
+
+\bibitem[Ducret]{lausanne} Stephen Ducret, \textit{$L_{q,p}$-Cohomology of Riemannian
+    Manifolds and Simplical Complexes of Bounded Geometry}, Ecole Polytechnique Federale
+    de Lausanne, Doctor Thesis, Lausanne, 2009
 
 \end{thebibliography}
 
