@@ -459,13 +459,13 @@ kompleksie form różnikowych
 \]
 \[
     + \sum_{1 \leq j \leq m} \sum_{\alpha \in I(k-1)}
-    \frac{\partial \xi_\alpha}{\partial x_j}(t, x) dx_j \wedge dt \wedge dy^\alpha
+    \frac{\partial \xi_\alpha}{\partial x_j}(t, x) dx_j \wedge dt \wedge dy^\alpha.
 \]
-Then 
+Możemy wtedy określić różniczkę formy najpierw na podstawie $f$-stożka:
 \[
-    d_\M \omega = d_\M \eta - dt \wedge d_\M \xi
+    d_\M \omega = d_\M \eta - dt \wedge d_\M \xi,
 \]
-oraz
+a następnie na całym badanym $f$-stożku:
 \[
     d \omega = 
     d_\M \omega + dt \wedge \frac{\partial \eta}{\partial t} = 
@@ -474,11 +474,118 @@ oraz
     \right). \\
 \]
 
-Ustalmy $r \in (0, 1)$ i zdefiniujmy:
+Możemy teraz postarać się zdefiniować operator homotopii.
+Dla ustalonego $r \in (0, \infty)$ określimy operator
 \[
-    I_r: \Lambda^i(\cfm) \rightarrow \Lambda^{i-1}(\cfm)
+    I_r: \Lambda^k(\cfm) \rightarrow \Lambda^{k-1}(\cfm),
+\]
+który w lokalnych współrzędnych $(x_1, x_2, ..., x_n)$ jest zadany wzorem:
+\[
+    (I_r \omega)(t, x) = \sum_{\alpha \in I(k-1)}
+      \left(
+          \int_s^t \xi(\tau, x) d\tau 
+      \right) dy^\alpha.
+\] 
+Dla klarowności kolejnych wzorów wprowadzimy oznaczenie. Będziemy mianowicie pisać
+\[
+    (I_r \omega)(t, x) = \int_s^t \xi.
+\] \\
+
+Możemy teraz zbadać wyrażenia $d I_r \omega$ oraz $I_r d \omega$, które występują
+w formule homotopii. Napiszemy:
+\[
+    d I_r \omega = d_\M \int_r^t \xi + dt \wedge \frac{\partial}{\partial t} \int_r^t \xi =
+\]
+\[
+    = \int_r^t d_\M \xi + dt \wedge \xi
+\]
+oraz
+\[
+    I_r \omega = I_r
+    \left(
+        d_\M \eta + dt \wedge \left( \frac{\partial \eta}{\partial t} - d_\M \xi \right)
+    \right)
+\]
+\[
+    = \int_r^t 
+        \left(
+            \frac{\partial \eta}{\partial t} - d_M \xi
+        \right)
+\]
+\[
+    = \eta - \pi^\ast \left( \eta^{(r)} \right) - \int_r^t d_\M \xi,
 \]
 
+gdzie $\eta^{(r)} \in \Lambda^k (\M)$ jest zadane w lokalnych współrzędnych
+$(x_1, x_2, ..., x_n)$ jako 
+\[
+    \eta^{(s)}(x) = \sum_{\alpha \in I(k)} \eta_\alpha(t, x) dx^\alpha.
+\] \\
+
+W związku z tym, zachodzi wzór:
+\[
+    d I_r \xi + I_r d \xi = dt \wedge \xi + \eta - \pi^\ast \left( \eta^{(r)} \right).
+\] \\
+
+Spróbujemy teraz zbadać, kiedy dla $p$-całkowalnej formy $\omega$ forma $I_r \omega$
+także jest całkowalna. Fakt, że forma jest  $p$-całkowalna oznacza innymi słowy, że
+\[
+    || \omega ||^p = \int_{\cfm} |\omega|^p =
+    \int_0^1 \int_{\M} \left(
+        (e^{-t})^{-2k} | \eta^{(t)}|^p_{\M} + 
+        (e^{-t})^{-2(k-1)} | \xi^{(t)}|^p_{\M} 
+    \right)
+    (e^{-t})^{m} dt.
+\]
+
+Jako że $I_r \omega$ jest $(k-1)$ formą, to możemy napisać
+\[
+    ||I_r \omega ||^p = 
+    \int_{\cfm} ||I_r \omega||^p = 
+    \int_0^1 \int_{\M} \left(
+        (e^{-t})^{-p(k-1)}
+        \int_r^t ||\xi^{(\tau)} d\tau||^p_{\M} (e^{-t})^n dt
+    \right).
+\] \\
+
+Wykorzystamy teraz lemat, który udowodniony został w dodatku. \\
+
+Lemat możemy wykorzystać, tylko wtedy gdy 
+wspołczynnik przy $e^{-t}$, nazwijmy go $\alpha$, jest większy od zera. Ten współczynnik to:
+$\alpha = -p(k-1) + n$. Zbadajmy warunek:
+\[
+    -p(k-1) + n > 0
+\]
+\[
+    -k + 1 + \frac{n}{p} > 0
+\]
+\[
+    k < \frac{n}{p} + 1.
+\]
+Warunek pozwalający na wykorzystanie lematu jest więc spełniony dla $k \leq \frac{n}{p}$. \\
+
+Gdy warunek ten jest spełniony, stosujemy lemat ... i uzyskujemy rezultat, że $I_r \omega$
+jest formą $p$-całkowalną. \\
+
+Pokazaliśmy więc, że jeśli $\omega$ jest $k$-formą $p$-całkowalną, to  $I_r \omega$ jest
+$p$-całkowalna i zachodzi wzór
+\[
+    \omega = dI_r \omega + I_r d \omega + \pi^\ast 
+    \left(
+        \eta^{(s)}.
+    \right).
+\]
+Stąd jeśli $d \omega = 0$< to 
+\[
+    \eta \in d(L^{i-1} \cfm) + \pi^\ast (L^i*\M),
+\]
+więc 
+\[
+    \pi^\ast: H \left( \M \right) \rightarrow H ( \cfm )
+\]
+jest operatorem suriektywnym. \\
+
+%%% Zbadać co się dzieje w tym przeciwnym przypadku
 
 
 \chapter{Dowody lematów}
