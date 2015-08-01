@@ -29,18 +29,16 @@
 \nralbumu{304742}
 
 
-\title{$\mathrm{L}_p$-cohomologies of Riemannian $f$-horns.}
+\title{$\mathrm{L}_p$-kohomologie $f$-stożków Riemannowskich.}
 
-\tytulang{An implementation of a difference blabalizer based on the theory 
-  of $\sigma$ -- $\rho$ phetors}
+\tytulang{$\mathrm{L}_p$-cohomologies of Riemannian $f$-horns.}
 
 \kierunek{Matematyka} % Praca wykonana pod kierunkiem:
 % (podać tytuł/stopień imię i nazwisko opiekuna
 % Instytut
 % ew. Wydział ew. Uczelnia (jeżeli nie MIM UW))
 \opiekun{dra hab. Andrzeja Webera\\
-              Instytut Matematyki\\
-        }
+              Instytut Matematyki\\}
 
 % miesiąc i~rok:
 \date{Maj 2015}
@@ -71,59 +69,78 @@
 
 %tu idzie streszczenie na strone poczatkowa
 \begin{abstract}
-  In this thesis $L_p$-cohomologies of Riemannian $f$-horn are calculated.
+  W tej pracy licencjackiej opisane jest obliczenie $L_p$-kohomologii
+  rozmaitości Riemannowskich.
 \end{abstract}
 
 \tableofcontents
 %\listoffigures
 %\listoftables
 
-\chapter{Introduction}
-\addcontentsline{toc}{chapter}{Introduction}
+\chapter{Wstęp}
+\addcontentsline{toc}{chapter}{blabla}
 
 W pracy \cite{weber} prezentowane jest między innymi obliczenie
-$L_p$-kohomologii stożka nad pseudorozmaitością Riemannowską.
+$L_p$-kohomologii stożka nad pseudorozmaitością Riemannowską. 
 
-The cone is given a metric of the form $dt \otimes dt
-\oplus t^2 g$ and $g$ is the metric on the nonsingular part of the
-original pseudomanifold. In the mentioned work, $L_p$ cohomology of
-this space is presented.
+Na stożku tym określona jest metryka postaci
+$dt \otimes dt \oplus t^2 g$, gdzie $g$ 
+jest metryką na części nieosobliwej wyjściowej pseudorozmaitości.
+W dalszej części wspomnianej pracy obliczana jest $L_p$-kohomologia
+wspomnianej przestrzeni.
+\\
 
 %% This line of research can 
 %% be traced back to Cheeger \cite{cheeger}. 
 %% A similar approach was presented by Youssin \cite{youssin}, where $f$-horns
 %% were considered.
 
- We present a slight modification of this notions, by considering
- manifolds where the Riemannian metric is of the for
+W tej pracy licencjackiej przedstawiam pewną modyfikację tych pojęć
+do $e^{-t}$-stożków Riemannowskich, czyli przestrzeni będących produktem rozmaitości
+Riemannowskiej oraz półprostej na której określono metrykę
+$dt \otimes dt \oplus (e^{-t})^2 g$, gdzie $g$ 
 
-\chapter{Preliminaries}
-\section{Vector spaces and tensors}
-If we consider a finite-dimensional vector space $V$ with a given metric $||
-\cdot ||$ and define a new metric $|| x ||_r  = r \dot || x ||$. Then in the
-space $(V, || \cdot||_r)^\ast$ dual to $(V, ||| \cdot |||)$, the normed is scaled
-by the factor $\frac{1}{r}$, that is for any $\varphi \in V^\ast$ we get
+
+\chapter{Podstawy}
+\addcontentsline{toc}{chapter}{Podstawy}
+\section{Przestrzenie wektorowe i tensory}
+Rozważać będziemy skończenie wymiarową przestrzeń wektorową $V$ 
+z daną metryką $|| \cdot ||$ i zdefiniujemy na niej nową metrykę
+$|| \cdot ||' \deff r \dot || x ||$. Wtedy w przestrzeni 
+$(V, || \cdot||_r)^\ast$ dualnej do $(V, ||| \cdot |||)$ norma skaluje
+się przez współcznynnik
+$\frac{1}{r}$. Oznacza to że dla
+$\varphi \in V^\ast$ otrzymamy skalowanie
 $||\varphi||_r = \frac{1}{r} ||\varphi|| $. \\
 
-We will make a simple observation that we will later use in the
-computations.  We consider a Riemannian manifold $\mathrm{M}$ and
-tagent $T_x\mathrm{M}$ and cotangent $T_x^\ast\mathrm{M}$ spaces in
-the point $x$.  Let the bases of these spaces be $e_1, e_2, ..., e_n$
-and dual $e_1^\ast, e_2^\ast, ..., e_n^\ast$. The volume form of this
-manifold is $d\mathrm{vol} = \pm e_1^\ast \wedge e_2^\ast \wedge
+
+Poczynimy tu jeszcze jedną obserwację, która pomoże nam w dalszych obliczeniach.
+Rozważamy rozmaitość Riemannowską 
+$\mathrm{M}$  oraz jej przestrzeń styczną 
+$T_x\mathrm{M}$ i kostyczną $T_x^\ast\mathrm{M}$ 
+w punkcie $x$. 
+Niech bazami ortogonalnymi tych przestrzeni będą
+$e_1, e_2, ..., e_n$ oraz dualna
+$e_1^\ast, e_2^\ast, ..., e_n^\ast$. 
+Forma objętości może zostać zadana przez
+$d\mathrm{vol} = \pm e_1^\ast \wedge e_2^\ast \wedge
 ... \wedge e_n^\ast $. \\
 
-We now want to compute how forms from $\Lambda(\mathcal{M})$ are scaled
-with respect to such a change in the norm. Suppose we are considering
-space of $k$-forms on $\mathbb{M}$ at some arbitrary point. Then every
-$k$-form can be locally expressed in a basis consisting of products of
-covectors belonging to basis dual to the standard basis. That is every
-$k$-form in the point $x$ using some local coordinates $(x_1, x_2,
-... x_n)$ can be written $ \sum_{\mathrm{I} \in I } a_\mathrm{I}
-dx_\mathrm{i}$, where $I$ is the set of $k$-indices of form
+Chcemy teraz obliczyć w jaki sposób formy z 
+$\Lambda(\mathcal{M})$ skalują się ze względu na taką zmainę w normie.
+
+Załózmy że rozważamy przestrzeń $k$-form na
+$\mathbb{M}$ 
+w pewnym punkcie rozmaitości. Wtedy każda $k$ forma może być lokalnie
+wyrażona w bazie składającej się z produktów kowektorów należących 
+do bazy dualnej do bazy standardowej. Oznacza to, że każda $k$-forma
+w punkcie $x$ może być zapisana, korzystając z lokalnych współrzędnych
+$(x_1, x_2, ... x_n)$ jako $ \sum_{\mathrm{I} \in I } a_\mathrm{I} dx_\mathrm{i}$,
+gdzie $I$ jest zbiorem $k$-indeksów postaci
 $\underbrace{(i_1, i_2, ..., i_k)}_{k~\mathrm{times}}$, with $i_1,
-i_2, ... \in \{1, 2, ..., n \}$.  (following Einstein convention).
-Let us see how basis vector is scaled:
+i_2, ... \in \{1, 2, ..., n \}$.   \\
+
+Popatrzmy w jaki sposób skalują się wektory bazowe:
 \begin{multline*}
     ||dx_{i_1} \wedge dx_{i_2} \wedge ... \wedge dx_{i_k} ||_t =  
     ||dx_{i_1} ||_t \cdot ||  dx_{i_2} ||_t \cdot ... \cdot || dx_{i_k} ||_t =  \\
@@ -132,29 +149,34 @@ Let us see how basis vector is scaled:
     \frac{1}{t^k}||dx_{i_1} \wedge dx_{i_2} \wedge ... \wedge dx_{i_k} ||
 \end{multline*} \\
 
-This means that any $k$ form is scaled by $1/t^k$ when metric is scaled
-by a factor of $t$.
-This applies also to the volume form, so we obtain:
+This means that any $k$ form is scaled by  when metric is scaled
+Oznacza to, że każda $k$ forma skaluje się przez $1/t^k$ gdy metryka jest
+skalowana przez czynnik $t$.
+Obserwację tą możemy także zaplikować do fromy objętości, otrzymując:
 \[
 d\mathrm{vol}_t = \frac{1}{t^n} d\mathrm{vol}
 \]
 
-\section{Riemannian metric}
+\section{Metryka Riemannowska}
 
-\textbf{Riemannian metric} is a smooth symmetric covariant 2-tensor field
-on manifold $\mathcal{M}$ that is positive definite at each point.(attaching
-a field of linear functions that takes two variables to every point of the
-manifold).
+\textbf{Metryką Riemannowską} nazwiemy gładkie, symetryczne kowariantne
+pole 2-tensorów na rozmaitości
+$\mathcal{M}$ które jest dodatnio określone w każdym punkcie. Mówiąc bardziej
+intuicyjnie, określenie metryki Riemannowskiej to doczepienie 
+pola iloczynów skalarnych do rozmaitości, które zmienia się w sposób gładki.
+\\
 
-In any smooth local coordinates
-$(x^i)$, Riemannian metric can be written as:
+W dowolnych lolalnych gładkich współrzędnych $(x^i)$ metryka Riemannowska
+może być zapisana jako
 \[
-    g = g_{ij} dx^i \otimes dx^j = g_{ij} dx^i dx^j
+    g = g_{ij} dx^i \otimes dx^j = g_{ij} dx^i dx^j,
 \]
-where $g_{ij}$ is a positive definite matrix of smooth functions. 
+gdzie
+$g_{ij}$
+jest dodatnio określoną macierzą (której współrzędne to funkcje gładkie). \\
 
-The simplest example of Riemannian metric is \emph{Euclidean metric} on
-$\mathbb{R}^n$ given in standard coordinates by 
+Najprostszym przykładem metryki Riemannowskiej jest \emph{metryka Euklidesowa}
+na $\mathbb{R}^n$, która zadana jest w standardowych współrzędnych jako
 \[
     g = \delta_{ij}dx^idx^j.
 \]
@@ -172,130 +194,154 @@ $\mathbb{R}^n$ given in standard coordinates by
 
 \section{Differetial forms}
 
-We will now recall definition of a norm of a differential form in each point of
-the manifold. Let $(M. g)$ be an orientable, connected and complete Riemannian 
-manifold. By $x$ we will mean a point of $X$ and $\Lambda^k T_x M$ is the vector
-space of multilinear alternate maps:
+Przytoczę teraz definicję normy formy różniczkowej w poszczególnych punktach
+rozmaitości. Niech $(M, g)$ będzie zorientowaną, spójną %% i zwartą ?? chyba nie
+rozmaitością Riemannowską. Niech $\M$ będzie rozmaitością, a $x$ jej punktem.
+$\Lambda^k T_x M$ jest przestrzenia $k$-liniowych funkcji alternujących:
 \[
     \alpha_x:T_x^\star M \times ... \times T_x^\star M \times \rightarrow \mathbb{R}
-\]
+\] \\
 
-Using this, we recall that exterior form of degree $k$ is defined as a section of 
-the $k$-th cotangent bundle
+Przypomnijmy także, że forma zewnętrzna stopnia $k$ jest zdefiniowana jako 
+sekcja $k$-tej wiązki kostycznej.
 \[
     \Lambda^k M = \coprod_{x \in M} 
     \Lambda^k T_x^\star M \xrightarrow{\pi} M.
-\]
+\] \\
 
-Therefore for each point $x \in M$ we have a multilinear map $\alpha_x \in
-\Lambda^k T_x^\star M$. At a given point it can be expressed in an easy form.
-If $(e_1, ..., e_n)$ is a basis of $T_x M$ and $(e^1, ..., e^n)$ is the dual basis,
-we can write
+Stąd w każdym punkcie $x \in M$ mamy funkcję wieloliniową $\alpha_x \in
+\Lambda^k T_x^\star M$. Można ją wyrazić w prostej formie.
+Jeśli $(e_1, ..., e_n)$ jest bazą $T_x M$, a  $(e^1, ..., e^n)$ jest bazą dualną,
+możem napisać
 \[
     \alpha_x = \sum_{1 \leq i_1 < ... < i_k \leq n} a_{i_1 ... i_k} e^{i^1} \wedge ...
     \wedge e^{i^k}
 \] 
-where coefficients are $a_{i_1 ... i_k} = \alpha_x(e^{i^1}, ..., e^{i^2})$.
+gdzie współczynniki są zadane jako
+$a_{i_1 ... i_k} = \alpha_x(e^{i^1}, ..., e^{i^2})$. \\
 
-Using above, we can express given form in terms of local coordinates $x^1, ...,
-x^n$ of an open subset $U$ of $M$. We have a basis $\frac{\partial}{\partial
-x^1}, ..., \frac{\partial}{\partial x^n}$ of $T_x M$ for each $x \in U$ with
-corresponding dual basis $dx^1, ..., dx^n$. For every point of the set $U$ one
-can write
+Korzystając z powyższych spostrzeżeń, możemy wyrazić daną formę w terminach
+współrzędnych lokalnych $x^1, ..., x^n$
+na otwartym podzbiorze $U \subset M$.  Mamy bazę
+$\frac{\partial}{\partial x^1}, ..., \frac{\partial}{\partial x^n}$ dla $T_x M$
+dla każdego $x \in U$ wraz ze stowarzyszoną bazą dualną $dx^1, ..., dx^n$.
+Ponadto, dla każdego punktu ze zbioru $U$ możemy napisać
 \[
     \alpha_x = \sum_{1 \leq i_1 < ... < i_k \leq n} a_{i_1 ... i_k}
        dx^{i^1} \wedge ...  \wedge dx^{i^k}.
-\] 
+\]  \\
 
-On a Riemannian manifold one has a scalar product defined on $T_x M$ for each
-point $x \in M$. Therefore, we can define a norm of every $k$-form $\alpha$.
-We denote the scalar product on $T_x M$ by $<u, v>_x = g_x(u, v)$. Let us choose for
-some basis $(e_1, ..., e_n)$ of $T_x M$ with corresponding dual basis $(e^1, ..., e^n)$.
-We can argue that such basis can always be chosen to be orthogonal, because we can
-always apply Gram-Schmidt's orthogonalisation algorithm to a basis given by local
-coordinates. We can then define a map $G: \Lambda^k T_x M \times T_x M
-\leftarrow \mathbb{R}$. Given two forms 
+Na rozmaitości Riemannowskiej posiadamy iloczyn sklarany zadany na 
+$T_x M$ dla każdego punktu $x \in M$.
+Korzystając z niego możemy zdefiniować normę każdej $k$-formy $\alpha$
+Wprowadźmy proste oznaczenie iloczynu skalarnego na
+$T_x M$
+przez
+$<u, v>_x = g_x(u, v)$.
+
+Wybierzmy bazę $(e_1, ..., e_n)$ przestrzeni $T_x M$ z odpowiadającą jej bazą dualną
+$(e^1, ..., e^n)$.
+Można argumentować, że możemy zawsze wybrać taką bazę tak aby była ona ortogonalna.
+Dzieje się tak, ponieważ możemy zawsze zastosować algorytm ortogonalizacji 
+Grama-Schmidta do bazy zadanej przez różniczkowanie lokalnych współrzędnych rozmaitości.
+Możemy wtedy zdefiniować funkcję $G: \Lambda^k T_x M \times T_x M \leftarrow \mathbb{R}$, 
+
+Dla danych dwóch form
 $ \alpha_x = \sum_{1 \leq i_1 < ... < i_k \leq n} \alpha_{i_1 ... i_k; x} e^{i^1}
-\wedge ...  \wedge e^{i^k}$ and
+\wedge ...  \wedge e^{i^k}$ oraz
 $ \beta_x = \sum_{1 \leq i_1 < ... < i_k \leq n} \beta_{i_1 ... i_k; x} e^{i^1}
-\wedge ...  \wedge e^{i^k}$, we set
+\wedge ...  \wedge e^{i^k}$,  określimy tę funkcję jako
 \[
     G(\alpha_x, \beta_x) = \sum_{i_1, ..., i_k} \alpha_{i_1 ... i_k; x}
                                                     \beta_{i_1 ... i_k; x}.
-\]
+\] \\
 
-We can then cite lemma 1.1 from \cite{lausanne}.
+Przytoczymy teraz następujący lemat, dostępny na przykład w \cite{lausanne}.
+
 
 \begin{lemma}
-The above stated map $G: \Lambda^k T_x M \times T_x M $ is symmetric and positive
-definite, and hence is a scalar product at any given point $x \in M$. It does not depend
-on the choice of the particular basis $(e_1, ..., e_n)$ among the orhonormal
-ones. Additionaly the basis $(e^1 \wedge ... \wedge e^n)$ is orthonormal for $G$.
+    Zdefiniowane powyżej przekształcenie 
+
+$G: \Lambda^k T_x M \times T_x M $ 
+jest liniowe, symetryczne i dodatnio określone. Przez to jest ono iloczynem
+skalarnym dla każdego punktu $x \in M$.  Nie zależy ono od wyboru konkretnej bazy
+$(e_1, ..., e_n)$ spośród baz ortogonalnych.  DOdatkowo, baza
+$(e^1 \wedge ... \wedge e^n)$ jest ortonormalna dla $G$.
 \end{lemma}
 
-We can also give eqivalent definition using other terms ...
+We can also give eqivalent definition using other terms ... ?? Może dopisać tutaj jeszcze z tego doktoratu
+o i tamto \\
 
 
-\textbf{Induced map} For any smooth map $F:
-M \rightarrow N$ between two smooth manifolds with or without
-boundary, the pullback $F^\ast: \Omega^p N \rightarrow \Omega^p M$
-carries closed forms to closed forms and exact forms to exact
-forms. It thus decsends to a linear map, denoted by $F^\ast: H^p N
-\rightarrow H^p M$, too. \\
+\textbf{Induced map}
+Dla każdej gładkiej funkcji $F: M \rightarrow N$ pomiędzy dwoma rozmaitościami
+(z brzegiem lub bez brzegu), przeciągnięcie $F^\ast: \Omega^p N \rightarrow
+\Omega^p M$ przenosi formy zamknięte na formy zamknięte, a formy dokładne na
+formy dokładne. \\
 
-Digression in digression in digression: \textbf{Pullback} of $F^\ast$ is
+Z tej obserwacji wynika, że indukuje ono przekształcenie liniowe
+oznaczane jako denoted by $F^\ast: H^p N \rightarrow H^p M$. \\
+
+
+\textbf{Przeciągnięciem} $F^\ast$ nazwiemy
 \[
     (F^\ast \omega)_p(v_1, ..., v_n) =
         \omega_{F(p)}(dF_p(v_1), ..., dF_p(v_k)).
 \] \\
 
 
-\section{Explaination about induced maps etc.}
+\section{Wyjaśnienia dotyczące mapy indukowanej}
 %% Mike note - this star means induced map, which is explained in the
 %% previous chapter
 
-If we have two smooth maps $F, G:
-M \rightarrow N$ and we want to prove that the induced maps are equal
-$F^\ast = G^\ast$. Given a closed $p-$form $\omega$ on $N$, we need to
-produce a $(p-1)$-form $\eta$ no $M$ such that
+Rozważamy dwie gładkie funkcje $F, G: M \rightarrow N$ 
+i chcemy udowodnić że ich przekształcenia indukowane są równe
+$F^\ast = G^\ast$. Wyraźmy ten warunek w nieco innych słowach.
+
+Gdy weźmiemy zamkniętą formę
+
+$p-$formę $\omega$ na $N$, aby przekształcenia indukowane były równe,
+musimy być w stanie wyprodukować taką 
+ $(p-1)$-formę $\eta$ na $M$, aby spełnione
 
 \[
-    G^\ast \omega - F^\ast \omega = d\eta
+    G^\ast \omega - F^\ast \omega = d\eta.
 \]
 
-from this, it will follow that $ G^\ast [\omega] - F^\ast [\omega] =
-[d\eta] = 0$, where $[]$ is just taking homotopy equivalence class
-of given form. The author suggests a way to make it more systematic,
-by finding an operator $h$, which transforms closed $p$-forms on $N$
-to $(p-1)$-forms on $M$ and satisfies
-
+Z tego wyniknie bowiem, że
+$ G^\ast [\omega] - F^\ast [\omega] =
+[d\eta] = 0$, gdzie operator $[\cdot]$
+oznacza wzięcie klas homotopijnej równoważności danej formy
+Możemy podejść do tego problemu nieco bardziej systematycznie, 
+szukając takie operatora
+$h$, który jako argumenty bierze zamknięte $p$ formy na $N$
+i działa tak, że spełniona jest zależność
 \[
     d(h\omega) = G^\ast \omega - F^\ast \omega.
-\]
+\] \\
 
-Instead of defining $h\omega$ only when $\omega$ is close, it turns
-out to be far easier to define a map $h$ from the space of
-\textit{all} smooth $p$-forms on $N$ to the space of smoooth
-$(p-1)$-forms on $M$, which satisfies:
-
+Zamiast definiować $h \omega$ tylko dla przypadku, kiedy $\omega$
+jest zamknięta, okazuje się, że łatwiej jest określić operator
+$h$ z przestrzeni wszystkich gładkich $p$-form na $N$
+do przestrzeni wszystkich gładkich $(p-1)$-form na $M$,
+dla którego spełnione jest równanie
 \[
-    d(h\omega) + h(d\omega) = G^\ast \omega - F^\ast \omega ,
+    d(h\omega) + h(d\omega) = G^\ast \omega - F^\ast \omega.
 \]
+Gdy warunek ten jest bowiem spełniony to dla formy $\omega$, która
+jest zakmnięta zajdzie także poprzedni warunek. \\
 
-which implies the above equality when $\omega$ is closed. (To be
-completly precise, we define a family of maps, one for each $p$, which
-satisfy said equalities on adequate levels.
-
+Dokładniej, jeśli chcemy być całkowicie dokładni, to musimy
+zdefiniować rodzinę funkcji, po jednej funkcji dla każdego $p$, która
+będzie spełniać stosowny warunek na danym poziomie.
 \[
     H(\mathcal{M} \times \mathbb{R}_{\geq})_{dR}^\ast = H(\mathcal{M})_{dR}^\ast
 \]
 
 \section{$L_p(\M)$ space}
 
-
-
 \chapter{Obliczenie}
-\addcontentsline{toc}{chapter}{Computation}
+\addcontentsline{toc}{chapter}{Obliczenie}
 
 Celem tego rozdziału jest prezentacja obliczenia 
 $L_p$-kohomologii Riemannowskiego $f$-stożka z funkcją wagową $f = e^{-t}$.
@@ -587,6 +633,27 @@ jest operatorem suriektywnym. \\
 
 %%% Zbadać co się dzieje w tym przeciwnym przypadku
 
+\section{Co pan Weber kazał mi zrobić}
+Ten fragment, który Pan kontempluje: Chodzi o to, że zamiast form gładkich
+trzeba rozważać formy o mierzalnych współczynnikach z różniczką w sensie
+"prądów" (currents), czyli funkcjonałów na formach. Być może to troche zbyt
+obszerny temat na licencjat. Moim zdaniem wystarczy by Pan oszacował operator I
+(odcałkowanie form) w normie $L^p$ i powiedział że, tak jak np w mojej pracy
+pozwoli to dowieść znikanie kohomologii w jakichś gradacjach.
+
+Czyli twierdzenie główne pracy by było: Operator
+\[
+ I_0:A^k \to A^{k+1}
+\]
+jest ciągły w normie $L^p$ dla k.... \\
+
+Operator
+\[
+I_\infty:A^k \to A^{k+1}
+\] jest ciągły w normie $L^p$ dla k.... ,
+gdzie $A^k$ oznacza $k$-formy o mierzalnych współczynnikach. \\
+
+
 
 \chapter{Dowody lematów}
 
@@ -683,8 +750,6 @@ Wyrażenie to jest ograniczone dla $p> 1$. Po zastosowaniu uogólnionej
 nierówności Hardy'ego i ewentualnym przeskalowaniu zmiennej $x$ do $\alpha x$
 otrzymujemy tezę.
 \end{proof}
-
-
 
 
 
