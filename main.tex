@@ -78,7 +78,6 @@
 %\listoftables
 
 \chapter{Wstęp}
-\addcontentsline{toc}{chapter}{blabla}
 
 W pracy \cite{weber} prezentowane jest między innymi obliczenie
 $L_p$-kohomologii stożka nad pseudorozmaitością Riemannowską. 
@@ -102,62 +101,65 @@ $dt \otimes dt \oplus (e^{-t})^2 g$, gdzie $g$
 
 
 \chapter{Podstawy}
-\addcontentsline{toc}{chapter}{Podstawy}
-\section{Przestrzenie wektorowe i tensory}
-Rozważać będziemy skończenie wymiarową przestrzeń wektorową $V$ 
-z daną metryką $|| \cdot ||$ i zdefiniujemy na niej nową metrykę
-$|| \cdot ||' \deff r \dot || x ||$. Wtedy w przestrzeni 
-$(V, || \cdot||_r)^\ast$ dualnej do $(V, ||| \cdot |||)$ norma skaluje
-się przez współcznynnik
-$\frac{1}{r}$. Oznacza to że dla
-$\varphi \in V^\ast$ otrzymamy skalowanie
-$||\varphi||_r = \frac{1}{r} ||\varphi|| $. \\
+W rozdziale tym przytaczam definicje i wyprowadzam prostsze zależności, które
+pomogą nam w dalszych obliczeniach. \\
 
 
-Poczynimy tu jeszcze jedną obserwację, która pomoże nam w dalszych obliczeniach.
-Rozważamy rozmaitość Riemannowską 
-$\mathrm{M}$  oraz jej przestrzeń styczną 
-$T_x\mathrm{M}$ i kostyczną $T_x^\ast\mathrm{M}$ 
-w punkcie $x$. 
-Niech bazami ortogonalnymi tych przestrzeni będą
-$e_1, e_2, ..., e_n$ oraz dualna
-$e_1^\ast, e_2^\ast, ..., e_n^\ast$. 
-Forma objętości może zostać zadana przez
-$d\mathrm{vol} = \pm e_1^\ast \wedge e_2^\ast \wedge
-... \wedge e_n^\ast $. \\
+\section{Formy różniczkowe}
+(Bardzo krótkie zagajaenie o formach - definicja i podstawowe operacje). \\
 
-Chcemy teraz obliczyć w jaki sposób formy z 
-$\Lambda(\mathcal{M})$ skalują się ze względu na taką zmainę w normie.
+\section{Skalowanie norm przestrzeni wektorowych i tensorów}
+W dalszych obliczeniach będziemy badać wyrażenia typu $r |\cdot|$, gdzie
+$|\cdot|$ jest normą na skończenie wymiarowej przestrzeni liniowej.
+Znaczenie będzie miało jak zachowuje się norma na przestrzenii dualnej,
+gdy skalujemy normę wyjściowej przestrzenii liniowo o czynnik $r$. \\
 
-Załózmy że rozważamy przestrzeń $k$-form na
-$\mathbb{M}$ 
-w pewnym punkcie rozmaitości. Wtedy każda $k$ forma może być lokalnie
-wyrażona w bazie składającej się z produktów kowektorów należących 
-do bazy dualnej do bazy standardowej. Oznacza to, że każda $k$-forma
-w punkcie $x$ może być zapisana, korzystając z lokalnych współrzędnych
-$(x_1, x_2, ... x_n)$ jako $ \sum_{\mathrm{I} \in I } a_\mathrm{I} dx_\mathrm{i}$,
-gdzie $I$ jest zbiorem $k$-indeksów postaci
-$\underbrace{(i_1, i_2, ..., i_k)}_{k~\mathrm{times}}$, with $i_1,
-i_2, ... \in \{1, 2, ..., n \}$.   \\
 
-Popatrzmy w jaki sposób skalują się wektory bazowe:
-\begin{multline*}
+Rozważać będziemy skończenie wymiarową przestrzeń wektorową $V$ z daną
+metryką $|| \cdot ||$ i zdefiniujemy na niej nową metrykę $|| \cdot
+||_r \deff r \dot || x ||$. Wtedy w przestrzeni $(V, ||
+\cdot||_r)^\ast$ dualnej do $(V, ||| \cdot |||)$ norma skaluje się
+przez współcznynnik $\frac{1}{r}$. Oznacza to, że dla $\varphi \in
+V^\ast$ otrzymamy skalowanie $||\varphi||_r = \frac{1}{r} ||\varphi||$. \\
+
+Poczynimy tu jeszcze jedną obserwację, która pomoże nam w dalszych
+obliczeniach.  Rozważmy $n$-wymiarową rozmaitość Riemannowską
+$\mathrm{M}$ oraz jej przestrzeń styczną $T_x\mathrm{M}$ i kostyczną
+$T_x^\ast\mathrm{M}$ w punkcie $x$.  Niech bazami ortogonalnymi tych
+przestrzeni będą $e_1, e_2, ..., e_n$ oraz dualna $e_1^\ast, e_2^\ast,
+..., e_n^\ast$.  Chcemy teraz obliczyć w jaki sposób formy z
+$\Lambda(\mathcal{M})$ skalują się ze względu na taką zmainę w
+normie. \\
+
+Załózmy że rozważamy przestrzeń $k$-form na $\M$ w pewnym
+punkcie rozmaitości. Wtedy każda $k$ forma może być lokalnie wyrażona
+w bazie składającej się z produktów kowektorów należących do bazy
+dualnej do bazy standardowej. Oznacza to, że każda $k$-forma w punkcie
+$x$ może być zapisana, korzystając z lokalnych współrzędnych $(x_1,
+x_2, ... x_n)$ jako $ \sum_{\mathrm{I} \in I } a_\mathrm{I}
+dx_\mathrm{i}$, gdzie $I$ jest zbiorem $k$-indeksów postaci
+$(i_1, i_2, ..., i_k)$, dla $ 1 \leq i_1 < i_2 < ... < i_k \leq n$.  \\
+
+Popatrzmy w jaki sposób skalują się wektory bazowe. Przy założeniu ortogonalności
+zachodzi:
+\[
     ||dx_{i_1} \wedge dx_{i_2} \wedge ... \wedge dx_{i_k} ||_t =  
     ||dx_{i_1} ||_t \cdot ||  dx_{i_2} ||_t \cdot ... \cdot || dx_{i_k} ||_t =  \\
+\]
+\[
     \frac{1}{t}||dx_{i_1} || \cdot \frac{1}{t} ||  dx_{i_2} ||_t \cdot ...
      \cdot \frac{1}{t} || dx_{i_k} ||_t = 
     \frac{1}{t^k}||dx_{i_1} \wedge dx_{i_2} \wedge ... \wedge dx_{i_k} ||
-\end{multline*} \\
+\]
 
-This means that any $k$ form is scaled by  when metric is scaled
-Oznacza to, że każda $k$ forma skaluje się przez $1/t^k$ gdy metryka jest
-skalowana przez czynnik $t$.
-Obserwację tą możemy także zaplikować do fromy objętości, otrzymując:
+Oznacza to, że każda $k$ forma skaluje się przez $1/t^k$ gdy metryka
+jest skalowana przez czynnik $t$.  Obserwację tą możemy także
+zaplikować do formy objętości, opisywanej w dalszych częściach  otrzymując:
 \[
 d\mathrm{vol}_t = \frac{1}{t^n} d\mathrm{vol}
 \]
 
-\section{Metryka Riemannowska}
+\section{Metryka Riemannowska i forma objętości}
 
 \textbf{Metryką Riemannowską} nazwiemy gładkie, symetryczne kowariantne
 pole 2-tensorów na rozmaitości
@@ -179,7 +181,11 @@ Najprostszym przykładem metryki Riemannowskiej jest \emph{metryka Euklidesowa}
 na $\mathbb{R}^n$, która zadana jest w standardowych współrzędnych jako
 \[
     g = \delta_{ij}dx^idx^j.
-\]
+\] \\
+
+
+(Krótkie podsumowanie informacji o 
+całkowaniu na rozmaitości Riemannowskiej .., forma objętości) \\
 
 
 %% Citing prof. Lee, it is common to abbreviate the symmetric product of a tensor
@@ -192,12 +198,12 @@ na $\mathbb{R}^n$, która zadana jest w standardowych współrzędnych jako
 %% $ dt \otimes dt + f^2g $, which shoudl be the same as $dt^2 + f^2g$. \\
 %% wiki volume form hehehehe
 
-\section{Differetial forms}
+\section{Norma formy różniczkowej}
 
 Przytoczę teraz definicję normy formy różniczkowej w poszczególnych punktach
 rozmaitości. Niech $(M, g)$ będzie zorientowaną, spójną %% i zwartą ?? chyba nie
 rozmaitością Riemannowską. Niech $\M$ będzie rozmaitością, a $x$ jej punktem.
-$\Lambda^k T_x M$ jest przestrzenia $k$-liniowych funkcji alternujących:
+$\Lambda^k T_x M$ jest przestrzenią $k$-liniowych funkcji alternujących:
 \[
     \alpha_x:T_x^\star M \times ... \times T_x^\star M \times \rightarrow \mathbb{R}
 \] \\
@@ -233,19 +239,16 @@ Ponadto, dla każdego punktu ze zbioru $U$ możemy napisać
 
 Na rozmaitości Riemannowskiej posiadamy iloczyn sklarany zadany na 
 $T_x M$ dla każdego punktu $x \in M$.
-Korzystając z niego możemy zdefiniować normę każdej $k$-formy $\alpha$
+Korzystając z niego możemy zdefiniować normę każdej $k$-formy $\alpha$.
 Wprowadźmy proste oznaczenie iloczynu skalarnego na
-$T_x M$
-przez
-$<u, v>_x = g_x(u, v)$.
-
+$T_x M$ przez $<u, v>_x = g_x(u, v)$. 
 Wybierzmy bazę $(e_1, ..., e_n)$ przestrzeni $T_x M$ z odpowiadającą jej bazą dualną
 $(e^1, ..., e^n)$.
 Można argumentować, że możemy zawsze wybrać taką bazę tak aby była ona ortogonalna.
 Dzieje się tak, ponieważ możemy zawsze zastosować algorytm ortogonalizacji 
-Grama-Schmidta do bazy zadanej przez różniczkowanie lokalnych współrzędnych rozmaitości.
-Możemy wtedy zdefiniować funkcję $G: \Lambda^k T_x M \times T_x M \leftarrow \mathbb{R}$, 
+Grama-Schmidta do bazy zadanej przez różniczkowanie lokalnych współrzędnych rozmaitości. \\
 
+Możemy teraz zdefiniować funkcję $G: \Lambda^k T_x M \times T_x M \rightarrow \mathbb{R}$.
 Dla danych dwóch form
 $ \alpha_x = \sum_{1 \leq i_1 < ... < i_k \leq n} \alpha_{i_1 ... i_k; x} e^{i^1}
 \wedge ...  \wedge e^{i^k}$ oraz
@@ -260,58 +263,131 @@ Przytoczymy teraz następujący lemat, dostępny na przykład w \cite{lausanne}.
 
 
 \begin{lemma}
-    Zdefiniowane powyżej przekształcenie 
-
-$G: \Lambda^k T_x M \times T_x M $ 
-jest liniowe, symetryczne i dodatnio określone. Przez to jest ono iloczynem
-skalarnym dla każdego punktu $x \in M$.  Nie zależy ono od wyboru konkretnej bazy
-$(e_1, ..., e_n)$ spośród baz ortogonalnych.  DOdatkowo, baza
-$(e^1 \wedge ... \wedge e^n)$ jest ortonormalna dla $G$.
+    Zdefiniowane powyżej przekształcenie $G: \Lambda^k T_x M \times T_x M $ 
+    jest liniowe, symetryczne i dodatnio określone. Przez to jest ono iloczynem
+    skalarnym dla każdego punktu $x \in M$.  Nie zależy ono od wyboru konkretnej bazy
+    $(e_1, ..., e_n)$ spośród baz ortogonalnych.  Dodatkowo, baza
+    $(e^1 \wedge ... \wedge e^n)$ jest ortonormalna dla $G$.
 \end{lemma}
 
-We can also give eqivalent definition using other terms ... ?? Może dopisać tutaj jeszcze z tego doktoratu
-o i tamto \\
+%% We can also give eqivalent definition using other terms ... ?? Może dopisać tutaj jeszcze z tego doktoratu
+%% o i tamto \\
 
 
-\textbf{Induced map}
-Dla każdej gładkiej funkcji $F: M \rightarrow N$ pomiędzy dwoma rozmaitościami
-(z brzegiem lub bez brzegu), przeciągnięcie $F^\ast: \Omega^p N \rightarrow
-\Omega^p M$ przenosi formy zamknięte na formy zamknięte, a formy dokładne na
-formy dokładne. \\
-
-Z tej obserwacji wynika, że indukuje ono przekształcenie liniowe
-oznaczane jako denoted by $F^\ast: H^p N \rightarrow H^p M$. \\
-
-
-\textbf{Przeciągnięciem} $F^\ast$ nazwiemy
+\section{Przekształcenie indukowane, kohomologie de Rhama oraz formuła homotopii}
+Rozważmy przypadek gładkiej funkcji $F: M \rightarrow N$, pomiędzy dwoma rozmaitościami
+(z brzegiem lub bez brzegu). Za pomocą tej funkcji będziemy 
+Z różniczką takiej funkcji możemy stowarzyszyć przekształcenie
+przeciągnięcia $F^\ast: \Lambda^p N \rightarrow \Lambda^p M$, działające w taki sposób:
 \[
     (F^\ast \omega)_p(v_1, ..., v_n) =
         \omega_{F(p)}(dF_p(v_1), ..., dF_p(v_k)).
 \] \\
 
 
-\section{Wyjaśnienia dotyczące mapy indukowanej}
+W poniższym rozumowaniu, przez $\Omega^p \M$ oznaczać będziemy
+przestrzeń gładkich $k$-form.  Niech $\M$ będzie rozmaitością z
+brzegiem lub bez brzegu, a $p$ będzie nieujemną liczbą całkowitą.
+Ponieważ $d: \Omega^p (\M ) \rightarrow \Omega_{p+1}(\M) $ jest
+przekształceniem liniowym, jego jądro oraz obraz są podprzestrzeniami
+liniowymi. Wprowadźmy tymaczasowe oznaczenie:
+\[
+\mathcal{Z}^p ( \M ) =
+d: \Omega^{p} (\M ) \rightarrow \Omega_{p+1}(\M) =
+\{\text{$p$-formy zamknięte na $\M$ } \}
+\]
+\[
+\mathcal{B}^p ( \M ) =
+d: \Omega^{p} (\M ) \rightarrow \Omega_{p+1}(\M) =
+\{\text{$p$-formy dokładne na $\M$ } \}.
+\]
+
+Jako konwencję przyjmuje się, że $\Omega^{p} ( \M ) $ jest zerową
+przestrzenią wektorową gdy $p < 0$ lub $p > n = \text{dim} \M $. W
+związku z tym zachodzi przykładowo $\mathcal{B}^0(\M)=0$ oraz
+$\mathcal{Z}^n(\M)= \Omega^n(\M)$. \\
+
+Fakt, że każda forma dokładna jest zamknięta implikuje, że
+$ \mathcal{B}^p ( \M) \subseteq \mathcal{Z}^p ( \M) $.
+Stąd ma sens następująca definicja:
+
+\begin{definition}
+  \textbf{Grupą kohomologii de Rhama rzędu $p$} nazwiemy następującą
+  ilorazową przestrzeń liniową:
+  \[
+  H^{p}_{dR} ( \M ) = \frac {\mathcal{Z}^p ( \M )} {\mathcal{B}^p ( \M )}
+  \]
+\end{definition}
+Jest to rzeczywista przestrzeń liniowa, i w związku z tym jest ona
+grupą z działaniem dodawania wektorów. Można także pokazać, że grupy de Rhama są
+niezmiennicze ze względu na dyfeomorifzmy. Dla każdej domkniętej $p$-formy
+$\omega$ na $\M$ poprzez $[\omega]$ będziemy oznaczać klasę równoważności
+formy $\omega$ w $H_{dR} (M)$. Taką klasę równoważności będziemy nazywać także klasą
+kohomologii formy $\omega$. Jeżeli dwie formy $\omega, \eta$ należą do tej samej klasy
+kohomologii, czyli zachodzi $[\omega] = [\eta]$, to różnią się one conajwyżej o formę
+dokładną. Zachodzi także następujący lemat:
+
+\begin{lemma}(Przekształcenia indukowane kohomologii)
+  Dla każdej gładkiej funkcji $F: \M \rightarrow \mathcal{N}$ pomiędzy
+  dwoma rozmaitościami gładkimi, przeciągnięcie 
+  $F^\ast: \Omega^p(N) \rightarrow \Omega^p (M)$ przenosi formy dokładne
+  na formy dokładne, a formy zamknięte na formy zamknięte. W ten sposób indukuje
+  ono przekształcenie liniowe, w dalszym ciągu oznaczane jako $F^\ast$ z
+  $H^p_{dR} (N)$ do $H^p_{dR} (M)$, które nazywane jest przekształceniem indukowanym
+  kohomologii. \\
+\end{lemma}
+\begin{proof}
+  Jeśli $\omega$ jest formą zamkniętą, to $d(F^\ast \omega) = F^\ast(d \omega) = 0$,
+  więc $F^\ast \omega$ także jest zamknięte. Stąd wynika już, że przeciągnięcie
+  to przenosi formy zamknięte na zamknięte, a dokłądne na dokładne. Przekształcenie
+  indukowane jest zadane w prosty sposób. Dla $p$-formy zamkniętej $\omega$, niech
+  \[
+  F^\ast[\omega] = [F^\ast\omega].
+  \]
+  Wtedy jeśli $\omega' = \omega + d \eta$, to 
+  \[
+  F^\ast[\omega'] = [F^\ast\omega d(F^\ast\eta)] = [F^\ast\omega],
+  \]
+  a więc przekształcenie jest dobrze zdefiniowane.
+\end{proof} 
+Odnotujmy następujący, ważny wniosek.
+
+\begin{remark}
+  Rozmaitości gładkie, które są ze sobą dyfeomorficzne, mają izomorficzne grupy
+  kohomologii de Rhama. \\
+\end{remark}
+
+
 %% Mike note - this star means induced map, which is explained in the
 %% previous chapter
 
-Rozważamy dwie gładkie funkcje $F, G: M \rightarrow N$ 
-i chcemy udowodnić że ich przekształcenia indukowane są równe
-$F^\ast = G^\ast$. Wyraźmy ten warunek w nieco innych słowach.
+Przedstawiony powyżej wniosek jest nieco zaskakujący - grupy de Rhama okazały
+się być topologicznym niezmiennikiem. Wniosek ten ma daleko idące uogólnienie.
+Można bowiem udowodnić, że wspomniane grupy są niezmiennikami homotopii. Oznacza
+to, że homotopijnie równoważne rozmaitości posiadać będą izomorficzne kohomologie
+de Rhama. \\
 
-Gdy weźmiemy zamkniętą formę
+W poniższym rozumowaniu ciekawy jest dla nas zarówno wynik, jak i technika, która
+wykorzystywana będzie do jego udowodnienia. Wyprowadzimy bowiem równanie, które
+zada warunek na istnienie pewnego operatora. Nasza teza będzie wtedy równoznaczna
+z istnieniem interesującego nas operatora. \\
 
-$p-$formę $\omega$ na $N$, aby przekształcenia indukowane były równe,
-musimy być w stanie wyprodukować taką 
- $(p-1)$-formę $\eta$ na $M$, aby spełnione
+Chcemy najpierw udowodnić, że homotopijne funkcje gładkie indukują to samo 
+przekształcenie kohomologii.
+Rozważamy w tym celu dwie gładkie funkcje $F, G: M \rightarrow N$.
+Chcemy udowodnić, że ich przekształcenia indukowane są równe
+$F^\ast = G^\ast$. Wyraźmy ten warunek w nieco innych słowach. \\
 
+Gdy weźmiemy zamkniętą formę $p-$formę $\omega$ na $N$, aby
+przekształcenia indukowane były równe, musimy być w stanie
+wyprodukować taką $(p-1)$-formę $\eta$ na $M$, aby spełnione
 \[
     G^\ast \omega - F^\ast \omega = d\eta.
 \]
 
 Z tego wyniknie bowiem, że
 $ G^\ast [\omega] - F^\ast [\omega] =
-[d\eta] = 0$, gdzie operator $[\cdot]$
-oznacza wzięcie klas homotopijnej równoważności danej formy
+[d\eta] = 0$.
 Możemy podejść do tego problemu nieco bardziej systematycznie, 
 szukając takie operatora
 $h$, który jako argumenty bierze zamknięte $p$ formy na $N$
@@ -331,27 +407,121 @@ dla którego spełnione jest równanie
 Gdy warunek ten jest bowiem spełniony to dla formy $\omega$, która
 jest zakmnięta zajdzie także poprzedni warunek. \\
 
-Dokładniej, jeśli chcemy być całkowicie dokładni, to musimy
+Jeśli chcemy być całkowicie dokładni, to musimy
 zdefiniować rodzinę funkcji, po jednej funkcji dla każdego $p$, która
 będzie spełniać stosowny warunek na danym poziomie.
 \[
     H(\mathcal{M} \times \mathbb{R}_{\geq})_{dR}^\ast = H(\mathcal{M})_{dR}^\ast
-\]
+\] \\
 
-\section{$L_p(\M)$ space}
+
+(Przytoczyć dowód istnienia operatora homotopii - najlepiej z książki Bott)
+
+\section{$L_p$-kohomologie}
+(Opisać krótko, że $L_p$ kohomologie to jest to samo tylko z dodanym warunkiem, 
+żeby normy były $p$-całkowalne).
+
+
+\section{Uogólniona nierówność Hardy'ego}
+Kluczowa w dalszych obliczeniach będzie nierówność, Hardy'ego łącząca całkowalność
+funkcji z całkowalnością jej funkcji bazowych.
+
+\begin{lemma}[Uogólniona nierówność Hardy'ego]
+    Rozważmy funkcję $f: \mathbb{R}_{+} \rightarrow \mathbb{R}$, funkcje-wagi
+    $\phi, \psi: \mathbb{R}_{+} \rightarrow \mathbb{R}$ oraz $p, q \in
+    \mathbb{R}$ takie, że $\frac{1}{p} + \frac{1}{q} = 1 $.  Zachodzi dla nich
+$$
+\int_0^\infty \left|
+                \phi(x) \int_0^x f(t) dt
+              \right|^p dx
+\leq
+C \int_0^\infty \left|
+                    \psi(x)  f(x)
+                \right|^p dx
+$$
+wtedy i tylko wtedy, gdy
+$$
+\sup_{x > 0}
+\left[
+\int_x^\infty  
+   | \phi(t) |^p dt
+\right]^{\frac{1}{p}}
+\left[
+\int_0^x
+    | \phi(t) |^{-q} dt
+\right]^{\frac{1}{q}} < + \infty,
+$$
+\end{lemma}
+\begin{proof}
+    Dowód pomijam. 
+    Jest on dostępny w ... . Zacytować papier od pana Webera.
+%% %%% http://www.encyclopediaofmath.org/index.php/Hardy_inequality
+%% where you can find references to the original source. \\
+\end{proof}
+
+\begin{lemma}
+Rozważmy pewną funkcję $f: \mathbb{R}_{+} \rightarrow \mathbb{R}$, gdzie $f
+\geq 0$ oraz jej funkcję pierwotną $F(x) = \int_0^{x} f(t) dt$. Dla $\alpha > 0$ warunek
+$\int_0^\infty f(x)^p e^{-\alpha x}dx < \infty$ implikuje $\int_0^\infty
+F(x)^pe^{- \alpha x}dx < \infty$.  \\
+\end{lemma}
+\begin{proof}
+Wykorzystamy uogólnioną nierówność Hardy'ego.  Załóżmy $\psi(t) = \phi(t) =
+e^{- \frac{t}{p} }$. Wtedy jeśli $\frac{1}{p} + \frac{1}{q} = 1 $, to
+$\frac{1}{q} = \frac{p-1}{p}$ oraz $-q = \frac{p}{1-p}$.  Zbadajmy teraz, czy
+spełniony jest warunek, aby zachodzić mogła nierówność Hardy'ego:
+$$
+\sup_{x > 0}
+\left[
+\int_x^\infty  
+    e^{-t} dt
+\right]^{\frac{1}{p}}
+\left[
+\int_0^x
+    e^{-t \frac{1}{1-p}} dt
+\right]^{\frac{p-1}{p}}
+=
+\sup_{x > 0}
+    C
+    e^{- \frac{x}{p}}
+    \left(
+        e^{\frac{x}{p-1}} - 1
+    \right)^{\frac{p-1}{p}}
+=
+$$
+$$
+C
+\sup_{x > 0}
+    \left(
+    e^{- \frac{x}{p-1}}
+        e^{\frac{x}{p-1}} -
+    e^{- \frac{x}{p-1}}
+    \right)^{\frac{p-1}{p}}
+=
+C
+\sup_{x > 0}
+    \left(
+        1 -
+    e^{- \frac{x}{p-1}}
+    \right)^{\frac{p-1}{p}}. 
+$$
+Wyrażenie to jest ograniczone dla $p> 1$. Po zastosowaniu uogólnionej
+nierówności Hardy'ego i ewentualnym przeskalowaniu zmiennej $x$ do $\alpha x$
+otrzymujemy tezę.
+\end{proof}
+
 
 \chapter{Obliczenie}
-\addcontentsline{toc}{chapter}{Obliczenie}
 
 Celem tego rozdziału jest prezentacja obliczenia 
 $L_p$-kohomologii Riemannowskiego $f$-stożka z funkcją wagową $f = e^{-t}$.
-Obliczenie jest podobne do prac \cite{cheeger}, \cite{youssin}, \cite{kirwan},
-\cite{weber}.
+Obliczenie jest wykonane sposobem prezentowanym między innymi w
+pracach \cite{cheeger}, \cite{youssin}, \cite{kirwan}, \cite{weber}.
 
-\begin{definition}[$f$-horn]
+\begin{definition}[$f$-stożek]
     Niech $\M$ będzie rozmaitością Riemannowską. Rozważmy przestrzeń
     $\mathbb{R}_{\geq 0} \times \mathcal{M}$. Określmy na tym produkcie tensor
-    Riemannowski zadany przez wzór $dt^2 \oplus f^{2}(t)g $, gdzie $g$ jest
+    Riemannowski zadany przez wzór $dt^2 + f^{2}(t)g $, gdzie $g$ jest
     metryką na $\mathcal{M}$.  Przestrzeń taką nazywamy \textbf{$f$-stożkiem}.
     Oznaczać ją będziemy przez symbol $\cfm$.
 \end{definition}
@@ -365,9 +535,7 @@ Obliczenie jest podobne do prac \cite{cheeger}, \cite{youssin}, \cite{kirwan},
 %% TODO -> picture % Rysuneczek z rurkom
 
 Możemy teraz poczynić obserwację o formach różniczkowych określonych na 
-$f$-stożku. Przestrzeń styczna do $\cfm$ w punkcie 
-
-$(t, m)$ to:
+$f$-stożku. Przestrzeń styczna do $\cfm$ w punkcie $(t, m)$ to:
 \[
     T_{(t, m)} (\mathrm{c}^f \mathcal{M}) = \mathbb{R} \times T_m \mathcal{M}.
 \]
@@ -395,7 +563,7 @@ $(x_1, x_2, ... , x_n)$ na $\M$ jako:
 \[
     \eta(t, x) = \sum_{\alpha \in I(k)} \eta_\alpha (t, x) dx^\alpha,
 \]
-gdzie $I(k)$ jest zbiorem wszystkich multiindeksów $\alpha = (alpha_1, ...,
+gdzie $I(k)$ jest zbiorem wszystkich multiindeksów $\alpha = (\alpha_1, ...,
 \alpha_k)$ takich, że $1 \leq \alpha_1 < ... < \alpha_i \leq n$, gdzie
 \begin{equation}\label{notacja}
     dy^\alpha = dy^{\alpha_1} \wedge ... \wedge dy^{\alpha_k},
@@ -655,101 +823,6 @@ gdzie $A^k$ oznacza $k$-formy o mierzalnych współczynnikach. \\
 
 
 
-\chapter{Dowody lematów}
-
-
-\begin{enumerate}
-    \item $||\omega||_r = \mathrm{e}^{-r \cdot (\frac{n}{p} - k }  $
-    \item Lemat Hardy'ego - Webera
-    \item Formuła homotopii jest prawdziwa dla naszego stożka
-\end{enumerate}
-
-
-
-
-\begin{lemma}[Uogólniona nierówność Hardy'ego]
-    Rozważmy funkcję $f: \mathbb{R}_{+} \rightarrow \mathbb{R}$, funkcje-wagi
-    $\phi, \psi: \mathbb{R}_{+} \rightarrow \mathbb{R}$ oraz $p, q \in
-    \mathbb{R}$ takie, że $\frac{1}{p} + \frac{1}{q} = 1 $.  Zachodzi dla nich
-$$
-\int_0^\infty \left|
-                \phi(x) \int_0^x f(t) dt
-              \right|^p dx
-\leq
-C \int_0^\infty \left|
-                    \psi(x)  f(x)
-                \right|^p dx
-$$
-wtedy i tylko wtedy, gdy
-$$
-\sup_{x > 0}
-\left[
-\int_x^\infty  
-   | \phi(t) |^p dt
-\right]^{\frac{1}{p}}
-\left[
-\int_0^x
-    | \phi(t) |^{-q} dt
-\right]^{\frac{1}{q}} < + \infty,
-$$
-\end{lemma}
-\begin{proof}
-    Dowód pomijam. 
-    Jest on dostępny w ... . Zacytować papier od pana Webera.
-%% %%% http://www.encyclopediaofmath.org/index.php/Hardy_inequality
-%% where you can find references to the original source. \\
-\end{proof}
-
-\begin{lemma}
-Rozważmy pewną funkcję $f: \mathbb{R}_{+} \rightarrow \mathbb{R}$, gdzie $f
-\geq 0$ oraz jej funkcję pierwotną $F(x) = \int_0^{x} f(t) dt$. Dla $\alpha > 0$ warunek
-$\int_0^\infty f(x)^p e^{-\alpha x}dx < \infty$ implikuje $\int_0^\infty
-F(x)^pe^{- \alpha x}dx < \infty$.  \\
-\end{lemma}
-\begin{proof}
-Wykorzystamy uogólnioną nierówność Hardy'ego.  Załóżmy $\psi(t) = \phi(t) =
-e^{- \frac{t}{p} }$. Wtedy jeśli $\frac{1}{p} + \frac{1}{q} = 1 $, to
-$\frac{1}{q} = \frac{p-1}{p}$ oraz $-q = \frac{p}{1-p}$.  Zbadajmy teraz, czy
-spełniony jest warunek, aby zachodzić mogła nierówność Hardy'ego:
-$$
-\sup_{x > 0}
-\left[
-\int_x^\infty  
-    e^{-t} dt
-\right]^{\frac{1}{p}}
-\left[
-\int_0^x
-    e^{-t \frac{1}{1-p}} dt
-\right]^{\frac{p-1}{p}}
-=
-\sup_{x > 0}
-    C
-    e^{- \frac{x}{p}}
-    \left(
-        e^{\frac{x}{p-1}} - 1
-    \right)^{\frac{p-1}{p}}
-=
-$$
-$$
-C
-\sup_{x > 0}
-    \left(
-    e^{- \frac{x}{p-1}}
-        e^{\frac{x}{p-1}} -
-    e^{- \frac{x}{p-1}}
-    \right)^{\frac{p-1}{p}}
-=
-C
-\sup_{x > 0}
-    \left(
-        1 -
-    e^{- \frac{x}{p-1}}
-    \right)^{\frac{p-1}{p}}. 
-$$
-Wyrażenie to jest ograniczone dla $p> 1$. Po zastosowaniu uogólnionej
-nierówności Hardy'ego i ewentualnym przeskalowaniu zmiennej $x$ do $\alpha x$
-otrzymujemy tezę.
-\end{proof}
 
 
 
@@ -762,7 +835,7 @@ otrzymujemy tezę.
   
 \bibitem[Cheeger]{cheeger} Jeff Cheeger, \textit{On the Hodge theory
   of Riemannian pseudomanifolds}, Proc. of Symp. in Pure Math. vol.36,
-  American Mathematical Society, Providence, 1982.
+
 
 \bibitem[Bott]{bott} Raou Bott, \textit{Differetial forms in algebraic
   topology}, Springer Verlag, 1982.
