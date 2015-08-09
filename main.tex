@@ -83,7 +83,7 @@ W pracy \cite{weber} prezentowane jest między innymi obliczenie
 $L_p$-kohomologii stożka nad pseudorozmaitością Riemannowską. 
 
 Na stożku tym określona jest metryka postaci
-$dt \otimes dt \oplus t^2 g$, gdzie $g$ 
+$dt \otimes dt + t^2 g$, gdzie $g$ 
 jest metryką na części nieosobliwej wyjściowej pseudorozmaitości.
 W dalszej części wspomnianej pracy obliczana jest $L_p$-kohomologia
 wspomnianej przestrzeni.
@@ -94,10 +94,10 @@ wspomnianej przestrzeni.
 %% A similar approach was presented by Youssin \cite{youssin}, where $f$-horns
 %% were considered.
 
-W tej pracy licencjackiej przedstawiam pewną modyfikację tych pojęć
-do $e^{-t}$-stożków Riemannowskich, czyli przestrzeni będących produktem rozmaitości
-Riemannowskiej oraz półprostej na której określono metrykę
-$dt \otimes dt \oplus (e^{-t})^2 g$, gdzie $g$ 
+W tej pracy licencjackiej przedstawiam drobną modyfikację tych pojęć do
+$e^{-t}$-stożków Riemannowskich, czyli przestrzeni będących produktem
+rozmaitości Riemannowskiej oraz półprostej na której określono metrykę
+$dt \otimes dt \oplus (e^{-t})^2 g$. \\
 
 
 \chapter{Podstawy}
@@ -106,7 +106,61 @@ pomogą nam w dalszych obliczeniach. \\
 
 
 \section{Formy różniczkowe}
-(Bardzo krótkie zagajaenie o formach - definicja i podstawowe operacje). \\
+W tej sekcji przytaczam definicje form róźniczkowych oraz ich proste
+własności. Formy rózniczkowe są ważnym narzędziem, pozwalającym
+przenieść wiele wyników z analizy rzeczywistej na rozmaitości tak, aby
+sformułowania nie były zależne od wyboru konkretnych współrzędnych na rozważanej
+rozmaitości. \\
+
+Niech $V$ będzie skończenie wymiarową rzeczywistą przestrzenią wektorową.
+Tensor kowariantny $T:V \times ... V \rightarrow$ będzie nazwany
+\emph{alternującym} gdy jego wartość zmieni znak w przypadku zmienimy miejscami
+jego dwa wektory wejściowe. Takie tensory mają wiele nazw, takich jak
+\emph{formy zewnętrzne, multi-kowektory,} czy też po prostu $k$-kowektory.
+Przestrzeń wszystkich $k$-kowektorów na przestrzeni $V$ ma wiele oznaczeń. 
+Jednym z bardziej popularnych oznaczeń jest $T^k (V^\ast)$.
+Przestrzeń takich tensorów które należą do $T^k (V^\ast)$, a do tego są
+antysymetryczne, często oznacza się $\Lambda^k (V^\ast)$. \\
+
+Dla dwóch tensorów kowariantnych
+$f \in T^p(V^\ast) $, $g \in T^q(V^\ast) $
+możemy określić produkt $f \otimes g \in T^{p+q}(V^\ast) $ za pomocą wzoru:
+\[
+  f \otimes g(x_1, x_2, ..., x_p, x_{p+1}, x_{p+2}, ... ,x_{p+q}) =
+  f(x_1, x_2, ... , x_p) \cdot g(x_{p+1}, x_{p+2}, ... , x_{p+q}).
+\] \\
+
+Dowolny kowariantny tensor, czyli mający za argumenty jedynie wektory, możemy
+przekształcić na tensor alternujący za pomocą przekształcenia
+\emph{alternatora}, nazywanego także \emph{rzutem alternującym}.
+Jest on określony w następujący sposób:
+\[
+\text{Alt}:T^k (V^\ast) \rightarrow  \Lambda^k (V^\ast)
+\]
+\[
+\text{Alt}(f)(x_1, x_2, x_3, ..., x_k) = \frac{1}{k!}
+  \sum_{\sigma \in S_p}
+     \text{sgn} f(x_{\sigma(1)}, x_{\sigma(2)}, ..., x_{\sigma(k)}).
+\] \\
+
+Z pomocą alternatora określić można iloczyn zewnętrzny antysymetryczny. 
+Dla elementów $\omega \in \Lambda^p (V^\ast)$ oraz 
+$\eta \in \Lambda^q (V^\ast)$, ich iloczyn zewnętrzny zadamy wzorem
+\[
+  \omega \wedge \eta = \frac{(p+q)!}{p!q!} \text{Alt} (\omega \otimes \eta)
+\] \\
+
+Przytoczmy teraz sposób, w jaki definiuje się bazę potęgi zewnętrznej
+$\Lambda^k(V^\ast)$. Niech $v_1, v_2, ... , v_n$ będzie bazą przestrzeni dualnej
+$V^\ast$, która jest dualna do bazy $w_1, w_2, ..., w_n$.
+Wówczas układ
+\[
+  B = \{ v_{i_1} \wedge v_{i_2} \wedge ... \wedge v_{i_k} : 1 \leq i_1 < i_2 < ... <i_k \leq n \}
+\]
+jest bazą potęgi zewnętrznej $\Lambda^k(V^\ast)$. Warto zauważyć, że implikuje
+ to $dim \Lambda^k ( V^\ast)= \binom{n}{k}$
+\emph{Komentarz: można zamieścić tu dowód powyższej właności} \\
+
 
 \section{Skalowanie norm przestrzeni wektorowych i tensorów}
 W dalszych obliczeniach będziemy badać wyrażenia typu $r |\cdot|$, gdzie
