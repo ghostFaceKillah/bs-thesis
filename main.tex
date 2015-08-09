@@ -19,8 +19,8 @@
 \newtheorem{theorem}{Theorem}[section]
 
 %% Document global definitions
-\def\cfm{\ensuremath\mathrm{c}^f\mathcal{M}}
-\def\M{\ensuremath\mathcal{M}}
+\def\cfm{\ensuremath\mathrm{c}^fM}
+\def\M{\ensuremath M}
 \newcommand\deff{\mathrel{\overset{\makebox[0pt]{\mbox{\normalfont\tiny\sffamily def}}}{:=}}}
 
 
@@ -105,7 +105,7 @@ W rozdziale tym przytaczam definicje i wyprowadzam prostsze zależności, które
 pomogą nam w dalszych obliczeniach. \\
 
 
-\section{Formy różniczkowe}
+\section{Algebra zewnętrzna}
 W tej sekcji przytaczam definicje form róźniczkowych oraz ich proste
 własności. Formy rózniczkowe są ważnym narzędziem, pozwalającym
 przenieść wiele wyników z analizy rzeczywistej na rozmaitości tak, aby
@@ -161,6 +161,67 @@ jest bazą potęgi zewnętrznej $\Lambda^k(V^\ast)$. Warto zauważyć, że impli
  to $dim \Lambda^k ( V^\ast)= \binom{n}{k}$
 \emph{Komentarz: można zamieścić tu dowód powyższej właności} \\
 
+Aby uczynić zadość tytułowi tego podrozdziału, zdefiniujmy
+\emph{algebrę zewnętrzną}. Jest to suma prosta:
+\[
+\Lambda^\ast (V) = 
+\Lambda^0(V^\ast) \oplus
+\Lambda^1(V^\ast) \oplus
+\Lambda^2(V^\ast) \oplus
+..., 
+\] z działaniami dodawania oraz iloczynu zewnęnętrznego.
+
+\section{Formy różniczkowe}
+Poniższe definicje są przytoczone w formie opartej na notatkach
+\cite{duszenko}. 
+\emph{Komentarz: upewnić się czy można ctować takie niepublikowane notatki}
+\\
+
+Rozważamy rozmaitość $M$. Dla dowolnej przestrzeni kostycznej 
+$T_p^\ast M$ rozpatrzmy jej potęgę zewnętrzną $\Lambda^k(T_p^\ast M)$.
+Otrzymujemy w ten sposób przestrzeń liniową nad każdym punktem $p \in M$.
+Ich sumę rozłączną oznaczymy $\Lambda^k(T^\ast M)$. Przestrzenie te,
+określone nad każdym punktem z osobna, można skleić do wiązki wektorowej.
+\emph{Komentarz: może pokazać jak?}. \\
+
+\begin{definition}[Forma różniczkowa]
+  $k$-formą różniczkową na rozmaitości $M$ nazwiemy gładkie cięcie
+  wiązki $\Lambda^k(T^\ast M)$ nad M, czyli gładkie odwzorowanie
+  $\omega: M \rightarrow \Lambda^k (T^\ast M)$, czli gładkie
+  odwzorowanie $\omega: M \rightarrow \Lambda^k(T^\ast M)$, spełniające
+  $\omega(p) \in \Lambda^k(T_p^\ast)$ dla każdego punktu $p \in M$.
+\end{definition}
+
+Przestrzeń $k$-form różniczkowych oznaczać będziemy przez $\Omega^k(M)$ \\
+
+Określimy teraz kluczowe dla dalszych kroków naszego rozumowania pojęcie
+\emph{pochodnej zewnętrznej} formy różniczkowej. Jako że operacja
+ta ma typ $d: \Omega^k(M) \rightarrow \Omega^{k+1} (M)$, to pozwalać
+to będzie patrzeć na nią w dalszej części rozumowania jako na operator
+w ciągu łancuchowym, gdzie elementami ciągu są $\Omega^k(M)$ albo podprzestrzenie
+tej przestrzeni mające szczególne własności. \\
+
+Aby nadać nieco więcej intuicji definicji, przypomnimy najpierw
+definicję różniczki funkcji, czyli operację 
+$d: C^\infty = \Omega^o(M) \rightarrow \Omega^1(M)$. Niech $f$ będzie funkcją
+gładką na $M$, a $x$ -  układem współrzędnych. Na dziedzinie tego układu
+określimy różniczkę $df$ wzorem
+\[
+df = \sum_{i=1}^n \frac{partial f}{partial x^i} dx^i.
+\] \\
+
+Dla form o wyższej gradacji określamy pochodną zewnętrzną w następujący
+sposób. Niech 
+$\omega = \sum_{j \in I} \alpha_{j_1, ..., j_k} dx^{j_1} \wedge ... \wedge dx^{j_k}$,
+a wtedy różniczka $d: \Omega^k(M) \rightarrow \Omega^{k+1}(M)$ jest dana jako
+\[ %% strona 363 Lee, wzór 14.20
+d( \sum_{j \in I} \alpha_{j_1, ..., j_k} dx^{j_1} \wedge ... \wedge dx^{j_k}) = 
+ \sum_{j \in I} \sum_{i=1}^n
+ \frac{ \partial \alpha_{j_1, ..., j_k}} {\partial x^i} dx^i
+                            \wedge dx^{j_1} \wedge ... \wedge dx^{j_k})
+\]
+
+
 
 \section{Skalowanie norm przestrzeni wektorowych i tensorów}
 W dalszych obliczeniach będziemy badać wyrażenia typu $r |\cdot|$, gdzie
@@ -182,7 +243,7 @@ $\mathrm{M}$ oraz jej przestrzeń styczną $T_x\mathrm{M}$ i kostyczną
 $T_x^\ast\mathrm{M}$ w punkcie $x$.  Niech bazami ortogonalnymi tych
 przestrzeni będą $e_1, e_2, ..., e_n$ oraz dualna $e_1^\ast, e_2^\ast,
 ..., e_n^\ast$.  Chcemy teraz obliczyć w jaki sposób formy z
-$\Lambda(\mathcal{M})$ skalują się ze względu na taką zmainę w
+$\Lambda(M)$ skalują się ze względu na taką zmainę w
 normie. \\
 
 Załózmy że rozważamy przestrzeń $k$-form na $\M$ w pewnym
@@ -217,19 +278,49 @@ d\mathrm{vol}_t = \frac{1}{t^n} d\mathrm{vol}
 
 \textbf{Metryką Riemannowską} nazwiemy gładkie, symetryczne kowariantne
 pole 2-tensorów na rozmaitości
-$\mathcal{M}$ które jest dodatnio określone w każdym punkcie. Mówiąc bardziej
+$M$ które jest dodatnio określone w każdym punkcie. Mówiąc bardziej
 intuicyjnie, określenie metryki Riemannowskiej to doczepienie 
 pola iloczynów skalarnych do rozmaitości, które zmienia się w sposób gładki.
 \\
 
-W dowolnych lolalnych gładkich współrzędnych $(x^i)$ metryka Riemannowska
+W dowolnych lokalnych gładkich współrzędnych $(x^i)$ metryka Riemannowska
 może być zapisana jako
-\[ %%% Znaleźć cytowanie na to ...
-    g = g_{ij} dx^i \otimes dx^j = g_{ij} dx^i dx^j,
+\[ %%% strona 328 Lee, przed przykładem 13.1
+    g = g_{ij} dx^i \otimes dx^j = g_{ij} dx^i dx^j
 \]
 gdzie
 $g_{ij}$
-jest dodatnio określoną macierzą (której współrzędne to funkcje gładkie).  \\
+jest dodatnio określoną macierzą (której współrzędne to funkcje gładkie). Ostatnia
+część równości zapisuje naszą metrykę w terminach produktu symetrycznego.
+\emph{Komentarz: Czy potrzebne jest tu uzasadnienie?} \\
+
+Biorąc pod uwagę, że w głównej części pracy rozważać będziemy
+rozmaitości Riemannowskie będące produktem dwóch rozmaitości
+Riemannowskich, zbadajmy w jaki sposób zadana będzie metryka na takiej
+przestrzeni produktowej. Jeżeli $(M, g)$ oraz $(M', g')$ będą rozmaitościami
+Riemannowskimi, to na $M \times M'$ możemy zadać metrykę produktową
+ $\hat g = g \oplus g'$ w następujący sposób:
+\[
+\hat g
+ \left( (v, v'), (w, w') \right) =
+ g(v, w) + g'(v', w')
+\]
+dla każdego
+ $(v, v'), (w, w') \in T_p M \oplus T_q M' \cong T_{(p, q)} (M \times M')$.
+Gdy mamy dane jakieś konkretne współrzędne $(x_1, ... , x_n)$ dla $M$ oraz
+$(y_1, ..., y_n)$ dla $M'$, to dostajemy prosto lokalne współrzędne
+$(x_1, ..., x_n, y_1, ..., y_m)$ na $M \times M'$ i nietrudno sprawdzić, 
+że metryka produktowa jest lokalnie reprezentowana przez macierz blokowo diagonalną
+\[
+  \hat g_{ij}  = 
+  \left(
+    \begin{array}{cc}
+     g_{ij}   &  0 \\
+      0      & g'_{ij} \\
+      \end{array}
+  \right)
+\] \\
+
 
 Warto także zapisać dla lokalnych współrzędnych Riemannowską formę objętości. 
 \begin{remark} %% Proposition 15.31 z Lee
@@ -238,25 +329,28 @@ brzegiem lub bez brzegu. W dowolnych zorientowanych gładkich współrzędnych
 $(x_i)$, Riemmanowska forma objętości może być wyrażona lokalnie w następujący
 sposób:
 \[
-    \omega_g = \sqrt{\text{det}(g_{ij}}
+    \omega_g = \sqrt{\text{det}(g_{ij})} dx^1 \wedge ... \wedge dx^n
 \]
 \end{remark}
 \emph{Komentarz: a może tutaj dowód tego? }\\
 
-TUTEJ
+Do naszych dalszych obliczeń potrzebna nam będzie umiejętność całkowania
+funkcji rzeczywistych pod rozmaitościach Riemannowskich. Zdefiniujmy w tym celu
+stosowną całkę. \\
 
-
-
-
-Najprostszym przykładem metryki Riemannowskiej jest \emph{metryka Euklidesowa}
-na $\mathbb{R}^n$, która zadana jest w standardowych współrzędnych jako
-\[
-    g = \delta_{ij}dx^idx^j.
-\] \\
-
-
-(Krótkie podsumowanie informacji o 
-całkowaniu na rozmaitości Riemannowskiej .., forma objętości) \\
+Niech $(M, g)$ będzie zorientowaną rozmaitością Riemannowską. Niech
+$\text{vol}_g$ oznacza jej formę objętości. Jeżeli mamy teraz $f$ -
+funkcję o zwartym nośniku, rzeczywistą i ciągłą, określoną na $M$, to
+$f \text{vol}_g$ jest $n$-formą.  Ogólniejsza teoria definuje całki z
+$n$-form, ale w naszym przypadku będziemy mogli zapisać prosto,
+korzystając z wcześniejszych uwag dotyczących zapisu formy objętości:
+\[ %%% źródło tego wszystkiego 16.28 Lee, strona 422
+  \int_M f d \text{vol}_g = \int_{\phi (U)} f(x) \sqrt{det(g_{ij})} dx_1 ... dx_n,
+\]
+zakładając, że rozmaitość jest cała w obrazie jednej mapy
+$\phi$. Jeżeli bowiem tak by nie było, to musielibyśmy korzystać z
+wielu map $\phi_1, \phi_2 ... $, które opisywałyby całą rozmaitość
+biorąc pod uwagę gładki podział jedynki na rozmaitości. \\
 
 
 %% Citing prof. Lee, it is common to abbreviate the symmetric product of a tensor
@@ -297,7 +391,7 @@ możem napisać
 gdzie współczynniki są zadane jako
 $a_{i_1 ... i_k} = \alpha_x(e^{i^1}, ..., e^{i^2})$. \\
 
-Korzystając z powyższych spostrzeżeń, możemy wyrazić daną formę w terminach
+Korzystając z powyższych spostrzeżeń, możemy wyrazić daną formę dla 
 współrzędnych lokalnych $x^1, ..., x^n$
 na otwartym podzbiorze $U \subset M$.  Mamy bazę
 $\frac{\partial}{\partial x^1}, ..., \frac{\partial}{\partial x^n}$ dla $T_x M$
@@ -310,28 +404,37 @@ Ponadto, dla każdego punktu ze zbioru $U$ możemy napisać
 
 Na rozmaitości Riemannowskiej posiadamy iloczyn sklarany zadany na 
 $T_x M$ dla każdego punktu $x \in M$.
-Korzystając z niego możemy zdefiniować normę każdej $k$-formy $\alpha$.
-Wprowadźmy proste oznaczenie iloczynu skalarnego na
-$T_x M$ przez $<u, v>_x = g_x(u, v)$. 
-Wybierzmy bazę $(e_1, ..., e_n)$ przestrzeni $T_x M$ z odpowiadającą jej bazą dualną
-$(e^1, ..., e^n)$.
-Można argumentować, że możemy zawsze wybrać taką bazę tak aby była ona ortogonalna.
-Dzieje się tak, ponieważ możemy zawsze zastosować algorytm ortogonalizacji 
-Grama-Schmidta do bazy zadanej przez różniczkowanie lokalnych współrzędnych rozmaitości. \\
+Korzystając z niego możemy zdefiniować normę każdej $k$-formy
+$\alpha$.  Wprowadźmy proste oznaczenie iloczynu skalarnego na $T_x M$
+przez $<u, v>_x = g_x(u, v)$.
+Wybierzmy bazę $(e_1, ..., e_n)$ przestrzeni $T_x M$ z odpowiadającą
+jej bazą dualną $(e^1, ..., e^n)$. \\
 
-Możemy teraz zdefiniować funkcję $G: \Lambda^k T_x M \times T_x M \rightarrow \mathbb{R}$.
+Można argumentować, że możemy zawsze wybrać taką bazę tak aby była ona
+ortogonalna.  Dzieje się tak, ponieważ możemy zawsze zastosować
+algorytm ortogonalizacji Grama-Schmidta do bazy zadanej przez
+różniczkowanie lokalnych współrzędnych rozmaitości. \\
+
+Możemy teraz zdefiniować funkcję
+$G: \Lambda^k T_x M \times T_x M \rightarrow \mathbb{R}$.
+
 Dla danych dwóch form
-$ \alpha_x = \sum_{1 \leq i_1 < ... < i_k \leq n} \alpha_{i_1 ... i_k; x} e^{i^1}
-\wedge ...  \wedge e^{i^k}$ oraz
-$ \beta_x = \sum_{1 \leq i_1 < ... < i_k \leq n} \beta_{i_1 ... i_k; x} e^{i^1}
-\wedge ...  \wedge e^{i^k}$,  określimy tę funkcję jako
+\[
+\alpha_x = \sum_{1 \leq i_1 < ... < i_k \leq n} \alpha_{i_1 ... i_k; x} e^{i^1}
+\wedge ...  \wedge e^{i^k}
+\]
+ oraz
+\[ \beta_x = \sum_{1 \leq i_1 < ... < i_k \leq n} \beta_{i_1 ... i_k; x} e^{i^1}
+\wedge ...  \wedge e^{i^k},
+\]
+określimy tę funkcję jako
 \[
     G(\alpha_x, \beta_x) = \sum_{i_1, ..., i_k} \alpha_{i_1 ... i_k; x}
                                                     \beta_{i_1 ... i_k; x}.
 \] \\
 
-Przytoczymy teraz następujący lemat, dostępny na przykład w \cite{lausanne}.
-
+Przytoczymy teraz następujący lemat, którego dowód jest dostępny na przykład
+ w \cite{lausanne}.
 
 \begin{lemma}
     Zdefiniowane powyżej przekształcenie $G: \Lambda^k T_x M \times T_x M $ 
@@ -346,17 +449,22 @@ Przytoczymy teraz następujący lemat, dostępny na przykład w \cite{lausanne}.
 
 
 \section{Przekształcenie indukowane, kohomologie de Rhama oraz formuła homotopii}
-Rozważmy przypadek gładkiej funkcji $F: M \rightarrow N$, pomiędzy dwoma rozmaitościami
-(z brzegiem lub bez brzegu). Za pomocą tej funkcji będziemy 
-Z różniczką takiej funkcji możemy stowarzyszyć przekształcenie
+Rozważmy przypadek gładkiej funkcji $F: M \rightarrow N$, pomiędzy
+dwoma rozmaitościami (z brzegiem lub bez brzegu). Za pomocą tej
+funkcji będziemy mogli określić przekształcenie, które pozwoli nam
+zamieniać formy różniczkowe z rozmaitości $N$ na formy różniczkowe z
+rozmaitości $M$. Z różniczką takiej funkcji możemy bowiem stowarzyszyć
+przekształcenie
 przeciągnięcia $F^\ast: \Lambda^p N \rightarrow \Lambda^p M$, działające w taki sposób:
 \[
     (F^\ast \omega)_p(v_1, ..., v_n) =
         \omega_{F(p)}(dF_p(v_1), ..., dF_p(v_k)).
-\] \\
+\] Przeciągnięcie jest też czasami nazywane cofnięciem. \\
 
 
-W poniższym rozumowaniu, przez $\Omega^p \M$ oznaczać będziemy
+Pokażemy teraz bardzo interesującą strukturę jaką mają formy różniczkowe
+na rozmaitości, gdy rozpatrywać je jako kompleksy z działaniem różniczki.
+W poniższym rozumowaniu, przez $\Omega^p (M)$ oznaczać będziemy
 przestrzeń gładkich $k$-form.  Niech $\M$ będzie rozmaitością z
 brzegiem lub bez brzegu, a $p$ będzie nieujemną liczbą całkowitą.
 Ponieważ $d: \Omega^p (\M ) \rightarrow \Omega_{p+1}(\M) $ jest
@@ -378,7 +486,7 @@ przestrzenią wektorową gdy $p < 0$ lub $p > n = \text{dim} \M $. W
 związku z tym zachodzi przykładowo $\mathcal{B}^0(\M)=0$ oraz
 $\mathcal{Z}^n(\M)= \Omega^n(\M)$. \\
 
-Fakt, że każda forma dokładna jest zamknięta implikuje, że
+Fakt, że każda forma dokładna jest zamknięta implikuje oznacza oczywiście
 $ \mathcal{B}^p ( \M) \subseteq \mathcal{Z}^p ( \M) $.
 Stąd ma sens następująca definicja:
 
@@ -399,7 +507,7 @@ kohomologii, czyli zachodzi $[\omega] = [\eta]$, to różnią się one conajwyż
 dokładną. Zachodzi także następujący lemat:
 
 \begin{lemma}(Przekształcenia indukowane kohomologii)
-  Dla każdej gładkiej funkcji $F: \M \rightarrow \mathcal{N}$ pomiędzy
+  Dla każdej gładkiej funkcji $F: \M \rightarrow N$ pomiędzy
   dwoma rozmaitościami gładkimi, przeciągnięcie 
   $F^\ast: \Omega^p(N) \rightarrow \Omega^p (M)$ przenosi formy dokładne
   na formy dokładne, a formy zamknięte na formy zamknięte. W ten sposób indukuje
@@ -417,7 +525,7 @@ dokładną. Zachodzi także następujący lemat:
   \]
   Wtedy jeśli $\omega' = \omega + d \eta$, to 
   \[
-  F^\ast[\omega'] = [F^\ast\omega d(F^\ast\eta)] = [F^\ast\omega],
+  F^\ast[\omega'] = [F^\ast\omega + d(F^\ast\eta)] = [F^\ast\omega],
   \]
   a więc przekształcenie jest dobrze zdefiniowane.
 \end{proof} 
@@ -482,11 +590,13 @@ Jeśli chcemy być całkowicie dokładni, to musimy
 zdefiniować rodzinę funkcji, po jednej funkcji dla każdego $p$, która
 będzie spełniać stosowny warunek na danym poziomie.
 \[
-    H(\mathcal{M} \times \mathbb{R}_{\geq})_{dR}^\ast = H(\mathcal{M})_{dR}^\ast
+    H(M \times \mathbb{R}_{\geq})_{dR}^\ast = H(M)_{dR}^\ast
 \] \\
 
 
-(Przytoczyć dowód istnienia operatora homotopii - najlepiej z książki Bott)
+(Przytoczyć dowód istnienia operatora homotopii - ale nie ma jak tego zrobić bez
+definiowania innych rzeczy, np pochodnej Liego w książce Lee). \\
+
 
 \section{$L_p$-kohomologie}
 (Opisać krótko, że $L_p$ kohomologie to jest to samo tylko z dodanym warunkiem, 
@@ -497,7 +607,7 @@ będzie spełniać stosowny warunek na danym poziomie.
 Kluczowa w dalszych obliczeniach będzie nierówność, Hardy'ego łącząca całkowalność
 funkcji z całkowalnością jej funkcji bazowych.
 
-\begin{lemma}[Uogólniona nierówność Hardy'ego]
+\begin{lemma}[Uogólniona nierówność Hardy'ego]\label{hardy}
     Rozważmy funkcję $f: \mathbb{R}_{+} \rightarrow \mathbb{R}$, funkcje-wagi
     $\phi, \psi: \mathbb{R}_{+} \rightarrow \mathbb{R}$ oraz $p, q \in
     \mathbb{R}$ takie, że $\frac{1}{p} + \frac{1}{q} = 1 $.  Zachodzi dla nich
@@ -525,7 +635,7 @@ $$
 \end{lemma}
 \begin{proof}
     Dowód pomijam. 
-    Jest on dostępny w ... . Zacytować papier od pana Webera.
+    Jest on dostępny w ... . Zacytować paper od pana Webera.
 %% %%% http://www.encyclopediaofmath.org/index.php/Hardy_inequality
 %% where you can find references to the original source. \\
 \end{proof}
@@ -591,14 +701,14 @@ pracach \cite{cheeger}, \cite{youssin}, \cite{kirwan}, \cite{weber}.
 
 \begin{definition}[$f$-stożek]
     Niech $\M$ będzie rozmaitością Riemannowską. Rozważmy przestrzeń
-    $\mathbb{R}_{\geq 0} \times \mathcal{M}$. Określmy na tym produkcie tensor
+    $\mathbb{R}_{\geq 0} \times \M$. Określmy na tym produkcie tensor
     Riemannowski zadany przez wzór $dt^2 + f^{2}(t)g $, gdzie $g$ jest
-    metryką na $\mathcal{M}$.  Przestrzeń taką nazywamy \textbf{$f$-stożkiem}.
+    metryką na $M$.  Przestrzeń taką nazywamy \textbf{$f$-stożkiem}.
     Oznaczać ją będziemy przez symbol $\cfm$.
 \end{definition}
 
 \begin{definition}
-  Niech $L_p^k \mathcal{M}$ oznacza przestrzeń $p$-całkowalnych 
+  Niech $L_p^k M$ oznacza przestrzeń $p$-całkowalnych 
   $k$-form różnikowych z mierzalnymi  współczynnikami.
 \end{definition}
 
@@ -608,7 +718,7 @@ pracach \cite{cheeger}, \cite{youssin}, \cite{kirwan}, \cite{weber}.
 Możemy teraz poczynić obserwację o formach różniczkowych określonych na 
 $f$-stożku. Przestrzeń styczna do $\cfm$ w punkcie $(t, m)$ to:
 \[
-    T_{(t, m)} (\mathrm{c}^f \mathcal{M}) = \mathbb{R} \times T_m \mathcal{M}.
+    T_{(t, m)} (\mathrm{c}^f M) = \mathbb{R} \times T_m M.
 \]
 W terminach form różniczkowych powiązanych z rozważanym $f$-stożkiem oznacza to, 
 że możemy napisać:
@@ -620,7 +730,7 @@ W terminach form różniczkowych powiązanych z rozważanym $f$-stożkiem oznacz
 Spostrzeżenie to możemy wyrazić także w inny sposób: 
 
 \begin{remark}
-Każda $k$-forma $\omega \in \Lambda^k T(\mathrm{c}^f \mathcal{M})$, 
+Każda $k$-forma $\omega \in \Lambda^k T(\mathrm{c}^f M)$, 
 a w konsekwencji każda forma z przestrzeni form $p$-całkowalnych  $L_k^p
 (\cfm)$ może być zapisana jako$\omega = \eta + \xi \wedge dt$,
 gdzie zarówno $\eta$, jak i  $\xi$ nie zawierają $dt$.  Zauważmy ponadto,
@@ -681,17 +791,17 @@ normę $\omega$ jako elementu przestrzeni $L_k^p (\cfm)$.
 
 \[
     ||\omega ||^p = \int_{\cfm} |\omega |^p d \mathrm{vol}_{\cfm} =
-    \int_0^\infty \left( e^{-t} \right)^{n-pk} \int_\mathcal{M} |\omega|^p d
-    \mathrm{vol}_\mathcal{M} dt = 
+    \int_0^\infty \left( e^{-t} \right)^{n-pk} \int_M |\omega|^p d
+    \mathrm{vol}_M dt = 
 \]
 \[
     = \
-    \int_0^\infty \left( e^{-t} \right)^{n-pk} || \omega_t ||_{\mathcal{M}} dt = 
+    \int_0^\infty \left( e^{-t} \right)^{n-pk} || \omega_t ||_{M} dt = 
     \int_0^\infty || \omega ||_t^p dt,
 \] 
 gdzie
 \[
-|| \omega ||_r \deff || \omega_{|\mathcal{M} \times \{r\} } || =
+|| \omega ||_r \deff || \omega_{|M \times \{r\} } || =
 \mathrm{e}^{-r \cdot (\frac{n}{p} - k) }  ||\omega_r ||_{\M}.
 \]
 Przypomnijmy, że $\omega_r = i_r^\ast (\eta)$. \\
@@ -849,7 +959,7 @@ $\alpha = -p(k-1) + n$. Zbadajmy warunek:
 \]
 Warunek pozwalający na wykorzystanie lematu jest więc spełniony dla $k \leq \frac{n}{p}$. \\
 
-Gdy warunek ten jest spełniony, stosujemy lemat ... i uzyskujemy rezultat, że $I_r \omega$
+Gdy warunek ten jest spełniony, stosujemy lemat\ref{hardy} ... (z nierówności Hardy'ego) i uzyskujemy rezultat, że $I_r \omega$
 jest formą $p$-całkowalną. \\
 
 Pokazaliśmy więc, że jeśli $\omega$ jest $k$-formą $p$-całkowalną, to  $I_r \omega$ jest
@@ -891,9 +1001,6 @@ Operator
 I_\infty:A^k \to A^{k+1}
 \] jest ciągły w normie $L^p$ dla k.... ,
 gdzie $A^k$ oznacza $k$-formy o mierzalnych współczynnikach. \\
-
-
-
 
 
 
