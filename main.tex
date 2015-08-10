@@ -97,7 +97,7 @@ wspomnianej przestrzeni.
 W tej pracy licencjackiej przedstawiam drobną modyfikację tych pojęć do
 $e^{-t}$-stożków Riemannowskich, czyli przestrzeni będących produktem
 rozmaitości Riemannowskiej oraz półprostej na której określono metrykę
-$dt \otimes dt \oplus (e^{-t})^2 g$. \\
+$dt \otimes dt + (e^{-t})^2 g$. \\
 
 
 \chapter{Podstawy}
@@ -115,14 +115,14 @@ rozmaitości. \\
 Niech $V$ będzie skończenie wymiarową rzeczywistą przestrzenią wektorową.
 Tensor kowariantny $T:V \times ... V \rightarrow$ będzie nazwany
 \emph{alternującym} gdy jego wartość zmieni znak w przypadku zmienimy miejscami
-jego dwa wektory wejściowe. Takie tensory mają wiele nazw, takich jak
+jego dwa wektory wejściowe. Takie tensory mają wiele nazw:
 \emph{formy zewnętrzne, multi-kowektory,} czy też po prostu $k$-kowektory.
 Przestrzeń wszystkich $k$-kowektorów na przestrzeni $V$ ma wiele oznaczeń. 
 Jednym z bardziej popularnych oznaczeń jest $T^k (V^\ast)$.
-Przestrzeń takich tensorów które należą do $T^k (V^\ast)$, a do tego są
+Przestrzeń takich tensorów, które należą do $T^k (V^\ast)$, a do tego są
 antysymetryczne, często oznacza się $\Lambda^k (V^\ast)$. \\
 
-Dla dwóch tensorów kowariantnych
+Dla dwóch tensorów kowariantnych, czyli mających za argumenty jedynie wektory
 $f \in T^p(V^\ast) $, $g \in T^q(V^\ast) $
 możemy określić produkt $f \otimes g \in T^{p+q}(V^\ast) $ za pomocą wzoru:
 \[
@@ -130,7 +130,7 @@ możemy określić produkt $f \otimes g \in T^{p+q}(V^\ast) $ za pomocą wzoru:
   f(x_1, x_2, ... , x_p) \cdot g(x_{p+1}, x_{p+2}, ... , x_{p+q}).
 \] \\
 
-Dowolny kowariantny tensor, czyli mający za argumenty jedynie wektory, możemy
+Dowolny kowariantny tensor możemy
 przekształcić na tensor alternujący za pomocą przekształcenia
 \emph{alternatora}, nazywanego także \emph{rzutem alternującym}.
 Jest on określony w następujący sposób:
@@ -174,7 +174,8 @@ Aby uczynić zadość tytułowi tego podrozdziału, zdefiniujmy
 \section{Formy różniczkowe}
 Poniższe definicje są przytoczone w formie opartej na notatkach
 \cite{duszenko}. 
-\emph{Komentarz: upewnić się czy można ctować takie niepublikowane notatki}
+\emph{Komentarz: w jaki sposób można ctować takie niepublikowane notatki? Nie 
+wypada ich po prostu nie cytować}
 \\
 
 Rozważamy rozmaitość $M$. Dla dowolnej przestrzeni kostycznej 
@@ -195,11 +196,11 @@ określone nad każdym punktem z osobna, można skleić do wiązki wektorowej.
 Przestrzeń $k$-form różniczkowych oznaczać będziemy przez $\Omega^k(M)$ \\
 
 Określimy teraz kluczowe dla dalszych kroków naszego rozumowania pojęcie
-\emph{pochodnej zewnętrznej} formy różniczkowej. Jako że operacja
-ta ma typ $d: \Omega^k(M) \rightarrow \Omega^{k+1} (M)$, to pozwalać
-to będzie patrzeć na nią w dalszej części rozumowania jako na operator
-w ciągu łancuchowym, gdzie elementami ciągu są $\Omega^k(M)$ albo podprzestrzenie
-tej przestrzeni mające szczególne własności. \\
+\emph{pochodnej zewnętrznej} formy różniczkowej. Operacja ta ma typ $d:
+\Omega^k(M) \rightarrow \Omega^{k+1} (M)$. Pozwala to patrzeć na nią, w dalszej
+części rozumowania, jako na operator w ciągu łancuchowym, gdzie elementami
+ciągu są $\Omega^k(M)$ albo podprzestrzenie tej przestrzeni mające szczególne
+własności. \\
 
 Aby nadać nieco więcej intuicji definicji, przypomnimy najpierw
 definicję różniczki funkcji, czyli operację 
@@ -207,7 +208,7 @@ $d: C^\infty = \Omega^o(M) \rightarrow \Omega^1(M)$. Niech $f$ będzie funkcją
 gładką na $M$, a $x$ -  układem współrzędnych. Na dziedzinie tego układu
 określimy różniczkę $df$ wzorem
 \[
-df = \sum_{i=1}^n \frac{partial f}{partial x^i} dx^i.
+df = \sum_{i=1}^n \frac{\partial f}{\partial x^i} dx^i.
 \] \\
 
 Dla form o wyższej gradacji określamy pochodną zewnętrzną w następujący
@@ -220,7 +221,6 @@ d( \sum_{j \in I} \alpha_{j_1, ..., j_k} dx^{j_1} \wedge ... \wedge dx^{j_k}) =
  \frac{ \partial \alpha_{j_1, ..., j_k}} {\partial x^i} dx^i
                             \wedge dx^{j_1} \wedge ... \wedge dx^{j_k})
 \]
-
 
 
 \section{Skalowanie norm przestrzeni wektorowych i tensorów}
@@ -341,9 +341,10 @@ stosowną całkę. \\
 Niech $(M, g)$ będzie zorientowaną rozmaitością Riemannowską. Niech
 $\text{vol}_g$ oznacza jej formę objętości. Jeżeli mamy teraz $f$ -
 funkcję o zwartym nośniku, rzeczywistą i ciągłą, określoną na $M$, to
-$f \text{vol}_g$ jest $n$-formą.  Ogólniejsza teoria definuje całki z
-$n$-form, ale w naszym przypadku będziemy mogli zapisać prosto,
-korzystając z wcześniejszych uwag dotyczących zapisu formy objętości:
+$f \text{vol}_g$ jest $n$-formą.
+Nie odwołując się do ogólnych definicji całek z różnych typów form
+różniczkowych, w naszym przypadku będziemy mogli zapisać prosto, korzystając z
+wcześniejszych uwag dotyczących zapisu formy objętości:
 \[ %%% źródło tego wszystkiego 16.28 Lee, strona 422
   \int_M f d \text{vol}_g = \int_{\phi (U)} f(x) \sqrt{det(g_{ij})} dx_1 ... dx_n,
 \]
@@ -437,7 +438,7 @@ Przytoczymy teraz następujący lemat, którego dowód jest dostępny na przykł
  w \cite{lausanne}.
 
 \begin{lemma}
-    Zdefiniowane powyżej przekształcenie $G: \Lambda^k T_x M \times T_x M $ 
+    Zdefiniowane powyżej przekształcenie $G: \Lambda^k T_x M \rightarrow T_x M $ 
     jest liniowe, symetryczne i dodatnio określone. Przez to jest ono iloczynem
     skalarnym dla każdego punktu $x \in M$.  Nie zależy ono od wyboru konkretnej bazy
     $(e_1, ..., e_n)$ spośród baz ortogonalnych.  Dodatkowo, baza
@@ -446,6 +447,25 @@ Przytoczymy teraz następujący lemat, którego dowód jest dostępny na przykł
 
 %% We can also give eqivalent definition using other terms ... ?? Może dopisać tutaj jeszcze z tego doktoratu
 %% o i tamto \\
+
+Gdy określony mamy iloczyn skalarny na przestrzeni form, to zadaje on 
+normę formy w punkcie rozmaitości. Dla $\omega \in \Omega^k(M)$ oraz $x \in M$
+napiszemy
+\[
+    |\omega|_x = \sqrt{ G(\omega_x, \omega_x) }.
+\]
+Warto podkreślić tu prosty, ale istotny wniosek, że po określeniu formy $\omega$
+norma jest funkcją typu $| \omega |_x : M \rightarrow \mathbb{R} $. Jest to warte
+odnotowania, ponieważ pomaga to w rozumieniu intuicji stojącej za definicją normy
+na całości rozmaitości Riemannowskiej. Taka norma będzie po prostu całką 
+z normy punktowej rozważanej formy różniczkowej. \\
+
+Dokładniej, możemy zdefiniować $p$-normę dla formy na całej rozmaitości
+Riemannowskiej:
+\begin{equation} \label{big-norm}
+  || \omega ||^p =  \int_M |\omega|_x^p d \text{vol}_g(x)
+\end{equation} \\
+
 
 
 \section{Przekształcenie indukowane, kohomologie de Rhama oraz formuła homotopii}
@@ -491,7 +511,7 @@ $ \mathcal{B}^p ( \M) \subseteq \mathcal{Z}^p ( \M) $.
 Stąd ma sens następująca definicja:
 
 \begin{definition}
-  \textbf{Grupą kohomologii de Rhama rzędu $p$} nazwiemy następującą
+  \textbf{Grupą kohomologii de Rhama rzędu p} nazwiemy następującą
   ilorazową przestrzeń liniową:
   \[
   H^{p}_{dR} ( \M ) = \frac {\mathcal{Z}^p ( \M )} {\mathcal{B}^p ( \M )}
@@ -598,9 +618,17 @@ będzie spełniać stosowny warunek na danym poziomie.
 definiowania innych rzeczy, np pochodnej Liego w książce Lee). \\
 
 
-\section{$L_p$-kohomologie}
-(Opisać krótko, że $L_p$ kohomologie to jest to samo tylko z dodanym warunkiem, 
-żeby normy były $p$-całkowalne).
+Niniejsza praca zajmuje się pewną modyfikacją kohomologii de Rhama.
+Dokładniej, ta praca zajmuje się $L_p$-kohomologiami. Można patrzeć
+na nie jak na rozważanie niemal tego samego kompleksu łańcuchowego co w
+kohomologiach de Rhama, lecz z dodanym warunkiem $p$-całkowalności form. Głównym
+obiektem naszego zainteresowania są przestrzenie 
+$L_p^k = {\omega \in \Omega^k(M): ||\omega|| <\infty}$, gdzie $|| \cdot ||$
+to norma (całka) z formy, która była omawiana w \ref{big-norm}. Ograniczenie
+naszych rozważań do form, które są $p$-całkowalne pozwala nam rozszerzyć
+klasę przestrzeni, które badamy. Przy dobrym doborze funkcji wagowej, którą
+ważymy metrykę Riemannowską na części nieosobliwej, możemy
+bowiem rozważać rozmaitości z osobliwościami.\\
 
 
 \section{Uogólniona nierówność Hardy'ego}
@@ -1014,6 +1042,8 @@ gdzie $A^k$ oznacza $k$-formy o mierzalnych współczynnikach. \\
 \bibitem[Cheeger]{cheeger} Jeff Cheeger, \textit{On the Hodge theory
   of Riemannian pseudomanifolds}, Proc. of Symp. in Pure Math. vol.36,
 
+\bibitem[Duszenko]{duszenko}, Kamil Duszenko, \textit{Formy różniczkowe},
+notatka
 
 \bibitem[Bott]{bott} Raou Bott, \textit{Differetial forms in algebraic
   topology}, Springer Verlag, 1982.
