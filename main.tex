@@ -101,30 +101,33 @@ $dt \otimes dt + (e^{-t})^2 g$. \\
 
 
 \chapter{Podstawy}
-W rozdziale tym przytaczam definicje i wyprowadzam prostsze zależności, które
+W rozdziale tym przytaczam definicje i wyprowadzam podstawowe zależności, które
 pomogą nam w dalszych obliczeniach. \\
 
 
 \section{Algebra zewnętrzna}
-W tej sekcji przytaczam definicje form róźniczkowych oraz ich proste
-własności. Formy rózniczkowe są ważnym narzędziem, pozwalającym
-przenieść wiele wyników z analizy rzeczywistej na rozmaitości tak, aby
-sformułowania nie były zależne od wyboru konkretnych współrzędnych na rozważanej
-rozmaitości. \\
+W tej sekcji przytaczam definicje form róźniczkowych oraz ich własności. Formy
+rózniczkowe są ważnym narzędziem, pozwalającym przenieść wiele wyników z
+analizy rzeczywistej na rozmaitości tak, aby sformułowania nie były zależne od
+wyboru konkretnych współrzędnych na rozważanej rozmaitości. \\
 
 Niech $V$ będzie skończenie wymiarową rzeczywistą przestrzenią wektorową.
-Tensor kowariantny $T:V \times ... V \rightarrow$ będzie nazwany
-\emph{alternującym} gdy jego wartość zmieni znak w przypadku zmienimy miejscami
-jego dwa wektory wejściowe. Takie tensory mają wiele nazw:
-\emph{formy zewnętrzne, multi-kowektory,} czy też po prostu $k$-kowektory.
-Przestrzeń wszystkich $k$-kowektorów na przestrzeni $V$ ma wiele oznaczeń. 
-Jednym z bardziej popularnych oznaczeń jest $T^k (V^\ast)$.
-Przestrzeń takich tensorów, które należą do $T^k (V^\ast)$, a do tego są
-antysymetryczne, często oznacza się $\Lambda^k (V^\ast)$. \\
+Tensor $T:V \times ... \times V \rightarrow \mathbb{R}$ nazwiemy kowariantnym.
+Bierze on jako argumenty jedynie wektory i konsekwentnie, nie bierze on jako
+argumentów form.  Takie tensory mają wiele nazw: \emph{formy zewnętrzne,
+multi-kowektory,} czy też po prostu $k$-kowektory.  Przestrzeń wszystkich
+$k$-kowektorów na przestrzeni $V$ ma wiele oznaczeń.  Jednym z bardziej
+popularnych oznaczeń jest $T^k (V^\ast)$. \\
 
-Dla dwóch tensorów kowariantnych, czyli mających za argumenty jedynie wektory
-$f \in T^p(V^\ast) $, $g \in T^q(V^\ast) $
-możemy określić produkt $f \otimes g \in T^{p+q}(V^\ast) $ za pomocą wzoru:
+Tensor będzie nazwany \emph{alternującym}, gdy jego wartość zmieni znak w
+przypadku zmienimy miejscami jego dwa wektory wejściowe.  Przestrzeń takich
+tensorów, które należą do $T^k (V^\ast)$, a do tego są antysymetryczne, często
+oznacza się $\Lambda^k (V^\ast)$. \\
+
+Przedstawmy teraz kilka podstawowych operacji określonych na takich tensorach.
+Dla dwóch tensorów kowariantnych $f \in T^p(V^\ast) $ oraz $g \in T^q(V^\ast) $
+możemy określić produkt (tensorowy) $f \otimes g \in T^{p+q}(V^\ast) $ za
+pomocą wzoru:
 \[
   f \otimes g(x_1, x_2, ..., x_p, x_{p+1}, x_{p+2}, ... ,x_{p+q}) =
   f(x_1, x_2, ... , x_p) \cdot g(x_{p+1}, x_{p+2}, ... , x_{p+q}).
@@ -159,7 +162,7 @@ Wówczas układ
 \]
 jest bazą potęgi zewnętrznej $\Lambda^k(V^\ast)$. Warto zauważyć, że implikuje
  to $dim \Lambda^k ( V^\ast)= \binom{n}{k}$
-\emph{Komentarz: można zamieścić tu dowód powyższej właności} \\
+\emph{Komentarz: można tu zamieścić dowód, że układ $B$ jest bazą. }
 
 Aby uczynić zadość tytułowi tego podrozdziału, zdefiniujmy
 \emph{algebrę zewnętrzną}. Jest to suma prosta:
@@ -168,29 +171,29 @@ Aby uczynić zadość tytułowi tego podrozdziału, zdefiniujmy
 \Lambda^0(V^\ast) \oplus
 \Lambda^1(V^\ast) \oplus
 \Lambda^2(V^\ast) \oplus
-..., 
-\] z działaniami dodawania oraz iloczynu zewnęnętrznego.
+...~.
+\] Stanowi ona algebrę z działaniami dodawania oraz iloczynu zewnęnętrznego. \\
 
 \section{Formy różniczkowe}
 Poniższe definicje są przytoczone w formie opartej na notatkach
 \cite{duszenko}. 
 \emph{Komentarz: w jaki sposób można ctować takie niepublikowane notatki? Nie 
-wypada ich po prostu nie cytować}
+wypada ich po prostu nie cytować, skoro z nich korzystam}
 \\
 
 Rozważamy rozmaitość $M$. Dla dowolnej przestrzeni kostycznej 
 $T_p^\ast M$ rozpatrzmy jej potęgę zewnętrzną $\Lambda^k(T_p^\ast M)$.
 Otrzymujemy w ten sposób przestrzeń liniową nad każdym punktem $p \in M$.
 Ich sumę rozłączną oznaczymy $\Lambda^k(T^\ast M)$. Przestrzenie te,
-określone nad każdym punktem z osobna, można skleić do wiązki wektorowej.
-\emph{Komentarz: może pokazać jak?}. \\
+określone nad każdym punktem z osobna, można skleić do wiązki wektorowej, na
+której można zdefniować formy różniczkowe.
+\emph{Komentarz: może pokazać jak się skleja przestrzenie w wiązkę?}. \\
 
 \begin{definition}[Forma różniczkowa]
-  $k$-formą różniczkową na rozmaitości $M$ nazwiemy gładkie cięcie
-  wiązki $\Lambda^k(T^\ast M)$ nad M, czyli gładkie odwzorowanie
-  $\omega: M \rightarrow \Lambda^k (T^\ast M)$, czli gładkie
-  odwzorowanie $\omega: M \rightarrow \Lambda^k(T^\ast M)$, spełniające
-  $\omega(p) \in \Lambda^k(T_p^\ast)$ dla każdego punktu $p \in M$.
+  $k$-formą różniczkową na rozmaitości $M$ nazwiemy gładkie cięcie wiązki
+  $\Lambda^k(T^\ast M)$ nad M, czyli gładkie odwzorowanie $\omega: M \rightarrow
+  \Lambda^k (T^\ast M)$, spełniające $\omega(p) \in \Lambda^k(T_p^\ast)$ dla
+  każdego punktu $p \in M$.
 \end{definition}
 
 Przestrzeń $k$-form różniczkowych oznaczać będziemy przez $\Omega^k(M)$ \\
@@ -205,7 +208,7 @@ własności. \\
 Aby nadać nieco więcej intuicji definicji, przypomnimy najpierw
 definicję różniczki funkcji, czyli operację 
 $d: C^\infty = \Omega^o(M) \rightarrow \Omega^1(M)$. Niech $f$ będzie funkcją
-gładką na $M$, a $x$ -  układem współrzędnych. Na dziedzinie tego układu
+gładką na $M$, a $(x^i)$ -  układem współrzędnych. Na dziedzinie tego układu
 określimy różniczkę $df$ wzorem
 \[
 df = \sum_{i=1}^n \frac{\partial f}{\partial x^i} dx^i.
@@ -213,14 +216,16 @@ df = \sum_{i=1}^n \frac{\partial f}{\partial x^i} dx^i.
 
 Dla form o wyższej gradacji określamy pochodną zewnętrzną w następujący
 sposób. Niech 
-$\omega = \sum_{j \in I} \alpha_{j_1, ..., j_k} dx^{j_1} \wedge ... \wedge dx^{j_k}$,
-a wtedy różniczka $d: \Omega^k(M) \rightarrow \Omega^{k+1}(M)$ jest dana jako
+$\omega = \sum_{j \in I} \alpha_{j_1, ..., j_k} dx^{j_1} \wedge ... \wedge dx^{j_k}$.
+Różniczka $d: \Omega^k(M) \rightarrow \Omega^{k+1}(M)$ jest dana jako
 \[ %% strona 363 Lee, wzór 14.20
 d( \sum_{j \in I} \alpha_{j_1, ..., j_k} dx^{j_1} \wedge ... \wedge dx^{j_k}) = 
  \sum_{j \in I} \sum_{i=1}^n
  \frac{ \partial \alpha_{j_1, ..., j_k}} {\partial x^i} dx^i
                             \wedge dx^{j_1} \wedge ... \wedge dx^{j_k})
 \]
+
+\emph{Komentarz: tu wypadałoby przytoczyć jakieś własności, co najmniej $d \circ d = 0$ }. \\
 
 
 \section{Skalowanie norm przestrzeni wektorowych i tensorów}
@@ -243,7 +248,7 @@ $\mathrm{M}$ oraz jej przestrzeń styczną $T_x\mathrm{M}$ i kostyczną
 $T_x^\ast\mathrm{M}$ w punkcie $x$.  Niech bazami ortogonalnymi tych
 przestrzeni będą $e_1, e_2, ..., e_n$ oraz dualna $e_1^\ast, e_2^\ast,
 ..., e_n^\ast$.  Chcemy teraz obliczyć w jaki sposób formy z
-$\Lambda(M)$ skalują się ze względu na taką zmainę w
+$\Lambda^\ast(M)$ skalują się ze względu na taką zmainę w
 normie. \\
 
 Załózmy że rozważamy przestrzeń $k$-form na $\M$ w pewnym
@@ -258,21 +263,17 @@ $(i_1, i_2, ..., i_k)$, dla $ 1 \leq i_1 < i_2 < ... < i_k \leq n$.  \\
 Popatrzmy w jaki sposób skalują się wektory bazowe. Przy założeniu ortogonalności
 zachodzi:
 \[
-    ||dx_{i_1} \wedge dx_{i_2} \wedge ... \wedge dx_{i_k} ||_t =  
-    ||dx_{i_1} ||_t \cdot ||  dx_{i_2} ||_t \cdot ... \cdot || dx_{i_k} ||_t =  \\
+    ||dx^{i_1} \wedge dx^{i_2} \wedge ... \wedge dx^{i_k} ||_t =  
+    ||dx^{i_1} ||_t \cdot ||  dx^{i_2} ||_t \cdot ... \cdot || dx^{i_k} ||_t =  \\
 \]
 \[
-    \frac{1}{t}||dx_{i_1} || \cdot \frac{1}{t} ||  dx_{i_2} ||_t \cdot ...
-     \cdot \frac{1}{t} || dx_{i_k} ||_t = 
-    \frac{1}{t^k}||dx_{i_1} \wedge dx_{i_2} \wedge ... \wedge dx_{i_k} ||
+    \frac{1}{t}||dx^{i_1} || \cdot \frac{1}{t} ||  dx^{i_2} ||_t \cdot ...
+     \cdot \frac{1}{t} || dx^{i_k} ||_t = 
+    \frac{1}{t^k}||dx^{i_1} \wedge dx^{i_2} \wedge ... \wedge dx^{i_k} ||
 \]
 
 Oznacza to, że każda $k$ forma skaluje się przez $1/t^k$ gdy metryka
-jest skalowana przez czynnik $t$.  Obserwację tą możemy także
-zaplikować do formy objętości, opisywanej w dalszych częściach  otrzymując:
-\[
-d\mathrm{vol}_t = \frac{1}{t^n} d\mathrm{vol}
-\]
+jest skalowana przez czynnik $t$.
 
 \section{Metryka Riemannowska i forma objętości}
 
@@ -318,7 +319,7 @@ $(x_1, ..., x_n, y_1, ..., y_m)$ na $M \times M'$ i nietrudno sprawdzić,
      g_{ij}   &  0 \\
       0      & g'_{ij} \\
       \end{array}
-  \right)
+  \right).
 \] \\
 
 
@@ -346,7 +347,7 @@ Nie odwołując się do ogólnych definicji całek z różnych typów form
 różniczkowych, w naszym przypadku będziemy mogli zapisać prosto, korzystając z
 wcześniejszych uwag dotyczących zapisu formy objętości:
 \[ %%% źródło tego wszystkiego 16.28 Lee, strona 422
-  \int_M f d \text{vol}_g = \int_{\phi (U)} f(x) \sqrt{det(g_{ij})} dx_1 ... dx_n,
+  \int_M f d \text{vol}_g = \int_{\phi (U)} f(x) \sqrt{det(g_{ij})} dx^1 ... dx^n,
 \]
 zakładając, że rozmaitość jest cała w obrazie jednej mapy
 $\phi$. Jeżeli bowiem tak by nie było, to musielibyśmy korzystać z
@@ -418,7 +419,6 @@ różniczkowanie lokalnych współrzędnych rozmaitości. \\
 
 Możemy teraz zdefiniować funkcję
 $G: \Lambda^k T_x M \times T_x M \rightarrow \mathbb{R}$.
-
 Dla danych dwóch form
 \[
 \alpha_x = \sum_{1 \leq i_1 < ... < i_k \leq n} \alpha_{i_1 ... i_k; x} e^{i^1}
@@ -445,6 +445,8 @@ Przytoczymy teraz następujący lemat, którego dowód jest dostępny na przykł
     $(e^1 \wedge ... \wedge e^n)$ jest ortonormalna dla $G$.
 \end{lemma}
 
+\emph{Komentarz: a może przytoczyć dowód tego lematu.}
+
 %% We can also give eqivalent definition using other terms ... ?? Może dopisać tutaj jeszcze z tego doktoratu
 %% o i tamto \\
 
@@ -460,8 +462,7 @@ odnotowania, ponieważ pomaga to w rozumieniu intuicji stojącej za definicją n
 na całości rozmaitości Riemannowskiej. Taka norma będzie po prostu całką 
 z normy punktowej rozważanej formy różniczkowej. \\
 
-Dokładniej, możemy zdefiniować $p$-normę dla formy na całej rozmaitości
-Riemannowskiej:
+Definiujemy $p$-normę dla formy na całej rozmaitości Riemannowskiej:
 \begin{equation} \label{big-norm}
   || \omega ||^p =  \int_M |\omega|_x^p d \text{vol}_g(x)
 \end{equation} \\
@@ -489,7 +490,7 @@ przestrzeń gładkich $k$-form.  Niech $\M$ będzie rozmaitością z
 brzegiem lub bez brzegu, a $p$ będzie nieujemną liczbą całkowitą.
 Ponieważ $d: \Omega^p (\M ) \rightarrow \Omega_{p+1}(\M) $ jest
 przekształceniem liniowym, jego jądro oraz obraz są podprzestrzeniami
-liniowymi. Wprowadźmy tymaczasowe oznaczenie:
+liniowymi. Wprowadźmy oznaczenie:
 \[
 \mathcal{Z}^p ( \M ) =
 d: \Omega^{p} (\M ) \rightarrow \Omega_{p+1}(\M) =
@@ -506,7 +507,8 @@ przestrzenią wektorową gdy $p < 0$ lub $p > n = \text{dim} \M $. W
 związku z tym zachodzi przykładowo $\mathcal{B}^0(\M)=0$ oraz
 $\mathcal{Z}^n(\M)= \Omega^n(\M)$. \\
 
-Fakt, że każda forma dokładna jest zamknięta implikuje oznacza oczywiście
+Sprawdzona wcześniej własność operatora różniczkowania $d \circ d = 0$ oznacza,
+że każda forma dokładna jest zamknięta. To z kolei implikuje 
 $ \mathcal{B}^p ( \M) \subseteq \mathcal{Z}^p ( \M) $.
 Stąd ma sens następująca definicja:
 
@@ -517,7 +519,7 @@ Stąd ma sens następująca definicja:
   H^{p}_{dR} ( \M ) = \frac {\mathcal{Z}^p ( \M )} {\mathcal{B}^p ( \M )}
   \]
 \end{definition}
-Jest to rzeczywista przestrzeń liniowa, i w związku z tym jest ona
+Jest to rzeczywista przestrzeń liniowa i w związku z tym jest ona
 grupą z działaniem dodawania wektorów. Można także pokazać, że grupy de Rhama są
 niezmiennicze ze względu na dyfeomorifzmy. Dla każdej domkniętej $p$-formy
 $\omega$ na $\M$ poprzez $[\omega]$ będziemy oznaczać klasę równoważności
@@ -566,15 +568,16 @@ Można bowiem udowodnić, że wspomniane grupy są niezmiennikami homotopii. Ozn
 to, że homotopijnie równoważne rozmaitości posiadać będą izomorficzne kohomologie
 de Rhama. \\
 
-W poniższym rozumowaniu ciekawy jest dla nas zarówno wynik, jak i technika, która
+Udowodnijmy więc homotopijną niezmienniczość grup de Rhama.  W poniższym
+rozumowaniu ciekawy jest dla nas zarówno wynik, jak i technika, która
 wykorzystywana będzie do jego udowodnienia. Wyprowadzimy bowiem równanie, które
-zada warunek na istnienie pewnego operatora. Nasza teza będzie wtedy równoznaczna
-z istnieniem interesującego nas operatora. \\
+sprowadzi naszą tezę do udowodnienia istnienia pewnego operatora o żądanych
+własnościach.
 
-Chcemy najpierw udowodnić, że homotopijne funkcje gładkie indukują to samo 
-przekształcenie kohomologii.
-Rozważamy w tym celu dwie gładkie funkcje $F, G: M \rightarrow N$.
-Chcemy udowodnić, że ich przekształcenia indukowane są równe
+
+Chcemy najpierw udowodnić, że homotopijne funkcje gładkie indukują to samo
+przekształcenie kohomologii.  Rozważamy w tym celu dwie gładkie funkcje $F, G:
+M \rightarrow N$.  Chcemy udowodnić, że ich przekształcenia indukowane są równe
 $F^\ast = G^\ast$. Wyraźmy ten warunek w nieco innych słowach. \\
 
 Gdy weźmiemy zamkniętą formę $p-$formę $\omega$ na $N$, aby
@@ -752,13 +755,13 @@ W terminach form różniczkowych powiązanych z rozważanym $f$-stożkiem oznacz
 że możemy napisać:
 
 \[
-\Lambda^k(\mathbb{R} \times T_m \M) = 
-\Lambda^{k-1}(\M)  \oplus \Lambda^k(\M).
+\Omega^k(\mathbb{R} \times T_m \M) = 
+\Omega^{k-1}(\M)  \oplus \Omega^k(\M).
 \]
 Spostrzeżenie to możemy wyrazić także w inny sposób: 
 
 \begin{remark}
-Każda $k$-forma $\omega \in \Lambda^k T(\mathrm{c}^f M)$, 
+Każda $k$-forma $\omega \in \Omega^k T(\mathrm{c}^f M)$, 
 a w konsekwencji każda forma z przestrzeni form $p$-całkowalnych  $L_k^p
 (\cfm)$ może być zapisana jako$\omega = \eta + \xi \wedge dt$,
 gdzie zarówno $\eta$, jak i  $\xi$ nie zawierają $dt$.  Zauważmy ponadto,
@@ -873,11 +876,10 @@ zapisać dla formy $\xi$ $(k-1)$ formę $\partial \xi / \partial t$ jako:
     \sum_{\alpha \in I(k-1)} \frac{\xi_\alpha}{\partial t}(t, x) dx^\alpha. 
 \] \\
 
-Może zdefiniować na stosownym
-kompleksie form różnikowych
+Definiujemy na stosownym kompleksie form różnikowych
 
 \[
-    d_\M \omega =  
+    d_\M \omega(t, x) =  
     \sum_{1 \leq j \leq m} \sum_{\alpha \in I(k)}
     \frac{\partial \eta_\alpha}{\partial x_j}(t, x) dx_j \wedge dy^\alpha
 \]
@@ -901,7 +903,7 @@ a następnie na całym badanym $f$-stożku:
 Możemy teraz postarać się zdefiniować operator homotopii.
 Dla ustalonego $r \in (0, \infty)$ określimy operator
 \[
-    I_r: \Lambda^k(\cfm) \rightarrow \Lambda^{k-1}(\cfm),
+    I_r: \Omega^k(\cfm) \rightarrow \Omega^{k-1}(\cfm),
 \]
 który w lokalnych współrzędnych $(x_1, x_2, ..., x_n)$ jest zadany wzorem:
 \[
@@ -923,6 +925,7 @@ w formule homotopii. Napiszemy:
 \[
     = \int_r^t d_\M \xi + dt \wedge \xi
 \]
+\emph{Komentarz: wypadałaoby pewnie wcześniej zaargumentować że możemy z $d$ wejść pod całkę}
 oraz
 \[
     I_r \omega = I_r
@@ -940,7 +943,7 @@ oraz
     = \eta - \pi^\ast \left( \eta^{(r)} \right) - \int_r^t d_\M \xi,
 \]
 
-gdzie $\eta^{(r)} \in \Lambda^k (\M)$ jest zadane w lokalnych współrzędnych
+gdzie $\eta^{(r)} \in \Omega^k (\M)$ jest zadane w lokalnych współrzędnych
 $(x_1, x_2, ..., x_n)$ jako 
 \[
     \eta^{(s)}(x) = \sum_{\alpha \in I(k)} \eta_\alpha(t, x) dx^\alpha.
@@ -948,31 +951,34 @@ $(x_1, x_2, ..., x_n)$ jako
 
 W związku z tym, zachodzi wzór:
 \[
-    d I_r \xi + I_r d \xi = dt \wedge \xi + \eta - \pi^\ast \left( \eta^{(r)} \right).
+    d I_r \xi + I_r d \xi = dt \wedge \xi + \eta - \pi^\ast \left( \eta^{(r)} \right) =
+      \omega - \pi^\ast(\eta^{(r)})
+.
 \] \\
 
 Spróbujemy teraz zbadać, kiedy dla $p$-całkowalnej formy $\omega$ forma $I_r \omega$
 także jest całkowalna. Fakt, że forma jest  $p$-całkowalna oznacza innymi słowy, że
 \[
-    || \omega ||^p = \int_{\cfm} |\omega|^p =
-    \int_0^1 \int_{\M} \left(
+    || \omega ||^p = \int_{\cfm} |\omega|^p d \text{vol}_{\cfm} =
+    \int_0^\infty \int_{\M} \left(
         (e^{-t})^{-2k} | \eta^{(t)}|^p_{\M} + 
         (e^{-t})^{-2(k-1)} | \xi^{(t)}|^p_{\M} 
     \right)
-    (e^{-t})^{m} dt.
+    (e^{-t})^{m} dt < \infty
 \]
 
-Jako że $I_r \omega$ jest $(k-1)$ formą, to możemy napisać
+$I_r \omega$ jest $(k-1)$ formą. Napiszemy
 \[
     ||I_r \omega ||^p = 
-    \int_{\cfm} ||I_r \omega||^p = 
-    \int_0^1 \int_{\M} \left(
-        (e^{-t})^{-p(k-1)}
-        \int_r^t ||\xi^{(\tau)} d\tau||^p_{\M} (e^{-t})^n dt
-    \right).
+    \int_{\cfm} |I_r \omega|^p  d\text{vol}_{\cfm} =
+    \int_0^\infty \int_{\M} 
+        (e^{-t})^{n-p(k-1)}
+      \left| \int_r^t |\xi^{(\tau)} |^p_{\M} d\tau \right|.
 \] \\
 
-Wykorzystamy teraz lemat, który udowodniony został w dodatku. \\
+Wykorzystamy teraz lemat, który udowodniony został w dodatku, przyjmując
+funkcję $f = |\xi^{(\tau)} |^p$, a za jej funkcję pierwotną 
+$F = \int_r^t |\xi^{(\tau)}| $. \\
 
 Lemat możemy wykorzystać, tylko wtedy gdy 
 wspołczynnik przy $e^{-t}$, nazwijmy go $\alpha$, jest większy od zera. Ten współczynnik to:
@@ -986,10 +992,11 @@ $\alpha = -p(k-1) + n$. Zbadajmy warunek:
 \[
     k < \frac{n}{p} + 1.
 \]
-Warunek pozwalający na wykorzystanie lematu jest więc spełniony dla $k \leq \frac{n}{p}$. \\
+Warunek pozwalający na wykorzystanie lematu jest więc spełniony dla $k \leq
+\frac{n}{p}$. \\
 
-Gdy warunek ten jest spełniony, stosujemy lemat\ref{hardy} ... (z nierówności Hardy'ego) i uzyskujemy rezultat, że $I_r \omega$
-jest formą $p$-całkowalną. \\
+Gdy warunek ten jest spełniony, stosujemy Lemat\ref{hardy},
+wykorzystujący nierówność Hardy'ego i uzyskujemy rezultat, że $I_r \omega$ jest formą $p$-całkowalną. \\
 
 Pokazaliśmy więc, że jeśli $\omega$ jest $k$-formą $p$-całkowalną, to  $I_r \omega$ jest
 $p$-całkowalna i zachodzi wzór
@@ -999,7 +1006,7 @@ $p$-całkowalna i zachodzi wzór
         \eta^{(s)}.
     \right).
 \]
-Stąd jeśli $d \omega = 0$< to 
+Stąd jeśli $d \omega = 0$, to 
 \[
     \eta \in d(L^{i-1} \cfm) + \pi^\ast (L^i*\M),
 \]
@@ -1008,6 +1015,13 @@ więc
     \pi^\ast: H \left( \M \right) \rightarrow H ( \cfm )
 \]
 jest operatorem suriektywnym. \\
+
+\emph{Komentarz: z tego co rozumiem, oznacza to że dla $k \leq \frac{n}{p}$
+operator $I_0$ jest ciągły. Podejrzewam, że ma z tego wyjść podobnie, że
+$I_\infty$ jest ciągły dla $k \geq \frac{n}{p} + 1$, ale nie rozumiem dokładnie
+jak to ma wyjść. Pewnie musimy zmieniać w 
+$F = \int_r^t |\xi^{(\tau)}| $ granice całkowania na $\int_t^r$}
+
 
 %%% Zbadać co się dzieje w tym przeciwnym przypadku
 
@@ -1031,6 +1045,9 @@ I_\infty:A^k \to A^{k+1}
 \] jest ciągły w normie $L^p$ dla k.... ,
 gdzie $A^k$ oznacza $k$-formy o mierzalnych współczynnikach. \\
 
+ Jesli chodzi o ostatni rozdzial, to moze Pan heurystycznie powiediec co by
+bylo gdyby kazda odcalkowana forma $I_\infty \omega$ byla gladka.
+
 
 
 \begin{thebibliography}{99}
@@ -1045,6 +1062,9 @@ gdzie $A^k$ oznacza $k$-formy o mierzalnych współczynnikach. \\
 
 \bibitem[Duszenko]{duszenko}, Kamil Duszenko, \textit{Formy różniczkowe},
 notatka
+
+\bibitem[Kirwan]{kirwan} Frances Kirwan, Jonathan Woolf, \textit{An Introduction
+to Intersection Homology Theory}, Taylor \& Francis, LLC.
 
 \bibitem[Bott]{bott} Raou Bott, \textit{Differetial forms in algebraic
   topology}, Springer Verlag, 1982.
