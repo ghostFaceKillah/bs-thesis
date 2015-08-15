@@ -4,6 +4,7 @@
 \usepackage{amssymb}
 \usepackage{amsmath}
 \usepackage{amsthm}
+\usepackage{stackrel}
 \usepackage{polski}
 
 \theoremstyle{definition}
@@ -16,11 +17,15 @@
 \newtheorem{lemma}{Lemat}[section]
 
 \theoremstyle{plain}
+\newtheorem{proposition}{Propozycja}[section]
+
+\theoremstyle{plain}
 \newtheorem{theorem}{Theorem}[section]
 
 %% Document global definitions
 \def\cfm{\ensuremath\mathrm{c}^fM}
 \def\M{\ensuremath M}
+\def\R{\ensuremath\mathbb{R}}
 \newcommand\deff{\mathrel{\overset{\makebox[0pt]{\mbox{\normalfont\tiny\sffamily def}}}{:=}}}
 
 
@@ -566,18 +571,21 @@ Przedstawiony powyżej wniosek jest nieco zaskakujący - grupy de Rhama okazały
 się być topologicznym niezmiennikiem. Wniosek ten ma daleko idące uogólnienie.
 Można bowiem udowodnić, że wspomniane grupy są niezmiennikami homotopii. Oznacza
 to, że homotopijnie równoważne rozmaitości posiadać będą izomorficzne kohomologie
-de Rhama. \\
+de Rhama. Będziemy się starać udowodnić następującą rzecz:
 
-Udowodnijmy więc homotopijną niezmienniczość grup de Rhama.  W poniższym
-rozumowaniu ciekawy jest dla nas zarówno wynik, jak i technika, która
-wykorzystywana będzie do jego udowodnienia. Wyprowadzimy bowiem równanie, które
-sprowadzi naszą tezę do udowodnienia istnienia pewnego operatora o żądanych
-własnościach.
+\begin{proposition}
+    Homotopijnie równoważne rozmaitości mają izomorficzne grupy de Rhama.
+\end{proposition}
 
+Przedstawię teraz dowód powyższej propozycji.  W tym rozumowaniu ciekawy jest
+dla nas zarówno wynik, jak i technika, która wykorzystywana będzie do jego
+udowodnienia.  Skorzystam później z bardzo podobnych technik do udowodnienia
+najważniejszych twierdzeń pracy.  Wyprowadzimy bowiem równanie, które sprowadzi
+naszą tezę do udowodnienia istnienia pewnego operatora o żądanych własnościach.  \\
 
 Chcemy najpierw udowodnić, że homotopijne funkcje gładkie indukują to samo
 przekształcenie kohomologii.  Rozważamy w tym celu dwie gładkie funkcje $F, G:
-M \rightarrow N$.  Chcemy udowodnić, że ich przekształcenia indukowane są równe
+M \rightarrow N$.  Pokażemy, że ich przekształcenia indukowane są równe
 $F^\ast = G^\ast$. Wyraźmy ten warunek w nieco innych słowach. \\
 
 Gdy weźmiemy zamkniętą formę $p-$formę $\omega$ na $N$, aby
@@ -589,15 +597,15 @@ wyprodukować taką $(p-1)$-formę $\eta$ na $M$, aby spełnione
 
 Z tego wyniknie bowiem, że
 $ G^\ast [\omega] - F^\ast [\omega] =
-[d\eta] = 0$.
+[d\eta] = 0$. \\
+
 Możemy podejść do tego problemu nieco bardziej systematycznie, 
 szukając takie operatora
 $h$, który jako argumenty bierze zamknięte $p$ formy na $N$
 i działa tak, że spełniona jest zależność
 \[
     d(h\omega) = G^\ast \omega - F^\ast \omega.
-\] \\
-
+\] 
 Zamiast definiować $h \omega$ tylko dla przypadku, kiedy $\omega$
 jest zamknięta, okazuje się, że łatwiej jest określić operator
 $h$ z przestrzeni wszystkich gładkich $p$-form na $N$
@@ -609,18 +617,142 @@ dla którego spełnione jest równanie
 Gdy warunek ten jest bowiem spełniony to dla formy $\omega$, która
 jest zakmnięta zajdzie także poprzedni warunek. \\
 
-Jeśli chcemy być całkowicie dokładni, to musimy
-zdefiniować rodzinę funkcji, po jednej funkcji dla każdego $p$, która
-będzie spełniać stosowny warunek na danym poziomie.
+Następujące twierdzenia i wnioski przytaczam z książki \cite{bott}, Section
+I.\S4, s 35. \\
+
+Obliczenie rozpoczniemy od prostszego przypadku $M = \R^n$.
+Niech $\pi: \R^n \times \R \rightarrow \R^n$  będzie rzutowaniem
+na pierwszy czynnik, a $s$  będzie cięciem zerowym, czyli włożeniem
+na zero na drugim czynniku. Podsumowując mamy:
 \[
-    H(M \times \mathbb{R}_{\geq})_{dR}^\ast = H(M)_{dR}^\ast
-\] \\
+ \R^n \times \R
+ \stackrel[\pi]{s}{\leftrightarrows} 
+ \R^n
+\]
+\[
+ \Omega (\R^n \times \R)
+ \stackrel[\pi^\ast]{s^\ast}{\rightleftarrows} 
+ \Omega(\R^n)
+\]
+\[
+    \pi(x, t) = x
+\]
+\[
+    s(x) = (x, 0)
+\]
+
+Pokażemy, że funkcje indukują przeciwne do siebie izomorfizmy na
+grupach kohomologii i stąd zachodzi $H^\ast(\R^{n+1}) \cong H^\ast(\R^{n})$. \\
+
+Jako. że $\pi \circ s = id$  mamy prosto $s^\ast \circ \pi^\ast = id$. Jednak
+$s \circ \pi \neq 1$ i stąd dla operatorów
+na formach zachodzi także $\pi^\ast \circ s^\ast \neq 1$. Dla przykładu,
+$\pi^\ast \circ s^\ast$ posyła funkcję $f(x, t)$ na $f(x, 0)$ czyli 
+funkcję która jest stała wzdłuż każdego włókna. Okazuje się jednak
+że w kohomologiach jednak $\pi^\ast \circ s^\ast$ jest identycznością.
+Aby to pokazać, posłużymy się formułą homologii. Chcemy mianowicie
+znaleźć funkcję $K$ na $\Omega(\R^n \times \R)$ taką, że spełnione jest
+równanie:
+\[
+    1 - \pi^\ast \circ s^\ast = \pm dK \pm Kd.
+\]
+Podkreślmy ponownie, że $dK \pm Kd$ przekształca formy domknięte
+na formy dokładne i dlatego indukuje przekształcenie zerowe w kohomologii. 
+Dla pełnej klarowności, dzieje się tak dlatego, że skoro $d \circ d = 0$
+to z definicji forma zamknięta $\omega$ zachowuje wzór $d \omega = 0$ i
+w konsekwencji $K d \omega = 0$. Dlatego też z powyższego wzoru pozostaje
+tylko $d K \omega$, która jest formą dokładną. \\
+
+Gdy taki operator $K$ istnieje, nazwany jest on \emph{operatorem homotopii},
+a operator $\pi^\ast \circ s^\ast$ jest łańcuchowo homotopijne z identycznością.
+Zwróćmy także uwagę, że operator homotopii podnosi gradację formy o 1. \\
+
+Każda forma na $\R^n \times \R$ da się wyrazić jako suma prosta następujących
+dwóch podstawowych typów form:
+
+\begin{enumerate}
+    \item $(\pi^\ast \phi)f(x,t)$, 
+    \item $(\pi^\ast \phi)f(x,t) \wedge dt$,
+\end{enumerate}
+
+gdzie $\phi$ jest formą określoną na przestrzeni podstawowej $\R^n$.
+Zdefiniujemy teraz
+$K: \Omega^{q} (\R^n \times \R) \rightarrow \Omega^{q-1} (\R^n \times \R)$ 
+na poszególnych typach form jako:
+\begin{enumerate}
+    \item $(\pi^\ast \phi)f(x,t) \mapsto 0$,
+    \item $(\pi^\ast \phi)f(x,t) \wedge dt \mapsto (\pi^\ast \phi) \int_0^t f$.
+\end{enumerate}
+Przystąpimy teraz do sprawdzenia, że $K$ jest rzeczywiście operatorem homotopii.
+Dla uproszczenia dalszych wzorów zastosujemy uproszczenie notacji. Będziemy
+pisać $\partial f / \partial x$ zamiast $\sum \partial f / \partial x^i dx^i$
+oraz $\int g$ zamiast $\int g(x, t) dt$. \\
+
+Korzystając z tej notacji, sprawdzamy dla $q$-formy typu 1:
+
+\[
+    \omega = (\pi^\ast \phi) \cdot f(x,t)
+\]
+\[
+    (1 - \pi^\ast s^\ast) \omega =
+       (\pi^\ast \phi) \cdot f(x,t) - \pi^\ast \phi \cdot f(x,0)
+\]
+\[
+    (dK - Kd) \omega = - K d\omega = 
+    -K \left(
+    (d \pi^\ast \phi)f +
+    (-1)^q \pi^\ast \phi \left(
+       \frac{\partial f}{\partial x} \wedge dx +
+       \frac{\partial f}{\partial t} \wedge dt
+       \right)
+    \right) =
+\]
+\[
+    (-1)^{q-1}\pi^\ast \phi \int_0^t \frac{\partial f}{\partial t}
+    = (-1)^{q-1} \pi^\ast \phi [f(x,t) - f(x,0)].
+\]
+
+Zestawiając powyższe równości możemy więc napisać
+\[
+    1 - \pi^\ast s^\ast = (-1)^{q-1}(dK - Kd)
+\]
+dla form typu 1. \\
+
+Zbadajmy formułę homotopii dla $q$-form typu 2:
+\[
+    \omega = (\pi^\ast \phi)f dt
+\]
+\[
+    d\omega = (\pi^\ast d \phi)f dt + 
+    (-1)^{q-1}(\pi^\ast \phi) \frac{\partial f}{\partial x} 
+      \wedge dx \wedge dt
+\]
+\[
+    (1 - \pi^\ast s^\ast) = \omega ~\text{ponieważ}~
+     s^\ast(dt) = d(s^\ast) = d(0) = 0
+\]
+\[
+    Kd\omega = (\pi^\ast d\phi) \int_0^tf +
+      (-1)^{q-1} (\pi^\ast \phi)
+          dx \wedge (\int_0^t \frac{\partial f}{\partial x})
+\]
+\[
+    dK\omega = (\pi^\ast d\phi) \int_0^tf +
+      (-1)^{q-1} (\pi^\ast \phi)
+      \left[
+          dx \wedge (\int_0^t \frac{\partial f}{\partial x})
+          + f dt
+      \right],
+\]
+i podsumowując zachodzi wzór
+\[
+    (dK - Kd) \omega = (-1)^{q-1} \omega.
+\]
 
 
-(Przytoczyć dowód istnienia operatora homotopii - ale nie ma jak tego zrobić bez
-definiowania innych rzeczy, np pochodnej Liego w książce Lee). \\
 
 
+\section{$L_p$-kohomologie}
 Niniejsza praca zajmuje się pewną modyfikacją kohomologii de Rhama.
 Dokładniej, ta praca zajmuje się $L_p$-kohomologiami. Można patrzeć
 na nie jak na rozważanie niemal tego samego kompleksu łańcuchowego co w
@@ -642,7 +774,7 @@ funkcji z całkowalnością jej funkcji bazowych.
     Rozważmy funkcję $f: \mathbb{R}_{+} \rightarrow \mathbb{R}$, funkcje-wagi
     $\phi, \psi: \mathbb{R}_{+} \rightarrow \mathbb{R}$ oraz $p, q \in
     \mathbb{R}$ takie, że $\frac{1}{p} + \frac{1}{q} = 1 $.  Zachodzi dla nich
-$$
+\[
 \int_0^\infty \left|
                 \phi(x) \int_0^x f(t) dt
               \right|^p dx
@@ -650,9 +782,9 @@ $$
 C \int_0^\infty \left|
                     \psi(x)  f(x)
                 \right|^p dx
-$$
+\]
 wtedy i tylko wtedy, gdy
-$$
+\[
 \sup_{x > 0}
 \left[
 \int_x^\infty  
@@ -662,7 +794,7 @@ $$
 \int_0^x
     | \phi(t) |^{-q} dt
 \right]^{\frac{1}{q}} < + \infty,
-$$
+\]
 \end{lemma}
 \begin{proof}
     Dowód pomijam. 
@@ -1026,6 +1158,8 @@ $F = \int_r^t |\xi^{(\tau)}| $ granice całkowania na $\int_t^r$}
 %%% Zbadać co się dzieje w tym przeciwnym przypadku
 
 \section{Co pan Weber kazał mi zrobić}
+
+\subsection{Pierwszy mail}
 Ten fragment, który Pan kontempluje: Chodzi o to, że zamiast form gładkich
 trzeba rozważać formy o mierzalnych współczynnikach z różniczką w sensie
 "prądów" (currents), czyli funkcjonałów na formach. Być może to troche zbyt
@@ -1047,6 +1181,41 @@ gdzie $A^k$ oznacza $k$-formy o mierzalnych współczynnikach. \\
 
  Jesli chodzi o ostatni rozdzial, to moze Pan heurystycznie powiediec co by
 bylo gdyby kazda odcalkowana forma $I_\infty \omega$ byla gladka.
+
+\subsection{Drugi mail}
+
+Dalsze uwagi Pana Webera
+
+Najwazniejsza jest czesc, gdzie jest szacowane $||I_r\omega||$ i
+$||I_\infty\omega||$ i na to jeszcze czekamy. Po szcowaniu normy $||I_r\omega||$
+trzeba podac sformulowanie jak wygladja kohomologie rozka i udowodnic co sie
+da. Jesli $||I_r\omega||$ jest skonczone, to wszystko powinno dzialac. Jesli
+$||I_\infty\omega||$ jest skonczone to przy dodatkowym zalozeniu, ze
+$I_\infty\omega$ jest gldka moze Pan tez cos zrobic: $I_\infty\omega$ przybliza sie
+formami $I_r\omega$ dla $r->\infty$ i w granicy dostajemy formule homotopii
+pokazujaca, ze jesli $d\omega=0$, to $\omega=d(I_\infty\omega)$.
+
+\subsection{Trzeci mail}
+
+Ja: Chcę zapytać o jedną rzecz. Czy dobrze rozumiem, że jak chcemy zbiegać z r w
+wyrażeniu $I_r$ do zera, \\
+
+P. W.:
+Zbieganie z r do 0 nie ma sensu. Przy zalozeniu ze badamy rozmaitosc z brzegiem
+$M \times [0,\infty)$ formy dla $r=0$ sa zdefiniowane i mozna po prostu brac
+    $I_0\omega(x,t)=\int_0^t .....$ \\
+
+Ja: to chcemy definiować $I_r (x,t) = \int_r^t$, a jak
+chcemy zbiegać z $r$ w $I_r$ to nieskończoności, to całka ma być $I_r(x,t) \int_t^r $? \\
+
+mamy $ \int_t^r -> \int_t^\infty$
+(lub  $\int_r^t -> \int_\infty^t$, to jest to samo z dokladnoscia do znaku) \\
+
+
+
+
+\subsection{Trzeci mail}
+
 
 
 
