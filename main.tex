@@ -1269,13 +1269,13 @@ powyżej własności. \\
 Chcemy teraz pokazać, że dla $k > \frac{n}{p}$ mamy $H^\ast_p(\cfm) = 0$ dla
 $k \geq \frac{n}{p}$. Niech $\phi$ będzie $p$-całkowalną $k$-formą na
 $\cfm$. Dla określonego $a > 0$ możemy napisać, korzystając z nierówności
-Cauchyego-Schwarza
+Cauchy'ego-Schwarza
 \begin{align*}
 \left(
-    \int_0^a \int_\M |\phi^{(t)}|_M^p
+    \int_0^a \int_\M |\phi^{(t)}|_M^p dt
 \right) & \leq 
 \left(
-    \int_0^\infty \int_\M (e^{-t})^{n-pk} |\phi^{(t)}|^p
+    \int_0^\infty \int_\M (e^{-t})^{n-pk} |\phi^{(t)}|^p dt
 \right)
 \left(
     \int_0^a \int_\M (e^{-t})^{pk-n} dt 
@@ -1286,7 +1286,7 @@ Cauchyego-Schwarza
     \int_\M 1
 \right)
 \left(
-    \frac{ (e^{-t})^{pk-n} - 1 }{n-pk}
+    \frac{ (e^{-a})^{pk-n} - 1 }{n-pk} < \infty
 \right) \\
 \end{align*}
 Z powyższego wzoru wynika, że całka $\int_0^\infty \int_\M |\phi^{(t)}|_M^p$ 
@@ -1391,9 +1391,7 @@ $I_\infty\omega$ nie jest gładka, to ... \emph{Jest już dużo trudniej}.
 %% (lub  $\int_r^t -> \int_\infty^t$, to jest to samo z dokladnoscia do znaku) \\
 %% 
 %% 
-%% 
-%% 
-\subsection{Trzeci mail}
+%% \subsection{Trzeci mail}
 
 
 
