@@ -171,7 +171,6 @@ Wówczas układ
 \]
 jest bazą potęgi zewnętrznej $\Lambda^k(V^\ast)$. Warto zauważyć, że implikuje
  to $dim \Lambda^k ( V^\ast)= \binom{n}{k}$
-\emph{Komentarz: można tu zamieścić dowód, że układ $B$ jest bazą. }
 
 Aby uczynić zadość tytułowi tego podrozdziału, zdefiniujmy
 \emph{algebrę zewnętrzną}. Jest to suma prosta:
@@ -195,8 +194,7 @@ $T_p^\ast M$ rozpatrzmy jej potęgę zewnętrzną $\Lambda^k(T_p^\ast M)$.
 Otrzymujemy w ten sposób przestrzeń liniową nad każdym punktem $p \in M$.
 Ich sumę rozłączną oznaczymy $\Lambda^k(T^\ast M)$. Przestrzenie te,
 określone nad każdym punktem z osobna, można skleić do wiązki wektorowej, na
-której można zdefniować formy różniczkowe.
-\emph{Komentarz: może pokazać jak się skleja przestrzenie w wiązkę?}. \\
+której można zdefniować formy różniczkowe. \\
 
 \begin{definition}[Forma różniczkowa]
   $k$-formą różniczkową na rozmaitości $M$ nazwiemy gładkie cięcie wiązki
@@ -301,8 +299,7 @@ może być zapisana jako
 gdzie
 $g_{ij}$
 jest dodatnio określoną macierzą (której współrzędne to funkcje gładkie). Ostatnia
-część równości zapisuje naszą metrykę w terminach produktu symetrycznego.
-\emph{Komentarz: Czy potrzebne jest tu uzasadnienie?} \\
+część równości zapisuje naszą metrykę w terminach produktu symetrycznego. \\
 
 Biorąc pod uwagę, że w głównej części pracy rozważać będziemy
 rozmaitości Riemannowskie będące produktem dwóch rozmaitości
@@ -454,7 +451,6 @@ Przytoczymy teraz następujący lemat, którego dowód jest dostępny na przykł
     $(e^1 \wedge ... \wedge e^n)$ jest ortonormalna dla $G$.
 \end{lemma}
 
-\emph{Komentarz: a może przytoczyć dowód tego lematu.}
 
 %% We can also give eqivalent definition using other terms ... ?? Może dopisać tutaj jeszcze z tego doktoratu
 %% o i tamto \\
@@ -867,22 +863,22 @@ wtedy i tylko wtedy, gdy
 \right]^{\frac{1}{p}}
 \left[
 \int_0^x
-    | \phi(t) |^{-q} dt
+    | \psi(t) |^{-q} dt
 \right]^{\frac{1}{q}} < + \infty,
 \]
 \end{lemma}
 \begin{proof}
-    Dowód pomijam. 
-    Jest on dostępny w ... . Zacytować paper od pana Webera.
+Dowód tego twierdzenia pomijam. Jest on dostępny w pracy~\cite{hardys}.
 %% %%% http://www.encyclopediaofmath.org/index.php/Hardy_inequality
 %% where you can find references to the original source. \\
 \end{proof}
 
 \begin{lemma}
 Rozważmy pewną funkcję $f: \mathbb{R}_{+} \rightarrow \mathbb{R}$, gdzie $f
-\geq 0$ oraz jej funkcję pierwotną $F(x) = \int_0^{x} f(t) dt$. Dla $\alpha > 0$ warunek
-$\int_0^\infty f(x)^p e^{-\alpha x}dx < \infty$ implikuje $\int_0^\infty
-F(x)^pe^{- \alpha x}dx < \infty$.  \\
+\geq 0$ oraz jej funkcję pierwotną $F(x) = \int_0^{x} f(t) dt$. Dla $\alpha > 0$ 
+ $\int_0^\infty F(x)^pe^{- \alpha x}dx < \infty$
+zachodzi wtedy i tylko wtedy, gdy
+$\int_0^\infty f(x)^p e^{-\alpha x}dx < \infty$.
 \end{lemma}
 \begin{proof}
 Wykorzystamy uogólnioną nierówność Hardy'ego.  Załóżmy $\psi(t) = \phi(t) =
@@ -958,8 +954,8 @@ $f$-stożku. Przestrzeń styczna do $\cfm$ w punkcie $(t, m)$ to:
 \[
     T_{(t, m)} (\mathrm{c}^f M) = \mathbb{R} \times T_m M.
 \]
-W terminach form różniczkowych powiązanych z rozważanym $f$-stożkiem oznacza to, 
-że możemy napisać:
+W terminach form różniczkowych powiązanych z rozważanym $f$-stożkiem oznacza
+to, że możemy napisać:
 
 \[
 \Omega^k(\mathbb{R} \times T_m \M) = 
@@ -1024,27 +1020,43 @@ $$
 gdzie $|\cdot |_{\M} $ jest normą form różniczkowych indukowaną przez
 metrykę Riemannowską na rozmaitości $\M$.  Czynnik $(\mathrm{e}^{-t})^{-2k}$
 pojawia się ponieważ forma $\eta$ należy do $k$-tej potęgi zewnętrznej
-przestrzeni kostycznej do rozmaitości $\cfm$ w punkcie $(t,x)$.  Zauważmy
-ponadto, że Riemannowska forma objętośći na $\cfm$ w punkcie $(t,x)$ różni się
+przestrzeni kostycznej do rozmaitości $\cfm$ w punkcie $(t,x)$.  \\
+
+
+Zbadamy teraz w jaki sposób zachowują się normy form przeciągniętych 
+projekcją $\pi$ na $\cfm$.
+Niech $\omega$ będzie $k$-formą na $\M$, którą można zapisać w lokalnych
+współrzędnych $(x^1, ..., x^n)$ jako
+\[
+\omega(x) = \sum_{\alpha \in I(k)} \omega_\alpha (t, x) dx^\alpha.
+\]
+Po przeciągnięciu forma $\pi^\ast \omega$ na $\cfm$ jest dana w lokalnych 
+współrzędnych $(t, x^1, ..., x^n)$ dokładnie tym samym wzorem
+\[
+\pi^\ast \omega(t,x) = \sum_{\alpha \in I(k)} \omega_\alpha (t, x) dx^\alpha.
+\]
+
+Zauważmy, że Riemannowska forma objętośći na $\cfm$ w punkcie $(t,x)$ różni się
 od formy objętości na $\M$ w punkcie $x$ o czynnik $(e^{-t})^n$.  Policzmy więc
-normę $\omega$ jako elementu przestrzeni $L_k^p (\cfm)$.
+normę $\pi^\ast \omega$ jako elementu przestrzeni $L_k^p (\cfm)$.
 
 \[
-    ||\omega ||^p = \int_{\cfm} |\omega |^p d \mathrm{vol}_{\cfm} =
+    ||\pi^\ast \omega ||^p = \int_{\cfm} |\omega |^p d \mathrm{vol}_{\cfm} =
     \int_0^\infty \left( e^{-t} \right)^{n-pk} \int_M |\omega|^p d
     \mathrm{vol}_M dt = 
 \]
+
 \[
     = \
-    \int_0^\infty \left( e^{-t} \right)^{n-pk} || \omega_t ||_{M} dt = 
+    \int_0^\infty \left( e^{-t} \right)^{n-pk} || \omega ||_{M} dt = 
     \int_0^\infty || \omega ||_t^p dt,
 \] 
 gdzie
 \[
 || \omega ||_r \deff || \omega_{|M \times \{r\} } || =
-\mathrm{e}^{-r \cdot (\frac{n}{p} - k) }  ||\omega_r ||_{\M}.
+\mathrm{e}^{-r \cdot (\frac{n}{p} - k) }  ||\omega ||_{\M}.
 \]
-Przypomnijmy, że $\omega_r = i_r^\ast (\eta)$. \\
+%%% Przypomnijmy, że $\omega_r = i_r^\ast (\eta)$. W tym przypadku \\
 
 Zauważmy teraz w jaki sposób zachowywać się będzie norma formy, która
 została przeciągnięta z podstawy, czyli rozmaitości $\M$. Dla 
@@ -1146,7 +1158,7 @@ oraz
             \frac{\partial \eta}{\partial t} - d_M \xi
         \right)
 \]
-\[
+\[\label{vanishing-eta}
     = \eta - \pi^\ast \left( \eta^{(r)} \right) - \int_r^t d_\M \xi,
 \]
 
@@ -1168,24 +1180,29 @@ także jest całkowalna. Fakt, że forma jest  $p$-całkowalna oznacza innymi s�
 \[
     || \omega ||^p = \int_{\cfm} |\omega|^p d \text{vol}_{\cfm} =
     \int_0^\infty \int_{\M} \left(
-        (e^{-t})^{-2k} | \eta^{(t)}|^p_{\M} + 
-        (e^{-t})^{-2(k-1)} | \xi^{(t)}|^p_{\M} 
+        (e^{-t})^{-pk} | \eta^{(t)}|^p_{\M} + 
+        (e^{-t})^{-p(k-1)} | \xi^{(t)}|^p_{\M} 
     \right)
-    (e^{-t})^{m} dt < \infty
+    (e^{-t})^{n} dt < \infty.
 \]
+Przypomnijmy, że czynnik $ (e^{-t})^{n} $ pochodzi od skalowania formy objętości, a
+czynniki $p \cdot k$ pochodzą od tego, że forma jest w $k$-tej potędze zewnętrznej,
+a norma podniesiona jest do $p$-tej potęgi. \\
 
-$I_r \omega$ jest $(k-1)$ formą. Napiszemy
+
+$I_r \omega$ jest $(k-1)$ formą. Napiszemy analogicznie:
 \[
     ||I_r \omega ||^p = 
     \int_{\cfm} |I_r \omega|^p  d\text{vol}_{\cfm} =
     \int_0^\infty \int_{\M} 
         (e^{-t})^{n-p(k-1)}
-      \left| \int_r^t |\xi^{(\tau)} |^p_{\M} d\tau \right|.
+      \left| \int_r^t |\xi^{(\tau)} |^p_{\M} d\tau \right| dt.
 \] \\
 
 Wykorzystamy teraz lemat, który udowodniony został w dodatku, przyjmując
 funkcję $f = |\xi^{(\tau)} |^p$, a za jej funkcję pierwotną 
-$F = \int_r^t |\xi^{(\tau)}| $. \\
+$F = \int_r^t |\xi^{(\tau)}|^p d \tau $. \\
+\emph{Komentarz: zacytować właściwy lemat}
 
 Lemat możemy wykorzystać, tylko wtedy gdy 
 wspołczynnik przy $e^{-t}$, nazwijmy go $\alpha$, jest większy od zera. Ten współczynnik to:
@@ -1204,6 +1221,10 @@ Warunek pozwalający na wykorzystanie lematu jest więc spełniony dla $k \leq
 
 Gdy warunek ten jest spełniony, stosujemy Lemat\ref{hardy},
 wykorzystujący nierówność Hardy'ego i uzyskujemy rezultat, że $I_r \omega$ jest formą $p$-całkowalną. \\
+Innymi słowy udowodniliśmy, że zachodzi
+\begin{wniosek}
+$I_r$ jest operatorem ciągłym w normie $L_p$ dla gradacji $k \leq \frac{n}{p}$
+\end{wniosek}
 
 Pokazaliśmy więc, że jeśli $\omega$ jest $k$-formą $p$-całkowalną, to  $I_r \omega$ jest
 $p$-całkowalna i zachodzi wzór
@@ -1214,81 +1235,164 @@ $p$-całkowalna i zachodzi wzór
     \right).
 \]
 Stąd jeśli $d \omega = 0$, to 
-\[
+\[\label{form-in-image}
     \eta \in d(L^{i-1} \cfm) + \pi^\ast (L^i*\M),
 \]
 więc 
 \[
-    \pi^\ast: H \left( \M \right) \rightarrow H ( \cfm )
+    \pi^\ast: H \left( \M \right) \rightarrow H ( \cfm ),
 \]
-jest operatorem suriektywnym. \\
+jest operatorem suriektywnym. Dzieje się tak ponieważ każda forma zamknięta
+należy zgodnie z~\ref{form-in-image} z dokładnością do formy dokładnej do
+obrazu $\pi^\ast$. A więc dowolna klasa abstrakcji form zamkniętych $\omega$
+znajduje się w obrazie tego operatora, co jest definicją suriektywności. \\
 
-\emph{Komentarz: z tego co rozumiem, oznacza to że dla $k \leq \frac{n}{p}$
-operator $I_0$ jest ciągły. Podejrzewam, że ma z tego wyjść podobnie, że
-$I_\infty$ jest ciągły dla $k \geq \frac{n}{p} + 1$, ale nie rozumiem dokładnie
-jak to ma wyjść. Pewnie musimy zmieniać w 
-$F = \int_r^t |\xi^{(\tau)}| $ granice całkowania na $\int_t^r$}
+Udowodnimy teraz iniektywność.
+Jako, że zachodzi $d^2 = 0$ dla równiania~\ref{form-in-image}
+możemy napisać
+\begin{align*}
+d \omega &= d(I_rd\omega) + d\pi^\ast( \eta^{(s)}) \\
+         &= d(I_rd\omega) + \pi^\ast( \eta^{(s)}). \\
+\end{align*}
+
+Z definicji operatora $I_r$ wynika natychmiast, że jeśli
+ $d \omega \in \pi^\ast(L_i(\M))$, to $Hd\omega = 0$.
+Stąd $d \omega = d \pi^\ast(\eta^{(s)})$, a skoro $d$ komutuje z $\pi^\ast$,
+to widzimy, że każda forma dokładna jest obrazem formy dokładnej. 
+Każdy operator liniowy $\phi: V \rightarrow W$ jest różnowartościowy, gdy
+$\ker \phi = 0_V$. Ma to miejsce dla operatora $\pi^\ast$, ponieważ
+na formy dokładne przechodzą jedynie formy dokładne, co wynika wprost z pokazanych
+powyżej własności. \\
+
+\emph{Komentarz: Nie jestem pewien czy to dokładnie stąd wynika iniektywność} \\
+
+Chcemy teraz pokazać, że dla $k > \frac{n}{p}$ mamy $H^\ast_p(\cfm) = 0$ dla
+$k \geq \frac{n}{p}$. Niech $\phi$ będzie $p$-całkowalną $k$-formą na
+$\cfm$. Dla określonego $a > 0$ możemy napisać, korzystając z nierówności
+Cauchyego-Schwarza
+\begin{align*}
+\left(
+    \int_0^a \int_\M |\phi^{(t)}|_M^p
+\right) & \leq 
+\left(
+    \int_0^\infty \int_\M (e^{-t})^{n-pk} |\phi^{(t)}|^p
+\right)
+\left(
+    \int_0^a \int_\M (e^{-t})^{pk-n} dt 
+\right) \\
+&= 
+    ||\phi||_{\cfm}^p 
+\left(
+    \int_\M 1
+\right)
+\left(
+    \frac{ (e^{-t})^{pk-n} - 1 }{n-pk}
+\right) \\
+\end{align*}
+Z powyższego wzoru wynika, że całka $\int_0^\infty \int_\M |\phi^{(t)}|_M^p$ 
+istnieje dla $k \geq \frac{n}{p}$ i także dla prawie wszystkich
+\emph{Komentarz: Dlaczego prawie wszystkich? Pomyśleć}
+$x \in \M$ całka
+\[
+\int_0^t \phi = \int_0^t \phi^{(\tau)} d\tau
+\]
+istnieje dla $t \in (0, \infty)$. \\
+
+Bierzemy więc tak jak $p$-całkowalną $k$-formę $\omega = \eta + dt \wedge \xi$
+i gdy $k-1 \geq \frac{n}{p}$, definiujemy operator homotopii jako
+\[
+I_\infty \omega = \int_t^\infty \xi.
+\]
+
+oraz pomocnicze operatory
+\[
+I_r \omega = \int_t^r \xi.
+\]
+
+Na podstawie takiej samej argumentacji jak powyżej, możemy dojść do wniosku, że
+dla każdego $r \in (0, \infty)$ zdefiniowany operator jest ciągły dla normy
+$L_p$. \\
+
+\emph{Komentarz: rozwinąć i przemyśleć dokładnie to co jest napisane pod spodem}
+
+Dodatkowo, jeżeli 
+$I_\infty\omega$ jest gładka, to $I_\infty\omega$ przybliza sie
+formami $I_r\omega$ dla $r \rightarrow \infty$.
+Wtedy we wzorze~\ref{vanishing-eta} znika czynnik
+    $\pi^\ast \left( \eta^{(r)} \right)$, pozostawiając nam formułę homotopii
+postaci
+\[
+\omega = dI_\infty \omega + I_\infty d \omega.
+\]
+Oznacza to w szczególności, że gdy $d \omega = 0$ to $\omega = d I_\infty
+\omega$. Innymi słowy oznacza to, że każda forma zamknięta jest formą dokładną,
+a więc wszystkie formy danej grupie kohomologii należą do jednej klasy
+abstrakcji i $H^i(\cfm) = 0$, gdy $k \geq \frac{n}{p}$. \\
+
+Jeżeli forma
+$I_\infty\omega$ nie jest gładka, to ... \emph{Jest już dużo trudniej}.
+
 
 
 %%% Zbadać co się dzieje w tym przeciwnym przypadku
-
-\section{Co pan Weber kazał mi zrobić}
-
-\subsection{Pierwszy mail}
-Ten fragment, który Pan kontempluje: Chodzi o to, że zamiast form gładkich
-trzeba rozważać formy o mierzalnych współczynnikach z różniczką w sensie
-"prądów" (currents), czyli funkcjonałów na formach. Być może to troche zbyt
-obszerny temat na licencjat. Moim zdaniem wystarczy by Pan oszacował operator I
-(odcałkowanie form) w normie $L^p$ i powiedział że, tak jak np w mojej pracy
-pozwoli to dowieść znikanie kohomologii w jakichś gradacjach.
-
-Czyli twierdzenie główne pracy by było: Operator
-\[
- I_0:A^k \to A^{k+1}
-\]
-jest ciągły w normie $L^p$ dla k.... \\
-
-Operator
-\[
-I_\infty:A^k \to A^{k+1}
-\] jest ciągły w normie $L^p$ dla k.... ,
-gdzie $A^k$ oznacza $k$-formy o mierzalnych współczynnikach. \\
-
- Jesli chodzi o ostatni rozdzial, to moze Pan heurystycznie powiediec co by
-bylo gdyby kazda odcalkowana forma $I_\infty \omega$ byla gladka.
-
-\subsection{Drugi mail}
-
-Dalsze uwagi Pana Webera
-
-Najwazniejsza jest czesc, gdzie jest szacowane $||I_r\omega||$ i
-$||I_\infty\omega||$ i na to jeszcze czekamy. Po szcowaniu normy $||I_r\omega||$
-trzeba podac sformulowanie jak wygladja kohomologie rozka i udowodnic co sie
-da. Jesli $||I_r\omega||$ jest skonczone, to wszystko powinno dzialac. Jesli
-$||I_\infty\omega||$ jest skonczone to przy dodatkowym zalozeniu, ze
-$I_\infty\omega$ jest gldka moze Pan tez cos zrobic: $I_\infty\omega$ przybliza sie
-formami $I_r\omega$ dla $r->\infty$ i w granicy dostajemy formule homotopii
-pokazujaca, ze jesli $d\omega=0$, to $\omega=d(I_\infty\omega)$.
-
-\subsection{Trzeci mail}
-
-Ja: Chcę zapytać o jedną rzecz. Czy dobrze rozumiem, że jak chcemy zbiegać z r w
-wyrażeniu $I_r$ do zera, \\
-
-P. W.:
-Zbieganie z r do 0 nie ma sensu. Przy zalozeniu ze badamy rozmaitosc z brzegiem
-$M \times [0,\infty)$ formy dla $r=0$ sa zdefiniowane i mozna po prostu brac
-    $I_0\omega(x,t)=\int_0^t .....$ \\
-
-Ja: to chcemy definiować $I_r (x,t) = \int_r^t$, a jak
-chcemy zbiegać z $r$ w $I_r$ to nieskończoności, to całka ma być $I_r(x,t) \int_t^r $? \\
-
-mamy $ \int_t^r -> \int_t^\infty$
-(lub  $\int_r^t -> \int_\infty^t$, to jest to samo z dokladnoscia do znaku) \\
-
-
-
-
+%% 
+%% \section{Co pan Weber kazał mi zrobić}
+%% 
+%% \subsection{Pierwszy mail}
+%% Ten fragment, który Pan kontempluje: Chodzi o to, że zamiast form gładkich
+%% trzeba rozważać formy o mierzalnych współczynnikach z różniczką w sensie
+%% "prądów" (currents), czyli funkcjonałów na formach. Być może to troche zbyt
+%% obszerny temat na licencjat. Moim zdaniem wystarczy by Pan oszacował operator I
+%% (odcałkowanie form) w normie $L^p$ i powiedział że, tak jak np w mojej pracy
+%% pozwoli to dowieść znikanie kohomologii w jakichś gradacjach.
+%% 
+%% Czyli twierdzenie główne pracy by było: Operator
+%% \[
+%%  I_0:A^k \to A^{k+1}
+%% \]
+%% jest ciągły w normie $L^p$ dla k.... \\
+%% 
+%% Operator
+%% \[
+%% I_\infty:A^k \to A^{k+1}
+%% \] jest ciągły w normie $L^p$ dla k.... ,
+%% gdzie $A^k$ oznacza $k$-formy o mierzalnych współczynnikach. \\
+%% 
+%%  Jesli chodzi o ostatni rozdzial, to moze Pan heurystycznie powiediec co by
+%% bylo gdyby kazda odcalkowana forma $I_\infty \omega$ byla gladka.
+%% 
+%% \subsection{Drugi mail}
+%% 
+%% Dalsze uwagi Pana Webera
+%% 
+%% Najwazniejsza jest czesc, gdzie jest szacowane $||I_r\omega||$ i
+%% $||I_\infty\omega||$ i na to jeszcze czekamy. Po szcowaniu normy $||I_r\omega||$
+%% trzeba podac sformulowanie jak wygladja kohomologie rozka i udowodnic co sie
+%% da. Jesli $||I_r\omega||$ jest skonczone, to wszystko powinno dzialac. Jesli
+%% $||I_\infty\omega||$ jest skonczone to przy dodatkowym zalozeniu, ze
+%% $I_\infty\omega$ jest gldka moze Pan tez cos zrobic: $I_\infty\omega$ przybliza sie
+%% formami $I_r\omega$ dla $r->\infty$ i w granicy dostajemy formule homotopii
+%% pokazujaca, ze jesli $d\omega=0$, to $\omega=d(I_\infty\omega)$.
+%% 
+%% \subsection{Trzeci mail}
+%% 
+%% Ja: Chcę zapytać o jedną rzecz. Czy dobrze rozumiem, że jak chcemy zbiegać z r w
+%% wyrażeniu $I_r$ do zera, \\
+%% 
+%% P. W.:
+%% Zbieganie z r do 0 nie ma sensu. Przy zalozeniu ze badamy rozmaitosc z brzegiem
+%% $M \times [0,\infty)$ formy dla $r=0$ sa zdefiniowane i mozna po prostu brac
+%%     $I_0\omega(x,t)=\int_0^t .....$ \\
+%% 
+%% Ja: to chcemy definiować $I_r (x,t) = \int_r^t$, a jak
+%% chcemy zbiegać z $r$ w $I_r$ to nieskończoności, to całka ma być $I_r(x,t) \int_t^r $? \\
+%% 
+%% mamy $ \int_t^r -> \int_t^\infty$
+%% (lub  $\int_r^t -> \int_\infty^t$, to jest to samo z dokladnoscia do znaku) \\
+%% 
+%% 
+%% 
+%% 
 \subsection{Trzeci mail}
 
 
@@ -1318,6 +1422,9 @@ to Intersection Homology Theory}, Taylor \& Francis, LLC.
   Number 3, 1994.
   
 \bibitem[Lee]{lee} Lee, \textit{Introduction to Smooth Manifolds}
+
+\bibitem[Muckenhoupt]{hardys} Benjamin Muckenhoupt, \textit{Hardy's inequality
+with weights}, Studia Mathematica, T. XLIV, 1972
 
 \bibitem[Ducret]{lausanne} Stephen Ducret, \textit{$L_{q,p}$-Cohomology of Riemannian
     Manifolds and Simplical Complexes of Bounded Geometry}, Ecole Polytechnique Federale
