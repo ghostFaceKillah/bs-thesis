@@ -20,11 +20,15 @@
 \newtheorem{proposition}{Propozycja}[section]
 
 \theoremstyle{plain}
-\newtheorem{theorem}{Theorem}[section]
+\newtheorem{theorem}{Twierdzenie}[section]
+
+\theoremstyle{plain}
+\newtheorem{wniosek}{Wniosek}[section]
 
 %% Document global definitions
 \def\cfm{\ensuremath\mathrm{c}^fM}
 \def\M{\ensuremath M}
+\def\N{\ensuremath N}
 \def\R{\ensuremath\mathbb{R}}
 \newcommand\deff{\mathrel{\overset{\makebox[0pt]{\mbox{\normalfont\tiny\sffamily def}}}{:=}}}
 
@@ -573,7 +577,7 @@ Można bowiem udowodnić, że wspomniane grupy są niezmiennikami homotopii. Ozn
 to, że homotopijnie równoważne rozmaitości posiadać będą izomorficzne kohomologie
 de Rhama. Będziemy się starać udowodnić następującą rzecz:
 
-\begin{proposition}
+\begin{proposition}\label{homotopy-de-Rham}
     Homotopijnie równoważne rozmaitości mają izomorficzne grupy de Rhama.
 \end{proposition}
 
@@ -634,12 +638,10 @@ na zero na drugim czynniku. Podsumowując mamy:
  \stackrel[\pi^\ast]{s^\ast}{\rightleftarrows} 
  \Omega(\R^n)
 \]
-\[
-    \pi(x, t) = x
-\]
-\[
-    s(x) = (x, 0)
-\]
+\begin{align*}
+    \pi(x, t) &= x \\
+         s(x) &= (x, 0)
+\end{align*}
 
 Pokażemy, że funkcje indukują przeciwne do siebie izomorfizmy na
 grupach kohomologii i stąd zachodzi $H^\ast(\R^{n+1}) \cong H^\ast(\R^{n})$. \\
@@ -719,14 +721,12 @@ Zestawiając powyższe równości możemy więc napisać
 dla form typu 1. \\
 
 Zbadajmy formułę homotopii dla $q$-form typu 2:
-\[
-    \omega = (\pi^\ast \phi)f dt
-\]
-\[
-    d\omega = (\pi^\ast d \phi)f dt + 
-    (-1)^{q-1}(\pi^\ast \phi) \frac{\partial f}{\partial x} 
-      \wedge dx \wedge dt
-\]
+\begin{align*}
+     \omega &= (\pi^\ast \phi)f dt \\
+    d\omega &= (\pi^\ast d \phi)f dt + 
+      (-1)^{q-1}(\pi^\ast \phi) \frac{\partial f}{\partial x} 
+        \wedge dx \wedge dt \\
+\end{align*}
 \[
     (1 - \pi^\ast s^\ast) = \omega ~\text{ponieważ}~
      s^\ast(dt) = d(s^\ast) = d(0) = 0
@@ -749,6 +749,81 @@ i podsumowując zachodzi wzór
     (dK - Kd) \omega = (-1)^{q-1} \omega.
 \]
 
+W obu przypadkach mamy więc 
+\[
+1 - \pi^\ast \circ s^\ast = (-1)^{q-1}(dK - Kd).
+\] \\
+
+Podsumowując, wnioskiem jest 
+\begin{wniosek}
+Przekształcenia $H^\ast (\R^n \times \R)
+\stackrel[\pi^\ast]{s^\ast}{\rightleftarrows} H^\ast(\R^n)$ są izomorfizmami.
+\end{wniosek}
+Możemy także dzięki tym obserwacjom policzyć kohomologie $\R^n$.
+\begin{wniosek}(Lemat Poincaré)
+\[
+H^\ast(\R^n) = H^\ast(punkt) = 
+\begin{cases}
+\R & \text{dla wymiaru 0} \\
+0 & \text{dla wszyskich innych przypadków} \\
+\end{cases}
+\]
+\end{wniosek} 
+
+Możemy teraz uogólnić powyższy prostszy przypadek na przypadek dowolnej
+rozmaitości. Rozważmy mianowicie
+\[
+ \M \times \R^1 \stackrel[\pi]{s}{\leftrightarrows} \M
+\]
+Jeśli ${U_\alpha}$ jest atlasem dla $\M$, wtedy ${U_\alpha \times \R^1}$ jest
+atlasem $\M \times \R^1$. Ponownie można zauważyć, że każda forma na $\M \times
+\R$ jest kombinacją liniową dwóch przedstawionych powyżej typów form.  Możemy
+więc zdefiniować operator homotopii $K$ w taki sam sposób jak wcześniej.  Wtedy
+można będzie przepisać wcześniejszy dowód zamieniając $\R^n$ na $\M$ i będzie
+on nadal prawdziwy. Stąd dostajemy mocniejszy fakt, że $ H^\ast( \M \times
+\R^1) \cong H^\ast( \M) $, gdzie izomorfizmy przeciwne to $\pi^\ast \circ
+s^\ast$. Możemy też w końcu udowodnić Propozycję~\ref{homotopy-de-Rham}.
+
+\begin{wniosek}
+Homotopijne funkcje indukują tę samą mapę w kohomologii.
+\end{wniosek}
+\begin{proof}
+Na potrzeby argumentu przypomnijmy definicję homotopii.  Niech $\N, \M$ będą
+rozmaitościami.  Homotopią pomiędzy dwoma funkcjami $f,g: \M \rightarrow \N$
+nazywamy funkcję $F: \M \times \R \rightarrow \N$ taką, że
+\[
+F(x,t) = 
+\begin{cases}
+f(x) & \text{dla}~t \geq 1 \\
+g(x) & \text{dla}~t \leq 0 \\
+\end{cases}
+\]
+\end{proof}
+Równoważnie jeśli $s_0,s_1: \M \rightarrow  \M \times \R^1$ są $0$-cięciem
+$s_0(x) = (x, 0)$ i $1$-cięciem $s_1(x) = (x,1)$, wtedy zachodzi
+\begin{align*}
+f &= F \circ s_1 \\
+g &= F \circ s_0 \\
+\end{align*}
+
+a stąd także
+\begin{align*}
+f^\ast &= (F \circ s_1)^\ast = s_1^\ast \circ F^\ast \\
+g^\ast &= (F \circ s_0)^\ast = s_0^\ast \circ F^\ast. \\
+\end{align*}
+
+Skoro więc zarówno $s_1^\ast$, jak i $s_0^\ast$ odwracają $\pi^\ast$, więc
+są one równe w kohomologiach. Stąd zachodzi równoważny tezie wzór
+\[
+f^\ast = g^\ast.
+\] 
+
+Aby podkreślić dokładnie w jaki sposób implikuje to naszą tezę, przytoczę
+definicję rozmaitości homotopijnie równoważnych. O rozmaitościach $\M, \N$
+powiemy, że są homotopijnie równoważne, gdy istnieją funkcje
+$f: \M \rightarrow \N$ oraz $g: \N \rightarrow \M$ takie, że
+$f \circ g$ oraz $g \circ f$ są homotopijne do identyczności odpowiednio
+na $M$ oraz $N$. \\
 
 
 
