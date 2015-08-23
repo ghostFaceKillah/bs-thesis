@@ -98,6 +98,22 @@ W dalszej części wspomnianej pracy obliczana jest $L_p$-kohomologia
 wspomnianej przestrzeni.
 \\
 
+1. (bardzo krotka czesc) Algebra liniowa: tu zbiera Pan fragmenty, w ktorych
+jest powiedziane jak iloczyn skalarny/norma w V indukuje iloczyn skalarny/norme
+w $V^*, \Lambda^k V^*$ i co sie dzieje przy przeskalowaniu.
+
+
+2. Formy rozniczkowe i regula homotopii: tu dowodzi Pan formule homotopii (*)
+$Kd+dK = Id -\pi^*i^*$ (o szacowaniu normy nie ma mowy).  Wniosek:
+$H^*(M)=H^*(M\times R)$, izomorfizm zadany przez $\pi^*$.
+
+
+3. $L^p$-kohomologie (definicja za pomoca form gladkich), szacowanie norm
+$\pi^*\omega, I_r\omega,$ (osobno dla $r=\infty$).  Trzeba jasno wypowiedziec idee
+przewodnia: C$_fM$ jest dyfeomorficzne z$ M\times R$, chcemy porownac $H^*(M\times
+R) z H^*(C_fM)$ uzywajac $\pi^*$ i korzystajac z formuly (*). Dlatego robimy te
+oszacowania.
+
 %% This line of research can 
 %% be traced back to Cheeger \cite{cheeger}. 
 %% A similar approach was presented by Youssin \cite{youssin}, where $f$-horns
@@ -109,22 +125,26 @@ rozmaitości Riemannowskiej oraz półprostej na której określono metrykę
 $dt \otimes dt + (e^{-t})^2 g$. \\
 
 
-\chapter{Podstawy}
+\chapter{Algebra liniowa}
 W rozdziale tym przytaczam definicje i wyprowadzam podstawowe zależności, które
 pomogą nam w dalszych obliczeniach. \\
 
-
 \section{Algebra zewnętrzna}
-W tej sekcji przytaczam definicje form róźniczkowych oraz ich własności. Formy
-rózniczkowe są ważnym narzędziem, pozwalającym przenieść wiele wyników z
-analizy rzeczywistej na rozmaitości tak, aby sformułowania nie były zależne od
-wyboru konkretnych współrzędnych na rozważanej rozmaitości. \\
+W tej sekcji przytaczam definicje form zewnętrznych oraz ich własności. 
+ Przytoczone
+definicje podane są według podręczników~\cite{lee}, rozdział 14 oraz
+~\cite{kostrikin} - rozdział 6 § 3. \\
+
+Formy zewnętrzne są dla nas istotne, ponieważ formy różniczkowe, które 
+są podstawowym obiektem służącym do badania kohomologii de Rhama, 
+są lokalnie elementami algebry zewnętrznej na przestrzeni stycznej
+do rozmaitości w otoczeniu danego punktu. \\
 
 Niech $V$ będzie skończenie wymiarową rzeczywistą przestrzenią wektorową.
 Tensor $T:V \times ... \times V \rightarrow \mathbb{R}$ nazwiemy kowariantnym.
 Bierze on jako argumenty jedynie wektory i konsekwentnie, nie bierze on jako
-argumentów form.  Takie tensory mają wiele nazw: \emph{formy zewnętrzne,
-multi-kowektory,} czy też po prostu $k$-kowektory.  Przestrzeń wszystkich
+argumentów form.  Takie tensory mają wiele nazw: formy zewnętrzne,
+multi-kowektory, czy też po prostu $k$-kowektory.  Przestrzeń wszystkich
 $k$-kowektorów na przestrzeni $V$ ma wiele oznaczeń.  Jednym z bardziej
 popularnych oznaczeń jest $T^k (V^\ast)$. \\
 
@@ -180,46 +200,144 @@ Aby uczynić zadość tytułowi tego podrozdziału, zdefiniujmy
 \Lambda^1(V^\ast) \oplus
 \Lambda^2(V^\ast) \oplus
 ...~.
-\] Stanowi ona algebrę z działaniami dodawania oraz iloczynu zewnęnętrznego. \\
+\] Stanowi ona algebrę z działaniami dodawania oraz iloczynu zewnęnętrznego.
+Fakt ten jest dokładnie uargumentowany w wielu standardowych podręcznikach,
+przykładowo w~\cite{lee}, Proposition 14.11 albo \cite{kostrikin}.\\
 
-\section{Formy różniczkowe}
-Poniższe definicje są przytoczone w formie opartej na notatkach
-\cite{duszenko}. 
-\emph{Komentarz: w jaki sposób można ctować takie niepublikowane notatki? Nie 
-wypada ich po prostu nie cytować, skoro z nich korzystam}
-\\
+
+\section{Norma indukowana na potędze zewnętrznej przestrzeni dualnej.
+Skalowanie norm.}
+
+W tym rozdziale przedstawiam relacje pomiędzy normą określoną na danej
+przestrzeni wektorowej a indukowaną przez iloczyn skalarny normą na przestrzeni
+dualnej oraz na potęgach zewnętrznych przestrzeni dualnej.  W szczególności, w
+dalszych obliczeniach będziemy badać wyrażenia typu $r |\cdot|$, gdzie
+$|\cdot|$ jest normą na skończenie wymiarowej przestrzeni liniowej.  Znaczenie
+będzie miało jak zachowuje się norma na przestrzenii dualnej, gdy skalujemy
+normę wyjściowej przestrzenii liniowo o czynnik $r$. \\
+
+\emph{Komentarz: Tu jest konieczny cytat gdzie są opisane ładnie te rzeczy}.
+
+Niech będzie dana skończenie wymiarowa rzeczywista przestrzeń liniowa $V$ z
+iloczynem skalarnym $\langle \cdot, \cdot \rangle$.
+Ten iloczyn skalarny, na przykład na podstawie twierdzenia Riesza o
+reprezentacji \emph{Komentarz: cytowanie}, zadaje izometryczny izomorfizm
+pomiędzy $V$ oraz jej przestrzenią dualną $V^\ast$.
+
+%% Izomorfizm ten jest zadany w następujący sposób: Chcemy wektorowi $v \in V$
+%% przyporządkować funkcjonał $\phi_v \in V^\ast$. Dla argumentu tego funkcjonału,
+%% czyli wektora $w \in V$ ma on następujący wzór:
+%% \begin{equation}
+%% \phi_v (w) = \langle y, w \rangle.
+%% \end{equation}
+Dzięki temu, że jest on izometrią, widzimy, że iloczyn skalarny z $V$ indukuje
+iloczyn skalarny na $V^\ast$.  Istnienie iloczynu skalarnego implikuje także
+istnienie normy na przestrzeni dualnej. Możemy tę normę wyrazić w nieco inny
+sposób, co ułatwi nam obliczenie zachowania normy ze względu na skalowanie.
+\emph{Komentarz: cytowanie}. \\
+
+Dla rzeczywistej przestrzeni wektorowej funkcjonał $\phi \in V^\ast$ ma
+normę określoną wzorem:
+\begin{equation}\label{norm-of-functional}
+||\phi|| = \sup \left\{ |\phi(v)|: v \in V, ||v|| = 1 \right\},
+\end{equation}
+gdzie $||v||$ to norma pochodząca z wyjściowej przestrzeni wektorowej $V$.  \\
+
+
+Iloczyn skalarny jest także przenoszony na potęgę zewnętrzną przestrzeni
+dualnej. \emph{Komentarz: cytowanie!! - niby jest napisane w ćwiczeniu z
+Kostrikina ale lepiej byłoby znaleźć coś, co mówi o tym wprost} Dla dwóch
+$k$-form jest on zadany wzorem
+
+\begin{equation} \langle v^1 \wedge ....\wedge v^k, w^1 \wedge ... \wedge w^k
+\rangle = \text{det} \left( \langle v^i, w^j \rangle \right), 
+\end{equation}
+
+czyli jest on równy wyznacznikowi macierzy wartości iloczynu skalarnego
+zaaplikowanych do poszczególnych składowych $k$-kowektorów.  \\
+
+Możemy teraz zobserwować w jaki sposób zachowają się normy 
+przestrzeni dualnej oraz potęgi zewnętrznej gdy przeskalujemy normę wyjściową
+o czynnik liniowy $r$. \\
+
+Załóżmy więc, że rozważamy rzeczywistą przestrzeń liniową $V$ z określoną
+normą $|| \cdot ||$. Określmy nową normę dla $v \in V$:
+\[
+|| v ||_r = r || v ||.
+\]
+Z definicji~\ref{norm-of-functional} możemy bardzo prosto zauważyć, że
+dla funkcjonału $\phi \in V^\ast$ nowa norma będzie dana następującym
+wzorem:
+\[
+|| \phi ||_r = \frac{1}{r} ||\phi ||
+\]
+
+Zauważmy bowiem, że dla przestrzeni skończenie wymiarowej, supremum
+ze wzoru~\ref{norm-of-functional} jest osiągane. 
+\emph{Komentarz: cytat ze stosownego AFu}
+Załóżmy, że supremum to jest osiągane dla wektora $v$. W nowej normie wektor
+ten ma normę $|| v ||_r = r \cdot || v || = r \cdot 1 = r$. Ze względu
+na liniowość operatora $\phi$ widzimy, że na zbiorze ${w \in V: ||w||_r = 1}$
+wartość $| \phi (w) |$ będzie osiągała swoje supremum dla wielokrotności
+$\alpha v$. Istotnie, $\frac{1}{r} v$ maksymalizuje tę wartość i 
+jednocześnie widzimy, że 
+\[
+||\phi||_r = \frac{1}{r} |\phi(v)| = \frac{1}{r}|| \phi ||.
+\]  \\
+
+Skoro wiemy w jaki sposób skaluje się iloczyn skalarny na przestrzeni dualnej.
+W definicji wyznacznika zakładamy bowiem, że wyznacznik jest liniowy ze względu
+na mnożenie wiersza macierzy. Pomnożenie całej macierzy kwadratowej rzędu $k$
+przez czynnik $r$ powoduje więc pomnożenie wyznacznika przez czynnik $r^k$.
+Otrzymujemy stąd natychmiast dla $k$-formy $\omega = \omega_1 \wedge ... \wedge
+\omega_k$  wzór:
+\begin{equation}\label{scaling-of-norm}
+|| \omega ||_r = \frac{1}{r^k} || \omega ||.
+\end{equation}
+
+
+\chapter{Formy rozniczkowe i regula homotopii}
+W tym rozdziale opisuje formy różniczkowe, kohomologie de Rhama i udowadniam 
+formułę homotopii. Formuła ta oraz jej dowód jest dla nas szczególnie
+interesująca, ponieważ będzie ona kluczowa dla porównania grup
+kohomologii $f$-stożka i rozmaitości $M$. \\
+
+Poniższe definicje są przytoczone w formie opartej na podręczniku~\cite{lee}
+oraz ~\cite{bott}. W szczególności, dowód formuły homotopii jest zaczerpnięty
+z~\cite{bott}, rozdział I § 4. \\
 
 Rozważamy rozmaitość $M$. Dla dowolnej przestrzeni kostycznej 
 $T_p^\ast M$ rozpatrzmy jej potęgę zewnętrzną $\Lambda^k(T_p^\ast M)$.
 Otrzymujemy w ten sposób przestrzeń liniową nad każdym punktem $p \in M$.
 Ich sumę rozłączną oznaczymy $\Lambda^k(T^\ast M)$. Przestrzenie te,
 określone nad każdym punktem z osobna, można skleić do wiązki wektorowej, na
-której można zdefniować formy różniczkowe. \\
+której można zdefniować formy różniczkowe, wybierając lokalną
+trywializację wiązki stycznej. \emph{Komentarz: zastanowić się co to znaczy
+dokładnie} \\
 
 \begin{definition}[Forma różniczkowa]
-  $k$-formą różniczkową na rozmaitości $M$ nazwiemy gładkie cięcie wiązki
+  $k$-formą różniczkową na rozmaitości $M$ nazwiemy gładkie przekrój wiązki
   $\Lambda^k(T^\ast M)$ nad M, czyli gładkie odwzorowanie $\omega: M \rightarrow
   \Lambda^k (T^\ast M)$, spełniające $\omega(p) \in \Lambda^k(T_p^\ast)$ dla
   każdego punktu $p \in M$.
 \end{definition}
 
-Przestrzeń $k$-form różniczkowych oznaczać będziemy przez $\Omega^k(M)$ \\
+Przestrzeń $k$-form różniczkowych oznaczać będziemy przez $\Omega^k(M)$. 
+Określimy na niej kluczowe dla dalszych kroków naszego rozumowania pojęcie
+\emph{pochodnej zewnętrznej} formy różniczkowej. Operacja ta zwiększa stopień
+formy, czyli $d: \Omega^k(M) \rightarrow \Omega^{k+1} (M)$. Pozwala to patrzeć
+na nią w dalszej części rozumowania, jako na operator w ciągu przestrzeni
+wektorowych $\Omega^k(M)$, tworzącym kompleks łańcuchowy. \\
 
-Określimy teraz kluczowe dla dalszych kroków naszego rozumowania pojęcie
-\emph{pochodnej zewnętrznej} formy różniczkowej. Operacja ta ma typ $d:
-\Omega^k(M) \rightarrow \Omega^{k+1} (M)$. Pozwala to patrzeć na nią, w dalszej
-części rozumowania, jako na operator w ciągu łancuchowym, gdzie elementami
-ciągu są $\Omega^k(M)$ albo podprzestrzenie tej przestrzeni mające szczególne
-własności. \\
 
 Aby nadać nieco więcej intuicji definicji, przypomnimy najpierw
 definicję różniczki funkcji, czyli operację 
 $d: C^\infty = \Omega^o(M) \rightarrow \Omega^1(M)$. Niech $f$ będzie funkcją
 gładką na $M$, a $(x^i)$ -  układem współrzędnych. Na dziedzinie tego układu
 określimy różniczkę $df$ wzorem
-\[
+\begin{equation}\label{exterior-derivative-for-one-forms}
 df = \sum_{i=1}^n \frac{\partial f}{\partial x^i} dx^i.
-\] \\
+\end{equation} \\
 
 Dla form o wyższej gradacji określamy pochodną zewnętrzną w następujący
 sposób. Niech 
@@ -229,58 +347,67 @@ Różniczka $d: \Omega^k(M) \rightarrow \Omega^{k+1}(M)$ jest dana jako
 d( \sum_{j \in I} \alpha_{j_1, ..., j_k} dx^{j_1} \wedge ... \wedge dx^{j_k}) = 
  \sum_{j \in I} \sum_{i=1}^n
  \frac{ \partial \alpha_{j_1, ..., j_k}} {\partial x^i} dx^i
-                            \wedge dx^{j_1} \wedge ... \wedge dx^{j_k})
+                            \wedge dx^{j_1} \wedge ... \wedge dx^{j_k}).
 \]
-
-\emph{Komentarz: tu wypadałoby przytoczyć jakieś własności, co najmniej $d \circ d = 0$ }. \\
-
-
-\section{Skalowanie norm przestrzeni wektorowych i tensorów}
-W dalszych obliczeniach będziemy badać wyrażenia typu $r |\cdot|$, gdzie
-$|\cdot|$ jest normą na skończenie wymiarowej przestrzeni liniowej.
-Znaczenie będzie miało jak zachowuje się norma na przestrzenii dualnej,
-gdy skalujemy normę wyjściowej przestrzenii liniowo o czynnik $r$. \\
-
-
-Rozważać będziemy skończenie wymiarową przestrzeń wektorową $V$ z daną
-metryką $|| \cdot ||$ i zdefiniujemy na niej nową metrykę $|| \cdot
-||_r \deff r \dot || x ||$. Wtedy w przestrzeni $(V, ||
-\cdot||_r)^\ast$ dualnej do $(V, ||| \cdot |||)$ norma skaluje się
-przez współcznynnik $\frac{1}{r}$. Oznacza to, że dla $\varphi \in
-V^\ast$ otrzymamy skalowanie $||\varphi||_r = \frac{1}{r} ||\varphi||$. \\
-
-Poczynimy tu jeszcze jedną obserwację, która pomoże nam w dalszych
-obliczeniach.  Rozważmy $n$-wymiarową rozmaitość Riemannowską
-$\mathrm{M}$ oraz jej przestrzeń styczną $T_x\mathrm{M}$ i kostyczną
-$T_x^\ast\mathrm{M}$ w punkcie $x$.  Niech bazami ortogonalnymi tych
-przestrzeni będą $e_1, e_2, ..., e_n$ oraz dualna $e_1^\ast, e_2^\ast,
-..., e_n^\ast$.  Chcemy teraz obliczyć w jaki sposób formy z
-$\Lambda^\ast(M)$ skalują się ze względu na taką zmainę w
-normie. \\
-
-Załózmy że rozważamy przestrzeń $k$-form na $\M$ w pewnym
-punkcie rozmaitości. Wtedy każda $k$ forma może być lokalnie wyrażona
-w bazie składającej się z produktów kowektorów należących do bazy
-dualnej do bazy standardowej. Oznacza to, że każda $k$-forma w punkcie
-$x$ może być zapisana, korzystając z lokalnych współrzędnych $(x_1,
-x_2, ... x_n)$ jako $ \sum_{\mathrm{I} \in I } a_\mathrm{I}
-dx_\mathrm{i}$, gdzie $I$ jest zbiorem $k$-indeksów postaci
-$(i_1, i_2, ..., i_k)$, dla $ 1 \leq i_1 < i_2 < ... < i_k \leq n$.  \\
-
-Popatrzmy w jaki sposób skalują się wektory bazowe. Przy założeniu ortogonalności
-zachodzi:
+Ponadto, jeśli $\phi$ jest $p$-formą, a $\psi$ jest $q$-formą, to możemy
+zapisać następujący wariant formuły Leibniza
 \[
-    ||dx^{i_1} \wedge dx^{i_2} \wedge ... \wedge dx^{i_k} ||_t =  
-    ||dx^{i_1} ||_t \cdot ||  dx^{i_2} ||_t \cdot ... \cdot || dx^{i_k} ||_t =  \\
+d(\phi \wedge \psi) = d\phi \ wedge \psi + (-1)^p \phi \wedge d\psi.
 \]
-\[
-    \frac{1}{t}||dx^{i_1} || \cdot \frac{1}{t} ||  dx^{i_2} ||_t \cdot ...
-     \cdot \frac{1}{t} || dx^{i_k} ||_t = 
-    \frac{1}{t^k}||dx^{i_1} \wedge dx^{i_2} \wedge ... \wedge dx^{i_k} ||
-\]
+Jest on udowodniony w~\cite{lee}. \\
 
-Oznacza to, że każda $k$ forma skaluje się przez $1/t^k$ gdy metryka
-jest skalowana przez czynnik $t$.
+Warto zwrócić uwagę, że własność~\ref{exterior-derivative-for-one-forms} wraz z
+formułą Leibniza determinują postać różniczki dla form w wyższych gradacjach. \\
+
+Przytoczymy teraz kluczową własność różniczki wraz z dowodem.
+Przypomnijmy, że w teorii homologii badamy kompleksy łańcuchowe, czyli
+ciągi przestrzeni
+\[
+   ... \xrightarrow{d} 
+A^i 
+   \xrightarrow{d} 
+A^{i+1}
+   \xrightarrow{d} 
+...,
+\]
+że $d^2 = d \circ d = 0$. Będziemy się starali stwierdzić, że 
+\begin{theorem}
+Dla różniczki zewnętrznej form należących do $\left(\Omega^\ast (M), d \right)$
+zachdzi
+\[
+d \circ d = 0.
+\]
+W związku z tym ciąg przestrzeni  $\left(\Omega^i (M), d \right)_i$ jest
+kompleksem łańcuchowym.
+\end{theorem}
+
+\begin{proof}
+Udowodnijmy najpierw na przypadku szczególnym 0-formy, czyli funkcji o
+własnościach rzeczywistych. Dla tego przypadku zachodzi
+\begin{align*}
+d(du) & = d \left( \sum_j \frac{\partial u} {\partial x^j} dx^j \right) =
+\sum_i \sum_j \frac{\partial^2 u}{\partial x^i \partial x^j } dx^i \wedge dx^j =  \\
+& = \sum_{i < j} \left(
+\frac{\partial^2 u}{\partial x^i \partial x^j}  -
+\frac{\partial^2 u}{\partial x^j \partial x^i} 
+ \right) dx^i \wedge dx^j = 0,
+\end{align*}
+z uwagi na to, że pochodne cząstkowe mieszane są sobie równe. 
+Dla przypadku ogólnego natomiast, skorzystamy z powyższego przypadku szególnego
+oraz formuły Leibniza, które w połączeniu pozwolą nam napisać
+\begin{align*}
+d(d \omega) & = d \left( \sum_J d \omega_J \wedge dx^{j_1} \wedge ... \wedge dx^{j_k} \right) \\
+             & = \sum_J d( d\omega_J) \wedge dx^{j_1} \wedge ... \wedge dx^{j_k}  \\
+& + \sum_J \sum_{i=1}^k (-1)^i d \omega_J \wedge dx^{j_1} \wedge ... \wedge d(dx^{j_i}) \wedge ... dx^{j_k} = 0.  \\.
+\end{align*}
+Nadużywam tu nieco notacji dla zachowania jasności dowodu. Iteracja po $J$ to iteracja
+po multiindeksach, a iteracja po $i$ to normalna konwencja sumowania. Ostatnia
+równość wynika wprost z definicji różniczki form $d \omega_J$. \\
+
+\end{proof}
+
+
+
 
 \section{Metryka Riemannowska i forma objętości}
 
@@ -319,18 +446,48 @@ $(y_1, ..., y_n)$ dla $M'$, to dostajemy prosto lokalne współrzędne
 $(x_1, ..., x_n, y_1, ..., y_m)$ na $M \times M'$ i nietrudno sprawdzić, 
 że metryka produktowa jest lokalnie reprezentowana przez macierz blokowo diagonalną
 \[
-  \hat g_{ij}  = 
+  \left(\hat g_{ij} \right)  = 
   \left(
     \begin{array}{cc}
-     g_{ij}   &  0 \\
-      0      & g'_{ij} \\
+  \left( g_{ij} \right) &  0 \\
+      0      & \left( g'_{ij} \right) \\
       \end{array}
   \right).
 \] \\
 
+W kolejnym rozdziale pracy będziemy mówić o całkowaniu funkcji po rozmaitości
+Riemannowskiej. Co prawda nie będzie nam to potrzebne aż do kolejnego 
+rozdziału, ale jest do technika ściśle związana z metryką Riemannowską, więc
+przedstawię ją tutaj. \\
 
-Warto także zapisać dla lokalnych współrzędnych Riemannowską formę objętości. 
-\begin{remark} %% Proposition 15.31 z Lee
+Aby móc całkować funkcje na rozmaitości potrzebne jest nam pojęcie
+Riemannowskiej formy objętości. Szczegóły dotyczącego tego rozumowania 
+są dość zawiłe i w małym stopniu mają wpływ na tę pracę. Dlatego też
+przywołam tylko definicję i twierdzenie o postaci formy objętości
+w lokalnych współrzędnych, zamieszacjąc jedynie odnośnik do dowodu w 
+źródle. \\
+
+\begin{remark}
+Niech $(M, g)$ będzie zorientowaną rozmaitością Riemannowską wymiary
+$n \geq 1$. Istnieje dokładnie jedna gładka forma objętości
+$\omega_g \in \Omega^n(M)$, nazywana \textbf{Riemannowską formą objętości},
+która spełnia równanie
+\[
+\omega_g(E_1, ...,  E_n) = 1
+\]
+gdzie $(E_i)$ jest lokalną, ortonormalną, dodatnio zorientowaną bazą
+pól wektorowych.
+\end{remark}
+\begin{proof}
+Pomijam, zamieszczony w oryginalnym źródle~\cite{lee}, Proposition 15.29.
+\end{proof}
+
+To, co dokładnie oznacza ta definicja i jaka jest jej motywacja jest poza
+zakresem zainteresowania tej pracy. Musimy natomiast z perspektywy
+dalszych obliczeń znać jaka jest lokalna postać formy objętości.
+
+\begin{remark}\label{expression-for-volume-form}
+ %% Proposition 15.31 z Lee
 Niech $(M, g)$ będzie zorientowaną rozmaitością Riemannowską wymiaru $n$, z
 brzegiem lub bez brzegu. W dowolnych zorientowanych gładkich współrzędnych
 $(x_i)$, Riemmanowska forma objętości może być wyrażona lokalnie w następujący
@@ -339,14 +496,14 @@ sposób:
     \omega_g = \sqrt{\text{det}(g_{ij})} dx^1 \wedge ... \wedge dx^n
 \]
 \end{remark}
-\emph{Komentarz: a może tutaj dowód tego? }\\
+Dowód tej własności także omijam, jest on dostępny w ~\cite{lee}, Proposition
+15.31. \\
 
 Do naszych dalszych obliczeń potrzebna nam będzie umiejętność całkowania
 funkcji rzeczywistych pod rozmaitościach Riemannowskich. Zdefiniujmy w tym celu
-stosowną całkę. \\
-
-Niech $(M, g)$ będzie zorientowaną rozmaitością Riemannowską. Niech
-$\text{vol}_g$ oznacza jej formę objętości. Jeżeli mamy teraz $f$ -
+stosowną całkę.
+Niech $(M, g)$ będzie zorientowaną rozmaitością Riemannowską. 
+Niech $\text{vol}_g$ oznacza jej formę objętości. Jeżeli mamy teraz $f$ -
 funkcję o zwartym nośniku, rzeczywistą i ciągłą, określoną na $M$, to
 $f \text{vol}_g$ jest $n$-formą.
 Nie odwołując się do ogólnych definicji całek z różnych typów form
@@ -360,72 +517,19 @@ $\phi$. Jeżeli bowiem tak by nie było, to musielibyśmy korzystać z
 wielu map $\phi_1, \phi_2 ... $, które opisywałyby całą rozmaitość
 biorąc pod uwagę gładki podział jedynki na rozmaitości. \\
 
-
-%% Citing prof. Lee, it is common to abbreviate the symmetric product of a tensor
-%% $\alpha$ with itself by $\alpha^2$, so the Euclidean metric can also be written
-%% as 
-%% \[
-%%     g = (dx^1)^2 + ...  + (dx^n)^2,
-%% \]
-%% so now it is way easier to understand what exactly is meant by
-%% $ dt \otimes dt + f^2g $, which shoudl be the same as $dt^2 + f^2g$. \\
-%% wiki volume form hehehehe
-
 \section{Norma formy różniczkowej}
+Biorąc pod uwagę lokalną strukturę form różniczkowych jako algebry zewnętrznej
+oraz uwagi z wcześniejszego rozdziału, iloczyn skalarny na rozmaitości
+Riemannowskiej indukuje zarówno na przestrzeni kostycznej, jak i na 
+potędze zewnętrznej przestrzeni kostycznej iloczyn skalarny, a w związku
+z tym także normę. Dla porządku zapiszę jej lokalną postać. \\
 
-Przytoczę teraz definicję normy formy różniczkowej w poszczególnych punktach
-rozmaitości. Niech $(M, g)$ będzie zorientowaną, spójną %% i zwartą ?? chyba nie
-rozmaitością Riemannowską. Niech $\M$ będzie rozmaitością, a $x$ jej punktem.
-$\Lambda^k T_x M$ jest przestrzenią $k$-liniowych funkcji alternujących:
-\[
-    \alpha_x:T_x^\star M \times ... \times T_x^\star M \times \rightarrow \mathbb{R}
-\] \\
+Niech $(M, g)$ będzie zorientowaną, spójną 
+rozmaitością Riemannowską.
 
-Przypomnijmy także, że forma zewnętrzna stopnia $k$ jest zdefiniowana jako 
-sekcja $k$-tej wiązki kostycznej.
-\[
-    \Lambda^k M = \coprod_{x \in M} 
-    \Lambda^k T_x^\star M \xrightarrow{\pi} M.
-\] \\
 
-Stąd w każdym punkcie $x \in M$ mamy funkcję wieloliniową $\alpha_x \in
-\Lambda^k T_x^\star M$. Można ją wyrazić w prostej formie.
-Jeśli $(e_1, ..., e_n)$ jest bazą $T_x M$, a  $(e^1, ..., e^n)$ jest bazą dualną,
-możem napisać
-\[
-    \alpha_x = \sum_{1 \leq i_1 < ... < i_k \leq n} a_{i_1 ... i_k} e^{i^1} \wedge ...
-    \wedge e^{i^k}
-\] 
-gdzie współczynniki są zadane jako
-$a_{i_1 ... i_k} = \alpha_x(e^{i^1}, ..., e^{i^2})$. \\
-
-Korzystając z powyższych spostrzeżeń, możemy wyrazić daną formę dla 
-współrzędnych lokalnych $x^1, ..., x^n$
-na otwartym podzbiorze $U \subset M$.  Mamy bazę
-$\frac{\partial}{\partial x^1}, ..., \frac{\partial}{\partial x^n}$ dla $T_x M$
-dla każdego $x \in U$ wraz ze stowarzyszoną bazą dualną $dx^1, ..., dx^n$.
-Ponadto, dla każdego punktu ze zbioru $U$ możemy napisać
-\[
-    \alpha_x = \sum_{1 \leq i_1 < ... < i_k \leq n} a_{i_1 ... i_k}
-       dx^{i^1} \wedge ...  \wedge dx^{i^k}.
-\]  \\
-
-Na rozmaitości Riemannowskiej posiadamy iloczyn sklarany zadany na 
-$T_x M$ dla każdego punktu $x \in M$.
-Korzystając z niego możemy zdefiniować normę każdej $k$-formy
-$\alpha$.  Wprowadźmy proste oznaczenie iloczynu skalarnego na $T_x M$
-przez $<u, v>_x = g_x(u, v)$.
-Wybierzmy bazę $(e_1, ..., e_n)$ przestrzeni $T_x M$ z odpowiadającą
-jej bazą dualną $(e^1, ..., e^n)$. \\
-
-Można argumentować, że możemy zawsze wybrać taką bazę tak aby była ona
-ortogonalna.  Dzieje się tak, ponieważ możemy zawsze zastosować
-algorytm ortogonalizacji Grama-Schmidta do bazy zadanej przez
-różniczkowanie lokalnych współrzędnych rozmaitości. \\
-
-Możemy teraz zdefiniować funkcję
-$G: \Lambda^k T_x M \times T_x M \rightarrow \mathbb{R}$.
-Dla danych dwóch form
+Dla danych dwóch form zapisanych w lokalnych współrzędnych, ortogonalnych
+względem iloczynu skalarnego (metryki Riemannowskiej)
 \[
 \alpha_x = \sum_{1 \leq i_1 < ... < i_k \leq n} \alpha_{i_1 ... i_k; x} e^{i^1}
 \wedge ...  \wedge e^{i^k}
@@ -434,39 +538,25 @@ Dla danych dwóch form
 \[ \beta_x = \sum_{1 \leq i_1 < ... < i_k \leq n} \beta_{i_1 ... i_k; x} e^{i^1}
 \wedge ...  \wedge e^{i^k},
 \]
-określimy tę funkcję jako
+iloczyn skalarny na przestrzeni form daje się zapisać prostym wzorem
 \[
     G(\alpha_x, \beta_x) = \sum_{i_1, ..., i_k} \alpha_{i_1 ... i_k; x}
                                                     \beta_{i_1 ... i_k; x}.
 \] \\
 
-Przytoczymy teraz następujący lemat, którego dowód jest dostępny na przykład
- w \cite{lausanne}.
 
-\begin{lemma}
-    Zdefiniowane powyżej przekształcenie $G: \Lambda^k T_x M \rightarrow T_x M $ 
-    jest liniowe, symetryczne i dodatnio określone. Przez to jest ono iloczynem
-    skalarnym dla każdego punktu $x \in M$.  Nie zależy ono od wyboru konkretnej bazy
-    $(e_1, ..., e_n)$ spośród baz ortogonalnych.  Dodatkowo, baza
-    $(e^1 \wedge ... \wedge e^n)$ jest ortonormalna dla $G$.
-\end{lemma}
-
-
-%% We can also give eqivalent definition using other terms ... ?? Może dopisać tutaj jeszcze z tego doktoratu
-%% o i tamto \\
-
-Gdy określony mamy iloczyn skalarny na przestrzeni form, to zadaje on 
-normę formy w punkcie rozmaitości. Dla $\omega \in \Omega^k(M)$ oraz $x \in M$
-napiszemy
+Mamy więc dzięki temu iloczynowi określoną lokalną normę dla form różniczkowych.
+Dla $\omega \in \Omega^k(M)$ oraz $x \in M$ napiszemy
 \[
     |\omega|_x = \sqrt{ G(\omega_x, \omega_x) }.
 \]
 Warto podkreślić tu prosty, ale istotny wniosek, że po określeniu formy $\omega$
-norma jest funkcją typu $| \omega |_x : M \rightarrow \mathbb{R} $. Jest to warte
+norma jest funkcją skalarną $| \omega |_x : M \rightarrow \mathbb{R} $. Jest to warte
 odnotowania, ponieważ pomaga to w rozumieniu intuicji stojącej za definicją normy
 na całości rozmaitości Riemannowskiej. Taka norma będzie po prostu całką 
 z normy punktowej rozważanej formy różniczkowej. \\
 
+\emph{Przenieść do do trzeciego rozdziału}
 Definiujemy $p$-normę dla formy na całej rozmaitości Riemannowskiej:
 \begin{equation} \label{big-norm}
   || \omega ||^p =  \int_M |\omega|_x^p d \text{vol}_g(x)
@@ -476,25 +566,24 @@ Definiujemy $p$-normę dla formy na całej rozmaitości Riemannowskiej:
 
 \section{Przekształcenie indukowane, kohomologie de Rhama oraz formuła homotopii}
 Rozważmy przypadek gładkiej funkcji $F: M \rightarrow N$, pomiędzy
-dwoma rozmaitościami (z brzegiem lub bez brzegu). Za pomocą tej
+dwoma rozmaitościami. Za pomocą tej
 funkcji będziemy mogli określić przekształcenie, które pozwoli nam
 zamieniać formy różniczkowe z rozmaitości $N$ na formy różniczkowe z
 rozmaitości $M$. Z różniczką takiej funkcji możemy bowiem stowarzyszyć
 przekształcenie
-przeciągnięcia $F^\ast: \Lambda^p N \rightarrow \Lambda^p M$, działające w taki sposób:
+przeciągnięcia $F^\ast: \Omega^p N \rightarrow \Omega^p M$, działające w taki sposób:
 \[
     (F^\ast \omega)_p(v_1, ..., v_n) =
         \omega_{F(p)}(dF_p(v_1), ..., dF_p(v_k)).
 \] Przeciągnięcie jest też czasami nazywane cofnięciem. \\
 
 
-Pokażemy teraz bardzo interesującą strukturę jaką mają formy różniczkowe
-na rozmaitości, gdy rozpatrywać je jako kompleksy z działaniem różniczki.
-W poniższym rozumowaniu, przez $\Omega^p (M)$ oznaczać będziemy
-przestrzeń gładkich $k$-form.  Niech $\M$ będzie rozmaitością z
-brzegiem lub bez brzegu, a $p$ będzie nieujemną liczbą całkowitą.
-Ponieważ $d: \Omega^p (\M ) \rightarrow \Omega_{p+1}(\M) $ jest
-przekształceniem liniowym, jego jądro oraz obraz są podprzestrzeniami
+Pokażemy teraz bardzo interesującą strukturę jaką mają formy różniczkowe na
+rozmaitości, gdy rozpatrywać je jako kompleksy z działaniem różniczki.  W
+poniższym rozumowaniu, przez $\Omega^p (M)$ oznaczać będziemy przestrzeń
+gładkich $k$-form.  Niech $\M$ będzie rozmaitością a $p$ będzie nieujemną
+liczbą całkowitą.  Ponieważ $d: \Omega^p (\M ) \rightarrow \Omega^{p+1}(\M) $
+jest przekształceniem liniowym, jego jądro oraz obraz są podprzestrzeniami
 liniowymi. Wprowadźmy oznaczenie:
 \[
 \mathcal{Z}^p ( \M ) =
@@ -513,19 +602,20 @@ związku z tym zachodzi przykładowo $\mathcal{B}^0(\M)=0$ oraz
 $\mathcal{Z}^n(\M)= \Omega^n(\M)$. \\
 
 Sprawdzona wcześniej własność operatora różniczkowania $d \circ d = 0$ oznacza,
-że każda forma dokładna jest zamknięta. To z kolei implikuje 
+że każda forma dokładna jest zamknięta, czyli
 $ \mathcal{B}^p ( \M) \subseteq \mathcal{Z}^p ( \M) $.
 Stąd ma sens następująca definicja:
 
 \begin{definition}
-  \textbf{Grupą kohomologii de Rhama rzędu p} nazwiemy następującą
+  \textbf{$p$-tą grupą kohomologii de Rhama} nazwiemy następującą
   ilorazową przestrzeń liniową:
   \[
   H^{p}_{dR} ( \M ) = \frac {\mathcal{Z}^p ( \M )} {\mathcal{B}^p ( \M )}
   \]
 \end{definition}
+%% źródło, jak sądzę jest to Lee, istotnie 443
 Jest to rzeczywista przestrzeń liniowa i w związku z tym jest ona
-grupą z działaniem dodawania wektorów. Można także pokazać, że grupy de Rhama są
+grupą z działaniem dodawania wektorów. Pokażemy, że grupy de Rhama są
 niezmiennicze ze względu na dyfeomorifzmy. Dla każdej domkniętej $p$-formy
 $\omega$ na $\M$ poprzez $[\omega]$ będziemy oznaczać klasę równoważności
 formy $\omega$ w $H_{dR} (M)$. Taką klasę równoważności będziemy nazywać także klasą
@@ -556,25 +646,27 @@ dokładną. Zachodzi także następujący lemat:
   \]
   a więc przekształcenie jest dobrze zdefiniowane.
 \end{proof} 
-Odnotujmy następujący, ważny wniosek.
-
+Odnotujmy za~\cite{Lee}, Corollary 17.3-4 następujące wnioski:
+\begin{remark}
+Dla każdej liczby całkowitej $p$, przypisanie $M \mapsto H_{\text{dR}}^p(M)$,
+$F \mapsto F^ast$ jest funktorem kontrawariantnym z kategorii
+rozmaitości gładkich do kategorii rzeczywistych przestrzeni wektorowych.
+\end{remark}
 \begin{remark}
   Rozmaitości gładkie, które są ze sobą dyfeomorficzne, mają izomorficzne grupy
-  kohomologii de Rhama. \\
+  kohomologii de Rhama, bo z funktorialności
+  $(F \circ G)^\ast = G^\ast \circ F^\ast$.
 \end{remark}
 
 
-%% Mike note - this star means induced map, which is explained in the
-%% previous chapter
-
-Przedstawiony powyżej wniosek jest nieco zaskakujący - grupy de Rhama okazały
-się być topologicznym niezmiennikiem. Wniosek ten ma daleko idące uogólnienie.
-Można bowiem udowodnić, że wspomniane grupy są niezmiennikami homotopii. Oznacza
-to, że homotopijnie równoważne rozmaitości posiadać będą izomorficzne kohomologie
-de Rhama. Będziemy się starać udowodnić następującą rzecz:
+Przedstawione powyżej wnioski mają daleko idące uogólnienie. Grupy de Rhama
+okażą się być niezmiennikami topologicznymi.  Udowodnimy bowiem, że wspomniane
+grupy są niezmiennikami homotopii.  Oznacza to, że homotopijnie równoważne
+rozmaitości posiadać będą izomorficzne kohomologie de Rhama. Udowodnimy
+następującą rzecz:
 
 \begin{proposition}\label{homotopy-de-Rham}
-    Homotopijnie równoważne rozmaitości mają izomorficzne grupy de Rhama.
+    Homotopijnie gładko równoważne rozmaitości mają izomorficzne grupy de Rhama.
 \end{proposition}
 
 Przedstawię teraz dowód powyższej propozycji.  W tym rozumowaniu ciekawy jest
@@ -607,7 +699,7 @@ i działa tak, że spełniona jest zależność
     d(h\omega) = G^\ast \omega - F^\ast \omega.
 \] 
 Zamiast definiować $h \omega$ tylko dla przypadku, kiedy $\omega$
-jest zamknięta, okazuje się, że łatwiej jest określić operator
+jest zamknięta, określimy operator
 $h$ z przestrzeni wszystkich gładkich $p$-form na $N$
 do przestrzeni wszystkich gładkich $(p-1)$-form na $M$,
 dla którego spełnione jest równanie
@@ -643,8 +735,8 @@ Pokażemy, że funkcje indukują przeciwne do siebie izomorfizmy na
 grupach kohomologii i stąd zachodzi $H^\ast(\R^{n+1}) \cong H^\ast(\R^{n})$. \\
 
 Jako. że $\pi \circ s = id$  mamy prosto $s^\ast \circ \pi^\ast = id$. Jednak
-$s \circ \pi \neq 1$ i stąd dla operatorów
-na formach zachodzi także $\pi^\ast \circ s^\ast \neq 1$. Dla przykładu,
+$s \circ \pi \neq id$ i stąd dla operatorów
+na formach zachodzi także $\pi^\ast \circ s^\ast \neq id$. Dla przykładu,
 $\pi^\ast \circ s^\ast$ posyła funkcję $f(x, t)$ na $f(x, 0)$ czyli 
 funkcję która jest stała wzdłuż każdego włókna. Okazuje się jednak
 że w kohomologiach jednak $\pi^\ast \circ s^\ast$ jest identycznością.
@@ -652,7 +744,7 @@ Aby to pokazać, posłużymy się formułą homologii. Chcemy mianowicie
 znaleźć funkcję $K$ na $\Omega(\R^n \times \R)$ taką, że spełnione jest
 równanie:
 \[
-    1 - \pi^\ast \circ s^\ast = \pm dK \pm Kd.
+    id- \pi^\ast \circ s^\ast = \pm dK \pm Kd.
 \]
 Podkreślmy ponownie, że $dK \pm Kd$ przekształca formy domknięte
 na formy dokładne i dlatego indukuje przekształcenie zerowe w kohomologii. 
@@ -663,7 +755,7 @@ tylko $d K \omega$, która jest formą dokładną. \\
 
 Gdy taki operator $K$ istnieje, nazwany jest on \emph{operatorem homotopii},
 a operator $\pi^\ast \circ s^\ast$ jest łańcuchowo homotopijne z identycznością.
-Zwróćmy także uwagę, że operator homotopii podnosi gradację formy o 1. \\
+Zwróćmy także uwagę, że operator homotopii obniża gradację formy o 1. \\
 
 Każda forma na $\R^n \times \R$ da się wyrazić jako suma prosta następujących
 dwóch podstawowych typów form:
@@ -1406,14 +1498,14 @@ $I_\infty\omega$ nie jest gładka, to ... \emph{Jest już dużo trudniej}.
 \bibitem[Cheeger]{cheeger} Jeff Cheeger, \textit{On the Hodge theory
   of Riemannian pseudomanifolds}, Proc. of Symp. in Pure Math. vol.36,
 
-\bibitem[Duszenko]{duszenko}, Kamil Duszenko, \textit{Formy różniczkowe},
-notatka
-
-\bibitem[Kirwan]{kirwan} Frances Kirwan, Jonathan Woolf, \textit{An Introduction
+\bibitem[Kirwan, Woolf]{kirwan} Frances Kirwan, Jonathan Woolf, \textit{An Introduction
 to Intersection Homology Theory}, Taylor \& Francis, LLC.
 
-\bibitem[Bott]{bott} Raou Bott, \textit{Differetial forms in algebraic
+\bibitem[Bott,Tu]{bott} Raou Bott, \textit{Differetial forms in algebraic
   topology}, Springer Verlag, 1982.
+
+\bibitem[Kostrikin]{kostrikin} Aleksiej I. Kostrikin, \textit{Wstęp do algebry.
+Tom II: Algebra liniowa}, Wydawnictwo naukowe PWN, Warszawa 2012.
 
 \bibitem[Youssin]{youssin} Boris Youssin, \textit{$\mathrm{L}_p$
   cohomology of cones and horns } J. Differential Geometry, Volume 39,
@@ -1423,10 +1515,6 @@ to Intersection Homology Theory}, Taylor \& Francis, LLC.
 
 \bibitem[Muckenhoupt]{hardys} Benjamin Muckenhoupt, \textit{Hardy's inequality
 with weights}, Studia Mathematica, T. XLIV, 1972
-
-\bibitem[Ducret]{lausanne} Stephen Ducret, \textit{$L_{q,p}$-Cohomology of Riemannian
-    Manifolds and Simplical Complexes of Bounded Geometry}, Ecole Polytechnique Federale
-    de Lausanne, Doctor Thesis, Lausanne, 2009
 
 \end{thebibliography}
 
