@@ -556,13 +556,6 @@ odnotowania, ponieważ pomaga to w rozumieniu intuicji stojącej za definicją n
 na całości rozmaitości Riemannowskiej. Taka norma będzie po prostu całką 
 z normy punktowej rozważanej formy różniczkowej. \\
 
-\emph{Przenieść do do trzeciego rozdziału}
-Definiujemy $p$-normę dla formy na całej rozmaitości Riemannowskiej:
-\begin{equation} \label{big-norm}
-  || \omega ||^p =  \int_M |\omega|_x^p d \text{vol}_g(x)
-\end{equation} \\
-
-
 
 \section{Przekształcenie indukowane, kohomologie de Rhama oraz formuła homotopii}
 Rozważmy przypadek gładkiej funkcji $F: M \rightarrow N$, pomiędzy
@@ -714,8 +707,8 @@ I.\S4, s 35. \\
 
 Obliczenie rozpoczniemy od prostszego przypadku $M = \R^n$.
 Niech $\pi: \R^n \times \R \rightarrow \R^n$  będzie rzutowaniem
-na pierwszy czynnik, a $s$  będzie cięciem zerowym, czyli włożeniem
-na zero na drugim czynniku. Podsumowując mamy:
+na pierwszy czynnik, a $s$  będzie włożeniem zerowym (
+na wartość $0$ na drugim czynniku). Podsumowując mamy:
 \[
  \R^n \times \R
  \stackrel[\pi]{s}{\leftrightarrows} 
@@ -868,7 +861,7 @@ atlasem $\M \times \R^1$. Ponownie można zauważyć, że każda forma na $\M \t
 \R$ jest kombinacją liniową dwóch przedstawionych powyżej typów form.  Możemy
 więc zdefiniować operator homotopii $K$ w taki sam sposób jak wcześniej.  Wtedy
 można będzie przepisać wcześniejszy dowód zamieniając $\R^n$ na $\M$ i będzie
-on nadal prawdziwy. Stąd dostajemy mocniejszy fakt, że $ H^\ast( \M \times
+on nadal poprawny. Stąd dostajemy mocniejszy fakt, że $ H^\ast( \M \times
 \R^1) \cong H^\ast( \M) $, gdzie izomorfizmy przeciwne to $\pi^\ast \circ
 s^\ast$. Możemy też w końcu udowodnić Propozycję~\ref{homotopy-de-Rham}.
 
@@ -887,8 +880,8 @@ g(x) & \text{dla}~t \leq 0 \\
 \end{cases}
 \]
 \end{proof}
-Równoważnie jeśli $s_0,s_1: \M \rightarrow  \M \times \R^1$ są $0$-cięciem
-$s_0(x) = (x, 0)$ i $1$-cięciem $s_1(x) = (x,1)$, wtedy zachodzi
+Równoważnie jeśli $s_0,s_1: \M \rightarrow  \M \times \R^1$ są $0$-włożeniem
+$s_0(x) = (x, 0)$ i $1$-włożeniem $s_1(x) = (x,1)$, wtedy zachodzi
 \begin{align*}
 f &= F \circ s_1 \\
 g &= F \circ s_0 \\
@@ -915,23 +908,47 @@ na $M$ oraz $N$. \\
 
 
 
-\section{$L_p$-kohomologie}
-Niniejsza praca zajmuje się pewną modyfikacją kohomologii de Rhama.
-Dokładniej, ta praca zajmuje się $L_p$-kohomologiami. Można patrzeć
-na nie jak na rozważanie niemal tego samego kompleksu łańcuchowego co w
-kohomologiach de Rhama, lecz z dodanym warunkiem $p$-całkowalności form. Głównym
-obiektem naszego zainteresowania są przestrzenie 
+\section{$L_p$-kohomologie.}
+W tym 
+3. $L^p$-kohomologie (definicja za pomoca form gladkich), szacowanie norm
+$\pi^*\omega, I_r\omega,$ (osobno dla $r=\infty$).
+
+%% Trzeba jasno wypowiedziec idee
+%% przewodnia: C$_fM$ jest dyfeomorficzne z$ M\times R$, chcemy porownac $H^*(M\times
+%% R) z H^*(C_fM)$ uzywajac $\pi^*$ i korzystajac z formuly (*). Dlatego robimy te
+%% oszacowania.
+
+Niniejsza praca zajmuje się pewną modyfikacją kohomologii de Rhama -
+$L_p$-kohomologiami.  Będziemy rozważać elementy tego samego kompleksu
+łańcuchowego co w kohomologiach de Rhama, lecz z dodanym warunkiem
+$p$-całkowalności form. Głównym obiektem naszego zainteresowania są
+przestrzenie 
 $L_p^k = {\omega \in \Omega^k(M): ||\omega|| <\infty}$, gdzie $|| \cdot ||$
-to norma (całka) z formy, która była omawiana w \ref{big-norm}. Ograniczenie
+to norma (całka) z formy, która będzie przedstawiona poniżej. 
+Ograniczenie
 naszych rozważań do form, które są $p$-całkowalne pozwala nam rozszerzyć
 klasę przestrzeni, które badamy. Przy dobrym doborze funkcji wagowej, którą
 ważymy metrykę Riemannowską na części nieosobliwej, możemy
 bowiem rozważać rozmaitości z osobliwościami.\\
 
+\section{Norma $L_p$ formy różniczkowej. $L_p$-kohomologie.}
+
+\begin{definition}
+$p$-normą dla $k$-formy $\omega$ na rozmaitości Riemannowskiej $\M$ nazwiemy
+\begin{equation} \label{big-norm}
+  || \omega ||^p =  \int_M |\omega|_x^p d \text{vol}_g(x).
+\end{equation}
+Formę należącą do tej przestrzeni będziemy nazywać formą $p$-całkowalną.
+\end{definition}
+
+
+
+
+
 
 \section{Uogólniona nierówność Hardy'ego}
 Kluczowa w dalszych obliczeniach będzie nierówność, Hardy'ego łącząca całkowalność
-funkcji z całkowalnością jej funkcji bazowych.
+funkcji z całkowalnością jej funkcji pierwotnej.
 
 \begin{lemma}[Uogólniona nierówność Hardy'ego]\label{hardy}
     Rozważmy funkcję $f: \mathbb{R}_{+} \rightarrow \mathbb{R}$, funkcje-wagi
@@ -1018,8 +1035,8 @@ otrzymujemy tezę.
 \end{proof}
 
 
-\chapter{Obliczenie}
 
+\section{Obliczenie $L_p$ kohomologii $f$-stożka}
 Celem tego rozdziału jest prezentacja obliczenia 
 $L_p$-kohomologii Riemannowskiego $f$-stożka z funkcją wagową $f = e^{-t}$.
 Obliczenie jest wykonane sposobem prezentowanym między innymi w
@@ -1037,6 +1054,9 @@ pracach \cite{cheeger}, \cite{youssin}, \cite{kirwan}, \cite{weber}.
   Niech $L_p^k M$ oznacza przestrzeń $p$-całkowalnych 
   $k$-form różnikowych z mierzalnymi  współczynnikami.
 \end{definition}
+
+Twierdzenie, które będziemy chcieli udowodnić, to
+TUTEJ - zapisać twierdzenie w postaci, którą przedstawił Pan Weber
 
 
 %% TODO -> picture % Rysuneczek z rurkom
@@ -1162,112 +1182,17 @@ W badanym przypadku rozmaitości $\cfm$ fakt, że spełniona jest formuła homot
 wymaga szczegółowego uzasadnienia. Motywacja stojaca za formułą homotopii
 została przestawiona we wcześniejszym rozdziale.\\
 
-Będziemy starać się dowieść, że zachodzi formuła (i istnieje stosowny operator 
+Zgodnie z 
+TUTEJ odnośnik do 
+rozdziału wcześniej ... zachodzi formuła (i istnieje stosowny operator 
 $I_r$):
 
 \[
     \omega - \pi^\ast(\omega_r) = dI_r \omega + I_r d\omega
 \]
-W tym celu ponownie posłużymy się rozbiciem $k$-formy $\omega$, określonej na
-$\cfm$ na
-\[
-    \omega = \eta + dt \wedge \xi.
-\] 
-Możemy teraz dla $\eta$ określić na $\cfm$ $k$-formę $\partial \eta / \partial
-t$ zadaną w lokalnych współrzędnych $(x_1, x_2, ..., x_n)$ jako
-\[
-    \frac{\partial \eta}{\partial t} (t, x) =
-    \sum_{\alpha \in I(k)} \frac{\eta_\alpha}{\partial t}(t, x) dx^\alpha.
-\]
 
-Wykorzystujemy tutaj notację z \ref{notacja}. Na tej samej podstawie możemy 
-zapisać dla formy $\xi$ $(k-1)$ formę $\partial \xi / \partial t$ jako:
-\[
-    \frac{\partial \xi}{\partial t} (t, x) =
-    \sum_{\alpha \in I(k-1)} \frac{\xi_\alpha}{\partial t}(t, x) dx^\alpha. 
-\] \\
 
-Definiujemy na stosownym kompleksie form różnikowych
-
-\[
-    d_\M \omega(t, x) =  
-    \sum_{1 \leq j \leq m} \sum_{\alpha \in I(k)}
-    \frac{\partial \eta_\alpha}{\partial x_j}(t, x) dx_j \wedge dy^\alpha
-\]
-\[
-    + \sum_{1 \leq j \leq m} \sum_{\alpha \in I(k-1)}
-    \frac{\partial \xi_\alpha}{\partial x_j}(t, x) dx_j \wedge dt \wedge dy^\alpha.
-\]
-Możemy wtedy określić różniczkę formy najpierw na podstawie $f$-stożka:
-\[
-    d_\M \omega = d_\M \eta - dt \wedge d_\M \xi,
-\]
-a następnie na całym badanym $f$-stożku:
-\[
-    d \omega = 
-    d_\M \omega + dt \wedge \frac{\partial \eta}{\partial t} = 
-    d_\M \eta + dt \wedge \left( 
-        \frac{\partial \eta}{\partial t} - d_\M \xi
-    \right). \\
-\]
-
-Możemy teraz postarać się zdefiniować operator homotopii.
-Dla ustalonego $r \in (0, \infty)$ określimy operator
-\[
-    I_r: \Omega^k(\cfm) \rightarrow \Omega^{k-1}(\cfm),
-\]
-który w lokalnych współrzędnych $(x_1, x_2, ..., x_n)$ jest zadany wzorem:
-\[
-    (I_r \omega)(t, x) = \sum_{\alpha \in I(k-1)}
-      \left(
-          \int_s^t \xi(\tau, x) d\tau 
-      \right) dy^\alpha.
-\] 
-Dla klarowności kolejnych wzorów wprowadzimy oznaczenie. Będziemy mianowicie pisać
-\[
-    (I_r \omega)(t, x) = \int_s^t \xi.
-\] \\
-
-Możemy teraz zbadać wyrażenia $d I_r \omega$ oraz $I_r d \omega$, które występują
-w formule homotopii. Napiszemy:
-\[
-    d I_r \omega = d_\M \int_r^t \xi + dt \wedge \frac{\partial}{\partial t} \int_r^t \xi =
-\]
-\[
-    = \int_r^t d_\M \xi + dt \wedge \xi
-\]
-\emph{Komentarz: wypadałaoby pewnie wcześniej zaargumentować że możemy z $d$ wejść pod całkę}
-oraz
-\[
-    I_r \omega = I_r
-    \left(
-        d_\M \eta + dt \wedge \left( \frac{\partial \eta}{\partial t} - d_\M \xi \right)
-    \right)
-\]
-\[
-    = \int_r^t 
-        \left(
-            \frac{\partial \eta}{\partial t} - d_M \xi
-        \right)
-\]
-\[\label{vanishing-eta}
-    = \eta - \pi^\ast \left( \eta^{(r)} \right) - \int_r^t d_\M \xi,
-\]
-
-gdzie $\eta^{(r)} \in \Omega^k (\M)$ jest zadane w lokalnych współrzędnych
-$(x_1, x_2, ..., x_n)$ jako 
-\[
-    \eta^{(s)}(x) = \sum_{\alpha \in I(k)} \eta_\alpha(t, x) dx^\alpha.
-\] \\
-
-W związku z tym, zachodzi wzór:
-\[
-    d I_r \xi + I_r d \xi = dt \wedge \xi + \eta - \pi^\ast \left( \eta^{(r)} \right) =
-      \omega - \pi^\ast(\eta^{(r)})
-.
-\] \\
-
-Spróbujemy teraz zbadać, kiedy dla $p$-całkowalnej formy $\omega$ forma $I_r \omega$
+Zbadamy kiedy dla $p$-całkowalnej formy $\omega$ forma $I_r \omega$
 także jest całkowalna. Fakt, że forma jest  $p$-całkowalna oznacza innymi słowy, że
 \[
     || \omega ||^p = \int_{\cfm} |\omega|^p d \text{vol}_{\cfm} =
