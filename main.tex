@@ -139,6 +139,7 @@ są podstawowym obiektem służącym do badania kohomologii de Rhama,
 są lokalnie elementami algebry zewnętrznej na przestrzeni stycznej
 do rozmaitości w otoczeniu danego punktu. \\
 
+\begin{definition}[$k$-kowektor]
 Niech $V$ będzie skończenie wymiarową rzeczywistą przestrzenią wektorową.
 Tensor $T:V \times ... \times V \rightarrow \mathbb{R}$ nazwiemy kowariantnym.
 Bierze on jako argumenty jedynie wektory i konsekwentnie, nie bierze on jako
@@ -146,6 +147,7 @@ argumentów form.  Takie tensory mają wiele nazw: formy zewnętrzne,
 multi-kowektory, czy też po prostu $k$-kowektory.  Przestrzeń wszystkich
 $k$-kowektorów na przestrzeni $V$ ma wiele oznaczeń.  Jednym z bardziej
 popularnych oznaczeń jest $T^k (V^\ast)$. \\
+\end{definition}
 
 Tensor będzie nazwany \emph{alternującym}, gdy jego wartość zmieni znak w
 przypadku zmienimy miejscami jego dwa wektory wejściowe.  Przestrzeń takich
@@ -153,6 +155,8 @@ tensorów, które należą do $T^k (V^\ast)$, a do tego są antysymetryczne, cz�
 oznacza się $\Lambda^k (V^\ast)$. \\
 
 Przedstawmy teraz kilka podstawowych operacji określonych na takich tensorach.
+
+\begin{definition}[produkt tensorowy]
 Dla dwóch tensorów kowariantnych $f \in T^p(V^\ast) $ oraz $g \in T^q(V^\ast) $
 możemy określić produkt (tensorowy) $f \otimes g \in T^{p+q}(V^\ast) $ za
 pomocą wzoru:
@@ -160,6 +164,7 @@ pomocą wzoru:
   f \otimes g(x_1, x_2, ..., x_p, x_{p+1}, x_{p+2}, ... ,x_{p+q}) =
   f(x_1, x_2, ... , x_p) \cdot g(x_{p+1}, x_{p+2}, ... , x_{p+q}).
 \] \\
+\end{definition}
 
 Dowolny kowariantny tensor możemy
 przekształcić na tensor alternujący za pomocą przekształcenia
@@ -295,12 +300,13 @@ Otrzymujemy stąd natychmiast dla $k$-formy $\omega = \omega_1 \wedge ... \wedge
 \end{equation}
 
 
-\chapter{Formy rozniczkowe i regula homotopii}
+\chapter{Formy różniczkowe i reguła homotopii}
 W tym rozdziale opisuję formy różniczkowe, kohomologie de Rhama i
-udowadniam formułę homotopii.  Formuła ta, jej dowód jest dla nas
-szczególnie interesująca. Technika ta będzie w dalszym ciągu pracy
-kluczowa dla porównania grup kohomologii $f$-stożka i rozmaitości
-$M$. \\
+udowadniam formułę homotopii.
+Technika otaczająca formułę homotopii
+będzie dla nas szczególnie interesująca. Będzie ona w dalszym
+ciągu pracy poddawana modyfikacjom i posłuży ona 
+do porównania grup kohomologii $f$-stożka i rozmaitości $M$. \\
 
 Poniższe definicje są przytoczone w formie opartej na podręczniku~\cite{lee}
 oraz ~\cite{bott}. W szczególności, dowód formuły homotopii jest zaczerpnięty
@@ -312,8 +318,8 @@ Otrzymujemy w ten sposób przestrzeń liniową nad każdym punktem $p \in M$.
 Ich sumę rozłączną oznaczymy $\Lambda^k(T^\ast M)$. Przestrzenie te,
 określone nad każdym punktem z osobna, można skleić do wiązki wektorowej, na
 której można zdefniować formy różniczkowe, wybierając lokalną
-trywializację wiązki stycznej. \emph{Komentarz: zastanowić się co to znaczy
-dokładnie} \\
+trywializację wiązki stycznej. 
+\emph{Komentarz: zastanowić się co to znaczy dokładnie} \\
 
 \begin{definition}[Forma różniczkowa]
   $k$-formą różniczkową na rozmaitości $M$ nazwiemy gładki przekrój wiązki
@@ -329,10 +335,9 @@ formy, czyli $d: \Omega^k(M) \rightarrow \Omega^{k+1} (M)$. Pozwala to patrzeć
 na nią w dalszej części rozumowania, jako na operator w ciągu przestrzeni
 wektorowych $\Omega^k(M)$, tworzącym kompleks łańcuchowy. \\
 
-
 Aby nadać nieco więcej intuicji definicji, przypomnimy najpierw
 definicję różniczki funkcji, czyli operację 
-$d: C^\infty = \Omega^o(M) \rightarrow \Omega^1(M)$. Niech $f$ będzie funkcją
+$d: C^\infty = \Omega^0(M) \rightarrow \Omega^1(M)$. Niech $f$ będzie funkcją
 gładką na $M$, a $(x^i)$ -  układem współrzędnych. Na dziedzinie tego układu
 określimy różniczkę $df$ wzorem
 \begin{equation}\label{exterior-derivative-for-one-forms}
@@ -481,10 +486,9 @@ pól wektorowych.
 \begin{proof}
 Pomijam, zamieszczony w oryginalnym źródle~\cite{lee}, Proposition 15.29.
 \end{proof}
-
-To, co dokładnie oznacza ta definicja i jaka jest jej motywacja jest poza
+Dokładne znaczenie tej definicji i jej motywacja jest poza
 zakresem zainteresowania tej pracy. Musimy natomiast z perspektywy
-dalszych obliczeń znać jaka jest lokalna postać formy objętości.
+dalszych obliczeń znać jaka jest lokalna postać formy objętości. \\
 
 \begin{remark}\label{expression-for-volume-form}
  %% Proposition 15.31 z Lee
@@ -517,7 +521,7 @@ $\phi$. Jeżeli bowiem tak by nie było, to musielibyśmy korzystać z
 wielu map $\phi_1, \phi_2 ... $, które opisywałyby całą rozmaitość
 biorąc pod uwagę gładki podział jedynki na rozmaitości. \\
 
-\section{Norma formy różniczkowej}
+\section{Norma formy różniczkowej indukowana przez iloczyn skalarny}
 Biorąc pod uwagę lokalną strukturę form różniczkowych jako algebry
 zewnętrznej oraz uwagi z rozdziału~\ref{exterior-algebra-chapter},
 iloczyn skalarny na rozmaitości Riemannowskiej indukuje zarówno na
@@ -541,9 +545,7 @@ iloczyn skalarny na przestrzeni form daje się zapisać prostym wzorem
 \[
     G(\alpha_x, \beta_x) = \sum_{i_1, ..., i_k} \alpha_{i_1 ... i_k; x}
                                                     \beta_{i_1 ... i_k; x}.
-\] \\
-
-
+\] 
 Mamy więc dzięki temu iloczynowi określoną lokalną normę dla form różniczkowych.
 Dla $\omega \in \Omega^k(M)$ oraz $x \in M$ napiszemy
 \[
@@ -561,19 +563,35 @@ Rozważmy przypadek gładkiej funkcji $F: M \rightarrow N$, pomiędzy
 dwoma rozmaitościami. Za pomocą tej
 funkcji będziemy mogli określić przekształcenie, które pozwoli nam
 zamieniać formy różniczkowe z rozmaitości $N$ na formy różniczkowe z
-rozmaitości $M$. Z różniczką takiej funkcji możemy bowiem stowarzyszyć
-przekształcenie
-przeciągnięcia $F^\ast: \Omega^p N \rightarrow \Omega^p M$, działające w taki sposób:
+rozmaitości $M$. Z różniczką takiej funkcji możemy bowiem stowarzyszyć nastęjące
+przekształcenie.
+
+\begin{definition}[Przeciągnięcie]
+Przeciągnięcie $F^\ast: \Omega^p(N) \rightarrow \Omega^p(M)$ to przekształcenie
+określone wzorem
 \[
     (F^\ast \omega)_p(v_1, ..., v_n) =
         \omega_{F(p)}(dF_p(v_1), ..., dF_p(v_k)).
-\] Przeciągnięcie jest też czasami nazywane cofnięciem. \\
+\] Przeciągnięcie jest też czasami nazywane cofnięciem.
+\end{definition}
+\begin{lemma}
+Przeciągnięcie komutuje z różniczką zewnętrzną:
+\[
+F^\ast \circ d = d \circ F^\ast
+\]
+\end{lemma}
+\begin{proof}
+Pomijam standardowy dowód tej własności. Jest on dostępny przykładowo
+w~\cite{lee}, Lemma 14.16.
+\end{proof}
+%% Jakby się komu chciało, to tu jest jakiś wnioseczek
+%% https://unapologetic.wordpress.com/2011/07/21/pullbacks-on-cohomology/
 
 
-Pokażemy teraz bardzo interesującą strukturę jaką mają formy różniczkowe na
+Pokażemy teraz bardzo interesującą strukturę, jaką mają formy różniczkowe na
 rozmaitości, gdy rozpatrywać je jako kompleksy z działaniem różniczki.  W
 poniższym rozumowaniu, przez $\Omega^p (M)$ oznaczać będziemy przestrzeń
-gładkich $k$-form.  Niech $\M$ będzie rozmaitością a $p$ będzie nieujemną
+gładkich $k$-form.  Niech $\M$ będzie rozmaitością, a $p$ nieujemną
 liczbą całkowitą.  Ponieważ $d: \Omega^p (\M ) \rightarrow \Omega^{p+1}(\M) $
 jest przekształceniem liniowym, jego jądro oraz obraz są podprzestrzeniami
 liniowymi. Wprowadźmy oznaczenie:
@@ -695,9 +713,9 @@ jest zamknięta, określimy operator
 $h$ z przestrzeni wszystkich gładkich $p$-form na $N$
 do przestrzeni wszystkich gładkich $(p-1)$-form na $M$,
 dla którego spełnione jest równanie
-\[
+\begin{equation}\label{homotopy-formula}
     d(h\omega) + h(d\omega) = G^\ast \omega - F^\ast \omega.
-\]
+\end{equation}
 Gdy warunek ten jest bowiem spełniony to dla formy $\omega$, która
 jest zakmnięta zajdzie także poprzedni warunek.  Zanim udowodnimy
 ten wzór, udowodnimy prostszy lemat. \\
@@ -707,6 +725,7 @@ homotopii i jakoś do podsumować, a nie zupełnie porzucić tę formułę.}
 
 Następujące twierdzenia i wnioski przytaczam z książki \cite{bott}, Section
 I.\S4, s 35. \\
+
 
 Obliczenie rozpoczniemy od prostszego przypadku $M = \R^n$.
 Niech $\pi: \R^n \times \R \rightarrow \R^n$  będzie rzutowaniem
@@ -727,8 +746,11 @@ na wartość $0$ na drugim czynniku). Podsumowując mamy:
          s(x) &= (x, 0)
 \end{align*}
 
-Pokażemy, że funkcje indukują przeciwne do siebie izomorfizmy na
-grupach kohomologii i stąd zachodzi $H^\ast(\R^{n+1}) \cong H^\ast(\R^{n})$. \\
+\begin{lemma}
+Funkcje $\pi$ oraz $s$ indukują przeciwne do siebie izomorfizmy na grupach
+kohomologii de Rhama i stąd zachodzi $H^\ast(\R^{n+1}) \cong H^\ast(\R^{n})$.
+\end{lemma}
+
 
 Jako. że $\pi \circ s = id$  mamy prosto $s^\ast \circ \pi^\ast = id$. Jednak
 $s \circ \pi \neq id$ i stąd dla operatorów
@@ -866,7 +888,8 @@ więc zdefiniować operator homotopii $K$ w taki sam sposób jak wcześniej.  Wt
 można będzie przepisać wcześniejszy dowód zamieniając $\R^n$ na $\M$ i będzie
 on nadal poprawny. Stąd dostajemy mocniejszy fakt, że $ H^\ast( \M \times
 \R^1) \cong H^\ast( \M) $, gdzie izomorfizmy przeciwne to $\pi^\ast \circ
-s^\ast$. Możemy też w końcu udowodnić Propozycję~\ref{homotopy-de-Rham}.
+s^\ast$. Możemy też w końcu udowodnić Propozycję~\ref{homotopy-de-Rham}, a co
+za tym idzie formułę~\ref{homotopy-formula}.
 
 \begin{wniosek}
 Homotopijne funkcje indukują tę samą mapę w kohomologii.
@@ -914,7 +937,7 @@ na $M$ oraz $N$. \\
 W tym rozdziale przedstawione jest najważniejsze twierdzenie pracy, porównujące
 kohomologie $f$-stożka z kohomologiami jego podstawy $M$.
 Jako, że $\cfm$ jest dyfeomorficzne z$ M\times R$, chcemy porownac $H^*(M\times \R)$
-z $H^*(C_fM)$ uzywajac $\pi^*$ i korzystajac z formuly (*).
+z $H^*(C_fM)$ uzywajac $\pi^*$ i korzystając z formuly~\ref{homotopy-formula}.
 Aby móc skozystać z tego mechanizmu, musimy kontrolować normę formy, na którą
 podziałaliśmy operatorem homotopii.
 W rozdziale tym zakładać będę, że formy na których pracuję są gładkie. Nie jest
