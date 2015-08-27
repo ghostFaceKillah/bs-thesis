@@ -26,7 +26,7 @@
 \newtheorem{wniosek}{Wniosek}[section]
 
 %% Document global definitions
-\def\cfm{\ensuremath\mathrm{c}^fM}
+\def\cfm{\ensuremath\mathrm{C}^fM}
 \def\M{\ensuremath M}
 \def\N{\ensuremath N}
 \def\R{\ensuremath\mathbb{R}}
@@ -129,12 +129,11 @@ $dt \otimes dt + (e^{-t})^2 g$. \\
 W rozdziale tym przytaczam definicje i wyprowadzam podstawowe zależności, które
 pomogą nam w dalszych obliczeniach. \\
 
-\section{Algebra zewnętrzna}
+\section{Algebra zewnętrzna}\label{exterior-algebra-chapter}
 W tej sekcji przytaczam definicje form zewnętrznych oraz ich własności. 
  Przytoczone
 definicje podane są według podręczników~\cite{lee}, rozdział 14 oraz
-~\cite{kostrikin} - rozdział 6 § 3. \\
-
+~\cite{kostrikin} - rozdział 6 § 3. 
 Formy zewnętrzne są dla nas istotne, ponieważ formy różniczkowe, które 
 są podstawowym obiektem służącym do badania kohomologii de Rhama, 
 są lokalnie elementami algebry zewnętrznej na przestrzeni stycznej
@@ -192,7 +191,7 @@ Wówczas układ
 jest bazą potęgi zewnętrznej $\Lambda^k(V^\ast)$. Warto zauważyć, że implikuje
  to $dim \Lambda^k ( V^\ast)= \binom{n}{k}$
 
-Aby uczynić zadość tytułowi tego podrozdziału, zdefiniujmy
+Aby zrealizować tytuł tego podrozdziału, zdefiniujmy
 \emph{algebrę zewnętrzną}. Jest to suma prosta:
 \[
 \Lambda^\ast (V) = 
@@ -230,11 +229,12 @@ pomiędzy $V$ oraz jej przestrzenią dualną $V^\ast$.
 %% \begin{equation}
 %% \phi_v (w) = \langle y, w \rangle.
 %% \end{equation}
-Dzięki temu, że jest on izometrią, widzimy, że iloczyn skalarny z $V$ indukuje
-iloczyn skalarny na $V^\ast$.  Istnienie iloczynu skalarnego implikuje także
-istnienie normy na przestrzeni dualnej. Możemy tę normę wyrazić w nieco inny
-sposób, co ułatwi nam obliczenie zachowania normy ze względu na skalowanie.
-\emph{Komentarz: cytowanie}. \\
+Dzięki temu, że jest on izometrią widzimy, że iloczyn skalarny z $V$
+indukuje iloczyn skalarny na $V^\ast$.  Istnienie iloczynu skalarnego
+implikuje także istnienie normy na przestrzeni dualnej. Możemy tę
+normę wyrazić w nieco inny sposób, co ułatwi nam obliczenie zachowania
+normy ze względu na skalowanie.  \emph{Komentarz: cytowanie. Może coś
+  jest w książce Warner, którą wspominał Pan Weber.}. \\
 
 Dla rzeczywistej przestrzeni wektorowej funkcjonał $\phi \in V^\ast$ ma
 normę określoną wzorem:
@@ -252,7 +252,6 @@ $k$-form jest on zadany wzorem
 \begin{equation} \langle v^1 \wedge ....\wedge v^k, w^1 \wedge ... \wedge w^k
 \rangle = \text{det} \left( \langle v^i, w^j \rangle \right), 
 \end{equation}
-
 czyli jest on równy wyznacznikowi macierzy wartości iloczynu skalarnego
 zaaplikowanych do poszczególnych składowych $k$-kowektorów.  \\
 
@@ -277,7 +276,7 @@ ze wzoru~\ref{norm-of-functional} jest osiągane.
 \emph{Komentarz: cytat ze stosownego AFu}
 Załóżmy, że supremum to jest osiągane dla wektora $v$. W nowej normie wektor
 ten ma normę $|| v ||_r = r \cdot || v || = r \cdot 1 = r$. Ze względu
-na liniowość operatora $\phi$ widzimy, że na zbiorze ${w \in V: ||w||_r = 1}$
+na liniowość operatora $\phi$ widzimy, że na zbiorze $\{w \in V: ||w||_r = 1\}$
 wartość $| \phi (w) |$ będzie osiągała swoje supremum dla wielokrotności
 $\alpha v$. Istotnie, $\frac{1}{r} v$ maksymalizuje tę wartość i 
 jednocześnie widzimy, że 
@@ -297,10 +296,11 @@ Otrzymujemy stąd natychmiast dla $k$-formy $\omega = \omega_1 \wedge ... \wedge
 
 
 \chapter{Formy rozniczkowe i regula homotopii}
-W tym rozdziale opisuje formy różniczkowe, kohomologie de Rhama i udowadniam 
-formułę homotopii. Formuła ta oraz jej dowód jest dla nas szczególnie
-interesująca, ponieważ będzie ona kluczowa dla porównania grup
-kohomologii $f$-stożka i rozmaitości $M$. \\
+W tym rozdziale opisuję formy różniczkowe, kohomologie de Rhama i
+udowadniam formułę homotopii.  Formuła ta, jej dowód jest dla nas
+szczególnie interesująca. Technika ta będzie w dalszym ciągu pracy
+kluczowa dla porównania grup kohomologii $f$-stożka i rozmaitości
+$M$. \\
 
 Poniższe definicje są przytoczone w formie opartej na podręczniku~\cite{lee}
 oraz ~\cite{bott}. W szczególności, dowód formuły homotopii jest zaczerpnięty
@@ -316,7 +316,7 @@ trywializację wiązki stycznej. \emph{Komentarz: zastanowić się co to znaczy
 dokładnie} \\
 
 \begin{definition}[Forma różniczkowa]
-  $k$-formą różniczkową na rozmaitości $M$ nazwiemy gładkie przekrój wiązki
+  $k$-formą różniczkową na rozmaitości $M$ nazwiemy gładki przekrój wiązki
   $\Lambda^k(T^\ast M)$ nad M, czyli gładkie odwzorowanie $\omega: M \rightarrow
   \Lambda^k (T^\ast M)$, spełniające $\omega(p) \in \Lambda^k(T_p^\ast)$ dla
   każdego punktu $p \in M$.
@@ -352,9 +352,9 @@ d( \sum_{j \in I} \alpha_{j_1, ..., j_k} dx^{j_1} \wedge ... \wedge dx^{j_k}) =
 Ponadto, jeśli $\phi$ jest $p$-formą, a $\psi$ jest $q$-formą, to możemy
 zapisać następujący wariant formuły Leibniza
 \[
-d(\phi \wedge \psi) = d\phi \ wedge \psi + (-1)^p \phi \wedge d\psi.
+d(\phi \wedge \psi) = d\phi \wedge \psi + (-1)^p \phi \wedge d\psi.
 \]
-Jest on udowodniony w~\cite{lee}. \\
+Jest on udowodniony w~\cite{lee}, Proposition 14.23 (b). \\
 
 Warto zwrócić uwagę, że własność~\ref{exterior-derivative-for-one-forms} wraz z
 formułą Leibniza determinują postać różniczki dla form w wyższych gradacjach. \\
@@ -370,7 +370,7 @@ A^{i+1}
    \xrightarrow{d} 
 ...,
 \]
-że $d^2 = d \circ d = 0$. Będziemy się starali stwierdzić, że 
+że $d^2 = d \circ d = 0$. Pokażemy, że zachodzi następujące twierdzenie.
 \begin{theorem}
 Dla różniczki zewnętrznej form należących do $\left(\Omega^\ast (M), d \right)$
 zachdzi
@@ -398,7 +398,7 @@ oraz formuły Leibniza, które w połączeniu pozwolą nam napisać
 \begin{align*}
 d(d \omega) & = d \left( \sum_J d \omega_J \wedge dx^{j_1} \wedge ... \wedge dx^{j_k} \right) \\
              & = \sum_J d( d\omega_J) \wedge dx^{j_1} \wedge ... \wedge dx^{j_k}  \\
-& + \sum_J \sum_{i=1}^k (-1)^i d \omega_J \wedge dx^{j_1} \wedge ... \wedge d(dx^{j_i}) \wedge ... dx^{j_k} = 0.  \\.
+& + \sum_J \sum_{i=1}^k (-1)^i d \omega_J \wedge dx^{j_1} \wedge ... \wedge d(dx^{j_i}) \wedge ... dx^{j_k} = 0.  \\
 \end{align*}
 Nadużywam tu nieco notacji dla zachowania jasności dowodu. Iteracja po $J$ to iteracja
 po multiindeksach, a iteracja po $i$ to normalna konwencja sumowania. Ostatnia
@@ -462,7 +462,7 @@ przedstawię ją tutaj. \\
 
 Aby móc całkować funkcje na rozmaitości potrzebne jest nam pojęcie
 Riemannowskiej formy objętości. Szczegóły dotyczącego tego rozumowania 
-są dość zawiłe i w małym stopniu mają wpływ na tę pracę. Dlatego też
+są obszerne i w małym stopniu mają wpływ na tę pracę. Dlatego też
 przywołam tylko definicję i twierdzenie o postaci formy objętości
 w lokalnych współrzędnych, zamieszacjąc jedynie odnośnik do dowodu w 
 źródle. \\
@@ -493,7 +493,7 @@ Niech $(M, g)$ będzie zorientowaną rozmaitością Riemannowską wymiaru $n$.
 $(x_i)$, Riemmanowska forma objętości może być wyrażona lokalnie w następujący
 sposób:
 \[
-    \omega_g = \sqrt{\text{det}(g_{ij})} dx^1 \wedge ... \wedge dx^n
+    \text{vol}_g = \sqrt{\text{det}(g_{ij})} dx^1 \wedge ... \wedge dx^n
 \]
 \end{remark}
 Dowód tej własności także omijam, jest on dostępny w ~\cite{lee}, Proposition
@@ -518,11 +518,12 @@ wielu map $\phi_1, \phi_2 ... $, które opisywałyby całą rozmaitość
 biorąc pod uwagę gładki podział jedynki na rozmaitości. \\
 
 \section{Norma formy różniczkowej}
-Biorąc pod uwagę lokalną strukturę form różniczkowych jako algebry zewnętrznej
-oraz uwagi z wcześniejszego rozdziału, iloczyn skalarny na rozmaitości
-Riemannowskiej indukuje zarówno na przestrzeni kostycznej, jak i na 
-potędze zewnętrznej przestrzeni kostycznej iloczyn skalarny, a w związku
-z tym także normę. Dla porządku zapiszę jej lokalną postać. \\
+Biorąc pod uwagę lokalną strukturę form różniczkowych jako algebry
+zewnętrznej oraz uwagi z rozdziału~\ref{exterior-algebra-chapter},
+iloczyn skalarny na rozmaitości Riemannowskiej indukuje zarówno na
+przestrzeni kostycznej, jak i na potędze zewnętrznej przestrzeni
+kostycznej iloczyn skalarny, a w związku z tym także normę. Dla
+porządku zapiszę jej lokalną postać. \\
 
 Niech $(M, g)$ będzie zorientowaną, spójną 
 rozmaitością Riemannowską.
@@ -698,7 +699,11 @@ dla którego spełnione jest równanie
     d(h\omega) + h(d\omega) = G^\ast \omega - F^\ast \omega.
 \]
 Gdy warunek ten jest bowiem spełniony to dla formy $\omega$, która
-jest zakmnięta zajdzie także poprzedni warunek. \\
+jest zakmnięta zajdzie także poprzedni warunek.  Zanim udowodnimy
+ten wzór, udowodnimy prostszy lemat. \\
+
+\emph{Komenatarz: Popatrzeć w Lee jak się zamienia lemat Poincare na tą formułę
+homotopii i jakoś do podsumować, a nie zupełnie porzucić tę formułę.}
 
 Następujące twierdzenia i wnioski przytaczam z książki \cite{bott}, Section
 I.\S4, s 35. \\
@@ -748,7 +753,7 @@ Gdy taki operator $K$ istnieje, nazwany jest on \emph{operatorem homotopii},
 a operator $\pi^\ast \circ s^\ast$ jest łańcuchowo homotopijne z identycznością.
 Zwróćmy także uwagę, że operator homotopii obniża gradację formy o 1. \\
 
-Każda forma na $\R^n \times \R$ da się wyrazić jako suma prosta następujących
+Każda forma na $\R^n \times \R$ da się wyrazić jako suma następujących
 dwóch podstawowych typów form:
 
 \begin{enumerate}
@@ -834,7 +839,7 @@ W obu przypadkach mamy więc
 \] \\
 
 Podsumowując, wnioskiem jest 
-\begin{wniosek}
+\begin{wniosek}\label{pi-is-isomorphism}
 Przekształcenia $H^\ast (\R^n \times \R)
 \stackrel[\pi^\ast]{s^\ast}{\rightleftarrows} H^\ast(\R^n)$ są izomorfizmami.
 \end{wniosek}
@@ -905,37 +910,50 @@ $f \circ g$ oraz $g \circ f$ są homotopijne do identyczności odpowiednio
 na $M$ oraz $N$. \\
 
 
-\chapter{Najważniejszy}
+\chapter{Kohomologie $f$-stożka}
 W tym rozdziale przedstawione jest najważniejsze twierdzenie pracy, porównujące
-kohomologie $f$-stożka z kohomologiami jego podstawy $M$.  \\
+kohomologie $f$-stożka z kohomologiami jego podstawy $M$.
+Jako, że $\cfm$ jest dyfeomorficzne z$ M\times R$, chcemy porownac $H^*(M\times \R)$
+z $H^*(C_fM)$ uzywajac $\pi^*$ i korzystajac z formuly (*).
+Aby móc skozystać z tego mechanizmu, musimy kontrolować normę formy, na którą
+podziałaliśmy operatorem homotopii.
+W rozdziale tym zakładać będę, że formy na których pracuję są gładkie. Nie jest
+to konieczne, jednak wymagałoby to korzystania z bardziej skomplikowanej deficji
+różniczkowania - różniczki w sensie prądów. Z tego sposobu korzysta między innymi
+praca~\cite{weber}.
+Obliczenie jest wykonane sposobem prezentowanym między innymi w
+pracach \cite{cheeger}, \cite{youssin}, \cite{kirwan}, \cite{weber}. \\
 
-Udowodnię, że
 
-\section{$L_p$-kohomologie.}
-3. $L^p$-kohomologie (definicja za pomoca form gladkich), szacowanie norm
-$\pi^*\omega, I_r\omega,$ (osobno dla $r=\infty$).
+\begin{definition}[$f$-stożek]
+    Niech $(\M, g)$ będzie rozmaitością Riemannowską. Rozważmy przestrzeń
+    $\mathbb{R}_{\geq 0} \times \M$. Określmy na tym produkcie tensor
+    Riemannowski zadany przez wzór $dt^2 + f^{2}(t)g $, gdzie $g$ jest
+    metryką na $M$.  Przestrzeń taką nazywamy \textbf{$f$-stożkiem}.
+    Oznaczać ją będziemy symbolem $\cfm$.
+\end{definition}
 
-%% Trzeba jasno wypowiedziec idee
-%% przewodnia: C$_fM$ jest dyfeomorficzne z$ M\times R$, chcemy porownac $H^*(M\times
-%% R) z H^*(C_fM)$ uzywajac $\pi^*$ i korzystajac z formuly (*). Dlatego robimy te
-%% oszacowania.
+\begin{theorem}
+  Niech $M,g$ będzie rozmaitością Riemannowską, a $\cfm$ określonym dla niej
+  $f$-stożkiem dla $f = e^{-t}$. $L_p$-kohomologie tych dwóch przestrzeni są
+  w następującej relacji
+  \begin{equation}
+    H_{(p)}^k \left( \cfm \right) = \begin{cases}
+      H^k(M) & k < \frac{n}{p} + 1 \\
+      0 & k \geq  \frac{n}{p} + 1 \\
+      \end{cases}
+  \end{equation}
+\end{theorem}
 
-Niniejsza praca zajmuje się pewną modyfikacją kohomologii de Rhama -
-$L_p$-kohomologiami.  Będziemy rozważać elementy tego samego kompleksu
-łańcuchowego co w kohomologiach de Rhama, lecz z dodanym warunkiem
-$p$-całkowalności form. Głównym obiektem naszego zainteresowania są
-przestrzenie 
-$L_p^k = {\omega \in \Omega^k(M): ||\omega|| <\infty}$, gdzie $|| \cdot ||$
-to norma (całka) z formy, która będzie przedstawiona poniżej. 
-Ograniczenie
-naszych rozważań do form, które są $p$-całkowalne pozwala nam rozszerzyć
-klasę przestrzeni, które badamy. Przy dobrym doborze funkcji wagowej, którą
-ważymy metrykę Riemannowską na części nieosobliwej, możemy
-bowiem rozważać rozmaitości z osobliwościami.\\
+Dowód tego twierdzenia oraz zmierzające do tego definicje i lematy są treścią tego
+rozdziału. \\
 
 \section{Norma $L_p$ formy różniczkowej. $L_p$-kohomologie.}
+%% 3. $L^p$-kohomologie (definicja za pomoca form gladkich), szacowanie norm
+%% $\pi^*\omega, I_r\omega,$ (osobno dla $r=\infty$).
 
-\begin{definition}
+
+\begin{definition}[$L_p$-norma formy różniczkowej]
 $p$-normą dla $k$-formy $\omega$ na rozmaitości Riemannowskiej $\M$ nazwiemy
 \begin{equation} \label{big-norm}
   || \omega ||^p =  \int_M |\omega|_x^p d \text{vol}_g(x).
@@ -943,20 +961,35 @@ $p$-normą dla $k$-formy $\omega$ na rozmaitości Riemannowskiej $\M$ nazwiemy
 Formę należącą do tej przestrzeni będziemy nazywać formą $p$-całkowalną.
 \end{definition}
 
+Zajmiemy się pewną modyfikacją kohomologii de Rhama -
+$L_p$-kohomologiami.  Będziemy rozważać elementy tego samego kompleksu
+łańcuchowego co w kohomologiach de Rhama, lecz z dodanym warunkiem
+$p$-całkowalności form. Głównym obiektem naszego zainteresowania są
+przestrzenie 
+$L_p^k = {\omega \in \Omega^k(M): ||\omega|| <\infty}$, gdzie $|| \cdot ||$
+to norma (całka) z formy, która będzie przedstawiona powyżej. 
+Ograniczenie
+naszych rozważań do form, które są $p$-całkowalne pozwala nam rozszerzyć
+klasę przestrzeni, które badamy. Przy dobrym doborze funkcji wagowej, którą
+ważymy metrykę Riemannowską na części nieosobliwej, możemy
+bowiem rozważać rozmaitości z osobliwościami.\\
 
 
 
 
 
-\section{Uogólniona nierówność Hardy'ego}
+
+
+
+\section{Uogólnione nierówności Hardy'ego}
 Kluczowa w dalszych obliczeniach będzie nierówność, Hardy'ego łącząca całkowalność
 funkcji z całkowalnością jej funkcji pierwotnej.
 
-\begin{lemma}[Uogólniona nierówność Hardy'ego]\label{hardy}
+\begin{theorem}[Uogólnione nierówności Hardy'ego]\label{hardy}
     Rozważmy funkcję $f: \mathbb{R}_{+} \rightarrow \mathbb{R}$, funkcje-wagi
     $\phi, \psi: \mathbb{R}_{+} \rightarrow \mathbb{R}$ oraz $p, q \in
-    \mathbb{R}$ takie, że $\frac{1}{p} + \frac{1}{q} = 1 $.  Zachodzi dla nich
-\[
+    \mathbb{R}$ takie, że $\frac{1}{p} + \frac{1}{q} = 1 $ oraz $p > 1$.  Równości 
+\begin{equation}\label{hardy-one}
 \int_0^\infty \left|
                 \phi(x) \int_0^x f(t) dt
               \right|^p dx
@@ -964,8 +997,17 @@ funkcji z całkowalnością jej funkcji pierwotnej.
 C \int_0^\infty \left|
                     \psi(x)  f(x)
                 \right|^p dx
-\]
-wtedy i tylko wtedy, gdy
+\end{equation}
+\begin{equation}\label{hardy-two}
+\int_0^\infty \left|
+                \phi(x) \int_x^\infty f(t) dt
+              \right|^p dx
+\leq
+C \int_0^\infty \left|
+                    \psi(x)  f(x)
+                \right|^p dx
+\end{equation}
+zachodzą wtedy i tylko wtedy, gdy odpowiednio dla~\ref{hardy-one} zachodzi
 \[
 \sup_{x > 0}
 \left[
@@ -977,25 +1019,38 @@ wtedy i tylko wtedy, gdy
     | \psi(t) |^{-q} dt
 \right]^{\frac{1}{q}} < + \infty,
 \]
-\end{lemma}
+a dla~\ref{hardy-two} zachodzi
+\[
+\sup_{x > 0}
+\left[
+\int_0^x
+   | \phi(t) |^p dt
+\right]^{\frac{1}{p}}
+\left[
+\int_x^\infty
+    | \psi(t) |^{-q} dt
+\right]^{\frac{1}{q}} < + \infty.
+\]
+
+\end{theorem}
 \begin{proof}
 Dowód tego twierdzenia pomijam. Jest on dostępny w pracy~\cite{hardys}.
 %% %%% http://www.encyclopediaofmath.org/index.php/Hardy_inequality
 %% where you can find references to the original source. \\
 \end{proof}
 
-\begin{lemma}
+\begin{theorem}
 Rozważmy pewną funkcję $f: \mathbb{R}_{+} \rightarrow \mathbb{R}$, gdzie $f
 \geq 0$ oraz jej funkcję pierwotną $F(x) = \int_0^{x} f(t) dt$. Dla $\alpha > 0$ 
  $\int_0^\infty F(x)^pe^{- \alpha x}dx < \infty$
 zachodzi wtedy i tylko wtedy, gdy
 $\int_0^\infty f(x)^p e^{-\alpha x}dx < \infty$.
-\end{lemma}
+\end{theorem}
 \begin{proof}
 Wykorzystamy uogólnioną nierówność Hardy'ego.  Załóżmy $\psi(t) = \phi(t) =
 e^{- \frac{t}{p} }$. Wtedy jeśli $\frac{1}{p} + \frac{1}{q} = 1 $, to
 $\frac{1}{q} = \frac{p-1}{p}$ oraz $-q = \frac{p}{1-p}$.  Zbadajmy teraz, czy
-spełniony jest warunek, aby zachodzić mogła nierówność Hardy'ego:
+spełniony jest warunek, aby zachodzić mogła nierówność Hardy'ego, część~\ref{hardy-one}:
 $$
 \sup_{x > 0}
 \left[
@@ -1036,30 +1091,59 @@ nierówności Hardy'ego i ewentualnym przeskalowaniu zmiennej $x$ do $\alpha x$
 otrzymujemy tezę.
 \end{proof}
 
+Zmodyfikujemy powyższe twierdzenie, tak aby rozważać funkcję pierwotną
+$F(x) = \int_x^\infty f(t) dt $ oraz $\alpha < 0$.
 
+\begin{theorem}
+  Rozważmy pewną funkcję $f: \mathbb{R}_{+} \rightarrow \mathbb{R}$, gdzie
+  $f \geq 0$
+  oraz jej funkcję pierwotną $F(x) = \int_x^\infty f(t) dt$. Dla $\alpha < 0$ 
+ $\int_0^\infty F(x)^pe^{- \alpha x}dx < \infty$
+zachodzi wtedy i tylko wtedy, gdy
+$\int_0^\infty f(x)^p e^{-\alpha x}dx < \infty$.
+\end{theorem}
+\begin{proof}
+  Dowód będzie bardzo podobny do poprzedniego. Dokonamy zmiany znaku,
+  aby uwzględnić zmianę parametru $\alpha$ i 
+ założymy $\psi(t) = \phi(t) =
+ e^{ \frac{t}{p} }$.
+ Wykorzystamy nierówność~\ref{hardy-two}. W tym celu musimy sprawdzić
+ jej warunek konieczny i wystarczający:
+ \[
+\sup_{x > 0}
+\left[
+\int_0^x e^t dt
+\right]^{\frac{1}{p}}
+\left[
+\int_x^\infty
+    e^{t \frac{-1}{p-1}} dt
+\right]^{\frac{p-1}{p}}
+=
+\sup_{x > 0}
+\left[
+  e^x - 1
+\right]^{\frac{1}{p}}
+(p-1)^{\frac{p-1}{p}}
+\left(
+    e^{t \frac{-x}{p}} dt
+\right)
+= 
+\sup_{x > 0} C
+\left[
+  1 - e^{-x}
+\right] < +\infty
+ \]
+ Stosujemy nierówność~\ref{hardy-two} i po przeskalowaniu $x$ przez
+ dodatni czynnik $-\alpha$ otrzymujemy tezę.
+\end{proof}
 
 \section{Obliczenie $L_p$ kohomologii $f$-stożka}
-Celem tego rozdziału jest prezentacja obliczenia 
-$L_p$-kohomologii Riemannowskiego $f$-stożka z funkcją wagową $f = e^{-t}$.
-Obliczenie jest wykonane sposobem prezentowanym między innymi w
-pracach \cite{cheeger}, \cite{youssin}, \cite{kirwan}, \cite{weber}.
 
-\begin{definition}[$f$-stożek]
-    Niech $\M$ będzie rozmaitością Riemannowską. Rozważmy przestrzeń
-    $\mathbb{R}_{\geq 0} \times \M$. Określmy na tym produkcie tensor
-    Riemannowski zadany przez wzór $dt^2 + f^{2}(t)g $, gdzie $g$ jest
-    metryką na $M$.  Przestrzeń taką nazywamy \textbf{$f$-stożkiem}.
-    Oznaczać ją będziemy przez symbol $\cfm$.
-\end{definition}
 
 \begin{definition}
-  Niech $L_p^k M$ oznacza przestrzeń $p$-całkowalnych 
+  Niech $L_p^k M$ oznacza przestrzeń gładkich $p$-całkowalnych 
   $k$-form różnikowych z mierzalnymi  współczynnikami.
 \end{definition}
-
-Twierdzenie, które będziemy chcieli udowodnić, to
-TUTEJ - zapisać twierdzenie w postaci, którą przedstawił Pan Weber
-
 
 %% TODO -> picture % Rysuneczek z rurkom
 
@@ -1072,15 +1156,15 @@ W terminach form różniczkowych powiązanych z rozważanym $f$-stożkiem oznacz
 to, że możemy napisać:
 
 \[
-\Omega^k(\mathbb{R} \times T_m \M) = 
-\Omega^{k-1}(\M)  \oplus \Omega^k(\M).
+\Lambda^k( T_{(t,m)}^\ast \cfm) = 
+\Lambda^{k-1}(\M)  \oplus \Lambda^k(\M).
 \]
 Spostrzeżenie to możemy wyrazić także w inny sposób: 
 
 \begin{remark}
-Każda $k$-forma $\omega \in \Omega^k T(\mathrm{c}^f M)$, 
-a w konsekwencji każda forma z przestrzeni form $p$-całkowalnych  $L_k^p
-(\cfm)$ może być zapisana jako$\omega = \eta + \xi \wedge dt$,
+  Każda $k$-forma $\omega \in \Lambda^k( T_{(t,m)}^\ast \cfm)$, 
+a w konsekwencji każda forma z przestrzeni form $p$-całkowalnych  $L_p^k
+(\cfm)$ może być zapisana jako $\omega = \eta + \xi \wedge dt$,
 gdzie zarówno $\eta$, jak i  $\xi$ nie zawierają $dt$.  Zauważmy ponadto,
 że $\eta$ jest $k$-formą, a $\xi$ jest $k-1$ formą. \\
 \end{remark}
@@ -1097,9 +1181,16 @@ $(x_1, x_2, ... , x_n)$ na $\M$ jako:
 gdzie $I(k)$ jest zbiorem wszystkich multiindeksów $\alpha = (\alpha_1, ...,
 \alpha_k)$ takich, że $1 \leq \alpha_1 < ... < \alpha_i \leq n$, gdzie
 \begin{equation}\label{notacja}
-    dy^\alpha = dy^{\alpha_1} \wedge ... \wedge dy^{\alpha_k},
+    dx^\alpha = dx^{\alpha_1} \wedge ... \wedge dx^{\alpha_k},
 \end{equation}
 a $\eta_\alpha$ jest gładką funkcją określoną na $(0, \infty) \times \M$. \\
+
+Przypomnijmy w tym miejscu, że $\cfm$ oraz $\M \times R_+$ są
+dyfeomorficzne.  Naszym planem będzie teraz zastosowanie
+wniosku~\ref{pi-is-isomorphism} przy zachowaniu kontroli nad normą,
+aby nie wyjść poza przestrzeń $L_p$. \\
+
+
 
 Pomiędzy rozmaitościami $\M$ oraz $\cfm$ istnieją kanoniczne przekształcenia
 projekcji oraz inkluzji. Żeby dobrze zilustrować w sposób w jaki działają one
@@ -1111,8 +1202,9 @@ Inkluzja to funkcja:
 \[
     i_r(x) = (x, r).
 \]
+
 Możemy za jej pomocą przeciągać formy z $\cfm$ do $\M$. Przeciągnięcie takie
-oznaczymy jako $\omega_r = i_r^\ast(\omega) = i_r^\ast \eta $ dla formy $\omega
+oznaczymy jako $\omega_r = i_r^\ast(\omega) = i_r^\ast (\eta) $ dla formy $\omega
 = \eta + \xi \wedge dt$. \\
 Projekcja (rzutowanie) zadane jest jako:
 \[
@@ -1150,8 +1242,9 @@ współrzędnych $(t, x^1, ..., x^n)$ dokładnie tym samym wzorem
 \pi^\ast \omega(t,x) = \sum_{\alpha \in I(k)} \omega_\alpha (t, x) dx^\alpha.
 \]
 
-Zauważmy, że Riemannowska forma objętośći na $\cfm$ w punkcie $(t,x)$ różni się
-od formy objętości na $\M$ w punkcie $x$ o czynnik $(e^{-t})^n$.  Policzmy więc
+Zauważmy, że Riemannowska forma objętości na $\cfm$ w punkcie $(t,x)$ różni się
+od formy objętości na $\M$ w punkcie $x$ o czynnik $(e^{-t})^n$.
+Policzmy więc
 normę $\pi^\ast \omega$ jako elementu przestrzeni $L_k^p (\cfm)$.
 
 \[
@@ -1180,9 +1273,12 @@ $\eta \in L_p^\ast (\M)$ możemy napisać
 \mathrm{e}^{-r \cdot (\frac{n}{p} - k) }  ||\eta ||_{\M}.
 \] \\
 
-W badanym przypadku rozmaitości $\cfm$ fakt, że spełniona jest formuła homotopii
-wymaga szczegółowego uzasadnienia. Motywacja stojaca za formułą homotopii
-została przestawiona we wcześniejszym rozdziale.\\
+\begin{wniosek}
+  Całkowalność formy $\pi^\ast$ jest określona następującym warunkiem:
+  \[
+  ||\pi^\ast \omega ||  < \infty  \iff  k < \frac{n}{p}.
+  \]
+\end{wniosek}
 
 Zgodnie z 
 TUTEJ odnośnik do 
@@ -1308,6 +1404,7 @@ Cauchy'ego-Schwarza
     \frac{ (e^{-a})^{pk-n} - 1 }{n-pk} < \infty
 \right) \\
 \end{align*}
+
 Z powyższego wzoru wynika, że całka $\int_0^\infty \int_\M |\phi^{(t)}|_M^p$ 
 istnieje dla $k \geq \frac{n}{p}$ i także dla prawie wszystkich
 \emph{Komentarz: Dlaczego prawie wszystkich? Pomyśleć}
@@ -1317,6 +1414,16 @@ $x \in \M$ całka
 \]
 istnieje dla $t \in (0, \infty)$. \\
 
+
+
+Zbadajmy teraz przypadek dla $k \geq \frac{n}{p} + 1$.
+
+Na potrzeby tego przypadku należy określić inny operator homotopii.
+Dzieje się tak ponieważ niektóre formy po zadziałaniu na nie starym operatorem
+nie będą $p$-całkowalne. Na podstawie lematu~\ref{hardy-two} możemy
+jednak zdefiniować operator całkowania od $t$ do $\infty$.
+
+
 Bierzemy więc tak jak $p$-całkowalną $k$-formę $\omega = \eta + dt \wedge \xi$
 i gdy $k-1 \geq \frac{n}{p}$, definiujemy operator homotopii jako
 \[
@@ -1325,31 +1432,57 @@ I_\infty \omega = \int_t^\infty \xi.
 
 oraz pomocnicze operatory
 \[
-I_r \omega = \int_t^r \xi.
+I_r \omega = \int_t^r \xi. 
 \]
 
-Na podstawie takiej samej argumentacji jak powyżej, możemy dojść do wniosku, że
-dla każdego $r \in (0, \infty)$ zdefiniowany operator jest ciągły dla normy
-$L_p$. \\
+Pomocnicze operatory wykorzystamy do modyfikacji lematu o
+formule homotopii.
+\emph{Komentarz: Dać odnośnik}.
 
-\emph{Komentarz: rozwinąć i przemyśleć dokładnie to co jest napisane pod spodem}
-
-Dodatkowo, jeżeli 
-$I_\infty\omega$ jest gładka, to $I_\infty\omega$ przybliza sie
-formami $I_r\omega$ dla $r \rightarrow \infty$.
-Wtedy we wzorze~\ref{vanishing-eta} znika czynnik
-    $\pi^\ast \left( \eta^{(r)} \right)$, pozostawiając nam formułę homotopii
-postaci
-\[
+W szczególności, w lemacie tym badaliśmy wyrażenia typu
+$\int_0^t \frac{\partial f }{\partial t} = f(x, t) - f(x, 0)$.
+W przypadku nowego operatora $I_\infty$, wyrażenia te przyjmują postać
+$\int_t^\infty \frac{\partial f }{\partial t}$ i niekoniecznie muszą
+zezwalać na zcałkowanie różniczki, czyli na zastosowanie wariantu podstawowego
+twierdzenia rachunku całkowego. Konkretniej, granica funkcji $\lim_{x \to \infty} f(x)$
+niekoniecznie musi być skończona. Jednak dla dowolnego $r$ pomocniczy
+operator $I_r$ spełnia równanie homotopii.
+\emph{Komentarz: Dać odnośnik}.
+Jedyny sposób w jaki zmienia się dowód tej formuły dla $I_r$, to wspomiane granice
+całkowania w dowodzie: z $\int_0^t$ na $\int_t^r$.
+Zbiegając $r \to \infty$,  w granicy otrzymujemy formułę homotopii postaci:
+\[\label{homotopy-inf}
 \omega = dI_\infty \omega + I_\infty d \omega.
 \]
-Oznacza to w szczególności, że gdy $d \omega = 0$ to $\omega = d I_\infty
-\omega$. Innymi słowy oznacza to, że każda forma zamknięta jest formą dokładną,
+Warto jednak zwrócić uwagę, że zakładamy tu gładkość formy $I_\infty \omega$, aby
+móc przybliżać  $I_\infty\omega$ 
+formami $I_r\omega$ dla $r \rightarrow \infty$. \\
+
+\emph{Komentarz: Zwróć uwagę, że $s_t^\ast \omega  = \omega_t$ to po prostu dwie różne notacje.}
+\[
+|| \omega_s || \to 0, 
+\]
+ponieważ dla każdego $r$ formuła homotopii jest prawdziwa, a jednocześnie prawdziwy jest wzór
+\[
+|| \omega ||^p = \int_0^\infty e^{\alpha t} || \omega_t ||^p dt,
+\] dla $\alpha > 0$
+i jako, że $e^{\alpha t} \to \infty$, $|| \omega_t ||^p$ musi dążyć do 0. Formą o normie zero jest
+jedynie forma zerowa, więc operator $s_r^\ast$ to asymtpotycznie operator zerowy. \\
+
+
+
+Formuła~\ref{homotopy-inf} oznacza w szczególności, że gdy $d \omega = 0$ to $\omega = d I_\infty
+\omega$. Innymi słowy każda forma zamknięta jest formą dokładną,
 a więc wszystkie formy danej grupie kohomologii należą do jednej klasy
 abstrakcji i $H^i(\cfm) = 0$, gdy $k \geq \frac{n}{p}$. \\
 
 Jeżeli forma
-$I_\infty\omega$ nie jest gładka, to ... \emph{Jest już dużo trudniej}.
+$I_\infty\omega$ nie jest gładka, to sytuacja jest bardziej skomplikowana.
+Można pokazać, że formuła homotopii zachodzi korzystając z różniczek w
+sensie ``prądów,'' ang. \emph{currents} tak, jak przedstawiono w
+pracach ~\cite{weber}, ~\cite{cheeger}, jest to jednak dużo
+trudniejsze. \\
+
 
 
 
