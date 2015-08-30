@@ -50,7 +50,7 @@
               Instytut Matematyki\\}
 
 % miesiąc i~rok:
-\date{Maj 2015}
+\date{Wrzesień 2015}
 
 %Podać dziedzinę wg klasyfikacji Socrates-Erasmus:
 \dziedzina{ 
@@ -78,56 +78,81 @@
 
 %tu idzie streszczenie na strone poczatkowa
 \begin{abstract}
-  W tej pracy licencjackiej opisane jest obliczenie $L_p$-kohomologii
-  rozmaitości Riemannowskich.
+  W tej pracy licencjackiej opisane jest porównanie gładkich $L_p$-kohomologii
+  rozmaitościi Riemannowskiej $(\M, g)$ i $f$-stożka nad nią. $f$-stożek jest
+  to rozmaitość produktowa $\cfm = \M \times \R_+$ z metryką 
+  $dt \otimes dt + t^2 g$. 
 \end{abstract}
 
 \tableofcontents
 %\listoffigures
 %\listoftables
 
+% #################################
+% #            CHAPTER            #
+% #################################
+
 \chapter{Wstęp}
 
-W pracy \cite{weber} prezentowane jest między innymi obliczenie
-$L_p$-kohomologii stożka nad pseudorozmaitością Riemannowską. 
+Tematem niniejszej pracy jest porównanie $L_p$-kohomologii
+rozmaitości Riemannowskiej i $f$ stożka skonstruowanego nad nią.
+Stożek ten jest zdefiniowany jako produkt 
+\[
+\cfm = \M \times \R
+\]
+z metryką Riemannowską
+postaci
+$dt \otimes dt + f(t)^2 g$, gdzie $g$ 
+jest metryką na części nieosobliwej wyjściowej pseudorozmaitości. \\
 
-Na stożku tym określona jest metryka postaci
-$dt \otimes dt + t^2 g$, gdzie $g$ 
-jest metryką na części nieosobliwej wyjściowej pseudorozmaitości.
-W dalszej części wspomnianej pracy obliczana jest $L_p$-kohomologia
-wspomnianej przestrzeni.
-\\
+Praca opiera się na serii prac \cite{cheeger}, \cite{youssin} i \cite{weber}.
+W szczególności, w pracy \cite{weber} prezentowane jest między innymi
+obliczenie $L_p$-kohomologii stożka nad pseudorozmaitością Riemannowską dla
+funkcji $f(t) = t^k$. W niniejszej pracy rozważany będzie przypadek funkcji
+$f(t) = e^{-t}$. \\
 
-1. (bardzo krotka czesc) Algebra liniowa: tu zbiera Pan fragmenty, w ktorych
-jest powiedziane jak iloczyn skalarny/norma w V indukuje iloczyn skalarny/norme
-w $V^*, \Lambda^k V^*$ i co sie dzieje przy przeskalowaniu.
-
-
-2. Formy rozniczkowe i regula homotopii: tu dowodzi Pan formule homotopii (*)
-$Kd+dK = Id -\pi^*i^*$ (o szacowaniu normy nie ma mowy).  Wniosek:
-$H^*(M)=H^*(M\times R)$, izomorfizm zadany przez $\pi^*$.
+Kohomologie de Rhama są jednym ze standardowych narzędzi służących do badania
+topologii rozmaitości.  Nie mogą one jednak zostać zastosowane do rozmaitości z
+osobliwościami.  Można jednak próbować kontrolować takie osobliwości za pomocą
+ograniczenia rozważania do przestrzenii form $p$-całkowalnych.  Rozważać można
+bowiem pewne otoczenie osobliwości. Jeżeli ma ono geometrię zadaną przez
+ściskanie metryki funkcją $f$, to możemy otoczenie takiej osobliwości traktować
+jako $f$-stożek i badać je za pomocą $L_p$-kohomologii.\\
 
 
-3. $L^p$-kohomologie (definicja za pomoca form gladkich), szacowanie norm
-$\pi^*\omega, I_r\omega,$ (osobno dla $r=\infty$).  Trzeba jasno wypowiedziec idee
-przewodnia: C$_fM$ jest dyfeomorficzne z$ M\times R$, chcemy porownac $H^*(M\times
-R) z H^*(C_fM)$ uzywajac $\pi^*$ i korzystajac z formuly (*). Dlatego robimy te
-oszacowania.
+Praca ma trzy dalsze rozdziały.  W Rozdziale 2 przedstawione są podstawowe
+zagadnienia z zakresu Algebry Liniowej, które wykorzystywane . 
+%% 1. (bardzo krotka czesc) Algebra liniowa: tu zbiera Pan fragmenty, w ktorych
+%% jest powiedziane jak iloczyn skalarny/norma w V indukuje iloczyn skalarny/norme
+%% w $V^*, \Lambda^k V^*$ i co sie dzieje przy przeskalowaniu.
+W Rozdziale 3 prezentowana jest pokrótce konstrukcja kohomologii Riemanna 
+dowodzę formułę homotopii, i pokazuje jako wniosek, że zachodzi
+$H^*(M) \simeq H^*(M\times R)$, gdzie izomorfizm zadany przez $\pi^*$. \\
+W Rozdziale 4 przedstawiona jest definicja $L_p$-kohomologii i udowodnione jest
+kluczowe twierdzenie pracy. Jego skrótowe sformułowanie to 
+\begin{equation}
+    H_{(p)}^k \left( \cfm \right) = \begin{cases}
+      H^k(M) & k < \frac{n}{p} + 1, \\
+      0 & k \geq  \frac{n}{p} + 1, \\
+      \end{cases}
+\end{equation}
+gdzie $k$ to gradacja formy, $n$ to wymiar rozmaitości-podstawy, a parametr
+$p$ pochodzi od $p$-normy. \\
 
-%% This line of research can 
-%% be traced back to Cheeger \cite{cheeger}. 
-%% A similar approach was presented by Youssin \cite{youssin}, where $f$-horns
-%% were considered.
 
-W tej pracy licencjackiej przedstawiam drobną modyfikację tych pojęć do
-$e^{-t}$-stożków Riemannowskich, czyli przestrzeni będących produktem
-rozmaitości Riemannowskiej oraz półprostej na której określono metrykę
-$dt \otimes dt + (e^{-t})^2 g$. \\
+%%    W tej pracy licencjackiej przedstawiam drobną modyfikację tych pojęć do
+%%    $e^{-t}$-stożków Riemannowskich, czyli przestrzeni będących produktem
+%%    rozmaitości Riemannowskiej oraz półprostej na której określono metrykę
+%%    $dt \otimes dt + (e^{-t})^2 g$. \\
 
+% #################################
+% #            CHAPTER            #
+% #################################
 
 \chapter{Algebra liniowa}
 W rozdziale tym przytaczam definicje i wyprowadzam podstawowe zależności, które
 pomogą nam w dalszych obliczeniach. \\
+
 
 \section{Algebra zewnętrzna}\label{exterior-algebra-chapter}
 W tej sekcji przytaczam definicje form zewnętrznych oraz ich własności. 
@@ -141,20 +166,18 @@ do rozmaitości w otoczeniu danego punktu. \\
 
 \begin{definition}[$k$-kowektor]
 Niech $V$ będzie skończenie wymiarową rzeczywistą przestrzenią wektorową.
-Tensor $T:V \times ... \times V \rightarrow \mathbb{R}$ nazwiemy kowariantnym.
-Bierze on jako argumenty jedynie wektory i konsekwentnie, nie bierze on jako
-argumentów form.  Takie tensory mają wiele nazw: formy zewnętrzne,
+Tensor $T:V \times ... \times V \rightarrow \mathbb{R}$ 
+który jako  argumenty jedynie wektory nazwiemy kowariantnym.
+Takie tensory mają wiele nazw: formy zewnętrzne,
 multi-kowektory, czy też po prostu $k$-kowektory.  Przestrzeń wszystkich
 $k$-kowektorów na przestrzeni $V$ ma wiele oznaczeń.  Jednym z bardziej
-popularnych oznaczeń jest $T^k (V^\ast)$. \\
+popularnych oznaczeń jest $T^k (V^\ast)$. 
 \end{definition}
-
 Tensor będzie nazwany \emph{alternującym}, gdy jego wartość zmieni znak w
 przypadku zmienimy miejscami jego dwa wektory wejściowe.  Przestrzeń takich
 tensorów, które należą do $T^k (V^\ast)$, a do tego są antysymetryczne, często
-oznacza się $\Lambda^k (V^\ast)$. \\
-
-Przedstawmy teraz kilka podstawowych operacji określonych na takich tensorach.
+oznacza się $\Lambda^k (V^\ast)$.  Przedstawmy teraz kilka podstawowych
+operacji określonych na takich tensorach. \\
 
 \begin{definition}[produkt tensorowy]
 Dla dwóch tensorów kowariantnych $f \in T^p(V^\ast) $ oraz $g \in T^q(V^\ast) $
@@ -163,13 +186,15 @@ pomocą wzoru:
 \[
   f \otimes g(x_1, x_2, ..., x_p, x_{p+1}, x_{p+2}, ... ,x_{p+q}) =
   f(x_1, x_2, ... , x_p) \cdot g(x_{p+1}, x_{p+2}, ... , x_{p+q}).
-\] \\
+\] 
 \end{definition}
-
 Dowolny kowariantny tensor możemy
 przekształcić na tensor alternujący za pomocą przekształcenia
 \emph{alternatora}, nazywanego także \emph{rzutem alternującym}.
-Jest on określony w następujący sposób:
+
+
+\begin{definition}[Alternator]
+Rzut alternujący jest określony w następujący sposób:
 \[
 \text{Alt}:T^k (V^\ast) \rightarrow  \Lambda^k (V^\ast)
 \]
@@ -177,14 +202,18 @@ Jest on określony w następujący sposób:
 \text{Alt}(f)(x_1, x_2, x_3, ..., x_k) = \frac{1}{k!}
   \sum_{\sigma \in S_p}
      \text{sgn} f(x_{\sigma(1)}, x_{\sigma(2)}, ..., x_{\sigma(k)}).
-\] \\
+\] 
+\end{definition}
 
 Z pomocą alternatora określić można iloczyn zewnętrzny antysymetryczny. 
+
+\begin{definition}[Iloczyn zewnętrzny]
 Dla elementów $\omega \in \Lambda^p (V^\ast)$ oraz 
-$\eta \in \Lambda^q (V^\ast)$, ich iloczyn zewnętrzny zadamy wzorem
+$\eta \in \Lambda^q (V^\ast)$ iloczyn zewnętrzny zadamy wzorem
 \[
   \omega \wedge \eta = \frac{(p+q)!}{p!q!} \text{Alt} (\omega \otimes \eta)
 \] \\
+\end{definition}
 
 Przytoczmy teraz sposób, w jaki definiuje się bazę potęgi zewnętrznej
 $\Lambda^k(V^\ast)$. Niech $v_1, v_2, ... , v_n$ będzie bazą przestrzeni dualnej
@@ -193,41 +222,45 @@ Wówczas układ
 \[
   B = \{ v_{i_1} \wedge v_{i_2} \wedge ... \wedge v_{i_k} : 1 \leq i_1 < i_2 < ... <i_k \leq n \}
 \]
-jest bazą potęgi zewnętrznej $\Lambda^k(V^\ast)$. Warto zauważyć, że implikuje
- to $dim \Lambda^k ( V^\ast)= \binom{n}{k}$
+jest bazą potęgi zewnętrznej $\Lambda^k(V^\ast)$. Jest to udowodnione w
+podręczniku~\cite{kostrikin}. \emph{Komentarz: Sprawdzić i uszczegółowić to cytowanie} \\
 
 Aby zrealizować tytuł tego podrozdziału, zdefiniujmy
-\emph{algebrę zewnętrzną}. Jest to suma prosta:
+\emph{algebrę zewnętrzną}.
+
+\begin{definition}[algebra zewnętrzna]
+Algebra zewnętrzna jest to suma prosta:
 \[
 \Lambda^\ast (V) = 
 \Lambda^0(V^\ast) \oplus
 \Lambda^1(V^\ast) \oplus
 \Lambda^2(V^\ast) \oplus
 ...~.
-\] Stanowi ona algebrę z działaniami dodawania oraz iloczynu zewnęnętrznego.
+\]
+\end{definition}
+
+Przestrzeń ta stanowi algebrę z działaniami dodawania oraz iloczynu zewnęnętrznego.
 Fakt ten jest dokładnie uargumentowany w wielu standardowych podręcznikach,
 przykładowo w~\cite{lee}, Proposition 14.11 albo \cite{kostrikin}.\\
 
-
 \section{Norma indukowana na potędze zewnętrznej przestrzeni dualnej.
-Skalowanie norm.}
+Skalowanie norm.}\label{norm-scaling}
 
 W tym rozdziale przedstawiam relacje pomiędzy normą określoną na danej
 przestrzeni wektorowej a indukowaną przez iloczyn skalarny normą na przestrzeni
-dualnej oraz na potęgach zewnętrznych przestrzeni dualnej.  W szczególności, w
+dualnej oraz na potędze zewnętrznej przestrzeni dualnej.  W szczególności, w
 dalszych obliczeniach będziemy badać wyrażenia typu $r |\cdot|$, gdzie
 $|\cdot|$ jest normą na skończenie wymiarowej przestrzeni liniowej.  Znaczenie
 będzie miało jak zachowuje się norma na przestrzenii dualnej, gdy skalujemy
 normę wyjściowej przestrzenii liniowo o czynnik $r$. \\
 
-\emph{Komentarz: Tu jest konieczny cytat gdzie są opisane ładnie te rzeczy}.
+\emph{Komentarz: Tu jest konieczny cytat gdzie są opisane ładnie te rzeczy}. \\
 
 Niech będzie dana skończenie wymiarowa rzeczywista przestrzeń liniowa $V$ z
 iloczynem skalarnym $\langle \cdot, \cdot \rangle$.
 Ten iloczyn skalarny, na przykład na podstawie twierdzenia Riesza o
 reprezentacji \emph{Komentarz: cytowanie}, zadaje izometryczny izomorfizm
-pomiędzy $V$ oraz jej przestrzenią dualną $V^\ast$.
-
+pomiędzy $V$ oraz jej przestrzenią dualną $V^\ast$. 
 %% Izomorfizm ten jest zadany w następujący sposób: Chcemy wektorowi $v \in V$
 %% przyporządkować funkcjonał $\phi_v \in V^\ast$. Dla argumentu tego funkcjonału,
 %% czyli wektora $w \in V$ ma on następujący wzór:
@@ -241,13 +274,14 @@ normę wyrazić w nieco inny sposób, co ułatwi nam obliczenie zachowania
 normy ze względu na skalowanie.  \emph{Komentarz: cytowanie. Może coś
   jest w książce Warner, którą wspominał Pan Weber.}. \\
 
+\begin{definition}[Norma przestrzeni dualnej]
 Dla rzeczywistej przestrzeni wektorowej funkcjonał $\phi \in V^\ast$ ma
 normę określoną wzorem:
 \begin{equation}\label{norm-of-functional}
 ||\phi|| = \sup \left\{ |\phi(v)|: v \in V, ||v|| = 1 \right\},
 \end{equation}
 gdzie $||v||$ to norma pochodząca z wyjściowej przestrzeni wektorowej $V$.  \\
-
+\end{definition}
 
 Iloczyn skalarny jest także przenoszony na potęgę zewnętrzną przestrzeni
 dualnej. \emph{Komentarz: cytowanie!! - niby jest napisane w ćwiczeniu z
@@ -260,22 +294,20 @@ $k$-form jest on zadany wzorem
 czyli jest on równy wyznacznikowi macierzy wartości iloczynu skalarnego
 zaaplikowanych do poszczególnych składowych $k$-kowektorów.  \\
 
-Możemy teraz zobserwować w jaki sposób zachowają się normy 
-przestrzeni dualnej oraz potęgi zewnętrznej gdy przeskalujemy normę wyjściową
-o czynnik liniowy $r$. \\
-
-Załóżmy więc, że rozważamy rzeczywistą przestrzeń liniową $V$ z określoną
+Zaobserwujmy w jaki sposób zachowają się normy przestrzeni dualnej oraz potęgi
+zewnętrznej, gdy przeskalujemy normę wyjściową
+o czynnik liniowy $r$.
+Załóżmy, że rozważamy rzeczywistą przestrzeń liniową $V$ z określoną
 normą $|| \cdot ||$. Określmy nową normę dla $v \in V$:
 \[
 || v ||_r = r || v ||.
 \]
 Z definicji~\ref{norm-of-functional} możemy bardzo prosto zauważyć, że
-dla funkcjonału $\phi \in V^\ast$ nowa norma będzie dana następującym
-wzorem:
+dla funkcjonału $\phi \in V^\ast$ nowa norma będzie dana 
+wzorem
 \[
-|| \phi ||_r = \frac{1}{r} ||\phi ||
+|| \phi ||_r = \frac{1}{r} ||\phi ||.
 \]
-
 Zauważmy bowiem, że dla przestrzeni skończenie wymiarowej, supremum
 ze wzoru~\ref{norm-of-functional} jest osiągane. 
 \emph{Komentarz: cytat ze stosownego AFu}
@@ -289,25 +321,28 @@ jednocześnie widzimy, że
 ||\phi||_r = \frac{1}{r} |\phi(v)| = \frac{1}{r}|| \phi ||.
 \]  \\
 
-Skoro wiemy w jaki sposób skaluje się iloczyn skalarny na przestrzeni dualnej.
-W definicji wyznacznika zakładamy bowiem, że wyznacznik jest liniowy ze względu
-na mnożenie wiersza macierzy. Pomnożenie całej macierzy kwadratowej rzędu $k$
-przez czynnik $r$ powoduje więc pomnożenie wyznacznika przez czynnik $r^k$.
-Otrzymujemy stąd natychmiast dla $k$-formy $\omega = \omega_1 \wedge ... \wedge
+Dzięki powyższym obserwacjom otrzymyjemy w jaki sposób skaluje się iloczyn
+skalarny na przestrzeni dualnej W definicji wyznacznika zakładamy bowiem, że
+wyznacznik jest liniowy ze względu na mnożenie wiersza macierzy. Pomnożenie
+całej macierzy kwadratowej wymiaru $k$ przez czynnik $r$ powoduje więc pomnożenie
+wyznacznika przez czynnik $r^k$.  Otrzymujemy stąd natychmiast dla $k$-formy
+$\omega = \omega_1 \wedge ... \wedge
 \omega_k$  wzór:
 \begin{equation}\label{scaling-of-norm}
 || \omega ||_r = \frac{1}{r^k} || \omega ||.
 \end{equation}
 
 
-\chapter{Formy różniczkowe i reguła homotopii}
+% #################################
+% #            CHAPTER            #
+% #################################
+\chapter{Formy różniczkowe i reguła homotopii}\label{chapter-ordinary-cohomology}
 W tym rozdziale opisuję formy różniczkowe, kohomologie de Rhama i
 udowadniam formułę homotopii.
 Technika otaczająca formułę homotopii
 będzie dla nas szczególnie interesująca. Będzie ona w dalszym
 ciągu pracy poddawana modyfikacjom i posłuży ona 
-do porównania grup kohomologii $f$-stożka i rozmaitości $M$. \\
-
+do udowodnienia kluczowego twierdzenia pracy. 
 Poniższe definicje są przytoczone w formie opartej na podręczniku~\cite{lee}
 oraz ~\cite{bott}. W szczególności, dowód formuły homotopii jest zaczerpnięty
 z~\cite{bott}, rozdział I § 4. \\
@@ -318,8 +353,8 @@ Otrzymujemy w ten sposób przestrzeń liniową nad każdym punktem $p \in M$.
 Ich sumę rozłączną oznaczymy $\Lambda^k(T^\ast M)$. Przestrzenie te,
 określone nad każdym punktem z osobna, można skleić do wiązki wektorowej, na
 której można zdefniować formy różniczkowe, wybierając lokalną
-trywializację wiązki stycznej. 
-\emph{Komentarz: zastanowić się co to znaczy dokładnie} \\
+trywializację wiązki stycznej. \\
+%% \emph{Komentarz: zastanowić się co to znaczy dokładnie} \\
 
 \begin{definition}[Forma różniczkowa]
   $k$-formą różniczkową na rozmaitości $M$ nazwiemy gładki przekrój wiązki
@@ -344,8 +379,8 @@ określimy różniczkę $df$ wzorem
 df = \sum_{i=1}^n \frac{\partial f}{\partial x^i} dx^i.
 \end{equation} \\
 
-Dla form o wyższej gradacji określamy pochodną zewnętrzną w następujący
-sposób. Niech 
+Uzupełnijmy definicję dla form o wyższej gradacji. Dla takich form określamy
+pochodną zewnętrzną w następujący sposób. Niech 
 $\omega = \sum_{j \in I} \alpha_{j_1, ..., j_k} dx^{j_1} \wedge ... \wedge dx^{j_k}$.
 Różniczka $d: \Omega^k(M) \rightarrow \Omega^{k+1}(M)$ jest dana jako
 \[ %% strona 363 Lee, wzór 14.20
@@ -364,18 +399,19 @@ Jest on udowodniony w~\cite{lee}, Proposition 14.23 (b). \\
 Warto zwrócić uwagę, że własność~\ref{exterior-derivative-for-one-forms} wraz z
 formułą Leibniza determinują postać różniczki dla form w wyższych gradacjach. \\
 
-Przytoczymy teraz kluczową własność różniczki wraz z dowodem.
-Przypomnijmy, że w teorii homologii badamy kompleksy łańcuchowe, czyli
-ciągi przestrzeni
+Przytoczymy teraz kluczową własność różniczki wraz z dowodem, która pozwoli nam
+stwierdzić, że ciąg przestrzeni form różniczkowych kolejnych gradacji z
+operatorem $d$ różniczki zewnętrznej jest kompleksem łańcuchowym, czyli ciągiem
+przestrzeni
 \[
    ... \xrightarrow{d} 
 A^i 
    \xrightarrow{d} 
 A^{i+1}
    \xrightarrow{d} 
-...,
+...~.
 \]
-że $d^2 = d \circ d = 0$. Pokażemy, że zachodzi następujące twierdzenie.
+
 \begin{theorem}
 Dla różniczki zewnętrznej form należących do $\left(\Omega^\ast (M), d \right)$
 zachdzi
@@ -416,12 +452,14 @@ równość wynika wprost z definicji różniczki form $d \omega_J$. \\
 
 \section{Metryka Riemannowska i forma objętości}
 
-\textbf{Metryką Riemannowską} nazwiemy gładkie, symetryczne kowariantne
-pole 2-tensorów na rozmaitości
-$M$ które jest dodatnio określone w każdym punkcie. Mówiąc bardziej
-intuicyjnie, określenie metryki Riemannowskiej to doczepienie 
-pola iloczynów skalarnych do rozmaitości, które zmienia się w sposób gładki.
-\\
+\begin{definition}[Metryka Riemannowska]
+Metryką Riemannowską nazwiemy gładkie, symetryczne kowariantne pole 2-tensorów
+na rozmaitości $M$ które jest dodatnio określone w każdym punkcie. Mówiąc
+bardziej intuicyjnie, określenie metryki Riemannowskiej to doczepienie pola
+iloczynów skalarnych do rozmaitości, które zmienia się w sposób gładki.
+Rozmaitość gładką wyposażaoną w metrykę Riemannowską nazwiemy rozmaitością
+Riemannowską.
+\end{definition}
 
 W dowolnych lokalnych gładkich współrzędnych $(x^i)$ metryka Riemannowska
 może być zapisana jako
@@ -439,17 +477,17 @@ Riemannowskich, zbadajmy w jaki sposób zadana będzie metryka na takiej
 przestrzeni produktowej. Jeżeli $(M, g)$ oraz $(M', g')$ będą rozmaitościami
 Riemannowskimi, to na $M \times M'$ możemy zadać metrykę produktową
  $\hat g = g \oplus g'$ w następujący sposób:
-\[
+\begin{equation}\label{metric-form}
 \hat g
  \left( (v, v'), (w, w') \right) =
  g(v, w) + g'(v', w')
-\]
+\end{equation}
 dla każdego
  $(v, v'), (w, w') \in T_p M \oplus T_q M' \cong T_{(p, q)} (M \times M')$.
 Gdy mamy dane jakieś konkretne współrzędne $(x_1, ... , x_n)$ dla $M$ oraz
-$(y_1, ..., y_n)$ dla $M'$, to dostajemy prosto lokalne współrzędne
-$(x_1, ..., x_n, y_1, ..., y_m)$ na $M \times M'$ i nietrudno sprawdzić, 
-że metryka produktowa jest lokalnie reprezentowana przez macierz blokowo diagonalną
+$(y_1, ..., y_n)$ dla $M'$, to dostajemy prosto lokalne współrzędne $(x_1, ...,
+x_n, y_1, ..., y_m)$ na $M \times M'$ i nietrudno sprawdzić, że metryka
+produktowa jest lokalnie reprezentowana przez macierz blokowo-diagonalną
 \[
   \left(\hat g_{ij} \right)  = 
   \left(
@@ -494,7 +532,7 @@ dalszych obliczeń znać jaka jest lokalna postać formy objętości. \\
  %% Proposition 15.31 z Lee
 Niech $(M, g)$ będzie zorientowaną rozmaitością Riemannowską wymiaru $n$.
  W dowolnych zorientowanych gładkich współrzędnych
-$(x_i)$, Riemmanowska forma objętości może być wyrażona lokalnie w następujący
+$(x_i)$, Riemannowska forma objętości może być wyrażona lokalnie w następujący
 sposób:
 \[
     \text{vol}_g = \sqrt{\text{det}(g_{ij})} dx^1 \wedge ... \wedge dx^n
@@ -551,20 +589,20 @@ Dla $\omega \in \Omega^k(M)$ oraz $x \in M$ napiszemy
 \[
     |\omega|_x = \sqrt{ G(\omega_x, \omega_x) }.
 \]
-Warto podkreślić tu prosty, ale istotny wniosek, że po określeniu formy $\omega$
-norma jest funkcją skalarną $| \omega |_x : M \rightarrow \mathbb{R} $. Jest to warte
-odnotowania, ponieważ pomaga to w rozumieniu intuicji stojącej za definicją normy
-na całości rozmaitości Riemannowskiej. Taka norma będzie po prostu całką 
-z normy punktowej rozważanej formy różniczkowej. \\
+Warto podkreślić tu prosty, ale istotny wniosek, że po określeniu formy
+$\omega$ norma jest funkcją skalarną $| \omega |_x : M \rightarrow \mathbb{R}
+$. Jest to warte odnotowania, ponieważ pomaga to w rozumieniu intuicji stojącej
+za definicją normy na całości rozmaitości Riemannowskiej. Taka norma będzie po
+prostu całką po całej rozmaitości z normy punktowej rozważanej formy
+różniczkowej. \\
 
 
-\section{Przekształcenie indukowane, kohomologie de Rhama oraz formuła homotopii}
-Rozważmy przypadek gładkiej funkcji $F: M \rightarrow N$, pomiędzy
-dwoma rozmaitościami. Za pomocą tej
-funkcji będziemy mogli określić przekształcenie, które pozwoli nam
-zamieniać formy różniczkowe z rozmaitości $N$ na formy różniczkowe z
-rozmaitości $M$. Z różniczką takiej funkcji możemy bowiem stowarzyszyć nastęjące
-przekształcenie.
+\section{Przekształcenie indukowane, kohomologie de Rhama oraz formuła
+homotopii} Rozważmy przypadek gładkiej funkcji $F: M \rightarrow N$, pomiędzy
+dwoma rozmaitościami. Za pomocą tej funkcji będziemy mogli określić
+przekształcenie, które pozwoli nam zamieniać formy różniczkowe z rozmaitości
+$N$ na formy różniczkowe z rozmaitości $M$. Z różniczką takiej funkcji możemy
+bowiem stowarzyszyć nastęjące przekształcenie.
 
 \begin{definition}[Przeciągnięcie]
 Przeciągnięcie $F^\ast: \Omega^p(N) \rightarrow \Omega^p(M)$ to przekształcenie
@@ -574,12 +612,12 @@ określone wzorem
         \omega_{F(p)}(dF_p(v_1), ..., dF_p(v_k)).
 \] Przeciągnięcie jest też czasami nazywane cofnięciem.
 \end{definition}
-\begin{lemma}
+\begin{remark}
 Przeciągnięcie komutuje z różniczką zewnętrzną:
 \[
 F^\ast \circ d = d \circ F^\ast
 \]
-\end{lemma}
+\end{remark}
 \begin{proof}
 Pomijam standardowy dowód tej własności. Jest on dostępny przykładowo
 w~\cite{lee}, Lemma 14.16.
@@ -624,23 +662,23 @@ Stąd ma sens następująca definicja:
   \]
 \end{definition}
 %% źródło, jak sądzę jest to Lee, istotnie 443
-Jest to rzeczywista przestrzeń liniowa i w związku z tym jest ona
-grupą z działaniem dodawania wektorów. Pokażemy, że grupy de Rhama są
-niezmiennicze ze względu na dyfeomorifzmy. Dla każdej domkniętej $p$-formy
-$\omega$ na $\M$ poprzez $[\omega]$ będziemy oznaczać klasę równoważności
-formy $\omega$ w $H_{dR} (M)$. Taką klasę równoważności będziemy nazywać także klasą
-kohomologii formy $\omega$. Jeżeli dwie formy $\omega, \eta$ należą do tej samej klasy
-kohomologii, czyli zachodzi $[\omega] = [\eta]$, to różnią się one conajwyżej o formę
-dokładną. Zachodzi także następujący lemat:
+Nazwywanie tych przestrzeni grupą jest uzasadnione.  Są one rzeczywistymi
+przestrzeniami liniowymi i w związku z tym są grupami z działaniem dodawania
+wektorów. Pokażemy, że grupy de Rhama są niezmiennicze ze względu na
+dyfeomorifzmy. Dla każdej domkniętej $p$-formy $\omega$ na $\M$ poprzez
+$[\omega]$ będziemy oznaczać klasę równoważności formy $\omega$ w $H_{dR} (M)$.
+Taką klasę równoważności będziemy nazywać także klasą kohomologii formy
+$\omega$. Jeżeli dwie formy $\omega, \eta$ należą do tej samej klasy
+kohomologii, czyli zachodzi $[\omega] = [\eta]$, to różnią się one co najwyżej
+o formę dokładną. Zachodzi także następujący lemat:
 
-\begin{lemma}(Przekształcenia indukowane kohomologii)
-  Dla każdej gładkiej funkcji $F: \M \rightarrow N$ pomiędzy
-  dwoma rozmaitościami gładkimi, przeciągnięcie 
-  $F^\ast: \Omega^p(N) \rightarrow \Omega^p (M)$ przenosi formy dokładne
-  na formy dokładne, a formy zamknięte na formy zamknięte. W ten sposób indukuje
-  ono przekształcenie liniowe, w dalszym ciągu oznaczane jako $F^\ast$ z
-  $H^p_{dR} (N)$ do $H^p_{dR} (M)$, które nazywane jest przekształceniem indukowanym
-  kohomologii. \\
+\begin{lemma}[Przekształcenia indukowane kohomologii]
+  Dla każdej gładkiej funkcji {$F: \M \rightarrow N$} pomiędzy dwoma
+  rozmaitościami gładkimi, przeciągnięcie $F^\ast: \Omega^p(N) \rightarrow
+  \Omega^p (M)$ przenosi formy dokładne na formy dokładne, a formy zamknięte na
+  formy zamknięte. W ten sposób indukuje ono przekształcenie liniowe, w dalszym
+  ciągu oznaczane jako $F^\ast$ z $H^p_{dR} (N)$ do $H^p_{dR} (M)$, które
+  nazywane jest przekształceniem indukowanym kohomologii. \\
 \end{lemma}
 \begin{proof}
   Jeśli $\omega$ jest formą zamkniętą, to $d(F^\ast \omega) = F^\ast(d \omega) = 0$,
@@ -656,10 +694,10 @@ dokładną. Zachodzi także następujący lemat:
   \]
   a więc przekształcenie jest dobrze zdefiniowane.
 \end{proof} 
-Odnotujmy za~\cite{Lee}, Corollary 17.3-4 następujące wnioski:
+Odnotujmy za~\cite{lee}, Corollary 17.3-4 następujące wnioski:
 \begin{remark}
 Dla każdej liczby całkowitej $p$, przypisanie $M \mapsto H_{\text{dR}}^p(M)$,
-$F \mapsto F^ast$ jest funktorem kontrawariantnym z kategorii
+$F \mapsto F^\ast$ jest funktorem kontrawariantnym z kategorii
 rozmaitości gładkich do kategorii rzeczywistych przestrzeni wektorowych.
 \end{remark}
 \begin{remark}
@@ -688,7 +726,7 @@ naszą tezę do udowodnienia istnienia pewnego operatora o żądanych własnośc
 Chcemy najpierw udowodnić, że homotopijne funkcje gładkie indukują to samo
 przekształcenie kohomologii.  Rozważamy w tym celu dwie gładkie funkcje $F, G:
 M \rightarrow N$.  Pokażemy, że ich przekształcenia indukowane są równe
-$F^\ast = G^\ast$. Wyraźmy ten warunek w nieco innych słowach. \\
+$F^\ast = G^\ast$. Wyraźmy ten warunek w nieco innych sposób. \\
 
 Gdy weźmiemy zamkniętą formę $p-$formę $\omega$ na $N$, aby
 przekształcenia indukowane były równe, musimy być w stanie
@@ -696,13 +734,11 @@ wyprodukować taką $(p-1)$-formę $\eta$ na $M$, aby spełnione
 \[
     G^\ast \omega - F^\ast \omega = d\eta.
 \]
-
 Z tego wyniknie bowiem, że
 $ G^\ast [\omega] - F^\ast [\omega] =
-[d\eta] = 0$. \\
-
+[d\eta] = 0$. 
 Możemy podejść do tego problemu nieco bardziej systematycznie, 
-szukając takie operatora
+szukając takiego operatora
 $h$, który jako argumenty bierze zamknięte $p$ formy na $N$
 i działa tak, że spełniona jest zależność
 \[
@@ -718,16 +754,11 @@ dla którego spełnione jest równanie
 \end{equation}
 Gdy warunek ten jest bowiem spełniony to dla formy $\omega$, która
 jest zakmnięta zajdzie także poprzedni warunek.  Zanim udowodnimy
-ten wzór, udowodnimy prostszy lemat. \\
-
-\emph{Komenatarz: Popatrzeć w Lee jak się zamienia lemat Poincare na tą formułę
-homotopii i jakoś do podsumować, a nie zupełnie porzucić tę formułę.}
+ten wzór, udowodnimy prostszy lemat dla $M = \R^n$. \\
 
 Następujące twierdzenia i wnioski przytaczam z książki \cite{bott}, Section
 I.\S4, s 35. \\
 
-
-Obliczenie rozpoczniemy od prostszego przypadku $M = \R^n$.
 Niech $\pi: \R^n \times \R \rightarrow \R^n$  będzie rzutowaniem
 na pierwszy czynnik, a $s$  będzie włożeniem zerowym (
 na wartość $0$ na drugim czynniku). Podsumowując mamy:
@@ -864,7 +895,13 @@ Podsumowując, wnioskiem jest
 \begin{wniosek}\label{pi-is-isomorphism}
 Przekształcenia $H^\ast (\R^n \times \R)
 \stackrel[\pi^\ast]{s^\ast}{\rightleftarrows} H^\ast(\R^n)$ są izomorfizmami.
+Równoważnie, zachodzi formuła:
+\begin{equation}\label{homotopy-formula-pi}
+    \omega - \pi^\ast( s^\ast \omega) = dK \omega + K d\omega
+\end{equation}
 \end{wniosek}
+
+
 Możemy także dzięki tym obserwacjom policzyć kohomologie $\R^n$.
 \begin{wniosek}(Lemat Poincaré)
 \[
@@ -876,7 +913,14 @@ H^\ast(\R^n) = H^\ast(punkt) =
 \]
 \end{wniosek} 
 
-Możemy teraz uogólnić powyższy prostszy przypadek na przypadek dowolnej
+\begin{theorem}
+Grupy kohomologii $\M$ oraz $\M \times \R$ są izomorficzne:
+\[
+H^\ast( \M \times \R^1) \cong H^\ast( \M)
+\]
+\end{theorem}
+\begin{proof}
+Uogólnimy przedstawione wyżej rozumowanie na przypadek dowolnej
 rozmaitości. Rozważmy mianowicie
 \[
  \M \times \R^1 \stackrel[\pi]{s}{\leftrightarrows} \M
@@ -886,10 +930,11 @@ atlasem $\M \times \R^1$. Ponownie można zauważyć, że każda forma na $\M \t
 \R$ jest kombinacją liniową dwóch przedstawionych powyżej typów form.  Możemy
 więc zdefiniować operator homotopii $K$ w taki sam sposób jak wcześniej.  Wtedy
 można będzie przepisać wcześniejszy dowód zamieniając $\R^n$ na $\M$ i będzie
-on nadal poprawny. Stąd dostajemy mocniejszy fakt, że $ H^\ast( \M \times
-\R^1) \cong H^\ast( \M) $, gdzie izomorfizmy przeciwne to $\pi^\ast \circ
-s^\ast$. Możemy też w końcu udowodnić Propozycję~\ref{homotopy-de-Rham}, a co
+on nadal poprawny.
+ Stąd dostajemy tezę, gdzie izomorfizmy przeciwne to $\pi^\ast \circ
+s^\ast$. Możemy też w końcu wywnioskować Propozycję~\ref{homotopy-de-Rham}, a co
 za tym idzie formułę~\ref{homotopy-formula}.
+\end{proof}
 
 \begin{wniosek}
 Homotopijne funkcje indukują tę samą mapę w kohomologii.
@@ -933,19 +978,26 @@ $f \circ g$ oraz $g \circ f$ są homotopijne do identyczności odpowiednio
 na $M$ oraz $N$. \\
 
 
+% #################################
+% #            CHAPTER            #
+% #################################
 \chapter{Kohomologie $f$-stożka}
 W tym rozdziale przedstawione jest najważniejsze twierdzenie pracy, porównujące
-kohomologie $f$-stożka z kohomologiami jego podstawy $M$.
-Jako, że $\cfm$ jest dyfeomorficzne z$ M\times R$, chcemy porownac $H^*(M\times \R)$
-z $H^*(C_fM)$ uzywajac $\pi^*$ i korzystając z formuly~\ref{homotopy-formula}.
-Aby móc skozystać z tego mechanizmu, musimy kontrolować normę formy, na którą
-podziałaliśmy operatorem homotopii.
+$L_p$-kohomologie $f$-stożka z $L_p$-kohomologiami jego podstawy $M$.  Jako, że
+stożek $\cfm$ jest dyfeomorficzny z $ M\times R$, chcemy porównać $H^*(M\times
+\R)$ z $H^*(C_fM)$ uzywajac $\pi^*$ i korzystając z
+formuly~\ref{homotopy-formula}.  Aby móc skorzystać z tego mechanizmu, musimy
+kontrolować normę formy na którą podziałaliśmy operatorem homotopii tak, aby
+formy występujące w formule homotopii wciąż należały do przestrzeni form
+$p$-całkowalnych. W przeciwnym wypadku nie moglibyśmy bowiem powoływać się
+na formułę homotopii. \\
+
 W rozdziale tym zakładać będę, że formy na których pracuję są gładkie. Nie jest
-to konieczne, jednak wymagałoby to korzystania z bardziej skomplikowanej deficji
-różniczkowania - różniczki w sensie prądów. Z tego sposobu korzysta między innymi
-praca~\cite{weber}.
-Obliczenie jest wykonane sposobem prezentowanym między innymi w
-pracach \cite{cheeger}, \cite{youssin}, \cite{kirwan}, \cite{weber}. \\
+to konieczne, jednak wymagałoby to korzystania z bardziej skomplikowanej
+deficji różniczkowania - różniczki w sensie prądów. Z tego sposobu korzysta
+między innymi praca~\cite{weber}.  Przedstawiane w niniejszej pracy obliczenie
+jest wykonane sposobem prezentowanym między innymi w pracach \cite{cheeger},
+\cite{youssin}, \cite{kirwan}, \cite{weber}. \\
 
 
 \begin{definition}[$f$-stożek]
@@ -956,13 +1008,13 @@ pracach \cite{cheeger}, \cite{youssin}, \cite{kirwan}, \cite{weber}. \\
     Oznaczać ją będziemy symbolem $\cfm$.
 \end{definition}
 
-\begin{theorem}
+\begin{theorem}\label{main-theorem}
   Niech $M,g$ będzie rozmaitością Riemannowską, a $\cfm$ określonym dla niej
   $f$-stożkiem dla $f = e^{-t}$. $L_p$-kohomologie tych dwóch przestrzeni są
   w następującej relacji
   \begin{equation}
     H_{(p)}^k \left( \cfm \right) = \begin{cases}
-      H^k(M) & k < \frac{n}{p} + 1 \\
+      H_{(p)}^k(M) & k < \frac{n}{p} + 1 \\
       0 & k \geq  \frac{n}{p} + 1 \\
       \end{cases}
   \end{equation}
@@ -984,24 +1036,28 @@ $p$-normą dla $k$-formy $\omega$ na rozmaitości Riemannowskiej $\M$ nazwiemy
 Formę należącą do tej przestrzeni będziemy nazywać formą $p$-całkowalną.
 \end{definition}
 
-Zajmiemy się pewną modyfikacją kohomologii de Rhama -
-$L_p$-kohomologiami.  Będziemy rozważać elementy tego samego kompleksu
-łańcuchowego co w kohomologiach de Rhama, lecz z dodanym warunkiem
-$p$-całkowalności form. Głównym obiektem naszego zainteresowania są
-przestrzenie 
-$L_p^k = {\omega \in \Omega^k(M): ||\omega|| <\infty}$, gdzie $|| \cdot ||$
-to norma (całka) z formy, która będzie przedstawiona powyżej. 
-Ograniczenie
-naszych rozważań do form, które są $p$-całkowalne pozwala nam rozszerzyć
-klasę przestrzeni, które badamy. Przy dobrym doborze funkcji wagowej, którą
-ważymy metrykę Riemannowską na części nieosobliwej, możemy
-bowiem rozważać rozmaitości z osobliwościami.\\
+Zajmiemy się pewną modyfikacją kohomologii de Rhama - $L_p$-kohomologiami.
+Będziemy rozważać elementy tego samego kompleksu łańcuchowego, co w
+kohomologiach de Rhama, lecz z dodanym warunkiem $p$-całkowalności form.
+Głównym obiektem naszego zainteresowania są przestrzenie $L_p^k = {\omega \in
+\Omega^k(M): ||\omega|| <\infty}$, gdzie $|| \cdot ||$ to norma (całka) z
+formy, która będzie przedstawiona powyżej.  Ograniczenie naszych rozważań do
+form, które są $p$-całkowalne pozwala nam rozszerzyć klasę przestrzeni, które
+badamy. Przy dobrym doborze funkcji wagowej, którą ważymy metrykę Riemannowską
+na części nieosobliwej, możemy bowiem rozważać rozmaitości z osobliwościami. \\
 
-
-
-
-
-
+\begin{remark}
+Ciąg przestrzeni $L_p$ z operatorem różniczki zewnętrznej stanowi
+kompleks łańcuchowy.
+\[
+   ... \xrightarrow{d} 
+L_p^i 
+   \xrightarrow{d} 
+L_p^{i+1}
+   \xrightarrow{d} 
+...~.
+\]
+\end{remark}
 
 
 \section{Uogólnione nierówności Hardy'ego}
@@ -1062,7 +1118,7 @@ Dowód tego twierdzenia pomijam. Jest on dostępny w pracy~\cite{hardys}.
 %% where you can find references to the original source. \\
 \end{proof}
 
-\begin{theorem}
+\begin{theorem}\label{our-hardys-one}
 Rozważmy pewną funkcję $f: \mathbb{R}_{+} \rightarrow \mathbb{R}$, gdzie $f
 \geq 0$ oraz jej funkcję pierwotną $F(x) = \int_0^{x} f(t) dt$. Dla $\alpha > 0$ 
  $\int_0^\infty F(x)^pe^{- \alpha x}dx < \infty$
@@ -1139,22 +1195,22 @@ $\int_0^\infty f(x)^p e^{-\alpha x}dx < \infty$.
 \right]^{\frac{1}{p}}
 \left[
 \int_x^\infty
-    e^{t \frac{-1}{p-1}} dt
+    e^{t \frac{1}{1-p}} dt
 \right]^{\frac{p-1}{p}}
 =
 \sup_{x > 0}
-\left[
+\left(
   e^x - 1
-\right]^{\frac{1}{p}}
+\right)^{\frac{1}{p}}
 (p-1)^{\frac{p-1}{p}}
 \left(
-    e^{t \frac{-x}{p}} dt
+    e^{ - \frac{x}{p}} dt
 \right)
 = 
 \sup_{x > 0} C
-\left[
+\left(
   1 - e^{-x}
-\right] < +\infty
+\right)^{'frac{1}{p}} < +\infty
  \]
  Stosujemy nierówność~\ref{hardy-two} i po przeskalowaniu $x$ przez
  dodatni czynnik $-\alpha$ otrzymujemy tezę.
@@ -1196,7 +1252,7 @@ Ustalmy także dla klarowności nieco inną notację dotyczącą zapisywania
 form różniczkowych względem lokalnych współrzędnych, która pozwoli nam 
 lepiej zilustrować istotne dla nas elementy rozumowania. Dowolną $k$-formę $\eta$,
 która w domyśle nie zawiera czynnika $dt$, zapisywać będziemy względem
-lokalnych rzeczywstich współrzędnych
+lokalnych rzeczywistych współrzędnych
 $(x_1, x_2, ... , x_n)$ na $\M$ jako:
 \[
     \eta(t, x) = \sum_{\alpha \in I(k)} \eta_\alpha (t, x) dx^\alpha,
@@ -1220,14 +1276,14 @@ projekcji oraz inkluzji. Żeby dobrze zilustrować w sposób w jaki działają o
 na formy różniczkowe na poszczególnych rozmaitościach, przypomnijmy ich typy.
 Inkluzja to funkcja:
 \[
-    i_r: \M \rightarrow \cfm \\
+    s_r: \M \rightarrow \cfm \\
 \]
 \[
-    i_r(x) = (x, r).
+    s_r(x) = (x, r).
 \]
 
 Możemy za jej pomocą przeciągać formy z $\cfm$ do $\M$. Przeciągnięcie takie
-oznaczymy jako $\omega_r = i_r^\ast(\omega) = i_r^\ast (\eta) $ dla formy $\omega
+oznaczymy jako $\omega_r = s_r^\ast(\omega) = s_r^\ast (\eta) $ dla formy $\omega
 = \eta + \xi \wedge dt$. \\
 Projekcja (rzutowanie) zadane jest jako:
 \[
@@ -1242,33 +1298,43 @@ Rozważamy formę $\omega \in L^k_p (\cfm)$, gdzie
 $\omega = \eta + \xi \wedge dt$.
 Zauważmy, że metryka Riemannowska na $\cfm$ jest określona w taki sposób, że
 stosowne normy spełniają następujące zależności:
-$$
-| \eta(t,x) |^2 = (\mathrm{e}^{-t})^{-2k} | \eta(t,x) |^2_{\M} +
+\begin{equation}\label{cfm-norms-scaling}
+| \omega(t,x) |^2 = (\mathrm{e}^{-t})^{-2k} | \eta(t,x) |^2_{\M} +
 (\mathrm{e}^{-t})^{-2(k-1)} | \xi(t,x) |^2_{\M},
-$$
+\end{equation}
 gdzie $|\cdot |_{\M} $ jest normą form różniczkowych indukowaną przez
 metrykę Riemannowską na rozmaitości $\M$.  Czynnik $(\mathrm{e}^{-t})^{-2k}$
 pojawia się ponieważ forma $\eta$ należy do $k$-tej potęgi zewnętrznej
-przestrzeni kostycznej do rozmaitości $\cfm$ w punkcie $(t,x)$.  \\
+przestrzeni kostycznej do rozmaitości $\cfm$ w punkcie $(t,x)$. 
+Wniosek ten jest zastosowaniem uwag
+o postaci metryki Riemannowskiej na produkcie
+rozmaitości, przedstawioną w równaniu~\ref{metric-form}, lokalnej
+postaci formy objętości~\ref{expression-for-volume-form} i uwag
+o skalowaniu norm z Rozdziału~\ref{norm-scaling} \\
 
+\emph{Komentarz: !!!! gdzie jest jeszcze raz definicja operatora homotopii!!}
 
-Zbadamy teraz w jaki sposób zachowują się normy form przeciągniętych 
-projekcją $\pi$ na $\cfm$.
-Niech $\omega$ będzie $k$-formą na $\M$, którą można zapisać w lokalnych
-współrzędnych $(x^1, ..., x^n)$ jako
-\[
-\omega(x) = \sum_{\alpha \in I(k)} \omega_\alpha (t, x) dx^\alpha.
-\]
-Po przeciągnięciu forma $\pi^\ast \omega$ na $\cfm$ jest dana w lokalnych 
-współrzędnych $(t, x^1, ..., x^n)$ dokładnie tym samym wzorem
-\[
-\pi^\ast \omega(t,x) = \sum_{\alpha \in I(k)} \omega_\alpha (t, x) dx^\alpha.
-\]
+%% Niech $\omega$ będzie $k$-formą na $\M$, którą można zapisać w lokalnych
+%% współrzędnych $(x^1, ..., x^n)$ jako
+%% \[
+%% \omega(x) = \sum_{\alpha \in I(k)} \omega_\alpha (t, x) dx^\alpha.
+%% \]
+%% Po przeciągnięciu forma $\pi^\ast \omega$ na $\cfm$ jest dana w lokalnych 
+%% współrzędnych $(t, x^1, ..., x^n)$ dokładnie tym samym wzorem
+%% \[
+%% \pi^\ast \omega(t,x) = \sum_{\alpha \in I(k)} \omega_\alpha (t, x) dx^\alpha.
+%% \]
 
-Zauważmy, że Riemannowska forma objętości na $\cfm$ w punkcie $(t,x)$ różni się
-od formy objętości na $\M$ w punkcie $x$ o czynnik $(e^{-t})^n$.
-Policzmy więc
-normę $\pi^\ast \omega$ jako elementu przestrzeni $L_k^p (\cfm)$.
+Zbadamy teraz w jaki sposób zachowują się normy form przeciągniętych projekcją
+$\pi$ na $\cfm$.  Zauważmy, że Riemannowska forma objętości na $\cfm$ w punkcie
+$(t,x)$ różni się od formy objętości na $\M$ w punkcie $x$ o czynnik
+$(e^{-t})^n$.  Z uwag o skalowaniu norm przytoczonych w
+Rozdziale~\label{norm-scaling} wynika też, że norma elementu należącego do
+$k$-tej potęgi zewnętrznej pewnej przestrzeni liniowej $V$ skaluje się od
+czynnik $\frac{1}{r^k}$ gdy skalujemy normę bazowej przestrzeni $V$ o czynnik
+$r$.  Norma formy przy naszym skalowaniu skaluje się więc o $\frac{1}{e^{-tk}}
+= e^{tk}$ Policzmy więc normę $\pi^\ast \omega$ jako elementu przestrzeni
+$L_k^p (\cfm)$.
 
 \[
     ||\pi^\ast \omega ||^p = \int_{\cfm} |\omega |^p d \mathrm{vol}_{\cfm} =
@@ -1285,129 +1351,81 @@ gdzie
 \[
 || \omega ||_r \deff || \omega_{|M \times \{r\} } || =
 \mathrm{e}^{-r \cdot (\frac{n}{p} - k) }  ||\omega ||_{\M}.
-\]
+\] 
 %%% Przypomnijmy, że $\omega_r = i_r^\ast (\eta)$. W tym przypadku \\
+%% Podobne oznaczenia i wnoski możemy 
+%% została przeciągnięta z podstawy, czyli rozmaitości $\M$. Dla 
+%% $\eta \in L_p^\ast (\M)$ możemy napisać
+%% \[
+%%     || \eta ||_r \deff || \pi^\ast ||_r = 
+%% \mathrm{e}^{-r \cdot (\frac{n}{p} - k) }  ||\eta ||_{\M}.
+%% \] \\
 
-Zauważmy teraz w jaki sposób zachowywać się będzie norma formy, która
-została przeciągnięta z podstawy, czyli rozmaitości $\M$. Dla 
-$\eta \in L_p^\ast (\M)$ możemy napisać
-\[
-    || \eta ||_r \deff || \pi^\ast ||_r = 
-\mathrm{e}^{-r \cdot (\frac{n}{p} - k) }  ||\eta ||_{\M}.
-\] \\
 
-\begin{wniosek}
+\begin{wniosek}\label{pi-integrable}
   Całkowalność formy $\pi^\ast$ jest określona następującym warunkiem:
   \[
   ||\pi^\ast \omega ||  < \infty  \iff  k < \frac{n}{p}.
   \]
 \end{wniosek}
 
-Zgodnie z 
-TUTEJ odnośnik do 
-rozdziału wcześniej ... zachodzi formuła (i istnieje stosowny operator 
-$I_r$):
 
+Zgodnie z rozumowaniem niemal indentycznym do tego  z
+rozdziału~\ref{chapter-ordinary-cohomology} zachodzi formuła analogiczna
+do~\ref{homotopy-formula-pi} (i istnieje stosowny operator $I_r$):
 \[
-    \omega - \pi^\ast(\omega_r) = dI_r \omega + I_r d\omega
+    \omega - \pi^\ast(\omega_r) = dI_r \omega + I_r d\omega.
 \]
+Jedyne zmiany w dowodzie tej formuły to zmiany granic całkowania w dowodzie
+formuły homotopii. \\
 
+Zbadamy kiedy dla $p$-całkowalnej formy $\omega = \eta + \xi \wedge dt$ forma
+$I_r \omega$ także jest całkowalna. Składowa $\xi$ jest $p$-całkowalna.
 
-Zbadamy kiedy dla $p$-całkowalnej formy $\omega$ forma $I_r \omega$
-także jest całkowalna. Fakt, że forma jest  $p$-całkowalna oznacza innymi słowy, że
-\[
-    || \omega ||^p = \int_{\cfm} |\omega|^p d \text{vol}_{\cfm} =
-    \int_0^\infty \int_{\M} \left(
-        (e^{-t})^{-pk} | \eta^{(t)}|^p_{\M} + 
-        (e^{-t})^{-p(k-1)} | \xi^{(t)}|^p_{\M} 
-    \right)
-    (e^{-t})^{n} dt < \infty.
-\]
-Przypomnijmy, że czynnik $ (e^{-t})^{n} $ pochodzi od skalowania formy objętości, a
-czynniki $p \cdot k$ pochodzą od tego, że forma jest w $k$-tej potędze zewnętrznej,
-a norma podniesiona jest do $p$-tej potęgi. \\
-
-
-$I_r \omega$ jest $(k-1)$ formą. Napiszemy analogicznie:
+$I_r \omega$ jest $(k-1)$ formą, tak samo jak całkowana forma $\xi$.  Zbadajmy jego normę:
 \[
     ||I_r \omega ||^p = 
     \int_{\cfm} |I_r \omega|^p  d\text{vol}_{\cfm} =
     \int_0^\infty \int_{\M} 
         (e^{-t})^{n-p(k-1)}
-      \left| \int_r^t |\xi^{(\tau)} |^p_{\M} d\tau \right| dt.
+      \left| \int_r^t |\xi_{\tau} |^p_{\M} d\tau \right| dt.
 \] \\
 
-Wykorzystamy teraz lemat, który udowodniony został w dodatku, przyjmując
-funkcję $f = |\xi^{(\tau)} |^p$, a za jej funkcję pierwotną 
-$F = \int_r^t |\xi^{(\tau)}|^p d \tau $. \\
-\emph{Komentarz: zacytować właściwy lemat}
-
-Lemat możemy wykorzystać, tylko wtedy gdy 
-wspołczynnik przy $e^{-t}$, nazwijmy go $\alpha$, jest większy od zera. Ten współczynnik to:
-$\alpha = -p(k-1) + n$. Zbadajmy warunek:
+Aby oszacować tę wartość, wykorzystamy Twierdzenie~\ref{our-hardys-one},
+przyjmując za funkcję z twierdzenie funkcję $f = |\xi_{t} |^p$, a za jej
+funkcję pierwotną $F = \int_r^t |\xi_{\tau}|^p d \tau $.  Twierdzenie to możemy
+wykorzystać, tylko wtedy, gdy wspołczynnik przy $e^{-t}$, nazwijmy go $\alpha$,
+jest większy od zera. Ten współczynnik to: $\alpha = -p(k-1) + n$. Zbadajmy
+warunek:
 \[
-    -p(k-1) + n > 0
+    -p(k-1) + n > 0 \iff k < \frac{n}{p} + 1.
 \]
-\[
-    -k + 1 + \frac{n}{p} > 0
-\]
-\[
-    k < \frac{n}{p} + 1.
-\]
-Warunek pozwalający na wykorzystanie lematu jest więc spełniony dla $k \leq
-\frac{n}{p}$. \\
-
-Gdy warunek ten jest spełniony, stosujemy Lemat\ref{hardy},
-wykorzystujący nierówność Hardy'ego i uzyskujemy rezultat, że $I_r \omega$ jest formą $p$-całkowalną. \\
-Innymi słowy udowodniliśmy, że zachodzi
+Warunek pozwalający na wykorzystanie lematu jest więc spełniony dla $k <
+\frac{n}{p} + 1$.  Gdy warunek ten jest spełniony, stosujemy wspomniane powyżej
+twierdzenie wykorzystujące nierówność Hardy'ego i uzyskujemy rezultat, że $I_r
+\omega$ jest formą $p$-całkowalną. Innymi słowy udowodniliśmy, że zachodzi
 \begin{wniosek}
-$I_r$ jest operatorem ciągłym w normie $L_p$ dla gradacji $k \leq \frac{n}{p}$
+$I_r$ jest operatorem ciągłym w normie $L_p$ dla gradacji $k < \frac{n}{p} + 1 + 1$
 \end{wniosek}
 
-Pokazaliśmy więc, że jeśli $\omega$ jest $k$-formą $p$-całkowalną, to  $I_r \omega$ jest
-$p$-całkowalna i zachodzi wzór
+Pokazaliśmy więc, że jeśli $\omega$ jest $k$-formą $p$-całkowalną, to  $I_r
+\omega$ jest $p$-całkowalna i dla $k < \frac{n}{p} + 1$  zachodzi wzór
 \[
     \omega = dI_r \omega + I_r d \omega + \pi^\ast 
     \left(
-        \eta^{(s)}.
+        \eta_{r}
     \right).
 \]
-Stąd jeśli $d \omega = 0$, to 
-\[\label{form-in-image}
-    \eta \in d(L^{i-1} \cfm) + \pi^\ast (L^i*\M),
-\]
-więc 
-\[
-    \pi^\ast: H \left( \M \right) \rightarrow H ( \cfm ),
-\]
-jest operatorem suriektywnym. Dzieje się tak ponieważ każda forma zamknięta
-należy zgodnie z~\ref{form-in-image} z dokładnością do formy dokładnej do
-obrazu $\pi^\ast$. A więc dowolna klasa abstrakcji form zamkniętych $\omega$
-znajduje się w obrazie tego operatora, co jest definicją suriektywności. \\
+Zwróćmy uwagę, że w tyn wzorze $\eta_r$ jest $k-1$-formą, więc
+Wniosek~\ref{pi-integrable} stosujemy dla $k-1$, a nie $k$. Analogicznie do
+Wniosku~\ref{pi-is-isomorphism} stwierdzamy więc, że skoro zachodzi 
+formuła homotopii, to  $\pi^\ast$ zadaje izomorfizm między kohomologiami $\M$
+a kohomologiami $\cfm$.
+Udowodniliśmy więc pierwszą część Twierdzenia~\ref{main-theorem}. \\
 
-Udowodnimy teraz iniektywność.
-Jako, że zachodzi $d^2 = 0$ dla równiania~\ref{form-in-image}
-możemy napisać
-\begin{align*}
-d \omega &= d(I_rd\omega) + d\pi^\ast( \eta^{(s)}) \\
-         &= d(I_rd\omega) + \pi^\ast( \eta^{(s)}). \\
-\end{align*}
-
-Z definicji operatora $I_r$ wynika natychmiast, że jeśli
- $d \omega \in \pi^\ast(L_i(\M))$, to $Hd\omega = 0$.
-Stąd $d \omega = d \pi^\ast(\eta^{(s)})$, a skoro $d$ komutuje z $\pi^\ast$,
-to widzimy, że każda forma dokładna jest obrazem formy dokładnej. 
-Każdy operator liniowy $\phi: V \rightarrow W$ jest różnowartościowy, gdy
-$\ker \phi = 0_V$. Ma to miejsce dla operatora $\pi^\ast$, ponieważ
-na formy dokładne przechodzą jedynie formy dokładne, co wynika wprost z pokazanych
-powyżej własności. \\
-
-\emph{Komentarz: Nie jestem pewien czy to dokładnie stąd wynika iniektywność} \\
-
-Chcemy teraz pokazać, że dla $k > \frac{n}{p}$ mamy $H^\ast_p(\cfm) = 0$ dla
-$k \geq \frac{n}{p}$. Niech $\phi$ będzie $p$-całkowalną $k$-formą na
-$\cfm$. Dla określonego $a > 0$ możemy napisać, korzystając z nierówności
-Cauchy'ego-Schwarza
+Chcemy teraz pokazać, że dla $k > \frac{n}{p} + 1$ mamy $H^\ast_p(\cfm) = 0$
+Niech $\phi$ będzie $p$-całkowalną $k$-formą na $\cfm$. Dla określonego $a > 0$
+możemy napisać, korzystając z nierówności Cauchy'ego-Schwarza
 \begin{align*}
 \left(
     \int_0^a \int_\M |\phi^{(t)}|_M^p dt
@@ -1439,16 +1457,13 @@ istnieje dla $t \in (0, \infty)$. \\
 
 
 
-Zbadajmy teraz przypadek dla $k \geq \frac{n}{p} + 1$.
+Na potrzeby tego przypadku należy określić inny operator homotopii.  Dzieje się
+tak ponieważ niektóre formy po zadziałaniu na nie dotychczas rozważanym
+operatorem nie będą $p$-całkowalne. Na podstawie lematu~\ref{hardy-two} możemy
+jednak zdefiniować operator całkowania od $t$ do $\infty$. \\
 
-Na potrzeby tego przypadku należy określić inny operator homotopii.
-Dzieje się tak ponieważ niektóre formy po zadziałaniu na nie starym operatorem
-nie będą $p$-całkowalne. Na podstawie lematu~\ref{hardy-two} możemy
-jednak zdefiniować operator całkowania od $t$ do $\infty$.
-
-
-Bierzemy więc tak jak $p$-całkowalną $k$-formę $\omega = \eta + dt \wedge \xi$
-i gdy $k-1 \geq \frac{n}{p}$, definiujemy operator homotopii jako
+Bierzemy więc tak jak wcześniej $p$-całkowalną $k$-formę $\omega = \eta + dt \wedge \xi$,
+ gdzie $k > \frac{n}{p} + 1$,  lecz definiujemy operator homotopii jako
 \[
 I_\infty \omega = \int_t^\infty \xi.
 \]
@@ -1459,9 +1474,7 @@ I_r \omega = \int_t^r \xi.
 \]
 
 Pomocnicze operatory wykorzystamy do modyfikacji lematu o
-formule homotopii.
-\emph{Komentarz: Dać odnośnik}.
-
+formule homotopii, patrz Wniosek~\ref{homotopy-formula-pi}.
 W szczególności, w lemacie tym badaliśmy wyrażenia typu
 $\int_0^t \frac{\partial f }{\partial t} = f(x, t) - f(x, 0)$.
 W przypadku nowego operatora $I_\infty$, wyrażenia te przyjmują postać
@@ -1469,135 +1482,119 @@ $\int_t^\infty \frac{\partial f }{\partial t}$ i niekoniecznie muszą
 zezwalać na zcałkowanie różniczki, czyli na zastosowanie wariantu podstawowego
 twierdzenia rachunku całkowego. Konkretniej, granica funkcji $\lim_{x \to \infty} f(x)$
 niekoniecznie musi być skończona. Jednak dla dowolnego $r$ pomocniczy
-operator $I_r$ spełnia równanie homotopii.
-\emph{Komentarz: Dać odnośnik}.
+operator $I_r$ spełnia równanie homotopii, co widać wprost w rozumowaniu
+porzedzającym
+Wniosek~\ref{homotopy-formula-pi}.
 Jedyny sposób w jaki zmienia się dowód tej formuły dla $I_r$, to wspomiane granice
 całkowania w dowodzie: z $\int_0^t$ na $\int_t^r$.
 Zbiegając $r \to \infty$,  w granicy otrzymujemy formułę homotopii postaci:
 \[\label{homotopy-inf}
 \omega = dI_\infty \omega + I_\infty d \omega.
 \]
-Warto jednak zwrócić uwagę, że zakładamy tu gładkość formy $I_\infty \omega$, aby
-móc przybliżać  $I_\infty\omega$ 
-formami $I_r\omega$ dla $r \rightarrow \infty$. \\
-
-\emph{Komentarz: Zwróć uwagę, że $s_t^\ast \omega  = \omega_t$ to po prostu dwie różne notacje.}
+Warto jednak zwrócić uwagę, że zakładamy tu gładkość formy $I_\infty \omega$,
+aby móc przybliżać  $I_\infty\omega$ formami $I_r\omega$ dla $r \rightarrow
+\infty$.  Należy także podkreślić dlaczego cześć $\pi^\ast s^\ast$ znika z
+formuły.  Zachodzi bowiem
 \[
-|| \omega_s || \to 0, 
+ \omega_s  \to 0, 
 \]
-ponieważ dla każdego $r$ formuła homotopii jest prawdziwa, a jednocześnie prawdziwy jest wzór
+ponieważ dla każdego $r$ formuła homotopii jest prawdziwa, a jednocześnie
+prawdziwy jest wzór
 \[
-|| \omega ||^p = \int_0^\infty e^{\alpha t} || \omega_t ||^p dt,
-\] dla $\alpha > 0$
-i jako, że $e^{\alpha t} \to \infty$, $|| \omega_t ||^p$ musi dążyć do 0. Formą o normie zero jest
-jedynie forma zerowa, więc operator $s_r^\ast$ to asymtpotycznie operator zerowy. \\
+|| \omega ||^p = \int_0^\infty e^{\alpha t} || \omega_t ||^p_M dt
+\]
+ dla $\alpha \geq 0$. Jako, że $e^{\alpha t} \to \infty$ to $|| \omega_t ||^p$
+musi dążyć do 0.  Formą o normie zero jest jedynie forma zerowa, więc zachodzi
+następujący wniosek.
+\begin{wniosek}\label{asymtpotic-s-null-operator}
+Operator $s_r^\ast$ dla $r \to \infty$ to asymtpotycznie operator zerowy dla
+$k \geq \frac{n}{p} + 1$.
+\end{wniosek}
+
+Formuła~\ref{homotopy-inf} oznacza w szczególności, że gdy $d \omega = 0$ to
+$\omega = d I_\infty \omega$. Innymi słowy każda forma zamknięta jest formą
+dokładną, a więc wszystkie formy danej grupie kohomologii należą do jednej
+klasy abstrakcji i $H^i(\cfm) = 0$, gdy $k > \frac{n}{p} + 1$. \\
+
+Jeżeli forma $I_\infty\omega$ nie jest gładka, to sytuacja jest bardziej
+skomplikowana.  Można pokazać, że formuła homotopii zachodzi korzystając z
+różniczek w sensie ``prądów,'' ang. \emph{currents} tak, jak przedstawiono w
+pracach ~\cite{weber}, ~\cite{cheeger}, jest to jednak dużo trudniejsze. \\
+
+Pozostał nam do zbadania ostatni przypadek
+$k = \frac{n}{p} + 1$.
+Z Wniosku~\ref{asymtpotic-s-null-operator} wiemy, że operator $s^\ast$ jest
+asymptotycznie operatorem zerowym. 
+
+Musimy więc oszacować operator homotopii
+
+\section{Pytania do rozwiązania}
+\begin{enumerate}
+\item Co napisać we wstępie? Jest jakaś książka o motywacji $L_p$-kohomologii?
+Poszukać w Youssinie i Cheegerze
+\item  Co z przypadkiem granicznym $k = \frac{n}{p} + 1$
+\item Cytowanie do tego jaka jest norma na algebrze zewnętrznej. W Kostrikinie
+tylko jako zadanie
+\end{enumerate}
 
 
-
-Formuła~\ref{homotopy-inf} oznacza w szczególności, że gdy $d \omega = 0$ to $\omega = d I_\infty
-\omega$. Innymi słowy każda forma zamknięta jest formą dokładną,
-a więc wszystkie formy danej grupie kohomologii należą do jednej klasy
-abstrakcji i $H^i(\cfm) = 0$, gdy $k \geq \frac{n}{p}$. \\
-
-Jeżeli forma
-$I_\infty\omega$ nie jest gładka, to sytuacja jest bardziej skomplikowana.
-Można pokazać, że formuła homotopii zachodzi korzystając z różniczek w
-sensie ``prądów,'' ang. \emph{currents} tak, jak przedstawiono w
-pracach ~\cite{weber}, ~\cite{cheeger}, jest to jednak dużo
-trudniejsze. \\
-
-
-
-
-%%% Zbadać co się dzieje w tym przeciwnym przypadku
-%% 
-%% \section{Co pan Weber kazał mi zrobić}
-%% 
-%% \subsection{Pierwszy mail}
-%% Ten fragment, który Pan kontempluje: Chodzi o to, że zamiast form gładkich
-%% trzeba rozważać formy o mierzalnych współczynnikach z różniczką w sensie
-%% "prądów" (currents), czyli funkcjonałów na formach. Być może to troche zbyt
-%% obszerny temat na licencjat. Moim zdaniem wystarczy by Pan oszacował operator I
-%% (odcałkowanie form) w normie $L^p$ i powiedział że, tak jak np w mojej pracy
-%% pozwoli to dowieść znikanie kohomologii w jakichś gradacjach.
-%% 
-%% Czyli twierdzenie główne pracy by było: Operator
+%%  Fakt, że forma jest  $p$-całkowalna oznacza, że
 %% \[
-%%  I_0:A^k \to A^{k+1}
+%%     || \omega ||^p = \int_{\cfm} |\omega|^p d \text{vol}_{\cfm} \leq
+%%     \int_0^\infty \int_{\M} \left(
+%%         (e^{-t})^{-pk} | \eta_{t}|^p_{\M} + 
+%%         (e^{-t})^{-p(k-1)} | \xi_{t}|^p_{\M} 
+%%     \right)
+%%     (e^{-t})^{n} dt < \infty.
 %% \]
-%% jest ciągły w normie $L^p$ dla k.... \\
-%% 
-%% Operator
+%% Przypomnijmy, że czynnik $ (e^{-t})^{n} $ pochodzi od skalowania formy
+%% objętości, a czynniki $p \cdot k$ pochodzą od tego, że forma jest w $k$-tej
+%% potędze zewnętrznej, a norma podniesiona jest do $p$-tej potęgi.  Nierówność
+%% jest uzasadniona z uwagi na równianie~\ref{cfm-norms-scaling} oraz nierówność
+%% Jensena dla funkcji $x \mapsto x^\frac{p}{2}$.  \\
+%%  Fakt, że forma jest  $p$-całkowalna oznacza, że
 %% \[
-%% I_\infty:A^k \to A^{k+1}
-%% \] jest ciągły w normie $L^p$ dla k.... ,
-%% gdzie $A^k$ oznacza $k$-formy o mierzalnych współczynnikach. \\
-%% 
-%%  Jesli chodzi o ostatni rozdzial, to moze Pan heurystycznie powiediec co by
-%% bylo gdyby kazda odcalkowana forma $I_\infty \omega$ byla gladka.
-%% 
-%% \subsection{Drugi mail}
-%% 
-%% Dalsze uwagi Pana Webera
-%% 
-%% Najwazniejsza jest czesc, gdzie jest szacowane $||I_r\omega||$ i
-%% $||I_\infty\omega||$ i na to jeszcze czekamy. Po szcowaniu normy $||I_r\omega||$
-%% trzeba podac sformulowanie jak wygladja kohomologie rozka i udowodnic co sie
-%% da. Jesli $||I_r\omega||$ jest skonczone, to wszystko powinno dzialac. Jesli
-%% $||I_\infty\omega||$ jest skonczone to przy dodatkowym zalozeniu, ze
-%% $I_\infty\omega$ jest gldka moze Pan tez cos zrobic: $I_\infty\omega$ przybliza sie
-%% formami $I_r\omega$ dla $r->\infty$ i w granicy dostajemy formule homotopii
-%% pokazujaca, ze jesli $d\omega=0$, to $\omega=d(I_\infty\omega)$.
-%% 
-%% \subsection{Trzeci mail}
-%% 
-%% Ja: Chcę zapytać o jedną rzecz. Czy dobrze rozumiem, że jak chcemy zbiegać z r w
-%% wyrażeniu $I_r$ do zera, \\
-%% 
-%% P. W.:
-%% Zbieganie z r do 0 nie ma sensu. Przy zalozeniu ze badamy rozmaitosc z brzegiem
-%% $M \times [0,\infty)$ formy dla $r=0$ sa zdefiniowane i mozna po prostu brac
-%%     $I_0\omega(x,t)=\int_0^t .....$ \\
-%% 
-%% Ja: to chcemy definiować $I_r (x,t) = \int_r^t$, a jak
-%% chcemy zbiegać z $r$ w $I_r$ to nieskończoności, to całka ma być $I_r(x,t) \int_t^r $? \\
-%% 
-%% mamy $ \int_t^r -> \int_t^\infty$
-%% (lub  $\int_r^t -> \int_\infty^t$, to jest to samo z dokladnoscia do znaku) \\
-%% 
-%% 
-%% \subsection{Trzeci mail}
-
-
-
+%%     || \omega ||^p = \int_{\cfm} |\omega|^p d \text{vol}_{\cfm} \leq
+%%     \int_0^\infty \int_{\M} \left(
+%%         (e^{-t})^{-pk} | \eta_{t}|^p_{\M} + 
+%%         (e^{-t})^{-p(k-1)} | \xi_{t}|^p_{\M} 
+%%     \right)
+%%     (e^{-t})^{n} dt < \infty.
+%% \]
+%% Przypomnijmy, że czynnik $ (e^{-t})^{n} $ pochodzi od skalowania formy
+%% objętości, a czynniki $p \cdot k$ pochodzą od tego, że forma jest w $k$-tej
+%% potędze zewnętrznej, a norma podniesiona jest do $p$-tej potęgi.  Nierówność
+%% jest uzasadniona z uwagi na równianie~\ref{cfm-norms-scaling} oraz nierówność
+%% Jensena dla funkcji $x \mapsto x^\frac{p}{2}$.  \\
 
 \begin{thebibliography}{99}
 \addcontentsline{toc}{chapter}{Bibliography}
 
-\bibitem[Weber]{weber} Andrzej Weber, \textit{An isomorphism from
-  intersection homology to $\mathrm{L}_p$-cohomology}, Forum
-  Mathematicum, de Gruyer, 1995.
-  
-\bibitem[Cheeger]{cheeger} Jeff Cheeger, \textit{On the Hodge theory
-  of Riemannian pseudomanifolds}, Proc. of Symp. in Pure Math. vol.36,
-
-\bibitem[Kirwan, Woolf]{kirwan} Frances Kirwan, Jonathan Woolf, \textit{An Introduction
-to Intersection Homology Theory}, Taylor \& Francis, LLC.
-
-\bibitem[Bott,Tu]{bott} Raou Bott, \textit{Differetial forms in algebraic
+\bibitem[Bott,Tu]{bott} Bott R., Tu, L.W.: \textit{Differetial forms in algebraic
   topology}, Springer Verlag, 1982.
 
-\bibitem[Kostrikin]{kostrikin} Aleksiej I. Kostrikin, \textit{Wstęp do algebry.
+  
+\bibitem[Cheeger]{cheeger} Cheeger, J.: \textit{On the Hodge theory
+  of Riemannian pseudomanifolds}, Proc. of Symp. in Pure Math. vol.36,
+
+\bibitem[Kirwan, Woolf]{kirwan}  Kirwan, F., Woolf, J.: \textit{An Introduction
+to Intersection Homology Theory}, Taylor \& Francis, LLC.
+
+\bibitem[Kostrikin]{kostrikin} Kostrikin, A.I.: \textit{Wstęp do algebry.
 Tom II: Algebra liniowa}, Wydawnictwo naukowe PWN, Warszawa 2012.
 
-\bibitem[Youssin]{youssin} Boris Youssin, \textit{$\mathrm{L}_p$
+\bibitem[Lee]{lee} Lee, J.M., \textit{Introduction to Smooth Manifolds}
+
+\bibitem[Muckenhoupt]{hardys} Muckenhoupt, B., \textit{Hardy's inequality
+with weights}, Studia Mathematica, T. XLIV, 1972
+
+\bibitem[Weber]{weber}  Weber, A.: \textit{An isomorphism from
+  intersection homology to $\mathrm{L}_p$-cohomology}, Forum
+  Mathematicum, de Gruyer, 1995.
+
+\bibitem[Youssin]{youssin} Youssin, B., \textit{$\mathrm{L}_p$
   cohomology of cones and horns } J. Differential Geometry, Volume 39,
   Number 3, 1994.
-  
-\bibitem[Lee]{lee} Lee, \textit{Introduction to Smooth Manifolds}
-
-\bibitem[Muckenhoupt]{hardys} Benjamin Muckenhoupt, \textit{Hardy's inequality
-with weights}, Studia Mathematica, T. XLIV, 1972
 
 \end{thebibliography}
 
